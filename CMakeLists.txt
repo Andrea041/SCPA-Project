@@ -1,18 +1,18 @@
-cmake_minimum_required(VERSION 3.30)
-project(SCPA_Project C)
+cmake_minimum_required(VERSION 3.16)
+project(SCPA_Project LANGUAGES C)
 
-set(CMAKE_C_STANDARD 11)
+# Trova la libreria OpenMP
+find_package(OpenMP REQUIRED)
 
-# Trova MPI
-find_package(MPI REQUIRED)
-
-# Aggiungi i flag di compilazione di MPI
-include_directories(${MPI_INCLUDE_PATH})
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${MPI_C_COMPILE_FLAGS}")
+# Specifica lo standard C
+set(CMAKE_C_STANDARD 99)
 
 # Aggiungi l'eseguibile
 add_executable(SCPA_Project
-        prova.c)
+        prova.c
+)
 
-# Collega MPI all'eseguibile
-target_link_libraries(SCPA_Project ${MPI_LIBRARIES})
+# Collega OpenMP all'eseguibile
+if(OpenMP_C_FOUND)
+    target_link_libraries(SCPA_Project PUBLIC OpenMP::OpenMP_C)
+endif()
