@@ -8,15 +8,22 @@ set(CMAKE_C_STANDARD 99)
 find_package(OpenMP REQUIRED)
 
 # Aggiungi l'eseguibile
-add_executable(SCPA_Project src/prova.c
+add_executable(SCPA_Project
+        # File sorgenti
         src/main_app.c
-        libs/matrixLists.h
-        libs/csrTool.h
+        src/functionsIO.c
         src/csrTool.c
         src/csrSerialized.c
-        libs/csrSerialized.h
         src/hllTool.c
-        libs/hllTool.h)
+
+        # File di intestazione
+        libs/matrixLists.h
+        libs/csrTool.h
+        libs/csrSerialized.h
+        libs/hllTool.h
+        libs/data_structure.h
+)
+
 
 if(OpenMP_C_FOUND)
     target_link_libraries(SCPA_Project PUBLIC OpenMP::OpenMP_C)

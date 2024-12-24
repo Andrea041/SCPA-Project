@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Users/andreaandreoli/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake
+CMAKE_COMMAND = /snap/clion/310/bin/cmake/linux/x64/bin/cmake
 
 # The command to remove a file.
-RM = /Users/andreaandreoli/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E rm -f
+RM = /snap/clion/310/bin/cmake/linux/x64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/andreaandreoli/CLionProjects/SCPA-Project
+CMAKE_SOURCE_DIR = /home/pierfrancesco/Desktop/SCPA-Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/andreaandreoli/CLionProjects/SCPA-Project/cmake-build-debug
+CMAKE_BINARY_DIR = /home/pierfrancesco/Desktop/SCPA-Project/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /Users/andreaandreoli/CLionProjects/SCPA-Project/cmake-build-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	/Users/andreaandreoli/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/310/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/Users/andreaandreoli/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/310/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andreaandreoli/CLionProjects/SCPA-Project/cmake-build-debug/CMakeFiles /Users/andreaandreoli/CLionProjects/SCPA-Project/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pierfrancesco/Desktop/SCPA-Project/cmake-build-debug/CMakeFiles /home/pierfrancesco/Desktop/SCPA-Project/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andreaandreoli/CLionProjects/SCPA-Project/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pierfrancesco/Desktop/SCPA-Project/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -177,6 +177,30 @@ src/csrTool.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/src/csrTool.c.s
 .PHONY : src/csrTool.c.s
 
+src/functionsIO.o: src/functionsIO.c.o
+.PHONY : src/functionsIO.o
+
+# target to build an object file
+src/functionsIO.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/src/functionsIO.c.o
+.PHONY : src/functionsIO.c.o
+
+src/functionsIO.i: src/functionsIO.c.i
+.PHONY : src/functionsIO.i
+
+# target to preprocess a source file
+src/functionsIO.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/src/functionsIO.c.i
+.PHONY : src/functionsIO.c.i
+
+src/functionsIO.s: src/functionsIO.c.s
+.PHONY : src/functionsIO.s
+
+# target to generate assembly for a file
+src/functionsIO.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/src/functionsIO.c.s
+.PHONY : src/functionsIO.c.s
+
 src/hllTool.o: src/hllTool.c.o
 .PHONY : src/hllTool.o
 
@@ -225,30 +249,6 @@ src/main_app.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/src/main_app.c.s
 .PHONY : src/main_app.c.s
 
-src/prova.o: src/prova.c.o
-.PHONY : src/prova.o
-
-# target to build an object file
-src/prova.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/src/prova.c.o
-.PHONY : src/prova.c.o
-
-src/prova.i: src/prova.c.i
-.PHONY : src/prova.i
-
-# target to preprocess a source file
-src/prova.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/src/prova.c.i
-.PHONY : src/prova.c.i
-
-src/prova.s: src/prova.c.s
-.PHONY : src/prova.s
-
-# target to generate assembly for a file
-src/prova.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/src/prova.c.s
-.PHONY : src/prova.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -264,15 +264,15 @@ help:
 	@echo "... src/csrTool.o"
 	@echo "... src/csrTool.i"
 	@echo "... src/csrTool.s"
+	@echo "... src/functionsIO.o"
+	@echo "... src/functionsIO.i"
+	@echo "... src/functionsIO.s"
 	@echo "... src/hllTool.o"
 	@echo "... src/hllTool.i"
 	@echo "... src/hllTool.s"
 	@echo "... src/main_app.o"
 	@echo "... src/main_app.i"
 	@echo "... src/main_app.s"
-	@echo "... src/prova.o"
-	@echo "... src/prova.i"
-	@echo "... src/prova.s"
 .PHONY : help
 
 

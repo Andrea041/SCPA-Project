@@ -2,16 +2,16 @@
 #define MATRIXLISTS_H
 
 static const char *matrix_names[] = {
-    //"cage4.mtx",
-    "mhda416.mtx",
-    /*"mcfe.mtx",
+    "cage4.mtx",
+   "mhda416.mtx",
+   "mcfe.mtx",
     "olm1000.mtx",
-    "adder_dcop_32.mtx",
+     "adder_dcop_32.mtx",
     "west2021.mtx",
     "cavity10.mtx",
-    "rdist2.mtx",*/
-    /*"cant.mtx",
-    /*"olafu.mtx",
+    "rdist2.mtx",
+    "cant.mtx",
+    "olafu.mtx",
     "Cube_Coup_dt0.mtx",
     "ML_Laplace.mtx",
     "bcsstk17.mtx",
@@ -22,16 +22,16 @@ static const char *matrix_names[] = {
     "af23560.mtx",
     "lung2.mtx",
     "PR02R.mtx",
-    "FEM_3D_thermal1.mtx",s
+    "FEM_3D_thermal1.mtx",
     "thermal1.mtx",
     "thermal2.mtx",
     "thermomech_TK.mtx",
     "nlpkkt80.mtx",
     "webbase-1M.mtx",
     "dc1.mtx",
-    "amazon0302.mtx",
-    "af_1_k101.mtx",
-    "roadNet-PA.mtx"*/
+    //"amazon0302.mtx", da errore nella lettura
+   "af_1_k101.mtx"
+  //  "roadNet-PA.mtx", da errore nella lettura
 };
 
 #endif
