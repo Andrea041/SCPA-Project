@@ -126,6 +126,7 @@ void preprocess_matrix(struct matrixData *matrix_data, int i) {
         exit(EXIT_FAILURE);
     }
 
+    /* contiene preprocessamento matrice pattern */
     for (int j = 0; j < nz; j++) {
         int result;
         double value = 1.0; // Valore predefinito per matrici "pattern"

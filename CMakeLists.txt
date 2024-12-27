@@ -14,13 +14,13 @@ add_executable(SCPA_Project
         src/functionsIO.c
         src/csrTool.c
         src/csrOperations.c
-        src/ellpackTool.c
+        src/hll_ellpack_Tool.c
 
         # File di intestazione
         libs/matrixLists.h
         libs/csrTool.h
         libs/csrOperations.h
-        libs/ellpackTool.h
+        libs/hll_ellpack_Tool.h
         libs/data_structure.h
 )
 
