@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.o"
-  "CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.o.d"
+  "CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o"
+  "CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o.d"
   "CMakeFiles/SCPA_Project.dir/src/csrTool.c.o"
   "CMakeFiles/SCPA_Project.dir/src/csrTool.c.o.d"
   "CMakeFiles/SCPA_Project.dir/src/ellpackTool.c.o"

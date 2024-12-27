@@ -1,5 +1,5 @@
-CMakeFiles/SCPA_Project.dir/src/csrTool.c.o: \
- /Users/andreaandreoli/CLionProjects/SCPA-Project/src/csrTool.c \
+CMakeFiles/SCPA_Project.dir/src/ellpackTool.c.o: \
+ /Users/andreaandreoli/CLionProjects/SCPA-Project/src/ellpackTool.c \
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/stdlib.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/_stdlib.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/Availability.h \
@@ -84,4 +84,4 @@ CMakeFiles/SCPA_Project.dir/src/csrTool.c.o: \
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_ssize_t.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/secure/_stdio.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/secure/_common.h \
- /Users/andreaandreoli/CLionProjects/SCPA-Project/src/../libs/csrTool.h
+ /Users/andreaandreoli/CLionProjects/SCPA-Project/src/../libs/ellpackTool.h

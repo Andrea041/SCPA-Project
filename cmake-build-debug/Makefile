@@ -129,29 +129,29 @@ SCPA_Project/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/build
 .PHONY : SCPA_Project/fast
 
-src/csrSerialized.o: src/csrSerialized.c.o
-.PHONY : src/csrSerialized.o
+src/csrOperations.o: src/csrOperations.c.o
+.PHONY : src/csrOperations.o
 
 # target to build an object file
-src/csrSerialized.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.o
-.PHONY : src/csrSerialized.c.o
+src/csrOperations.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o
+.PHONY : src/csrOperations.c.o
 
-src/csrSerialized.i: src/csrSerialized.c.i
-.PHONY : src/csrSerialized.i
+src/csrOperations.i: src/csrOperations.c.i
+.PHONY : src/csrOperations.i
 
 # target to preprocess a source file
-src/csrSerialized.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.i
-.PHONY : src/csrSerialized.c.i
+src/csrOperations.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/src/csrOperations.c.i
+.PHONY : src/csrOperations.c.i
 
-src/csrSerialized.s: src/csrSerialized.c.s
-.PHONY : src/csrSerialized.s
+src/csrOperations.s: src/csrOperations.c.s
+.PHONY : src/csrOperations.s
 
 # target to generate assembly for a file
-src/csrSerialized.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.s
-.PHONY : src/csrSerialized.c.s
+src/csrOperations.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/src/csrOperations.c.s
+.PHONY : src/csrOperations.c.s
 
 src/csrTool.o: src/csrTool.c.o
 .PHONY : src/csrTool.o
@@ -258,9 +258,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SCPA_Project"
-	@echo "... src/csrSerialized.o"
-	@echo "... src/csrSerialized.i"
-	@echo "... src/csrSerialized.s"
+	@echo "... src/csrOperations.o"
+	@echo "... src/csrOperations.i"
+	@echo "... src/csrOperations.s"
 	@echo "... src/csrTool.o"
 	@echo "... src/csrTool.i"
 	@echo "... src/csrTool.s"

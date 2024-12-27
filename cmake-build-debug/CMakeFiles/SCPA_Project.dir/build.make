@@ -111,19 +111,19 @@ CMakeFiles/SCPA_Project.dir/src/csrTool.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/SCPA_Project.dir/src/csrTool.c.s"
 	/opt/homebrew/bin/gcc-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/andreaandreoli/CLionProjects/SCPA-Project/src/csrTool.c -o CMakeFiles/SCPA_Project.dir/src/csrTool.c.s
 
-CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.o: CMakeFiles/SCPA_Project.dir/flags.make
-CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.o: /Users/andreaandreoli/CLionProjects/SCPA-Project/src/csrSerialized.c
-CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.o: CMakeFiles/SCPA_Project.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/andreaandreoli/CLionProjects/SCPA-Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.o"
-	/opt/homebrew/bin/gcc-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.o -MF CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.o.d -o CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.o -c /Users/andreaandreoli/CLionProjects/SCPA-Project/src/csrSerialized.c
+CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o: CMakeFiles/SCPA_Project.dir/flags.make
+CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o: /Users/andreaandreoli/CLionProjects/SCPA-Project/src/csrOperations.c
+CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o: CMakeFiles/SCPA_Project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/andreaandreoli/CLionProjects/SCPA-Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o"
+	/opt/homebrew/bin/gcc-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o -MF CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o.d -o CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o -c /Users/andreaandreoli/CLionProjects/SCPA-Project/src/csrOperations.c
 
-CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.i"
-	/opt/homebrew/bin/gcc-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/andreaandreoli/CLionProjects/SCPA-Project/src/csrSerialized.c > CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.i
+CMakeFiles/SCPA_Project.dir/src/csrOperations.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/SCPA_Project.dir/src/csrOperations.c.i"
+	/opt/homebrew/bin/gcc-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/andreaandreoli/CLionProjects/SCPA-Project/src/csrOperations.c > CMakeFiles/SCPA_Project.dir/src/csrOperations.c.i
 
-CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.s"
-	/opt/homebrew/bin/gcc-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/andreaandreoli/CLionProjects/SCPA-Project/src/csrSerialized.c -o CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.s
+CMakeFiles/SCPA_Project.dir/src/csrOperations.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/SCPA_Project.dir/src/csrOperations.c.s"
+	/opt/homebrew/bin/gcc-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/andreaandreoli/CLionProjects/SCPA-Project/src/csrOperations.c -o CMakeFiles/SCPA_Project.dir/src/csrOperations.c.s
 
 CMakeFiles/SCPA_Project.dir/src/ellpackTool.c.o: CMakeFiles/SCPA_Project.dir/flags.make
 CMakeFiles/SCPA_Project.dir/src/ellpackTool.c.o: /Users/andreaandreoli/CLionProjects/SCPA-Project/src/ellpackTool.c
@@ -144,7 +144,7 @@ SCPA_Project_OBJECTS = \
 "CMakeFiles/SCPA_Project.dir/src/main_app.c.o" \
 "CMakeFiles/SCPA_Project.dir/src/functionsIO.c.o" \
 "CMakeFiles/SCPA_Project.dir/src/csrTool.c.o" \
-"CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.o" \
+"CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o" \
 "CMakeFiles/SCPA_Project.dir/src/ellpackTool.c.o"
 
 # External object files for target SCPA_Project
@@ -153,7 +153,7 @@ SCPA_Project_EXTERNAL_OBJECTS =
 SCPA_Project: CMakeFiles/SCPA_Project.dir/src/main_app.c.o
 SCPA_Project: CMakeFiles/SCPA_Project.dir/src/functionsIO.c.o
 SCPA_Project: CMakeFiles/SCPA_Project.dir/src/csrTool.c.o
-SCPA_Project: CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.o
+SCPA_Project: CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o
 SCPA_Project: CMakeFiles/SCPA_Project.dir/src/ellpackTool.c.o
 SCPA_Project: CMakeFiles/SCPA_Project.dir/build.make
 SCPA_Project: /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/libgomp.dylib

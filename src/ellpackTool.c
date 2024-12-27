@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "../libs/hllTool.h"
+#include "../libs/ellpackTool.h"
 
 /* Funzione per convertire la matrice in formato ELLPACK */
 void convert_to_ellpack(int M, int nz, const int *row_indices, const int *col_indices, const double *values, int **JA, double **AS, int *MAXNZ) {

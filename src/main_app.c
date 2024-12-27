@@ -202,6 +202,7 @@ int main() {
     struct matrixResultSerialFINAL *lastNodeFinalSerial = NULL;
 
     for (int i = 0; i < num_matrices; i++) {
+        printf("Calcolo su matrice: %s\n", matrix_names[i]);
         for (int j = 0; j < ITERATION_PER_MATRIX; j++) {
             /* Creazione di un nuovo nodo */
             struct matrixResultSerial *newNode = malloc(sizeof(struct matrixResultSerial));
