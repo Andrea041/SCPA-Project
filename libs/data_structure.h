@@ -11,6 +11,9 @@ struct matrixData {
     int *row_indices;
     int *col_indices;
     double *values;
+    int M;
+    int N;
+    int nz;
 };
 
 // Struttura per le performance
@@ -18,13 +21,6 @@ struct matrixPerformance {
     double seconds;
     double flops;
     double megaFlops;
-};
-
-// Struttura per le costanti della matrice
-struct matrixConst {
-    int M;
-    int N;
-    int nz;
 };
 
 // Struttura per i risultati seriali

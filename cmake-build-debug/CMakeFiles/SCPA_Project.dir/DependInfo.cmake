@@ -8,11 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/pierfrancesco/Desktop/SCPA-Project/src/csrSerialized.c" "CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.o" "gcc" "CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.o.d"
-  "/home/pierfrancesco/Desktop/SCPA-Project/src/csrTool.c" "CMakeFiles/SCPA_Project.dir/src/csrTool.c.o" "gcc" "CMakeFiles/SCPA_Project.dir/src/csrTool.c.o.d"
-  "/home/pierfrancesco/Desktop/SCPA-Project/src/functionsIO.c" "CMakeFiles/SCPA_Project.dir/src/functionsIO.c.o" "gcc" "CMakeFiles/SCPA_Project.dir/src/functionsIO.c.o.d"
-  "/home/pierfrancesco/Desktop/SCPA-Project/src/hllTool.c" "CMakeFiles/SCPA_Project.dir/src/hllTool.c.o" "gcc" "CMakeFiles/SCPA_Project.dir/src/hllTool.c.o.d"
-  "/home/pierfrancesco/Desktop/SCPA-Project/src/main_app.c" "CMakeFiles/SCPA_Project.dir/src/main_app.c.o" "gcc" "CMakeFiles/SCPA_Project.dir/src/main_app.c.o.d"
+  "/Users/andreaandreoli/CLionProjects/SCPA-Project/src/csrSerialized.c" "CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.o" "gcc" "CMakeFiles/SCPA_Project.dir/src/csrSerialized.c.o.d"
+  "/Users/andreaandreoli/CLionProjects/SCPA-Project/src/csrTool.c" "CMakeFiles/SCPA_Project.dir/src/csrTool.c.o" "gcc" "CMakeFiles/SCPA_Project.dir/src/csrTool.c.o.d"
+  "/Users/andreaandreoli/CLionProjects/SCPA-Project/src/ellpackTool.c" "CMakeFiles/SCPA_Project.dir/src/ellpackTool.c.o" "gcc" "CMakeFiles/SCPA_Project.dir/src/ellpackTool.c.o.d"
+  "/Users/andreaandreoli/CLionProjects/SCPA-Project/src/functionsIO.c" "CMakeFiles/SCPA_Project.dir/src/functionsIO.c.o" "gcc" "CMakeFiles/SCPA_Project.dir/src/functionsIO.c.o.d"
+  "/Users/andreaandreoli/CLionProjects/SCPA-Project/src/main_app.c" "CMakeFiles/SCPA_Project.dir/src/main_app.c.o" "gcc" "CMakeFiles/SCPA_Project.dir/src/main_app.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

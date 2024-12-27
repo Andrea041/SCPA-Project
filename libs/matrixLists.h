@@ -3,10 +3,10 @@
 
 static const char *matrix_names[] = {
     "cage4.mtx",
-   "mhda416.mtx",
-   "mcfe.mtx",
+    "mhda416.mtx",
+    "mcfe.mtx",
     "olm1000.mtx",
-     "adder_dcop_32.mtx",
+    "adder_dcop_32.mtx",
     "west2021.mtx",
     "cavity10.mtx",
     "rdist2.mtx",
@@ -29,9 +29,9 @@ static const char *matrix_names[] = {
     "nlpkkt80.mtx",
     "webbase-1M.mtx",
     "dc1.mtx",
-    //"amazon0302.mtx", da errore nella lettura
-   "af_1_k101.mtx"
-  //  "roadNet-PA.mtx", da errore nella lettura
+    "amazon0302.mtx",
+    "af_1_k101.mtx",
+    "roadNet-PA.mtx"
 };
 
 #endif

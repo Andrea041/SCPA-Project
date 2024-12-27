@@ -13,17 +13,16 @@ add_executable(SCPA_Project
         src/main_app.c
         src/functionsIO.c
         src/csrTool.c
-        src/csrSerialized.c
-        src/hllTool.c
+        src/csrOperations.c
+        src/ellpackTool.c
 
         # File di intestazione
         libs/matrixLists.h
         libs/csrTool.h
-        libs/csrSerialized.h
-        libs/hllTool.h
+        libs/csrOperations.h
+        libs/ellpackTool.h
         libs/data_structure.h
 )
-
 
 if(OpenMP_C_FOUND)
     target_link_libraries(SCPA_Project PUBLIC OpenMP::OpenMP_C)

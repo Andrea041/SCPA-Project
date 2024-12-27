@@ -1,30 +1,45 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "../libs/csrTool.h"
 
-// Funzione per convertire la matrice
-void convert_to_csr(int M, int N, int nz, int *row_indices, int *col_indices, double *values, int **IRP, int **JA, double **AS) {
-    *IRP = (int *)malloc((M + 1) * sizeof(int)); // Array dei puntatori di riga
-    *JA = (int *)malloc(nz * sizeof(int));       // Array degli indici di colonna
-    *AS = (double *)malloc(nz * sizeof(double)); // Array dei valori non nulli
+/* Funzione per convertire la matrice in formato CSR */
+void convert_to_csr(int M, int nz, const int *row_indices, const int *col_indices, const double *values, int **IRP, int **JA, double **AS) {
+    *IRP = (int *)malloc((M + 1) * sizeof(int));
+    *JA = (int *)malloc(nz * sizeof(int));
+    *AS = (double *)malloc(nz * sizeof(double));
 
-    // Inizializza IRP a zero
+    if (*IRP == NULL || *JA == NULL || *AS == NULL) {
+        fprintf(stderr, "Errore nell'allocazione della memoria.\n");
+        exit(1);
+    }
+
     for (int i = 0; i <= M; i++) {
         (*IRP)[i] = 0;
     }
 
-    // Conta i non-zero per ogni riga
     for (int i = 0; i < nz; i++) {
+        if (row_indices[i] < 0 || row_indices[i] >= M) {
+            fprintf(stderr, "Errore: l'indice di riga è fuori dai limiti.\n");
+            exit(1);
+        }
         (*IRP)[row_indices[i] + 1]++;
     }
 
-    // Costruisci IRP come somma cumulativa
     for (int i = 0; i < M; i++) {
         (*IRP)[i + 1] += (*IRP)[i];
     }
 
-    // Popola JA e AS
-    int *row_position = (int *)calloc(M, sizeof(int));
+    int *row_position = malloc(M * sizeof(int));  // Inizializza con 0
+    if (row_position == NULL) {
+        fprintf(stderr, "Errore nell'allocazione di row_position.\n");
+        exit(1);
+    }
+
+    for (int i = 0; i < M; i++) {
+        row_position[i] = 0;
+    }
+
     for (int i = 0; i < nz; i++) {
         int row = row_indices[i];
         int pos = (*IRP)[row] + row_position[row];
@@ -36,8 +51,8 @@ void convert_to_csr(int M, int N, int nz, int *row_indices, int *col_indices, do
     free(row_position);
 }
 
-// Prodotto matrice-vettore
-void matvec_csr(int M, int *IRP, int *JA, double *AS, double *x, double *y) {
+/* Prodotto matrice-vettore */
+void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, const double *x, double *y) {
     for (int i = 0; i < M; i++) {
         y[i] = 0.0;
         for (int j = IRP[i]; j < IRP[i + 1]; j++) {

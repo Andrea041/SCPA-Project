@@ -2,11 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
+
 #include "../libs/mmio.h"
 
-int mm_read_mtx_crd_size(FILE *f, int *M, int *N, int *nz )
-{
+int mm_read_mtx_crd_size(FILE *f, int *M, int *N, int *nz ) {
     char line[MM_MAX_LINE_LENGTH];
     int num_items_read;
 
@@ -35,8 +34,8 @@ int mm_read_mtx_crd_size(FILE *f, int *M, int *N, int *nz )
     return 0;
 }
 
-int mm_read_banner(FILE *f, MM_typecode *matcode)
-{
+/* Questa funzione determina la tipologia della matrice (es: simmetrica o pattern) */
+int mm_read_banner(FILE *f, MM_typecode *matcode) {
     char line[MM_MAX_LINE_LENGTH];
     char banner[MM_MAX_TOKEN_LENGTH];
     char mtx[MM_MAX_TOKEN_LENGTH];
@@ -44,7 +43,6 @@ int mm_read_banner(FILE *f, MM_typecode *matcode)
     char data_type[MM_MAX_TOKEN_LENGTH];
     char storage_scheme[MM_MAX_TOKEN_LENGTH];
     char *p;
-
 
     mm_clear_typecode(matcode);
 
@@ -71,7 +69,7 @@ int mm_read_banner(FILE *f, MM_typecode *matcode)
 
 
     /* second field describes whether this is a sparse matrix (in coordinate
-            storgae) or a dense array */
+            storage) or a dense array */
 
 
     if (strcmp(crd, MM_SPARSE_STR) == 0)
