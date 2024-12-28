@@ -16,6 +16,11 @@ const char *base_path = "./matrix/";
 #endif
 
 #define ITERATION_PER_MATRIX 5
+#define SERIAL_CSR 1
+#define PARALLEL_CSR 2
+#define PARALLEL_HLL_OMP 3
+#define PARALLEL_CSR_CUDA 4
+#define PARALLEL_HLL_CUDA 5
 
 /* Funzione per stampare i risultati dalla lista */
 void print_results(struct matrixResultSerialFINAL *results) {
@@ -232,7 +237,42 @@ int main() {
                 x[j] = 1.0;
 
             /* Esecuzione del prodotto matrice vettore con formato csr in modo serializzato */
-            struct matrixPerformance matrixPerformance1 = serial_csr(matrix_data->M, matrix_data->nz, matrix_data->row_indices, matrix_data->col_indices, matrix_data->values, x);
+            int choice;
+            printf("Quale tipo di esecuzione del programma si vuole avere?\n"
+                   "- %d -> esecuzione serializzata con formato CSR\n"
+                   "- %d -> esecuzione parallela con formato CSR in OpenMP\n"
+                   "- %d -> esecuzione parallela con formato HLL in OpenMP\n"
+                   "- %d -> esecuzione parallela con formato CSR in CUDA\n"
+                   "- %d -> esecuzione parallela con formato HLL in CUDA\n",
+                   SERIAL_CSR, PARALLEL_CSR, PARALLEL_HLL_OMP, PARALLEL_CSR_CUDA, PARALLEL_HLL_CUDA);
+
+            if (scanf("%d", &choice) != 1) {
+                printf("Errore: inserire un numero valido.\n");
+                return EXIT_FAILURE;
+            }
+
+            struct matrixPerformance matrixPerformance1;
+
+            switch (choice) {
+                case SERIAL_CSR:
+                    matrixPerformance1 = serial_csr(matrix_data->M, matrix_data->nz, matrix_data->row_indices, matrix_data->col_indices, matrix_data->values, x);
+                    break;
+                case PARALLEL_CSR:
+                    matrixPerformance1 = parallel_csr(matrix_data->M, matrix_data->nz, matrix_data->row_indices, matrix_data->col_indices, matrix_data->values, x);
+                    break;
+                case PARALLEL_HLL_OMP:
+                    // Aggiungi implementazione
+                break;
+                case PARALLEL_CSR_CUDA:
+                    // Aggiungi implementazione
+                break;
+                case PARALLEL_HLL_CUDA:
+                    // Aggiungi implementazione
+                break;
+                default:
+                    printf("Errore: opzione non valida!\n");
+                    return EXIT_FAILURE;
+            }
 
             /* Esecuzione del prodotto matrice vettore con formato csr con OpenMP */
             /* Esecuzione del prodotto matrice vettore con formato csr con CUDA */

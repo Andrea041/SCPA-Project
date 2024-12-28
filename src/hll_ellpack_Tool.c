@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <stdio.h>
+
 #include "../libs/data_structure.h"
 #include "../libs/hll_ellpack_Tool.h"
 
