@@ -6,7 +6,6 @@ set(CMAKE_C_STANDARD 99)
 
 # Trova la libreria OpenMP
 find_package(OpenMP REQUIRED)
-find_package(cJSON REQUIRED)
 
 # Aggiungi l'eseguibile
 add_executable(SCPA_Project
@@ -26,12 +25,13 @@ add_executable(SCPA_Project
         libs/costants.h
 )
 
-if(OpenMP_C_FOUND)
-    target_link_libraries(SCPA_Project PUBLIC OpenMP::OpenMP_C)
-    target_link_libraries(SCPA_Project PUBLIC cJSON::cJSON)
-else()
-    message(WARNING "OpenMP not found!")
-endif()
+# Include la libreria cJSON
+include_directories(/usr/local/include) # Assumi che cJSON sia installato qui
+link_directories(/usr/local/lib)        # Directory della libreria
+
+# Linka le librerie necessarie
+target_link_libraries(SCPA_Project PUBLIC OpenMP::OpenMP_C)
+target_link_libraries(SCPA_Project PUBLIC cjson)
 
 # Rilevamento dell'utente che utilizza il programma di calcolo
 if($ENV{USER} STREQUAL "pierfrancesco")

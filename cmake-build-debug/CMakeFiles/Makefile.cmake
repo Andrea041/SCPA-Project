@@ -29,12 +29,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/snap/clion/310/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux-Initialize.cmake"
   "/snap/clion/310/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/Linux.cmake"
   "/snap/clion/310/bin/cmake/linux/x64/share/cmake-3.30/Modules/Platform/UnixPaths.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/cJSON/cJSONConfig.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/cJSON/cJSONConfigVersion.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/cJSON/cjson-none.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/cJSON/cjson.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/cJSON/cjson_utils-none.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/cJSON/cjson_utils.cmake"
   )
 
 # The corresponding makefile is:
