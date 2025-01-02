@@ -18,33 +18,6 @@ const char *base_path = "/Users/andreaandreoli/matrix/";
 const char *base_path = "./matrix/";
 #endif
 
-
-/* Funzione per stampare i risultati dalla lista */
-void print_results(struct matrixPerformanceAverage *results) {
-    printf("Lista dei risultati:\n");
-    struct matrixPerformanceAverage *current = results;
-    while (current != NULL) {
-        printf("----------------------\n");
-        printf("Matrix name: %s\n", current->nameMatrix);
-        printf("Mean execution time: %f\n", current->avarangeSeconds);
-        printf("FLOPS: %f\n", current->avarangeFlops);
-        printf("MFLOPS: %f\n", current->avarangeMegaFlops);
-    }
-}
-
-void create_files_header(char *matrix_name, FILE *fileName1, FILE *fileName2, FILE *fileName3) {
-    cJSON *matrix = cJSON_CreateObject();
-    cJSON_AddStringToObject(matrix, "Name", matrix_name);
-
-    char *json_string = cJSON_Print(matrix);
-    fprintf(fileName1, "%s\n", json_string);
-    fprintf(fileName2, "%s\n", json_string);
-    fprintf(fileName3, "%s\n", json_string);
-
-    cJSON_Delete(matrix);
-    free(json_string);
-}
-
 /* Funzione per il reset della struttura dati utilizzata per la memorizzazione di una matrice */
 void clean_matrix_mem(struct matrixData *matrix_data) {
     free(matrix_data->col_indices);
@@ -162,6 +135,37 @@ void preprocess_matrix(struct matrixData *matrix_data, int i) {
     fclose(f);
 }
 
+// Funzione per eseguire il calcolo e aggiungere i risultati al JSON
+void add_performance_to_json(const char *nameMatrix, int iteration,
+                             struct matrixData *matrix_data, double *x,
+                             cJSON *matrix_array,
+                             struct matrixPerformance (*calculation_function)(int, int, int *, int *, double *, double *),
+                             FILE *output_file) {
+    struct matrixPerformance matrixPerformance;
+
+    // Esegui il calcolo utilizzando la funzione fornita
+    matrixPerformance = calculation_function(matrix_data->M, matrix_data->nz, matrix_data->row_indices, matrix_data->col_indices, matrix_data->values, x);
+
+    // Copia il nome della matrice nella struttura
+    strncpy(matrixPerformance.nameMatrix, nameMatrix, sizeof(matrixPerformance.nameMatrix) - 1);
+    matrixPerformance.nameMatrix[sizeof(matrixPerformance.nameMatrix) - 1] = '\0'; // Assicura la terminazione della stringa
+
+    // Creazione dell'oggetto JSON per l'iterazione corrente
+    cJSON *performance_obj = cJSON_CreateObject();
+    cJSON_AddStringToObject(performance_obj, "nameMatrix", matrixPerformance.nameMatrix);
+    cJSON_AddNumberToObject(performance_obj, "iteration", iteration);
+    cJSON_AddNumberToObject(performance_obj, "seconds", matrixPerformance.seconds);
+    cJSON_AddNumberToObject(performance_obj, "flops", matrixPerformance.flops);
+    cJSON_AddNumberToObject(performance_obj, "megaFlops", matrixPerformance.megaFlops);
+
+    // Aggiungi l'oggetto all'array JSON
+    cJSON_AddItemToArray(matrix_array, performance_obj);
+
+    // Scrivi direttamente l'oggetto JSON nel file specificato
+    char *json_string = cJSON_Print(performance_obj);
+    fprintf(output_file, "%s\n", json_string);
+    free(json_string);
+}
 
 int main() {
     const int num_matrices = sizeof(matrix_names) / sizeof(matrix_names[0]); // Numero di matrici
@@ -171,35 +175,31 @@ int main() {
     if (matrix_data == NULL) {
         perror("Errore nell'allocazione della memoria per matrix_data.");
         return EXIT_FAILURE;
-    } //controllo malloc matrix_data
+    } // Controllo malloc matrix_data
 
     /* Creazione dei file json relativi ai risultati di ciascuna esecuzione di calcolo */
     FILE *file_serial = fopen("../result/serial_CSR.json", "w");
     if (file_serial == NULL) {
-        fprintf(stderr, "Errore nell'apertura del file\n");
+        fprintf(stderr, "Errore nell'apertura del file serial_CSR.json\n");
         return EXIT_FAILURE;
     }
 
     FILE *file_par_MP_CSR = fopen("../result/par_mp_CSR.json", "w");
     if (file_par_MP_CSR == NULL) {
-        fprintf(stderr, "Errore nell'apertura del file\n");
+        fprintf(stderr, "Errore nell'apertura del file par_mp_CSR.json\n");
+        fclose(file_serial);
         return EXIT_FAILURE;
     }
 
-    FILE *file_par_MP_HLL = fopen("../result/par_mp_HLL.json", "w");
-    if (file_par_MP_HLL == NULL) {
-        fprintf(stderr, "Errore nell'apertura del file\n");
-        return EXIT_FAILURE;
-    }
-
-
-    double *x = malloc((size_t)matrix_data->N * sizeof(double)); //vettore per prodotto matice vettore
+    double *x = malloc((size_t)matrix_data->N * sizeof(double)); // Vettore per prodotto matrice-vettore
 
     if (x == NULL) {
         perror("Errore nell'allocazione della memoria per il vettore x.");
         free(matrix_data);
+        fclose(file_serial);
+        fclose(file_par_MP_CSR);
         return EXIT_FAILURE;
-    } //controllo malloc vettore X
+    } // Controllo malloc vettore X
 
     for (int j = 0; j < matrix_data->N; j++)
         x[j] = 1.0;
@@ -207,44 +207,33 @@ int main() {
     for (int i = 0; i < num_matrices; i++) {
         printf("Calcolo su matrice: %s\n", matrix_names[i]);
 
-        preprocess_matrix(matrix_data, i); // pre-processamento della matrice
+        preprocess_matrix(matrix_data, i); // Pre-processamento della matrice
 
-        cJSON *matrix = cJSON_CreateObject();
+        cJSON *matrix_array = cJSON_CreateArray(); // Array per memorizzare le prestazioni di tutte le iterazioni
 
-        /*
-         *  iterazione su ogni matrice
-         *          ogni matrice calcola per # ITERATION_PER_MATRIX un tipo specifico di calcolo
-         *              ad ogni sotto iterazione , mi aggiungo alla lista delle strutture dati delle perfomance matrixPerformance, tutte le emtriche misurate,
-         *              le scrivo su un file json , ogni tipo di calcolo ha il suo file json nella cartella Iteration DATA. Quindi per la amtrice successiva quando per il calcolo di tipo A, sarà nel file json del tipo di calcolo "A"
-         *      ad ogni iterazione , leggendo i file json per ongi tipo di calcolo, per ogni matrice che ha lo stesso nome faccio la media dei ripettivi valori tra tutte le ITERATION_PER_MATRIX, per rimepire i ripettivi dati della struttura dati matrixPerformanceAvarange che poi verra scritta su un nuovo file json per ogni tipo di calcolo specifico nella cartella FINAL DATA sempre
-         */
+        for (int j = 0; j < ITERATION_PER_MATRIX ; j++) {
 
-        //ogni matrice, ha X iterazioni , per ogni tipo di calcolo.
-        // un file per ogni tipo di calcolo , cosi che dentro ho tutte le matrici
+            // Aggiungi le performance per il calcolo "serial_csr"
+            add_performance_to_json(matrix_names[i], j + 1, matrix_data, x, matrix_array, serial_csr, file_serial);
 
-        create_files_header(matrix_names[i], file_serial, file_par_MP_CSR, file_par_MP_HLL);
-
-        for (int j = 0; j < ITERATION_PER_MATRIX; j++) {
-            struct matrixPerformance matrixPerformance;
-            matrixPerformance = serial_csr(matrix_data->M, matrix_data->nz, matrix_data->row_indices, matrix_data->col_indices, matrix_data->values, x);
-
-            cJSON *time_spent = cJSON_CreateArray();
-            cJSON *flops = cJSON_CreateArray();
-            cJSON *mega_flops = cJSON_CreateArray();
-
-            cJSON_AddItemToArray(time_spent, cJSON_CreateNumber(matrixPerformance.seconds));
-            cJSON_AddItemToArray(flops, cJSON_CreateNumber(matrixPerformance.flops));
-            cJSON_AddItemToArray(mega_flops, cJSON_CreateNumber(matrixPerformance.megaFlops));
-
-            /* Scrivo i risultati contenuti nei vari array */
-            if (j == ITERATION_PER_MATRIX - 1) {
-                char *json_string = cJSON_Print(matrix);
-                fprintf(file_serial, "%s\n", json_string);
-                /* Calcolo risultati su file json */
-
-            }
+            // Aggiungi le performance per il calcolo "parallel_csr"
+            add_performance_to_json(matrix_names[i], j + 1, matrix_data, x, matrix_array, parallel_csr, file_par_MP_CSR);
         }
+
+        /* Qua si fa il calcolo su ogni file per ogni matrice*/
+
+        // Libera la memoria allocata per l'array JSON
+        cJSON_Delete(matrix_array);
+        clean_matrix_mem(matrix_data); // Reset della memoria della matrice
     }
+
+    // Chiudi i file
+    fclose(file_serial);
+    fclose(file_par_MP_CSR);
+
+    // Libera la memoria allocata dinamicamente
+    free(matrix_data);
+    free(x);
 
     return EXIT_SUCCESS;
 }

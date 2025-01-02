@@ -6,6 +6,7 @@ set(CMAKE_C_STANDARD 99)
 
 # Trova la libreria OpenMP
 find_package(OpenMP REQUIRED)
+find_package(cJSON REQUIRED)
 
 # Aggiungi l'eseguibile
 add_executable(SCPA_Project
@@ -24,10 +25,6 @@ add_executable(SCPA_Project
         libs/data_structure.h
         libs/costants.h
 )
-
-# Include la libreria cJSON
-include_directories(/usr/local/include) # Assumi che cJSON sia installato qui
-link_directories(/usr/local/lib)        # Directory della libreria
 
 # Linka le librerie necessarie
 target_link_libraries(SCPA_Project PUBLIC OpenMP::OpenMP_C)

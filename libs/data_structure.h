@@ -32,6 +32,7 @@ typedef struct {
 
 // Struttura per le performance
 struct matrixPerformance {
+    char nameMatrix[50];
     double seconds;
     double flops;
     double megaFlops;

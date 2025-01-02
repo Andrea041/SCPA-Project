@@ -1,19 +1,5 @@
-/snap/clion/310/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S /home/pierfrancesco/Desktop/SCPA-Project -B /home/pierfrancesco/Desktop/SCPA-Project/cmake-build-debug
-CMake Error at CMakeLists.txt:9 (find_package):
-  By not providing "FindcJSON.cmake" in CMAKE_MODULE_PATH this project has
-  asked CMake to find a package configuration file provided by "cJSON", but
-  CMake did not find one.
-
-  Could not find a package configuration file provided by "cJSON" with any of
-  the following names:
-
-    cJSONConfig.cmake
-    cjson-config.cmake
-
-  Add the installation prefix of "cJSON" to CMAKE_PREFIX_PATH or set
-  "cJSON_DIR" to a directory containing one of the above files.  If "cJSON"
-  provides a separate development package or SDK, be sure it has been
-  installed.
-
-
--- Configuring incomplete, errors occurred!
+/Users/andreaandreoli/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/opt/homebrew/bin/gcc-14 -G "Unix Makefiles" -S /Users/andreaandreoli/CLionProjects/SCPA-Project -B /Users/andreaandreoli/CLionProjects/SCPA-Project/cmake-build-debug
+-- Compilazione per Andrea Andreoli
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/andreaandreoli/CLionProjects/SCPA-Project/cmake-build-debug
