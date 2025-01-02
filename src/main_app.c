@@ -178,13 +178,13 @@ int main() {
     } // Controllo malloc matrix_data
 
     /* Creazione dei file json relativi ai risultati di ciascuna esecuzione di calcolo */
-    FILE *file_serial = fopen("../result/serial_CSR.json", "w");
+    FILE *file_serial = fopen("../result/tempFile/serial_CSR.json", "w");
     if (file_serial == NULL) {
         fprintf(stderr, "Errore nell'apertura del file serial_CSR.json\n");
         return EXIT_FAILURE;
     }
 
-    FILE *file_par_MP_CSR = fopen("../result/par_mp_CSR.json", "w");
+    FILE *file_par_MP_CSR = fopen("../result/tempFile/par_mp_CSR.json", "w");
     if (file_par_MP_CSR == NULL) {
         fprintf(stderr, "Errore nell'apertura del file par_mp_CSR.json\n");
         fclose(file_serial);
@@ -220,7 +220,7 @@ int main() {
             add_performance_to_json(matrix_names[i], j + 1, matrix_data, x, matrix_array, parallel_csr, file_par_MP_CSR);
         }
 
-        /* Qua si fa il calcolo su ogni file per ogni matrice*/
+        /* Qua si fa il calcolo su ogni file per ogni matrice (calculatePerformance) */
 
         // Libera la memoria allocata per l'array JSON
         cJSON_Delete(matrix_array);
