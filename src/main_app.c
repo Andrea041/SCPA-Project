@@ -207,6 +207,21 @@ int main() {
     struct matrixResultSerialFINAL *resultsFinalSerial = NULL;
     struct matrixResultSerialFINAL *lastNodeFinalSerial = NULL;
 
+    /* Esecuzione del prodotto matrice vettore con formato csr in modo serializzato */
+    int choice;
+    printf("Quale tipo di esecuzione del programma si vuole avere?\n"
+           "- %d -> esecuzione serializzata con formato CSR\n"
+           "- %d -> esecuzione parallela con formato CSR in OpenMP\n"
+           "- %d -> esecuzione parallela con formato HLL in OpenMP\n"
+           "- %d -> esecuzione parallela con formato CSR in CUDA\n"
+           "- %d -> esecuzione parallela con formato HLL in CUDA\n",
+           SERIAL_CSR, PARALLEL_CSR, PARALLEL_HLL_OMP, PARALLEL_CSR_CUDA, PARALLEL_HLL_CUDA);
+
+    if (scanf("%d", &choice) != 1) {
+        printf("Errore: inserire un numero valido.\n");
+        return EXIT_FAILURE;
+    }
+
     for (int i = 0; i < num_matrices; i++) {
         printf("Calcolo su matrice: %s\n", matrix_names[i]);
         for (int j = 0; j < ITERATION_PER_MATRIX; j++) {
@@ -235,21 +250,6 @@ int main() {
             /* Assegnazione delle componenti del vettore x */
             for (int j = 0; j < matrix_data->N; j++)
                 x[j] = 1.0;
-
-            /* Esecuzione del prodotto matrice vettore con formato csr in modo serializzato */
-            int choice;
-            printf("Quale tipo di esecuzione del programma si vuole avere?\n"
-                   "- %d -> esecuzione serializzata con formato CSR\n"
-                   "- %d -> esecuzione parallela con formato CSR in OpenMP\n"
-                   "- %d -> esecuzione parallela con formato HLL in OpenMP\n"
-                   "- %d -> esecuzione parallela con formato CSR in CUDA\n"
-                   "- %d -> esecuzione parallela con formato HLL in CUDA\n",
-                   SERIAL_CSR, PARALLEL_CSR, PARALLEL_HLL_OMP, PARALLEL_CSR_CUDA, PARALLEL_HLL_CUDA);
-
-            if (scanf("%d", &choice) != 1) {
-                printf("Errore: inserire un numero valido.\n");
-                return EXIT_FAILURE;
-            }
 
             struct matrixPerformance matrixPerformance1;
 
