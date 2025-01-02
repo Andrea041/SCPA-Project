@@ -2,10 +2,13 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "../libs/csrOperations.h"
 #include "../libs/mmio.h"
 #include "../libs/matrixLists.h"
 #include "../libs/data_structure.h"
+#include "../libs/costants.h"
+#include "../libs/csrOperations.h"
+
+#include "cjson/cJSON.h"
 
 #ifdef USER_PIERFRANCESCO
 const char *base_path = "/home/pierfrancesco/Desktop/matrix/";
@@ -15,20 +18,31 @@ const char *base_path = "/Users/andreaandreoli/matrix/";
 const char *base_path = "./matrix/";
 #endif
 
-#define ITERATION_PER_MATRIX 5
 
 /* Funzione per stampare i risultati dalla lista */
-void print_results(struct matrixResultSerialFINAL *results) {
+void print_results(struct matrixPerformanceAverage *results) {
     printf("Lista dei risultati:\n");
-    struct matrixResultSerialFINAL *current = results;
+    struct matrixPerformanceAverage *current = results;
     while (current != NULL) {
         printf("----------------------\n");
         printf("Matrix name: %s\n", current->nameMatrix);
         printf("Mean execution time: %f\n", current->avarangeSeconds);
         printf("FLOPS: %f\n", current->avarangeFlops);
         printf("MFLOPS: %f\n", current->avarangeMegaFlops);
-        current = current->nextNode;
     }
+}
+
+void create_files_header(char *matrix_name, FILE *fileName1, FILE *fileName2, FILE *fileName3) {
+    cJSON *matrix = cJSON_CreateObject();
+    cJSON_AddStringToObject(matrix, "Name", matrix_name);
+
+    char *json_string = cJSON_Print(matrix);
+    fprintf(fileName1, "%s\n", json_string);
+    fprintf(fileName2, "%s\n", json_string);
+    fprintf(fileName3, "%s\n", json_string);
+
+    cJSON_Delete(matrix);
+    free(json_string);
 }
 
 /* Funzione per il reset della struttura dati utilizzata per la memorizzazione di una matrice */
@@ -39,45 +53,6 @@ void clean_matrix_mem(struct matrixData *matrix_data) {
     matrix_data->M = 0;
     matrix_data->N = 0;
     matrix_data->nz = 0;
-}
-
-/* Funzione per il calcolo delle prestazioni */
-struct matrixResultSerialFINAL *calculate_performance(struct matrixResultSerial *head, const struct matrixData *matrix_data, const char *matrix_name) {
-    struct matrixResultSerialFINAL *node = malloc(sizeof(struct matrixResultSerialFINAL));
-    if (node == NULL) {
-        perror("Errore nell'allocazione della memoria per matrixResultSerialFINAL");
-        exit(EXIT_FAILURE); // Termina il programma in caso di errore
-    }
-
-    double sum = 0.0;
-    int count = 0;
-    struct matrixResultSerial *current = head;
-
-    while (current != NULL) {
-        sum += current->seconds;    // Somma i secondi
-        count++;                    // Conta il numero di nodi
-        current = current->next;    // Passa al nodo successivo
-    }
-
-    if (count == 0) {
-        fprintf(stderr, "Errore: la lista è vuota, impossibile calcolare le performance.\n");
-        free(node);
-        return NULL; // Termina la funzione in caso di errore
-    }
-
-    double average_time = sum / count;
-    const double flops = 2.0 * matrix_data->nz / average_time;
-    const double mflops = flops / 1e6;
-
-    // Inizializza i valori del nodo
-    strncpy(node->nameMatrix, matrix_name, sizeof(node->nameMatrix) - 1);
-    node->nameMatrix[sizeof(node->nameMatrix) - 1] = '\0';
-    node->avarangeFlops = flops;
-    node->avarangeMegaFlops = mflops;
-    node->avarangeSeconds = average_time;
-    node->nextNode = NULL;
-
-    return node;
 }
 
 /* Funzione per il preprocessamento delle matrici in input da file */
@@ -192,85 +167,84 @@ int main() {
     const int num_matrices = sizeof(matrix_names) / sizeof(matrix_names[0]); // Numero di matrici
 
     struct matrixData *matrix_data = malloc(sizeof(struct matrixData));
+
     if (matrix_data == NULL) {
         perror("Errore nell'allocazione della memoria per matrix_data.");
         return EXIT_FAILURE;
+    } //controllo malloc matrix_data
+
+    /* Creazione dei file json relativi ai risultati di ciascuna esecuzione di calcolo */
+    FILE *file_serial = fopen("../result/serial_CSR.json", "w");
+    if (file_serial == NULL) {
+        fprintf(stderr, "Errore nell'apertura del file\n");
+        return EXIT_FAILURE;
     }
 
-    struct matrixResultSerial *results = NULL; // Puntatore alla lista dei risultati
-    struct matrixResultSerial *lastNode = NULL; // Puntatore all'ultimo nodo della lista
+    FILE *file_par_MP_CSR = fopen("../result/par_mp_CSR.json", "w");
+    if (file_par_MP_CSR == NULL) {
+        fprintf(stderr, "Errore nell'apertura del file\n");
+        return EXIT_FAILURE;
+    }
 
-    struct matrixResultSerialFINAL *resultsFinalSerial = NULL;
-    struct matrixResultSerialFINAL *lastNodeFinalSerial = NULL;
+    FILE *file_par_MP_HLL = fopen("../result/par_mp_HLL.json", "w");
+    if (file_par_MP_HLL == NULL) {
+        fprintf(stderr, "Errore nell'apertura del file\n");
+        return EXIT_FAILURE;
+    }
+
+
+    double *x = malloc((size_t)matrix_data->N * sizeof(double)); //vettore per prodotto matice vettore
+
+    if (x == NULL) {
+        perror("Errore nell'allocazione della memoria per il vettore x.");
+        free(matrix_data);
+        return EXIT_FAILURE;
+    } //controllo malloc vettore X
+
+    for (int j = 0; j < matrix_data->N; j++)
+        x[j] = 1.0;
 
     for (int i = 0; i < num_matrices; i++) {
         printf("Calcolo su matrice: %s\n", matrix_names[i]);
+
+        preprocess_matrix(matrix_data, i); // pre-processamento della matrice
+
+        cJSON *matrix = cJSON_CreateObject();
+
+        /*
+         *  iterazione su ogni matrice
+         *          ogni matrice calcola per # ITERATION_PER_MATRIX un tipo specifico di calcolo
+         *              ad ogni sotto iterazione , mi aggiungo alla lista delle strutture dati delle perfomance matrixPerformance, tutte le emtriche misurate,
+         *              le scrivo su un file json , ogni tipo di calcolo ha il suo file json nella cartella Iteration DATA. Quindi per la amtrice successiva quando per il calcolo di tipo A, sarà nel file json del tipo di calcolo "A"
+         *      ad ogni iterazione , leggendo i file json per ongi tipo di calcolo, per ogni matrice che ha lo stesso nome faccio la media dei ripettivi valori tra tutte le ITERATION_PER_MATRIX, per rimepire i ripettivi dati della struttura dati matrixPerformanceAvarange che poi verra scritta su un nuovo file json per ogni tipo di calcolo specifico nella cartella FINAL DATA sempre
+         */
+
+        //ogni matrice, ha X iterazioni , per ogni tipo di calcolo.
+        // un file per ogni tipo di calcolo , cosi che dentro ho tutte le matrici
+
+        create_files_header(matrix_names[i], file_serial, file_par_MP_CSR, file_par_MP_HLL);
+
         for (int j = 0; j < ITERATION_PER_MATRIX; j++) {
-            /* Creazione di un nuovo nodo */
-            struct matrixResultSerial *newNode = malloc(sizeof(struct matrixResultSerial));
-            if (newNode == NULL) {
-                printf("Errore: Memoria non disponibile!\n");
-                exit(1);
+            struct matrixPerformance matrixPerformance;
+            matrixPerformance = serial_csr(matrix_data->M, matrix_data->nz, matrix_data->row_indices, matrix_data->col_indices, matrix_data->values, x);
+
+            cJSON *time_spent = cJSON_CreateArray();
+            cJSON *flops = cJSON_CreateArray();
+            cJSON *mega_flops = cJSON_CreateArray();
+
+            cJSON_AddItemToArray(time_spent, cJSON_CreateNumber(matrixPerformance.seconds));
+            cJSON_AddItemToArray(flops, cJSON_CreateNumber(matrixPerformance.flops));
+            cJSON_AddItemToArray(mega_flops, cJSON_CreateNumber(matrixPerformance.megaFlops));
+
+            /* Scrivo i risultati contenuti nei vari array */
+            if (j == ITERATION_PER_MATRIX - 1) {
+                char *json_string = cJSON_Print(matrix);
+                fprintf(file_serial, "%s\n", json_string);
+                /* Calcolo risultati su file json */
+
             }
-
-            /* Copia il nome della matrice nella struttura */
-            strncpy(newNode->nameMatrix, matrix_names[i], sizeof(newNode->nameMatrix) - 1);
-            newNode->nameMatrix[sizeof(newNode->nameMatrix) - 1] = '\0'; // Assicurati che la stringa sia terminata con '\0'
-            newNode->next = NULL; // L'ultimo nodo punta a NULL
-
-            preprocess_matrix(matrix_data, i);
-
-            /* Inizializzazione del vettore di input x */
-            double *x = malloc((size_t)matrix_data->N * sizeof(double));
-            if (x == NULL) {
-                perror("Errore nell'allocazione della memoria per il vettore x.");
-                free(matrix_data);
-                return EXIT_FAILURE;
-            }
-
-            /* Assegnazione delle componenti del vettore x */
-            for (int j = 0; j < matrix_data->N; j++)
-                x[j] = 1.0;
-
-            struct matrixPerformance matrixPerformance1;
-            /* Inizializzazione struct */
-            matrixPerformance1.seconds = 0;
-            matrixPerformance1.flops = 0.0;
-            matrixPerformance1.megaFlops = 0.0;
-
-            matrixPerformance1 = serial_csr(matrix_data->M, matrix_data->nz, matrix_data->row_indices, matrix_data->col_indices, matrix_data->values, x);
-            /* Esecuzione del prodotto matrice vettore con formato csr con OpenMP */
-            matrixPerformance1 = parallel_csr(matrix_data->M, matrix_data->nz, matrix_data->row_indices, matrix_data->col_indices, matrix_data->values, x);
-            /* Esecuzione del prodotto matrice vettore con formato csr con CUDA */
-            /* Esecuzione del prodotto matrice vettore con formato hll con OpenMP */
-            /* Esecuzione del prodotto matrice vettore con formato hll con CUDA */
-
-            /* Memorizzazione dei risultati nella struttura dei risultati */
-            newNode->seconds = matrixPerformance1.seconds;
-
-            /* Gestione della lista collegata */
-            if (results == NULL) {
-                results = newNode; // Primo nodo della lista
-            } else {
-                lastNode->next = newNode; // Collega l'ultimo nodo al nuovo nodo
-            }
-            lastNode = newNode; // Aggiorna il puntatore all'ultimo nodo
-
-            free(x);
         }
-
-        struct matrixResultSerialFINAL *newNodeFinal = calculate_performance(results, matrix_data, matrix_names[i]);
-
-        if (resultsFinalSerial == NULL) {
-            resultsFinalSerial = newNodeFinal; // Primo nodo della lista
-        } else {
-           lastNodeFinalSerial->nextNode = newNodeFinal; // Collega l'ultimo nodo al nuovo nodo
-        }
-        lastNodeFinalSerial = newNodeFinal; // Aggiorna il puntatore all'ultimo nodo
-
-        clean_matrix_mem(matrix_data);
     }
-    print_results(resultsFinalSerial);
 
     return EXIT_SUCCESS;
 }

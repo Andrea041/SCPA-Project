@@ -2,6 +2,7 @@
 
 #include "../libs/data_structure.h"
 #include "../libs/hll_ellpack_Tool.h"
+#include "../libs/costants.h"
 
 /* Funzione Hll per convertire la matrice in formato ELLPACK */
 void convert_to_hll(int M, int N, int nz, const int *row_indices, const int *col_indices, const double *values, HLL_Matrix *hll_matrix) {

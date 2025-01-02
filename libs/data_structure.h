@@ -6,8 +6,6 @@
 
 #include <stdlib.h>
 
-// Definizione di HackSize
-#define HackSize 32  // Dimensione del blocco
 
 // Struttura per i dati della matrice
 struct matrixData {
@@ -39,19 +37,12 @@ struct matrixPerformance {
     double megaFlops;
 };
 
-// Struttura per i risultati seriali
-struct matrixResultSerial {
-    char nameMatrix[50];
-    double seconds;
-    struct matrixResultSerial *next;
-};
 
-struct matrixResultSerialFINAL {
+struct matrixPerformanceAverage {
     char nameMatrix[50];  // Nome della matrice
     double avarangeFlops; // Flops medi
     double avarangeMegaFlops; // MFLOPS medi
     double avarangeSeconds; // Tempo medio
-    struct matrixResultSerialFINAL *nextNode; // Puntatore al prossimo nodo
 };
 
 #endif // DATA_STRUCTURE_H

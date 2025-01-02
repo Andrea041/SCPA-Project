@@ -6,6 +6,7 @@ set(CMAKE_C_STANDARD 99)
 
 # Trova la libreria OpenMP
 find_package(OpenMP REQUIRED)
+find_package(cJSON REQUIRED)
 
 # Aggiungi l'eseguibile
 add_executable(SCPA_Project
@@ -22,10 +23,12 @@ add_executable(SCPA_Project
         libs/csrOperations.h
         libs/hll_ellpack_Tool.h
         libs/data_structure.h
+        libs/costants.h
 )
 
 if(OpenMP_C_FOUND)
     target_link_libraries(SCPA_Project PUBLIC OpenMP::OpenMP_C)
+    target_link_libraries(SCPA_Project PUBLIC cJSON::cJSON)
 else()
     message(WARNING "OpenMP not found!")
 endif()
