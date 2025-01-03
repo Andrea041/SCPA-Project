@@ -64,24 +64,36 @@ void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, double *
 }
 
 
-void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const double *x, double *y, int** thread_rows, const int *row_counts, int num_threads) {
-#pragma omp parallel num_threads(num_threads)
-    {
-        // Ottieni l'ID del thread corrente
-        int thread_id = omp_get_thread_num();
-
-        // Ottieni le righe assegnate a questo thread
-        int* rows = thread_rows[thread_id];
-        int num_rows = row_counts[thread_id];
-
-        // Calcola il prodotto matrice-vettore per le righe assegnate
-        for (int i = 0; i < num_rows; i++) {
-            int row = rows[i]; // Riga corrente
-            y[row] = 0.0; // Inizializza il valore per la riga corrente
-            for (int j = IRP[row]; j < IRP[row + 1]; j++) {
-                y[row] += AS[j] * x[JA[j]]; // Prodotto scalare della riga con il vettore x
+void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const double *x, double *y, int** thread_rows, const int *row_counts, int num_threads, const int M) {
+    if (num_threads == 1) {
+        for (int i = 0; i < M; i++) {
+            y[i] = 0.0; // Inizializza y[i] a 0
+            for (int j = IRP[i]; j < IRP[i + 1]; j++) {
+                y[i] += AS[j] * x[JA[j]]; // Prodotto scalare per riga
             }
         }
+    }else {
+        #pragma omp parallel num_threads(num_threads)
+        {
+            // Ottieni l'ID del thread corrente
+            int thread_id = omp_get_thread_num();
+
+            // Ottieni le righe assegnate a questo thread
+            int* rows = thread_rows[thread_id];
+            int num_rows = row_counts[thread_id];
+
+            // Calcola il prodotto matrice-vettore per le righe assegnate
+            for (int i = 0; i < num_rows; i++) {
+                int row = rows[i]; // Riga corrente
+                y[row] = 0.0; // Inizializza il valore per la riga corrente
+                for (int j = IRP[row]; j < IRP[row + 1]; j++) {
+                    y[row] += AS[j] * x[JA[j]]; // Prodotto scalare della riga con il vettore x
+                }
+            }
+        }
+
     }
+
+
 }
 

@@ -96,6 +96,7 @@ int** distribute_work_balanced(const int M, const int *nonzeros_per_row, int *ro
 
     // Calcolo del carico medio di non-zeri per thread
     int avg_nonzeros_per_thread = total_nonzeros / num_threads;
+    int remainder_nonzeros = total_nonzeros % num_threads; // Gestione del resto
 
     // Array di array per le righe di ogni thread
     int** thread_rows = malloc(num_threads * sizeof(int*));
@@ -120,19 +121,19 @@ int** distribute_work_balanced(const int M, const int *nonzeros_per_row, int *ro
         row_counts[t] = 0;
     }
 
-    // Distribuzione delle righe
+    // Distribuzione delle righe basata sul numero di non-zeri
     for (int i = 0; i < M; i++) {
-        // Assegna la riga corrente al thread
+        // Aggiungi la riga corrente al thread
         thread_rows[current_thread][row_counts[current_thread]++] = i;
         accumulated_nonzeros += nonzeros_per_row[i];
 
-        // Passa al thread successivo se il carico medio è superato e non siamo all'ultimo thread
-        if (accumulated_nonzeros >= avg_nonzeros_per_thread && current_thread < num_threads - 1) {
+        // Passa al thread successivo se il carico medio è raggiunto o superato
+        if ((accumulated_nonzeros >= avg_nonzeros_per_thread + (current_thread < remainder_nonzeros ? 1 : 0)) &&
+            current_thread < num_threads - 1) {
             current_thread++;
             accumulated_nonzeros = 0; // Resetta il contatore per il thread successivo
-        }
+            }
     }
-
     // Stampa la distribuzione delle righe (debugging)
     for (int t = 0; t < num_threads; t++) {
         printf("Thread %d: Righe assegnate: ", t);
@@ -236,11 +237,6 @@ struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x)
     // Calcolo del numero massimo di thread dinamico
     int max_threads_dynamic = M / min_rows_per_thread;
 
-    // Aggiustamento per il caso in cui ci siano righe residue (divisione modulare)
-    if (M % min_rows_per_thread != 0) {
-        max_threads_dynamic += 1; // Aggiungi un thread per gestire le righe residue
-    }
-
     // Limita il numero massimo di thread a quelli disponibili
     if (max_threads_dynamic > max_threads) {
         max_threads_dynamic = max_threads; // Non possiamo superare i thread disponibili
@@ -253,29 +249,36 @@ struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x)
 
     int num_threads = max_threads_dynamic;
 
-    printf("Numero massimo di thread disponibili: %d\n", max_threads);
-    printf("Numero ottimale di thread calcolato: %d\n", num_threads);
-    printf("Numero medio di non-zeri per riga se uniformente distribuiti: %.2f\n", nz_per_row);
+    if (!mm_is_pattern(matrix_data->matcode) &&
+        !mm_is_symmetric(matrix_data->matcode) &&
+        mm_is_coordinate(matrix_data->matcode)) {
+        printf("Numero massimo di thread disponibili: %d\n", max_threads);
+        printf("Numero ottimale di thread calcolato: %d\n", num_threads);
+        printf("Numero medio di non-zeri per riga se uniformemente distribuiti: %.2f\n", nz_per_row);
 
-    // Suddivisione del lavoro tra i thread
-    int *row_counts = malloc(num_threads * sizeof(int)); // Numero di righe per ogni thread
-    int **thread_rows = distribute_work_balanced(M, nonzeros_per_row, row_counts, num_threads);
+        // Suddivisione del lavoro tra i thread
+        int *row_counts = malloc(num_threads * sizeof(int)); // Numero di righe per ogni thread
+        int **thread_rows = distribute_work_balanced(M, nonzeros_per_row, row_counts, num_threads);
 
-    // Calcolo parallelo
-    struct timespec start, end;
-    clock_gettime(CLOCK_MONOTONIC, &start);
-    matvec_csr_openMP(IRP, JA, AS, x, y, thread_rows, row_counts, num_threads);
-    clock_gettime(CLOCK_MONOTONIC, &end);
+        // Calcolo parallelo
+        struct timespec start, end;
+        clock_gettime(CLOCK_MONOTONIC, &start);
+        matvec_csr_openMP(IRP, JA, AS, x, y, thread_rows, row_counts, num_threads, M);
+        clock_gettime(CLOCK_MONOTONIC, &end);
 
-    const double time_spent = (double)(end.tv_sec - start.tv_sec) + (double)(end.tv_nsec - start.tv_nsec) / 1e9;
-    node.seconds = time_spent;
+        const double time_spent = (double)(end.tv_sec - start.tv_sec) + (double)(end.tv_nsec - start.tv_nsec) / 1e9;
+        node.seconds = time_spent;
 
-    // Libera la memoria
-    for (int t = 0; t < num_threads; t++) {
-        free(thread_rows[t]);
-    }
-    free(thread_rows);
-    free(row_counts);
+        // Libera la memoria
+        for (int t = 0; t < num_threads; t++) {
+            free(thread_rows[t]);
+        }
+        free(thread_rows);
+
+        free(row_counts);
+
+        }
+
     free(nonzeros_per_row);
     free(y);
     free(IRP);
@@ -284,4 +287,3 @@ struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x)
 
     return node;
 }
-
