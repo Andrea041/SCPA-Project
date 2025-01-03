@@ -62,13 +62,20 @@ void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, const do
     }
 }
 
-/* Prodotto matrice-vettore parallelizzato con OpenMP */
-void matvec_csr_openMP(int M, const int *IRP, const int *JA, const double *AS, const double *x, double *y) {
-    // Occorre effettuare qui la parallelizzazione
-    for (int i = 0; i < M; i++) {
-        y[i] = 0.0;
-        for (int j = IRP[i]; j < IRP[i + 1]; j++) {
-            y[i] += AS[j] * x[JA[j]];
+    /* Prodotto matrice-vettore parallelizzato con OpenMP e carico bilanciato */
+    void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const double *x, double *y, const int *row_start, const int *row_end, int num_threads) {
+        #pragma omp parallel num_threads(num_threads)
+        {
+            int thread_id = omp_get_thread_num(); // Identifica il thread corrente
+            int start_row = row_start[thread_id]; // Righe iniziali assegnate al thread
+            int end_row = row_end[thread_id];     // Righe finali assegnate al thread
+
+            // Calcola il prodotto matrice-vettore per le righe assegnate al thread
+            for (int i = start_row; i <= end_row; i++) {
+                y[i] = 0.0; // Inizializza l'output per la riga corrente
+                for (int j = IRP[i]; j < IRP[i + 1]; j++) {
+                    y[i] += AS[j] * x[JA[j]]; // Prodotto scalare della riga con il vettore x
+                }
+            }
         }
     }
-}

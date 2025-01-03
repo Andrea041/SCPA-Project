@@ -1,10 +1,11 @@
 #ifndef CSRSERIALIZED_H
 #define CSRSERIALIZED_H
+#include "../libs/data_structure.h"
 
 // Calcolo csr serializzato
-struct matrixPerformance serial_csr(int M, int nz, int *row_indices, int *col_indices, double *values, double *x);
+struct matrixPerformance serial_csr(struct matrixData *matrix_data, double *x);
 
 // Calcolo csr parallelo con OpenMP
-struct matrixPerformance parallel_csr(const int M, const int nz, int *row_indices, int *col_indices, double *values, double *x);
+struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x);
 
 #endif

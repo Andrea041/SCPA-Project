@@ -4,7 +4,7 @@
 #ifndef DATA_STRUCTURE_H
 #define DATA_STRUCTURE_H
 
-#include <stdlib.h>
+#include "mmio.h"
 
 
 // Struttura per i dati della matrice
@@ -15,6 +15,7 @@ struct matrixData {
     int M;
     int N;
     int nz;
+    MM_typecode matcode;
 };
 
 // Struttura per memorizzare i dati di un singolo blocco ELLPACK

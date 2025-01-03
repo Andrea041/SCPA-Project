@@ -38,9 +38,10 @@ CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o: \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/csrOperations.h \
- /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/csrTool.h \
- /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/data_structure.h \
- /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/../libs/data_structure.h \
+ /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/../libs/mmio.h \
+ /usr/lib/gcc/x86_64-linux-gnu/14/include/omp.h /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h /usr/include/endian.h \
@@ -57,4 +58,6 @@ CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o: \
  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
- /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/csrTool.h \
+ /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/data_structure.h

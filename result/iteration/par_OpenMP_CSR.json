@@ -1,751 +1,651 @@
 [{
 		"nameMatrix":	"cage4.mtx",
-		"seconds":	3.11e-07,
+		"seconds":	0.013763051,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cage4.mtx",
-		"seconds":	2.2e-07,
+		"seconds":	0.00894341,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cage4.mtx",
-		"seconds":	1.91e-07,
+		"seconds":	0.01064775,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cage4.mtx",
-		"seconds":	1.61e-07,
+		"seconds":	0.009542944,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cage4.mtx",
-		"seconds":	1.7e-07,
+		"seconds":	0.006643762,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mhda416.mtx",
-		"seconds":	2.6122e-05,
+		"seconds":	0.003516691,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mhda416.mtx",
-		"seconds":	2.3657e-05,
+		"seconds":	0.007632044,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mhda416.mtx",
-		"seconds":	2.3627e-05,
+		"seconds":	0.006450086,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mhda416.mtx",
-		"seconds":	2.3718e-05,
+		"seconds":	0.007601537,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mhda416.mtx",
-		"seconds":	2.3717e-05,
+		"seconds":	0.004427849,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mcfe.mtx",
-		"seconds":	7.2244e-05,
+		"seconds":	0.003889257,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mcfe.mtx",
-		"seconds":	7.08e-05,
+		"seconds":	0.008324389,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mcfe.mtx",
-		"seconds":	7.049e-05,
+		"seconds":	0.002424587,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mcfe.mtx",
-		"seconds":	6.9439e-05,
+		"seconds":	0.014442723,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mcfe.mtx",
-		"seconds":	6.9198e-05,
+		"seconds":	0.006933095,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"olm1000.mtx",
-		"seconds":	1.1423e-05,
+		"seconds":	0.002924879,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"olm1000.mtx",
-		"seconds":	1.1553e-05,
+		"seconds":	0.006875069,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"olm1000.mtx",
-		"seconds":	1.0992e-05,
+		"seconds":	0.004766773,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"olm1000.mtx",
-		"seconds":	1.2114e-05,
+		"seconds":	0.002356823,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"olm1000.mtx",
-		"seconds":	1.0972e-05,
+		"seconds":	9.6348e-05,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"adder_dcop_32.mtx",
-		"seconds":	4.5551e-05,
+		"seconds":	0.003925203,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"adder_dcop_32.mtx",
-		"seconds":	3.3727e-05,
+		"seconds":	0.006454704,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"adder_dcop_32.mtx",
-		"seconds":	3.1102e-05,
+		"seconds":	0.006496671,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"adder_dcop_32.mtx",
-		"seconds":	3.0962e-05,
+		"seconds":	0.007496483,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"adder_dcop_32.mtx",
-		"seconds":	3.052e-05,
+		"seconds":	0.005515333,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"west2021.mtx",
-		"seconds":	2.3046e-05,
+		"seconds":	0.006613657,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"west2021.mtx",
-		"seconds":	2.1493e-05,
+		"seconds":	0.006658048,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"west2021.mtx",
-		"seconds":	2.0702e-05,
+		"seconds":	0.005653858,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"west2021.mtx",
-		"seconds":	2.0972e-05,
+		"seconds":	0.006708782,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"west2021.mtx",
-		"seconds":	2.0831e-05,
+		"seconds":	0.007691552,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cavity10.mtx",
-		"seconds":	0.000210239,
+		"seconds":	0.004008847,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cavity10.mtx",
-		"seconds":	0.000214247,
+		"seconds":	0.005420899,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cavity10.mtx",
-		"seconds":	0.000213876,
+		"seconds":	0.007387712,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cavity10.mtx",
-		"seconds":	0.000211231,
+		"seconds":	0.004415546,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cavity10.mtx",
-		"seconds":	0.000209006,
+		"seconds":	0.00117772,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"rdist2.mtx",
-		"seconds":	0.000160279,
+		"seconds":	0.003942866,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"rdist2.mtx",
-		"seconds":	0.000154678,
+		"seconds":	0.005979238,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"rdist2.mtx",
-		"seconds":	0.000153866,
+		"seconds":	0.008004329,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"rdist2.mtx",
-		"seconds":	0.000153485,
+		"seconds":	0.005009771,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"rdist2.mtx",
-		"seconds":	0.000153095,
+		"seconds":	0.003045091,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cant.mtx",
-		"seconds":	0.010605941,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cant.mtx",
-		"seconds":	0.010291617,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cant.mtx",
-		"seconds":	0.010180405,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cant.mtx",
-		"seconds":	0.010166347,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cant.mtx",
-		"seconds":	0.010170776,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"olafu.mtx",
-		"seconds":	0.002586096,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"olafu.mtx",
-		"seconds":	0.002629301,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"olafu.mtx",
-		"seconds":	0.002589462,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"olafu.mtx",
-		"seconds":	0.002582688,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"olafu.mtx",
-		"seconds":	0.002606896,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"Cube_Coup_dt0.mtx",
-		"seconds":	0.321621035,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"Cube_Coup_dt0.mtx",
-		"seconds":	0.323657162,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"Cube_Coup_dt0.mtx",
-		"seconds":	0.323826361,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"Cube_Coup_dt0.mtx",
-		"seconds":	0.317330022,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"Cube_Coup_dt0.mtx",
-		"seconds":	0.329126809,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"ML_Laplace.mtx",
-		"seconds":	0.069697408,
+		"seconds":	0.028694849,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"ML_Laplace.mtx",
-		"seconds":	0.070662717,
+		"seconds":	0.024160511,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"ML_Laplace.mtx",
-		"seconds":	0.06968112,
+		"seconds":	0.024108887,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"ML_Laplace.mtx",
-		"seconds":	0.069740456,
+		"seconds":	0.024112965,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"ML_Laplace.mtx",
-		"seconds":	0.071293067,
+		"seconds":	0.024254095,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"bcsstk17.mtx",
-		"seconds":	0.001125115,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"bcsstk17.mtx",
-		"seconds":	0.001116999,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"bcsstk17.mtx",
-		"seconds":	0.001106548,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"bcsstk17.mtx",
-		"seconds":	0.001100827,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"bcsstk17.mtx",
-		"seconds":	0.001098773,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mac_econ_fwd500.mtx",
-		"seconds":	0.005166724,
+		"seconds":	0.001412914,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mac_econ_fwd500.mtx",
-		"seconds":	0.003651716,
+		"seconds":	0.001497781,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mac_econ_fwd500.mtx",
-		"seconds":	0.003604683,
+		"seconds":	0.00143252,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mac_econ_fwd500.mtx",
-		"seconds":	0.003556117,
+		"seconds":	0.001504604,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mac_econ_fwd500.mtx",
-		"seconds":	0.00354224,
+		"seconds":	0.001504924,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mhd4800a.mtx",
-		"seconds":	0.00026529,
+		"seconds":	0.003361256,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mhd4800a.mtx",
-		"seconds":	0.000264879,
+		"seconds":	0.006103831,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mhd4800a.mtx",
-		"seconds":	0.000263947,
+		"seconds":	0.005108216,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mhd4800a.mtx",
-		"seconds":	0.000266773,
+		"seconds":	0.006095725,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mhd4800a.mtx",
-		"seconds":	0.000262635,
+		"seconds":	0.006103209,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cop20k_A.mtx",
-		"seconds":	0.008798568,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cop20k_A.mtx",
-		"seconds":	0.010357602,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cop20k_A.mtx",
-		"seconds":	0.00888615,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cop20k_A.mtx",
-		"seconds":	0.008663232,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"cop20k_A.mtx",
-		"seconds":	0.008480706,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"raefsky2.mtx",
-		"seconds":	0.000784026,
+		"seconds":	0.003878599,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"raefsky2.mtx",
-		"seconds":	0.000787684,
+		"seconds":	0.003643746,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"raefsky2.mtx",
-		"seconds":	0.000785549,
+		"seconds":	0.003632655,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"raefsky2.mtx",
-		"seconds":	0.000791781,
+		"seconds":	0.003624641,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"raefsky2.mtx",
-		"seconds":	0.000783255,
+		"seconds":	0.00359732,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"af23560.mtx",
-		"seconds":	0.001206734,
+		"seconds":	0.002307613,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"af23560.mtx",
-		"seconds":	0.001207366,
+		"seconds":	0.003300614,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"af23560.mtx",
-		"seconds":	0.001204359,
+		"seconds":	0.000530798,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"af23560.mtx",
-		"seconds":	0.00120442,
+		"seconds":	0.000532592,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"af23560.mtx",
-		"seconds":	0.001205762,
+		"seconds":	0.000628728,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"lung2.mtx",
-		"seconds":	0.001263355,
+		"seconds":	0.000585859,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"lung2.mtx",
-		"seconds":	0.001522613,
+		"seconds":	0.003870454,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"lung2.mtx",
-		"seconds":	0.00125044,
+		"seconds":	0.003348913,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"lung2.mtx",
-		"seconds":	0.001244067,
+		"seconds":	0.003354864,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"lung2.mtx",
-		"seconds":	0.00124538,
+		"seconds":	0.003319448,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"PR02R.mtx",
-		"seconds":	0.020976499,
+		"seconds":	0.00848004,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"PR02R.mtx",
-		"seconds":	0.02096112,
+		"seconds":	0.008196758,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"PR02R.mtx",
-		"seconds":	0.020943356,
+		"seconds":	0.008066408,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"PR02R.mtx",
-		"seconds":	0.021272129,
+		"seconds":	0.010891906,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"PR02R.mtx",
-		"seconds":	0.025305096,
+		"seconds":	0.008839153,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"FEM_3D_thermal1.mtx",
-		"seconds":	0.001259837,
+		"seconds":	0.003934542,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"FEM_3D_thermal1.mtx",
-		"seconds":	0.00124622,
+		"seconds":	0.00367814,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"FEM_3D_thermal1.mtx",
-		"seconds":	0.001248765,
+		"seconds":	0.003764729,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"FEM_3D_thermal1.mtx",
-		"seconds":	0.001248554,
+		"seconds":	0.003693638,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"FEM_3D_thermal1.mtx",
-		"seconds":	0.00124581,
+		"seconds":	0.006824049,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"thermal1.mtx",
-		"seconds":	0.002915358,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"thermal1.mtx",
-		"seconds":	0.00292736,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"thermal1.mtx",
-		"seconds":	0.002488722,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"thermal1.mtx",
-		"seconds":	0.00245222,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"thermal1.mtx",
-		"seconds":	0.002407833,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"thermal2.mtx",
-		"seconds":	0.04291378,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"thermal2.mtx",
-		"seconds":	0.042942256,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"thermal2.mtx",
-		"seconds":	0.042922307,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"thermal2.mtx",
-		"seconds":	0.042914235,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"thermal2.mtx",
-		"seconds":	0.048253624,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"thermomech_TK.mtx",
-		"seconds":	0.003355877,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"thermomech_TK.mtx",
-		"seconds":	0.003262013,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"thermomech_TK.mtx",
-		"seconds":	0.003240691,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"thermomech_TK.mtx",
-		"seconds":	0.003282122,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"thermomech_TK.mtx",
-		"seconds":	0.003220923,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"nlpkkt80.mtx",
-		"seconds":	0.074899127,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"nlpkkt80.mtx",
-		"seconds":	0.077410685,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"nlpkkt80.mtx",
-		"seconds":	0.092815168,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"nlpkkt80.mtx",
-		"seconds":	0.09278987,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"nlpkkt80.mtx",
-		"seconds":	0.096354179,
+		"seconds":	0,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"webbase-1M.mtx",
-		"seconds":	0.013727662,
+		"seconds":	0.004902517,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"webbase-1M.mtx",
-		"seconds":	0.014005935,
+		"seconds":	0.008552354,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"webbase-1M.mtx",
-		"seconds":	0.013908696,
+		"seconds":	0.005127612,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"webbase-1M.mtx",
-		"seconds":	0.013866273,
+		"seconds":	0.004721483,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"webbase-1M.mtx",
-		"seconds":	0.014368926,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"dc1.mtx",
-		"seconds":	0.002457202,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"dc1.mtx",
-		"seconds":	0.002463014,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"dc1.mtx",
-		"seconds":	0.002430741,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"dc1.mtx",
-		"seconds":	0.002442995,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"dc1.mtx",
-		"seconds":	0.002445991,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"amazon0302.mtx",
-		"seconds":	0.006934384,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"amazon0302.mtx",
-		"seconds":	0.007062745,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"amazon0302.mtx",
-		"seconds":	0.006824378,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"amazon0302.mtx",
-		"seconds":	0.008999941,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"amazon0302.mtx",
-		"seconds":	0.007089585,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"af_1_k101.mtx",
-		"seconds":	0.043774024,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"af_1_k101.mtx",
-		"seconds":	0.043224349,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"af_1_k101.mtx",
-		"seconds":	0.051624609,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"af_1_k101.mtx",
-		"seconds":	0.043580303,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"af_1_k101.mtx",
-		"seconds":	0.044048939,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"roadNet-PA.mtx",
-		"seconds":	0.01749884,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"roadNet-PA.mtx",
-		"seconds":	0.01706382,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"roadNet-PA.mtx",
-		"seconds":	0.017040781,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"roadNet-PA.mtx",
-		"seconds":	0.017063185,
-		"flops":	0,
-		"megaFlops":	0
-	}, {
-		"nameMatrix":	"roadNet-PA.mtx",
-		"seconds":	0.016872552,
+		"seconds":	0.00487713,
 		"flops":	0,
 		"megaFlops":	0
 	}]

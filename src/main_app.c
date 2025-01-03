@@ -40,6 +40,7 @@ void clean_matrix_mem(struct matrixData *matrix_data) {
     free(matrix_data->col_indices);
     free(matrix_data->row_indices);
     free(matrix_data->values);
+    free(matrix_data->matcode);
     matrix_data->M = 0;
     matrix_data->N = 0;
     matrix_data->nz = 0;
@@ -57,15 +58,14 @@ void preprocess_matrix(struct matrixData *matrix_data, int i) {
     }
 
     /* Lettura dell'intestazione (banner) del file Matrix Market */
-    MM_typecode matcode;
-    if (mm_read_banner(f, &matcode) != 0) {
+    if (mm_read_banner(f, &matrix_data->matcode) != 0) {
         fprintf(stderr, "Errore nella lettura del banner Matrix Market.\n");
         fclose(f);
         exit(EXIT_FAILURE);
     }
 
     /* Verifica del formato della matrice */
-    if (!mm_is_matrix(matcode) || !mm_is_coordinate(matcode)) {
+    if (!mm_is_matrix(matrix_data->matcode) || !mm_is_coordinate(matrix_data->matcode)) {
         fprintf(stderr, "Il file non è in formato matrice sparsa a coordinate.\n");
         fclose(f);
         exit(EXIT_FAILURE);
@@ -97,13 +97,13 @@ void preprocess_matrix(struct matrixData *matrix_data, int i) {
         int result;
         double value = 1.0; // Valore predefinito per matrici "pattern"
 
-        if (mm_is_pattern(matcode)) {   // Preprocessamento matrice in formato pattern
+        if (mm_is_pattern(matrix_data->matcode)) {   // Preprocessamento matrice in formato pattern
             result = fscanf(f, "%d %d", &matrix_data->row_indices[j], &matrix_data->col_indices[j]);
         } else {
             result = fscanf(f, "%d %d %lf", &matrix_data->row_indices[j], &matrix_data->col_indices[j], &value);
         }
 
-        if (result != (mm_is_pattern(matcode) ? 2 : 3)) {
+        if (result != (mm_is_pattern(matrix_data->matcode) ? 2 : 3)) {
             fprintf(stderr, "Errore nella lettura degli elementi della matrice.\n");
             free(matrix_data->row_indices);
             free(matrix_data->col_indices);
@@ -118,7 +118,7 @@ void preprocess_matrix(struct matrixData *matrix_data, int i) {
     }
 
     /* Preprocessamento matrice simmetrica */
-    if (mm_is_symmetric(matcode)) {
+    if (mm_is_symmetric(matrix_data->matcode)) {
         int extra_nz = 0;
         for (int j = 0; j < nz; j++) {
             if (matrix_data->row_indices[j] != matrix_data->col_indices[j]) {
@@ -156,11 +156,11 @@ void preprocess_matrix(struct matrixData *matrix_data, int i) {
 void add_performance_to_array(const char *nameMatrix,
                               struct matrixData *matrix_data, double *x,
                               cJSON *matrix_array,
-                              struct matrixPerformance (*calculation_function)(int, int, int *, int *, double *, double *)) {
+                              struct matrixPerformance (*calculation_function)(struct matrixData *, double *)) {
     struct matrixPerformance matrixPerformance;
 
     // Esegui il calcolo
-    matrixPerformance = calculation_function(matrix_data->M, matrix_data->nz, matrix_data->row_indices, matrix_data->col_indices, matrix_data->values, x);
+    matrixPerformance = calculation_function(matrix_data, x);
 
     // Copia il nome della matrice
     strncpy(matrixPerformance.nameMatrix, nameMatrix, sizeof(matrixPerformance.nameMatrix) - 1);
@@ -170,8 +170,10 @@ void add_performance_to_array(const char *nameMatrix,
     cJSON *performance_obj = cJSON_CreateObject();
     cJSON_AddStringToObject(performance_obj, "nameMatrix", matrixPerformance.nameMatrix);
     cJSON_AddNumberToObject(performance_obj, "seconds", matrixPerformance.seconds);
-    cJSON_AddNumberToObject(performance_obj, "flops", matrixPerformance.flops);
-    cJSON_AddNumberToObject(performance_obj, "megaFlops", matrixPerformance.megaFlops);
+    /*cJSON_AddNumberToObject(performance_obj, "flops", matrixPerformance.flops);
+    cJSON_AddNumberToObject(performance_obj, "megaFlops", matrixPerformance.megaFlops);*/
+    cJSON_AddNumberToObject(performance_obj, "flops", 0);
+    cJSON_AddNumberToObject(performance_obj, "megaFlops", 0);
 
     // Aggiungi l'oggetto all'array JSON
     cJSON_AddItemToArray(matrix_array, performance_obj);

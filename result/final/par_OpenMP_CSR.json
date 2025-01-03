@@ -1,151 +1,131 @@
 [{
 		"nameMatrix":	"cage4.mtx",
-		"seconds":	2.106e-07,
-		"flops":	29285811965811.965,
-		"megaFlops":	29285811.965811964
+		"seconds":	0.0099081834,
+		"flops":	626862841.47707641,
+		"megaFlops":	626.86284147707636
 	}, {
 		"nameMatrix":	"mhda416.mtx",
-		"seconds":	2.41682e-05,
-		"flops":	255194511796.49292,
-		"megaFlops":	255194.51179649291
+		"seconds":	0.0059256414,
+		"flops":	1048168726.5111926,
+		"megaFlops":	1048.1687265111925
 	}, {
 		"nameMatrix":	"mcfe.mtx",
-		"seconds":	7.04342e-05,
-		"flops":	87565302083.3629,
-		"megaFlops":	87565.3020833629
+		"seconds":	0.0072028102,
+		"flops":	862312323.59836447,
+		"megaFlops":	862.31232359836451
 	}, {
 		"nameMatrix":	"olm1000.mtx",
-		"seconds":	1.14108e-05,
-		"flops":	540504784940.58264,
-		"megaFlops":	540504.78494058258
+		"seconds":	0.0034039784,
+		"flops":	1824650826.2214592,
+		"megaFlops":	1824.6508262214591
 	}, {
 		"nameMatrix":	"adder_dcop_32.mtx",
-		"seconds":	3.43724e-05,
-		"flops":	179434429949.61072,
-		"megaFlops":	179434.42994961073
+		"seconds":	0.0059776788,
+		"flops":	1039044118.59667,
+		"megaFlops":	1039.04411859667
 	}, {
 		"nameMatrix":	"west2021.mtx",
-		"seconds":	2.14088e-05,
-		"flops":	288086768057.99481,
-		"megaFlops":	288086.76805799484
+		"seconds":	0.0066651794,
+		"flops":	931868690.586183,
+		"megaFlops":	931.868690586183
 	}, {
 		"nameMatrix":	"cavity10.mtx",
-		"seconds":	0.0002117198,
-		"flops":	29130917372.867352,
-		"megaFlops":	29130.917372867352
+		"seconds":	0.0044821448,
+		"flops":	1385736578.6129892,
+		"megaFlops":	1385.7365786129892
 	}, {
 		"nameMatrix":	"rdist2.mtx",
-		"seconds":	0.0001550806,
-		"flops":	39770235606.516869,
-		"megaFlops":	39770.235606516871
+		"seconds":	0.005196259,
+		"flops":	1195296847.2125812,
+		"megaFlops":	1195.2968472125813
 	}, {
 		"nameMatrix":	"cant.mtx",
-		"seconds":	0.0102830172,
-		"flops":	599784273.43289864,
-		"megaFlops":	599.78427343289866
+		"seconds":	0,
+		"flops":	null,
+		"megaFlops":	null
 	}, {
 		"nameMatrix":	"olafu.mtx",
-		"seconds":	0.0025988886,
-		"flops":	2373165206.0807834,
-		"megaFlops":	2373.1652060807833
+		"seconds":	0,
+		"flops":	null,
+		"megaFlops":	null
 	}, {
 		"nameMatrix":	"Cube_Coup_dt0.mtx",
-		"seconds":	0.3231122778,
-		"flops":	19088076.881490763,
-		"megaFlops":	19.088076881490764
+		"seconds":	0,
+		"flops":	null,
+		"megaFlops":	null
 	}, {
 		"nameMatrix":	"ML_Laplace.mtx",
-		"seconds":	0.0702149536,
-		"flops":	87838724.9977475,
-		"megaFlops":	87.8387249977475
+		"seconds":	0.0250662614,
+		"flops":	247786133.75507206,
+		"megaFlops":	247.78613375507206
 	}, {
 		"nameMatrix":	"bcsstk17.mtx",
-		"seconds":	0.0011096524,
-		"flops":	5558129735.0413532,
-		"megaFlops":	5558.1297350413533
+		"seconds":	0,
+		"flops":	null,
+		"megaFlops":	null
 	}, {
 		"nameMatrix":	"mac_econ_fwd500.mtx",
-		"seconds":	0.003904296,
-		"flops":	1579693752.7277644,
-		"megaFlops":	1579.6937527277644
+		"seconds":	0.0014705486,
+		"flops":	4223642795.6206284,
+		"megaFlops":	4223.642795620628
 	}, {
 		"nameMatrix":	"mhd4800a.mtx",
-		"seconds":	0.0002647048,
-		"flops":	23299887270.650169,
-		"megaFlops":	23299.887270650168
+		"seconds":	0.0053544474,
+		"flops":	1159983754.8128684,
+		"megaFlops":	1159.9837548128683
 	}, {
 		"nameMatrix":	"cop20k_A.mtx",
-		"seconds":	0.0090372516,
-		"flops":	682463239.15558565,
-		"megaFlops":	682.4632391555856
+		"seconds":	0,
+		"flops":	null,
+		"megaFlops":	null
 	}, {
 		"nameMatrix":	"raefsky2.mtx",
-		"seconds":	0.000786459,
-		"flops":	7842229537.71271,
-		"megaFlops":	7842.22953771271
+		"seconds":	0.0036753922,
+		"flops":	1689907270.3043773,
+		"megaFlops":	1689.9072703043773
 	}, {
 		"nameMatrix":	"af23560.mtx",
-		"seconds":	0.0012057282,
-		"flops":	5115242390.44919,
-		"megaFlops":	5115.24239044919
+		"seconds":	0.001460069,
+		"flops":	4253957860.8956151,
+		"megaFlops":	4253.9578608956153
 	}, {
 		"nameMatrix":	"lung2.mtx",
-		"seconds":	0.001305171,
-		"flops":	4725504933.836256,
-		"megaFlops":	4725.504933836256
+		"seconds":	0.0028959076,
+		"flops":	2144775613.697067,
+		"megaFlops":	2144.775613697067
 	}, {
 		"nameMatrix":	"PR02R.mtx",
-		"seconds":	0.02189164,
-		"flops":	281732752.77685916,
-		"megaFlops":	281.73275277685917
+		"seconds":	0.008894853,
+		"flops":	698277082.263192,
+		"megaFlops":	698.277082263192
 	}, {
 		"nameMatrix":	"FEM_3D_thermal1.mtx",
-		"seconds":	0.0012498372,
-		"flops":	4934716297.45058,
-		"megaFlops":	4934.71629745058
+		"seconds":	0.0043790196,
+		"flops":	1418370449.8605123,
+		"megaFlops":	1418.3704498605123
 	}, {
 		"nameMatrix":	"thermal1.mtx",
-		"seconds":	0.0026382986,
-		"flops":	2337715677.82358,
-		"megaFlops":	2337.71567782358
+		"seconds":	0,
+		"flops":	null,
+		"megaFlops":	null
 	}, {
 		"nameMatrix":	"thermal2.mtx",
-		"seconds":	0.0439892404,
-		"flops":	140206831.12318531,
-		"megaFlops":	140.20683112318531
+		"seconds":	0,
+		"flops":	null,
+		"megaFlops":	null
 	}, {
 		"nameMatrix":	"thermomech_TK.mtx",
-		"seconds":	0.0032723252,
-		"flops":	1884773554.902184,
-		"megaFlops":	1884.7735549021841
+		"seconds":	0,
+		"flops":	null,
+		"megaFlops":	null
 	}, {
 		"nameMatrix":	"nlpkkt80.mtx",
-		"seconds":	0.0868538058,
-		"flops":	71011188.780860543,
-		"megaFlops":	71.01118878086055
+		"seconds":	0,
+		"flops":	null,
+		"megaFlops":	null
 	}, {
 		"nameMatrix":	"webbase-1M.mtx",
-		"seconds":	0.0139754984,
-		"flops":	441314636.76458222,
-		"megaFlops":	441.31463676458219
-	}, {
-		"nameMatrix":	"dc1.mtx",
-		"seconds":	0.0024479886,
-		"flops":	2519452909.216979,
-		"megaFlops":	2519.4529092169792
-	}, {
-		"nameMatrix":	"amazon0302.mtx",
-		"seconds":	0.0073822066,
-		"flops":	835467270.720925,
-		"megaFlops":	835.467270720925
-	}, {
-		"nameMatrix":	"af_1_k101.mtx",
-		"seconds":	0.0452504448,
-		"flops":	136299035.89367589,
-		"megaFlops":	136.29903589367589
-	}, {
-		"nameMatrix":	"roadNet-PA.mtx",
-		"seconds":	0.0171078356,
-		"flops":	360512699.80639744,
-		"megaFlops":	360.51269980639745
+		"seconds":	0.0056362192,
+		"flops":	1101992626.5465331,
+		"megaFlops":	1101.9926265465331
 	}]
