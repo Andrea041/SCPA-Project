@@ -53,29 +53,35 @@ void convert_to_csr(int M, int nz, const int *row_indices, const int *col_indice
 }
 
 /* Prodotto matrice-vettore serializzato */
-void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, const double *x, double *y) {
+void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, double *x, double *y) {
+    // Calcolo del prodotto matrice-vettore
     for (int i = 0; i < M; i++) {
-        y[i] = 0.0;
+        y[i] = 0.0; // Inizializza y[i] a 0
         for (int j = IRP[i]; j < IRP[i + 1]; j++) {
-            y[i] += AS[j] * x[JA[j]];
+            y[i] += AS[j] * x[JA[j]]; // Prodotto scalare per riga
         }
     }
 }
 
-    /* Prodotto matrice-vettore parallelizzato con OpenMP e carico bilanciato */
-    void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const double *x, double *y, const int *row_start, const int *row_end, int num_threads) {
-        #pragma omp parallel num_threads(num_threads)
-        {
-            int thread_id = omp_get_thread_num(); // Identifica il thread corrente
-            int start_row = row_start[thread_id]; // Righe iniziali assegnate al thread
-            int end_row = row_end[thread_id];     // Righe finali assegnate al thread
 
-            // Calcola il prodotto matrice-vettore per le righe assegnate al thread
-            for (int i = start_row; i <= end_row; i++) {
-                y[i] = 0.0; // Inizializza l'output per la riga corrente
-                for (int j = IRP[i]; j < IRP[i + 1]; j++) {
-                    y[i] += AS[j] * x[JA[j]]; // Prodotto scalare della riga con il vettore x
-                }
+void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const double *x, double *y, int** thread_rows, const int *row_counts, int num_threads) {
+#pragma omp parallel num_threads(num_threads)
+    {
+        // Ottieni l'ID del thread corrente
+        int thread_id = omp_get_thread_num();
+
+        // Ottieni le righe assegnate a questo thread
+        int* rows = thread_rows[thread_id];
+        int num_rows = row_counts[thread_id];
+
+        // Calcola il prodotto matrice-vettore per le righe assegnate
+        for (int i = 0; i < num_rows; i++) {
+            int row = rows[i]; // Riga corrente
+            y[row] = 0.0; // Inizializza il valore per la riga corrente
+            for (int j = IRP[row]; j < IRP[row + 1]; j++) {
+                y[row] += AS[j] * x[JA[j]]; // Prodotto scalare della riga con il vettore x
             }
         }
     }
+}
+

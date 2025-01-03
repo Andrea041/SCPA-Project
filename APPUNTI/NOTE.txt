@@ -1,0 +1,11 @@
+peggiorano con il parallelo csr openMP
+queste matrici:
+    "west2021.mtx"
+    "rdist2.mtx"
+    "olm1000.mtx"
+    "mhda416.mtx"
+    "mcfe.mtx"
+    "cage4.mtx"
+    "adder_dcop_32.mtx"
+perchè?
+

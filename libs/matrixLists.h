@@ -29,10 +29,10 @@ static const char *matrix_names[] = {
     "nlpkkt80.mtx",
     "webbase-1M.mtx",
     //
-    /*"dc1.mtx",
-    "amazon0302.mtx",
-    "af_1_k101.mtx",
-    "roadNet-PA.mtx"*/
+    //"dc1.mtx",
+   // "amazon0302.mtx",
+   // "af_1_k101.mtx",
+   // "roadNet-PA.mtx"
 };
 
 #endif
