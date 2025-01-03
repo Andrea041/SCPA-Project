@@ -159,22 +159,29 @@ int** distribute_work_balanced(const int M, const int *nonzeros_per_row, int *ro
  * ottimale di thread da utilizzare per garantire un buon bilanciamento del carico e prestazioni efficienti.
  *
  * La determinazione del numero ideale di thread avviene in base alle seguenti considerazioni:
+ *
  * 1. **Numero di non-zeri per riga (nz_per_row)**:
  *    - Viene calcolato il numero medio di non-zeri per riga come `nz_per_row = nz / M`, dove `nz` è il
  *      numero totale di non-zeri e `M` è il numero totale di righe.
  *
  * 2. **Numero minimo di righe per thread (min_rows_per_thread)**:
  *    - Per garantire che ogni thread abbia un carico di lavoro significativo, si richiede che ogni thread
- *      elabori almeno 50 non-zeri. Il numero minimo di righe per thread è calcolato come:
- *        `min_rows_per_thread = ceil(50 / nz_per_row)`
+ *      elabori almeno 30 non-zeri. Il numero minimo di righe per thread è calcolato come:
+ *        `min_rows_per_thread = ceil(30 / nz_per_row)`
  *
  * 3. **Numero massimo di thread dinamico (max_threads_dynamic)**:
  *    - In base al numero minimo di righe per thread, viene calcolato il massimo numero di thread che possono
  *      essere utilizzati senza sovraccaricare i thread con un numero insufficiente di righe:
  *        `max_threads_dynamic = M / min_rows_per_thread`
- *    - Il numero di thread viene limitato al massimo tra `omp_get_max_threads()` e il numero di righe `M`.
+ *    - Per gestire i casi in cui `M % min_rows_per_thread != 0` (righe residue non divisibili equamente),
+ *      si aggiunge un thread extra per gestire tali righe residue:
+ *        `if (M % min_rows_per_thread != 0) max_threads_dynamic += 1`
  *
- * 4. **Scelta finale del numero di thread (num_threads)**:
+ * 4. **Limite massimo e minimo del numero di thread**:
+ *    - Il numero di thread viene limitato al massimo tra `omp_get_max_threads()` e il numero di righe `M`.
+ *    - Se il numero calcolato è inferiore a 1, viene forzato l'uso di almeno 1 thread.
+ *
+ * 5. **Scelta finale del numero di thread (num_threads)**:
  *    - Il numero finale di thread è scelto come il minimo tra `max_threads_dynamic` e il numero massimo di
  *      thread disponibili (`omp_get_max_threads()`), garantendo che ogni thread riceva un carico significativo.
  *
@@ -187,9 +194,11 @@ int** distribute_work_balanced(const int M, const int *nonzeros_per_row, int *ro
  *    di esecuzione.
  *
  * Debugging:
- *  - La funzione stampa il numero massimo di thread disponibili, il numero ottimale di thread calcolato,
- *    e il numero medio di non-zeri per riga.
+ *  - La funzione stampa il numero massimo di thread disponibili, il numero ottimale di thread calcolato
+ *    (dopo eventuali aggiustamenti modulari), il numero minimo di righe per thread, e il numero medio di
+ *    non-zeri per riga.
  */
+
 struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x) {
     int *IRP, *JA;
     double *AS;
@@ -220,16 +229,26 @@ struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x)
     // Calcolo del numero medio di non-zeri per riga
     double nz_per_row = (double)nz / M;
 
-    // Calcolo del numero minimo di righe per thread per garantire almeno 50 non-zeri per thread
-    int min_rows_per_thread = (int)ceil(50.0 / nz_per_row);
+    // Calcolo del numero minimo di righe per thread per garantire almeno X non-zeri per thread
+    int min_rows_per_thread = (int)ceil(30.0 / nz_per_row);
+    printf("Calcolo del numero minimo di righe per thread per garantire almeno X non-zeri per thread: %d\n", min_rows_per_thread);
 
     // Calcolo del numero massimo di thread dinamico
     int max_threads_dynamic = M / min_rows_per_thread;
+
+    // Aggiustamento per il caso in cui ci siano righe residue (divisione modulare)
+    if (M % min_rows_per_thread != 0) {
+        max_threads_dynamic += 1; // Aggiungi un thread per gestire le righe residue
+    }
+
+    // Limita il numero massimo di thread a quelli disponibili
     if (max_threads_dynamic > max_threads) {
         max_threads_dynamic = max_threads; // Non possiamo superare i thread disponibili
     }
+
+    // Garantisci che almeno un thread venga utilizzato
     if (max_threads_dynamic < 1) {
-        max_threads_dynamic = 1; // Almeno un thread deve essere utilizzato
+        max_threads_dynamic = 1;
     }
 
     int num_threads = max_threads_dynamic;
