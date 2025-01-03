@@ -200,6 +200,37 @@ int** distribute_work_balanced(const int M, const int *nonzeros_per_row, int *ro
  *    non-zeri per riga.
  */
 
+void calcola_num_threads(int M, int nz_per_row, int max_threads, int* num_threads, int total_nonzeros) {
+    // Assumiamo un numero uniforme di valori non nulli per riga
+    if (nz_per_row == 0) {
+        printf("Errore: Numero di non-zeri per riga non valido.\n");
+        *num_threads = 1; // Fallback a un thread
+        return;
+    }
+
+    // Calcola il numero minimo di righe per thread per garantire almeno 30 non-zeri per thread
+    int min_rows_per_thread = (int)ceil(30.0 / nz_per_row);
+    printf("Calcolo del numero minimo di righe per thread per garantire almeno 30 non-zeri per thread: %d\n", min_rows_per_thread);
+
+    // Limita il numero massimo di thread dinamico
+    int max_threads_dynamic = M / min_rows_per_thread;
+
+    // Limita il numero massimo di thread a quelli disponibili
+    if (max_threads_dynamic > max_threads) {
+        max_threads_dynamic = max_threads; // Non possiamo superare i thread disponibili
+    }
+
+    // Garantisci che almeno un thread venga utilizzato
+    if (max_threads_dynamic < 1) {
+        max_threads_dynamic = 1;
+    }
+
+    // Assegna il numero finale di thread
+    *num_threads = max_threads_dynamic;
+
+    // Stampa il risultato finale
+    printf("Numero di thread utilizzati: %d\n", *num_threads);
+}
 struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x) {
     int *IRP, *JA;
     double *AS;
@@ -226,28 +257,12 @@ struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x)
     int max_threads = omp_get_max_threads();
     int M = matrix_data->M;    // Numero totale di righe
     int nz = matrix_data->nz;  // Numero totale di non-zeri
-
+    int num_threads=0;
     // Calcolo del numero medio di non-zeri per riga
     double nz_per_row = (double)nz / M;
 
-    // Calcolo del numero minimo di righe per thread per garantire almeno X non-zeri per thread
-    int min_rows_per_thread = (int)ceil(30.0 / nz_per_row);
-    printf("Calcolo del numero minimo di righe per thread per garantire almeno X non-zeri per thread: %d\n", min_rows_per_thread);
+    calcola_num_threads(M, nz_per_row, max_threads, &num_threads,nz);
 
-    // Calcolo del numero massimo di thread dinamico
-    int max_threads_dynamic = M / min_rows_per_thread;
-
-    // Limita il numero massimo di thread a quelli disponibili
-    if (max_threads_dynamic > max_threads) {
-        max_threads_dynamic = max_threads; // Non possiamo superare i thread disponibili
-    }
-
-    // Garantisci che almeno un thread venga utilizzato
-    if (max_threads_dynamic < 1) {
-        max_threads_dynamic = 1;
-    }
-
-    int num_threads = max_threads_dynamic;
 
     if (!mm_is_pattern(matrix_data->matcode) &&
         !mm_is_symmetric(matrix_data->matcode) &&

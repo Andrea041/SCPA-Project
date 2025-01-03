@@ -1,51 +1,131 @@
 [{
 		"nameMatrix":	"cage4.mtx",
 		"seconds":	1.68e-07,
-		"flops":	5127857142857.1426,
-		"megaFlops":	5127857.1428571427
+		"flops":	36970666666666.664,
+		"megaFlops":	36970666.666666664
 	}, {
 		"nameMatrix":	"mhda416.mtx",
-		"seconds":	0.007411896,
-		"flops":	116229369.65116619,
-		"megaFlops":	116.22936965116618
+		"seconds":	1.4481599999999997e-05,
+		"flops":	428894044856.922,
+		"megaFlops":	428894.044856922
+	}, {
+		"nameMatrix":	"mcfe.mtx",
+		"seconds":	5.4848e-06,
+		"flops":	1132415402567.0945,
+		"megaFlops":	1132415.4025670944
+	}, {
+		"nameMatrix":	"olm1000.mtx",
+		"seconds":	1.6936e-06,
+		"flops":	3667378365611.7144,
+		"megaFlops":	3667378.3656117143
 	}, {
 		"nameMatrix":	"adder_dcop_32.mtx",
-		"seconds":	8.74086e-05,
-		"flops":	9855780781.29612,
-		"megaFlops":	9855.78078129612
+		"seconds":	3.7712e-06,
+		"flops":	1646974968179.89,
+		"megaFlops":	1646974.96817989
+	}, {
+		"nameMatrix":	"west2021.mtx",
+		"seconds":	2.6952e-06,
+		"flops":	2304493915108.3408,
+		"megaFlops":	2304493.9151083408
 	}, {
 		"nameMatrix":	"cavity10.mtx",
-		"seconds":	0.0031345236,
-		"flops":	274836022.92865175,
-		"megaFlops":	274.83602292865174
+		"seconds":	2.57856e-05,
+		"flops":	240873665922.065,
+		"megaFlops":	240873.665922065
 	}, {
 		"nameMatrix":	"rdist2.mtx",
-		"seconds":	8.52504e-05,
-		"flops":	10105289828.552124,
-		"megaFlops":	10105.289828552124
+		"seconds":	2.39784e-05,
+		"flops":	259027791679.17792,
+		"megaFlops":	259027.79167917793
+	}, {
+		"nameMatrix":	"cant.mtx",
+		"seconds":	5.41028524037547e-310,
+		"flops":	null,
+		"megaFlops":	null
+	}, {
+		"nameMatrix":	"olafu.mtx",
+		"seconds":	5.41028524037547e-310,
+		"flops":	null,
+		"megaFlops":	null
+	}, {
+		"nameMatrix":	"Cube_Coup_dt0.mtx",
+		"seconds":	5.41028524037547e-310,
+		"flops":	null,
+		"megaFlops":	null
+	}, {
+		"nameMatrix":	"ML_Laplace.mtx",
+		"seconds":	0.0050845054,
+		"flops":	1221568571.8418157,
+		"megaFlops":	1221.5685718418158
+	}, {
+		"nameMatrix":	"bcsstk17.mtx",
+		"seconds":	5.41028524037547e-310,
+		"flops":	null,
+		"megaFlops":	null
+	}, {
+		"nameMatrix":	"mac_econ_fwd500.mtx",
+		"seconds":	0.000419904,
+		"flops":	14791647614.692881,
+		"megaFlops":	14791.64761469288
 	}, {
 		"nameMatrix":	"mhd4800a.mtx",
-		"seconds":	0.0046221838,
-		"flops":	186379433.89442885,
-		"megaFlops":	186.37943389442884
+		"seconds":	3.26042e-05,
+		"flops":	190499138147.846,
+		"megaFlops":	190499.138147846
+	}, {
+		"nameMatrix":	"cop20k_A.mtx",
+		"seconds":	5.41028524037547e-310,
+		"flops":	null,
+		"megaFlops":	null
 	}, {
 		"nameMatrix":	"raefsky2.mtx",
-		"seconds":	0.0049576012,
-		"flops":	173769523.85762694,
-		"megaFlops":	173.76952385762695
+		"seconds":	8.20018e-05,
+		"flops":	75743117833.9988,
+		"megaFlops":	75743.1178339988
 	}, {
 		"nameMatrix":	"af23560.mtx",
-		"seconds":	0.0028162498,
-		"flops":	305896160.205675,
-		"megaFlops":	305.896160205675
+		"seconds":	0.0002446914,
+		"flops":	25383286866.641,
+		"megaFlops":	25383.286866641
 	}, {
 		"nameMatrix":	"lung2.mtx",
-		"seconds":	0.0022883664,
-		"flops":	376460692.65830863,
-		"megaFlops":	376.46069265830863
+		"seconds":	0.0001330032,
+		"flops":	46698665896.760384,
+		"megaFlops":	46698.665896760387
+	}, {
+		"nameMatrix":	"PR02R.mtx",
+		"seconds":	0.0018323618,
+		"flops":	3389653724.4991679,
+		"megaFlops":	3389.6537244991678
 	}, {
 		"nameMatrix":	"FEM_3D_thermal1.mtx",
-		"seconds":	0.003210673,
-		"flops":	268317577.03135762,
-		"megaFlops":	268.31757703135764
+		"seconds":	0.0002348348,
+		"flops":	26448686480.879322,
+		"megaFlops":	26448.686480879322
+	}, {
+		"nameMatrix":	"thermal1.mtx",
+		"seconds":	5.41028524037547e-310,
+		"flops":	null,
+		"megaFlops":	null
+	}, {
+		"nameMatrix":	"thermal2.mtx",
+		"seconds":	5.41028524037547e-310,
+		"flops":	null,
+		"megaFlops":	null
+	}, {
+		"nameMatrix":	"thermomech_TK.mtx",
+		"seconds":	5.41028524037547e-310,
+		"flops":	null,
+		"megaFlops":	null
+	}, {
+		"nameMatrix":	"nlpkkt80.mtx",
+		"seconds":	5.41028524037547e-310,
+		"flops":	null,
+		"megaFlops":	null
+	}, {
+		"nameMatrix":	"webbase-1M.mtx",
+		"seconds":	0.0012075378,
+		"flops":	5143583910.9964085,
+		"megaFlops":	5143.5839109964081
 	}]

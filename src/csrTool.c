@@ -73,19 +73,24 @@ void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const do
             }
         }
     }else {
-        #pragma omp parallel num_threads(num_threads)
+#pragma omp parallel num_threads(2)
         {
             // Ottieni l'ID del thread corrente
             int thread_id = omp_get_thread_num();
 
             // Ottieni le righe assegnate a questo thread
-            int* rows = thread_rows[thread_id];
-            int num_rows = row_counts[thread_id];
+            int* rows = thread_rows[thread_id];  // Array delle righe assegnate al thread
+            int num_rows = row_counts[thread_id]; // Numero di righe assegnate al thread
 
-            // Calcola il prodotto matrice-vettore per le righe assegnate
-            for (int i = 0; i < num_rows; i++) {
-                int row = rows[i]; // Riga corrente
-                y[row] = 0.0; // Inizializza il valore per la riga corrente
+            // Calcola i limiti di inizio e fine
+            int start = rows[0];               // Prima riga assegnata al thread
+            int end = rows[num_rows - 1] + 1;  // Ultima riga assegnata al thread (+1 per includere l'ultima riga)
+
+            // Itera direttamente da start a end
+            for (int row = start; row < end; row++) {
+                y[row] = 0.0;      // Inizializza il valore per la riga corrente
+
+                // Scorri gli elementi non nulli della riga nella matrice CSR
                 for (int j = IRP[row]; j < IRP[row + 1]; j++) {
                     y[row] += AS[j] * x[JA[j]]; // Prodotto scalare della riga con il vettore x
                 }
