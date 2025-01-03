@@ -170,6 +170,7 @@ void add_performance_to_array(const char *nameMatrix,
     cJSON *performance_obj = cJSON_CreateObject();
     cJSON_AddStringToObject(performance_obj, "nameMatrix", matrixPerformance.nameMatrix);
     cJSON_AddNumberToObject(performance_obj, "seconds", matrixPerformance.seconds);
+    cJSON_AddNumberToObject(performance_obj, "nonzeros", matrix_data->nz);
     /*cJSON_AddNumberToObject(performance_obj, "flops", matrixPerformance.flops);
     cJSON_AddNumberToObject(performance_obj, "megaFlops", matrixPerformance.megaFlops);*/
     cJSON_AddNumberToObject(performance_obj, "flops", 0);
@@ -238,14 +239,14 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
 
     MatrixPerformanceResult *matrix_results = malloc(1000 * sizeof(MatrixPerformanceResult)); // Buffer iniziale
     int matrix_result_count = 0;
+    int nz = 0;
 
     cJSON *item;
     cJSON_ArrayForEach(item, json_array) {
         const char *nameMatrix = cJSON_GetObjectItem(item, "nameMatrix")->valuestring;
         double seconds = cJSON_GetObjectItem(item, "seconds")->valuedouble;
-
-        // Debug: verifica i valori letti
-        printf("nameMatrix: %s, seconds: %f\n", nameMatrix, seconds);
+        nz = cJSON_GetObjectItem(item, "nonzeros")->valueint;  // Debug: verifica i valori letti
+        printf("nameMatrix: %s, seconds: %f, nonzeros: %d\n", nameMatrix, seconds, nz);
 
         // Cerca se il nameMatrix esiste già
         int found = 0;
