@@ -1,131 +1,151 @@
 [{
 		"nameMatrix":	"cage4.mtx",
-		"seconds":	1.68e-07,
-		"flops":	36970666666666.664,
-		"megaFlops":	36970666.666666664
+		"seconds":	2e-07,
+		"flops":	30837960000000,
+		"megaFlops":	30837960
 	}, {
 		"nameMatrix":	"mhda416.mtx",
-		"seconds":	1.4481599999999997e-05,
-		"flops":	428894044856.922,
-		"megaFlops":	428894.044856922
+		"seconds":	1.7e-05,
+		"flops":	362799529411.76471,
+		"megaFlops":	362799.5294117647
 	}, {
 		"nameMatrix":	"mcfe.mtx",
-		"seconds":	5.4848e-06,
-		"flops":	1132415402567.0945,
-		"megaFlops":	1132415.4025670944
+		"seconds":	6.66e-05,
+		"flops":	92606486486.4865,
+		"megaFlops":	92606.4864864865
 	}, {
 		"nameMatrix":	"olm1000.mtx",
-		"seconds":	1.6936e-06,
-		"flops":	3667378365611.7144,
-		"megaFlops":	3667378.3656117143
+		"seconds":	9e-06,
+		"flops":	685288000000,
+		"megaFlops":	685288
 	}, {
 		"nameMatrix":	"adder_dcop_32.mtx",
-		"seconds":	3.7712e-06,
-		"flops":	1646974968179.89,
-		"megaFlops":	1646974.96817989
+		"seconds":	5.5e-05,
+		"flops":	112138036363.63637,
+		"megaFlops":	112138.03636363636
 	}, {
 		"nameMatrix":	"west2021.mtx",
-		"seconds":	2.6952e-06,
-		"flops":	2304493915108.3408,
-		"megaFlops":	2304493.9151083408
+		"seconds":	2.02e-05,
+		"flops":	305326336633.66339,
+		"megaFlops":	305326.33663366339
 	}, {
 		"nameMatrix":	"cavity10.mtx",
-		"seconds":	2.57856e-05,
-		"flops":	240873665922.065,
-		"megaFlops":	240873.665922065
+		"seconds":	4.08e-05,
+		"flops":	151166470588.23529,
+		"megaFlops":	151166.4705882353
 	}, {
 		"nameMatrix":	"rdist2.mtx",
-		"seconds":	2.39784e-05,
-		"flops":	259027791679.17792,
-		"megaFlops":	259027.79167917793
+		"seconds":	3.72e-05,
+		"flops":	165795483870.96777,
+		"megaFlops":	165795.48387096779
 	}, {
 		"nameMatrix":	"cant.mtx",
-		"seconds":	5.41028524037547e-310,
-		"flops":	null,
-		"megaFlops":	null
+		"seconds":	6.06e-05,
+		"flops":	101775445544.55446,
+		"megaFlops":	101775.44554455446
 	}, {
 		"nameMatrix":	"olafu.mtx",
-		"seconds":	5.41028524037547e-310,
-		"flops":	null,
-		"megaFlops":	null
+		"seconds":	5.32e-05,
+		"flops":	115932180451.12784,
+		"megaFlops":	115932.18045112783
 	}, {
 		"nameMatrix":	"Cube_Coup_dt0.mtx",
-		"seconds":	5.41028524037547e-310,
-		"flops":	null,
-		"megaFlops":	null
+		"seconds":	6.82e-05,
+		"flops":	90433900293.255127,
+		"megaFlops":	90433.900293255123
 	}, {
 		"nameMatrix":	"ML_Laplace.mtx",
-		"seconds":	0.0050845054,
-		"flops":	1221568571.8418157,
-		"megaFlops":	1221.5685718418158
+		"seconds":	8.86e-05,
+		"flops":	69611647855.530472,
+		"megaFlops":	69611.6478555305
 	}, {
 		"nameMatrix":	"bcsstk17.mtx",
-		"seconds":	5.41028524037547e-310,
-		"flops":	null,
-		"megaFlops":	null
+		"seconds":	6.52e-05,
+		"flops":	94594969325.1534,
+		"megaFlops":	94594.969325153375
 	}, {
 		"nameMatrix":	"mac_econ_fwd500.mtx",
-		"seconds":	0.000419904,
-		"flops":	14791647614.692881,
-		"megaFlops":	14791.64761469288
+		"seconds":	5.54e-05,
+		"flops":	111328375451.26353,
+		"megaFlops":	111328.37545126354
 	}, {
 		"nameMatrix":	"mhd4800a.mtx",
-		"seconds":	3.26042e-05,
-		"flops":	190499138147.846,
-		"megaFlops":	190499.138147846
+		"seconds":	4.86e-05,
+		"flops":	126905185185.1852,
+		"megaFlops":	126905.1851851852
 	}, {
 		"nameMatrix":	"cop20k_A.mtx",
-		"seconds":	5.41028524037547e-310,
-		"flops":	null,
-		"megaFlops":	null
+		"seconds":	7.04e-05,
+		"flops":	87607840909.0909,
+		"megaFlops":	87607.8409090909
 	}, {
 		"nameMatrix":	"raefsky2.mtx",
-		"seconds":	8.20018e-05,
-		"flops":	75743117833.9988,
-		"megaFlops":	75743.1178339988
+		"seconds":	7.38e-05,
+		"flops":	83571707317.073166,
+		"megaFlops":	83571.70731707316
 	}, {
 		"nameMatrix":	"af23560.mtx",
-		"seconds":	0.0002446914,
-		"flops":	25383286866.641,
-		"megaFlops":	25383.286866641
+		"seconds":	5.68e-05,
+		"flops":	108584366197.18309,
+		"megaFlops":	108584.36619718309
 	}, {
 		"nameMatrix":	"lung2.mtx",
-		"seconds":	0.0001330032,
-		"flops":	46698665896.760384,
-		"megaFlops":	46698.665896760387
+		"seconds":	6.64e-05,
+		"flops":	92885421686.747,
+		"megaFlops":	92885.421686747
 	}, {
 		"nameMatrix":	"PR02R.mtx",
-		"seconds":	0.0018323618,
-		"flops":	3389653724.4991679,
-		"megaFlops":	3389.6537244991678
+		"seconds":	6.42e-05,
+		"flops":	96068411214.953262,
+		"megaFlops":	96068.411214953259
 	}, {
 		"nameMatrix":	"FEM_3D_thermal1.mtx",
-		"seconds":	0.0002348348,
-		"flops":	26448686480.879322,
-		"megaFlops":	26448.686480879322
+		"seconds":	5.42e-05,
+		"flops":	113793210332.10333,
+		"megaFlops":	113793.21033210334
 	}, {
 		"nameMatrix":	"thermal1.mtx",
-		"seconds":	5.41028524037547e-310,
-		"flops":	null,
-		"megaFlops":	null
+		"seconds":	5.6e-05,
+		"flops":	110135571428.57141,
+		"megaFlops":	110135.57142857141
 	}, {
 		"nameMatrix":	"thermal2.mtx",
-		"seconds":	5.41028524037547e-310,
-		"flops":	null,
-		"megaFlops":	null
+		"seconds":	6.08e-05,
+		"flops":	101440657894.73685,
+		"megaFlops":	101440.65789473684
 	}, {
 		"nameMatrix":	"thermomech_TK.mtx",
-		"seconds":	5.41028524037547e-310,
-		"flops":	null,
-		"megaFlops":	null
+		"seconds":	5.56e-05,
+		"flops":	110927913669.06476,
+		"megaFlops":	110927.91366906476
 	}, {
 		"nameMatrix":	"nlpkkt80.mtx",
-		"seconds":	5.41028524037547e-310,
-		"flops":	null,
-		"megaFlops":	null
+		"seconds":	6.06e-05,
+		"flops":	101775445544.55444,
+		"megaFlops":	101775.44554455444
 	}, {
 		"nameMatrix":	"webbase-1M.mtx",
-		"seconds":	0.0012075378,
-		"flops":	5143583910.9964085,
-		"megaFlops":	5143.5839109964081
+		"seconds":	5.74e-05,
+		"flops":	107449337979.09407,
+		"megaFlops":	107449.33797909407
+	}, {
+		"nameMatrix":	"dc1.mtx",
+		"seconds":	0.0001438,
+		"flops":	42890069541.029213,
+		"megaFlops":	42890.0695410292
+	}, {
+		"nameMatrix":	"amazon0302.mtx",
+		"seconds":	5.78e-05,
+		"flops":	106705743944.63669,
+		"megaFlops":	106705.74394463669
+	}, {
+		"nameMatrix":	"af_1_k101.mtx",
+		"seconds":	6.12e-05,
+		"flops":	100777647058.82352,
+		"megaFlops":	100777.64705882351
+	}, {
+		"nameMatrix":	"roadNet-PA.mtx",
+		"seconds":	5.54e-05,
+		"flops":	111328375451.26353,
+		"megaFlops":	111328.37545126354
 	}]

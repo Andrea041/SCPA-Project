@@ -64,7 +64,7 @@ void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, double *
 }
 
 
-void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const double *x, double *y, int** thread_rows, const int *row_counts, int num_threads, const int M) {
+/*void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const double *x, double *y, int** thread_rows, const int *row_counts, int num_threads, const int M) {
     if (num_threads == 1) {
         for (int i = 0; i < M; i++) {
             y[i] = 0.0; // Inizializza y[i] a 0
@@ -98,7 +98,26 @@ void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const do
         }
 
     }
+}*/
 
-
+void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const double *x, double *y, int *start_row, int *end_row, int num_threads, int nz, int M) {
+    if (nz < 10000) {
+        for (int i = 0; i < M; i++) {
+            y[i] = 0.0; // Inizializza y[i] a 0
+            for (int j = IRP[i]; j < IRP[i + 1]; j++) {
+                y[i] += AS[j] * x[JA[j]]; // Prodotto scalare per riga
+            }
+        }
+    } else {
+        #pragma omp parallel num_threads(num_threads)
+        {
+            int tid = omp_get_thread_num();
+            for (int i = start_row[tid]; i < end_row[tid]; i++) {
+                y[i] = 0.0;
+                for (int j = IRP[i]; j < IRP[i + 1]; j++) {
+                    y[i] += AS[j] * x[JA[j]];
+                }
+            }
+        }
+    }
 }
-
