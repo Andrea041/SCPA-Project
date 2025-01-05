@@ -54,58 +54,21 @@ void convert_to_csr(int M, int nz, const int *row_indices, const int *col_indice
 
 /* Prodotto matrice-vettore serializzato */
 void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, double *x, double *y) {
-    // Calcolo del prodotto matrice-vettore
     for (int i = 0; i < M; i++) {
-        y[i] = 0.0; // Inizializza y[i] a 0
+        y[i] = 0.0;
         for (int j = IRP[i]; j < IRP[i + 1]; j++) {
-            y[i] += AS[j] * x[JA[j]]; // Prodotto scalare per riga
+            y[i] += AS[j] * x[JA[j]];
         }
     }
 }
 
-
-/*void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const double *x, double *y, int** thread_rows, const int *row_counts, int num_threads, const int M) {
-    if (num_threads == 1) {
-        for (int i = 0; i < M; i++) {
-            y[i] = 0.0; // Inizializza y[i] a 0
-            for (int j = IRP[i]; j < IRP[i + 1]; j++) {
-                y[i] += AS[j] * x[JA[j]]; // Prodotto scalare per riga
-            }
-        }
-    }else {
-#pragma omp parallel num_threads(2)
-        {
-            // Ottieni l'ID del thread corrente
-            int thread_id = omp_get_thread_num();
-
-            // Ottieni le righe assegnate a questo thread
-            int* rows = thread_rows[thread_id];  // Array delle righe assegnate al thread
-            int num_rows = row_counts[thread_id]; // Numero di righe assegnate al thread
-
-            // Calcola i limiti di inizio e fine
-            int start = rows[0];               // Prima riga assegnata al thread
-            int end = rows[num_rows - 1] + 1;  // Ultima riga assegnata al thread (+1 per includere l'ultima riga)
-
-            // Itera direttamente da start a end
-            for (int row = start; row < end; row++) {
-                y[row] = 0.0;      // Inizializza il valore per la riga corrente
-
-                // Scorri gli elementi non nulli della riga nella matrice CSR
-                for (int j = IRP[row]; j < IRP[row + 1]; j++) {
-                    y[row] += AS[j] * x[JA[j]]; // Prodotto scalare della riga con il vettore x
-                }
-            }
-        }
-
-    }
-}*/
-
+/* Prodotto matrice-vettore parallelo */
 void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const double *x, double *y, int *start_row, int *end_row, int num_threads, int nz, int M) {
-    if (nz < 10000) {
+    if (nz < 12000) {
         for (int i = 0; i < M; i++) {
-            y[i] = 0.0; // Inizializza y[i] a 0
+            y[i] = 0.0;
             for (int j = IRP[i]; j < IRP[i + 1]; j++) {
-                y[i] += AS[j] * x[JA[j]]; // Prodotto scalare per riga
+                y[i] += AS[j] * x[JA[j]];
             }
         }
     } else {
@@ -117,6 +80,7 @@ void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const do
                 for (int j = IRP[i]; j < IRP[i + 1]; j++) {
                     y[i] += AS[j] * x[JA[j]];
                 }
+
             }
         }
     }

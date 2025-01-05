@@ -16,7 +16,7 @@ const char *base_path = "/home/pierfrancesco/Desktop/matrix/";
 #elif defined(USER_ANDREA)
 const char *base_path = "/Users/andreaandreoli/matrix/";
 #else
-const char *base_path = "./matrix/";
+const char *base_path = "data/aandreoli/matrix/";
 #endif
 
 /* Funzione per controllare e creare directory */
@@ -171,8 +171,6 @@ void add_performance_to_array(const char *nameMatrix,
     cJSON_AddStringToObject(performance_obj, "nameMatrix", matrixPerformance.nameMatrix);
     cJSON_AddNumberToObject(performance_obj, "seconds", matrixPerformance.seconds);
     cJSON_AddNumberToObject(performance_obj, "nonzeros", matrix_data->nz);
-    /*cJSON_AddNumberToObject(performance_obj, "flops", matrixPerformance.flops);
-    cJSON_AddNumberToObject(performance_obj, "megaFlops", matrixPerformance.megaFlops);*/
     cJSON_AddNumberToObject(performance_obj, "flops", 0);
     cJSON_AddNumberToObject(performance_obj, "megaFlops", 0);
 
@@ -246,7 +244,6 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
         const char *nameMatrix = cJSON_GetObjectItem(item, "nameMatrix")->valuestring;
         double seconds = cJSON_GetObjectItem(item, "seconds")->valuedouble;
         nz = cJSON_GetObjectItem(item, "nonzeros")->valueint;  // Debug: verifica i valori letti
-        printf("nameMatrix: %s, seconds: %f, nonzeros: %d\n", nameMatrix, seconds, nz);
 
         // Cerca se il nameMatrix esiste già
         int found = 0;
@@ -278,16 +275,9 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
         // Calcola la media dei seconds
         double average_seconds = matrix_results[i].total_seconds / ITERATION_PER_MATRIX;
 
-        // Debug: verifica la media calcolata
-        printf("Matrix: %s, Total Seconds: %f, Count: %d, Average Seconds: %f\n",
-               matrix_results[i].nameMatrix, matrix_results[i].total_seconds, matrix_results[i].count, average_seconds);
-
         // Calcola FLOPS e MegaFLOPS
         double flops = 2.0 * nz / average_seconds;
         double megaFlops = flops / 1e6;
-
-        // Debug: verifica i valori calcolati
-        printf("Matrix: %s, FLOPS: %f, MegaFLOPS: %f\n", matrix_results[i].nameMatrix, flops, megaFlops);
 
         // Creazione dell'oggetto JSON
         cJSON *output_data = cJSON_CreateObject();
@@ -370,4 +360,3 @@ int main() {
 
     return EXIT_SUCCESS;
 }
-
