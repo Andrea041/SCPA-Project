@@ -45,23 +45,25 @@ struct matrixPerformance serial_csr(struct matrixData *matrix_data, double *x) {
     return node;
 }
 
-void compute_thread_row_partition(int M, int nz, int num_threads, int *IRP, int **start_row, int **end_row) {
-    *start_row = malloc((size_t)num_threads * sizeof(int));
-    *end_row = malloc((size_t)num_threads * sizeof(int));
+void compute_thread_row_partition(int M, int nz, int *num_threads, int *IRP, int **start_row, int **end_row) {
+    *start_row = malloc((size_t)(*num_threads) * sizeof(int));
+    *end_row = malloc((size_t)(*num_threads) * sizeof(int));
+    int *nnz_per_thread_count = malloc((size_t)(*num_threads) * sizeof(int)); // Array per conteggio dei non zeri
 
-    if (*start_row == NULL || *end_row == NULL) {
+    if (*start_row == NULL || *end_row == NULL || nnz_per_thread_count == NULL) {
         printf("Errore nell'allocazione della memoria per la partizione delle righe\n");
         exit(EXIT_FAILURE);
     }
 
-    for (int t = 0; t < num_threads; t++) {
+    for (int t = 0; t < *num_threads; t++) {
         (*start_row)[t] = -1;
         (*end_row)[t] = -1;
+        nnz_per_thread_count[t] = 0; // Inizializza il conteggio a 0
     }
 
-    int nnz_per_thread = nz / num_threads;
+    int nnz_per_thread = nz / *num_threads;
     int current_nnz = 0, current_thread = 0;
-
+    printf("numero di non zeri = %d\n",nz);
     for (int i = 0; i < M; i++) {
         if (current_nnz >= current_thread * nnz_per_thread && (*start_row)[current_thread] == -1) {
             (*start_row)[current_thread] = i;
@@ -70,12 +72,39 @@ void compute_thread_row_partition(int M, int nz, int num_threads, int *IRP, int 
         if (current_nnz >= (current_thread + 1) * nnz_per_thread || i == M - 1) {
             (*end_row)[current_thread] = i + 1; // Include l'ultima riga
             current_thread++;
-            if (current_thread >= num_threads) break;
+            if (current_thread >= *num_threads) break;
         }
 
-        current_nnz += IRP[i + 1] - IRP[i];
+        int nnz_in_row = IRP[i + 1] - IRP[i];
+        nnz_per_thread_count[current_thread] += nnz_in_row; // Aggiungi i non zeri di questa riga al thread corrente
+        current_nnz += nnz_in_row;
     }
+
+    // Rimuovi i thread non validi e aggiorna num_threads
+    int valid_threads = 0;
+    for (int t = 0; t < *num_threads; t++) {
+        if ((*start_row)[t] != -1 && (*end_row)[t] != -1 && nnz_per_thread_count[t] > 0) {
+            // Mantieni il thread valido
+            (*start_row)[valid_threads] = (*start_row)[t];
+            (*end_row)[valid_threads] = (*end_row)[t];
+            nnz_per_thread_count[valid_threads] = nnz_per_thread_count[t];
+            valid_threads++;
+        }
+    }
+
+    // Aggiorna il numero finale di thread
+    *num_threads = valid_threads;
+
+    // Stampa il risultato per ogni thread
+    for (int t = 0; t < *num_threads; t++) {
+        printf("Thread %d: righe [%d, %d), non zeri = %d\n",
+               t, (*start_row)[t], (*end_row)[t], nnz_per_thread_count[t]);
+    }
+
+    free(nnz_per_thread_count); // Libera la memoria allocata
 }
+
+
 
 struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x) {
     int *IRP, *JA;
@@ -98,7 +127,7 @@ struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x)
     int num_threads = omp_get_max_threads();
     int *start_row, *end_row;
 
-    compute_thread_row_partition(matrix_data->M, matrix_data->nz, num_threads, IRP, &start_row, &end_row);
+    compute_thread_row_partition(matrix_data->M, matrix_data->nz, &num_threads, IRP, &start_row, &end_row);
 
     struct timespec start, end;
     clock_gettime(CLOCK_MONOTONIC, &start);
