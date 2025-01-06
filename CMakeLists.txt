@@ -16,6 +16,7 @@ add_executable(SCPA_Project
         src/csrTool.c
         src/csrOperations.c
         src/hll_ellpack_Tool.c
+        src/hll_Operations.c
 
         # File di intestazione
         libs/matrixLists.h
@@ -24,6 +25,7 @@ add_executable(SCPA_Project
         libs/hll_ellpack_Tool.h
         libs/data_structure.h
         libs/costants.h
+        libs/hll_Operations.h
 )
 
 # Linka le librerie necessarie

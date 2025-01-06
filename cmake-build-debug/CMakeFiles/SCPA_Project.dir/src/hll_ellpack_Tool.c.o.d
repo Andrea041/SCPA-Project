@@ -40,6 +40,7 @@ CMakeFiles/SCPA_Project.dir/src/hll_ellpack_Tool.c.o: \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/hll_Operations.h \
  /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/data_structure.h \
  /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/mmio.h \
  /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/14/include/stdarg.h \
@@ -51,5 +52,6 @@ CMakeFiles/SCPA_Project.dir/src/hll_ellpack_Tool.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/data_structure.h \
  /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/hll_ellpack_Tool.h \
  /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/costants.h

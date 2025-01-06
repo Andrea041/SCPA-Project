@@ -201,6 +201,30 @@ src/functionsIO.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/src/functionsIO.c.s
 .PHONY : src/functionsIO.c.s
 
+src/hll_Operations.o: src/hll_Operations.c.o
+.PHONY : src/hll_Operations.o
+
+# target to build an object file
+src/hll_Operations.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/src/hll_Operations.c.o
+.PHONY : src/hll_Operations.c.o
+
+src/hll_Operations.i: src/hll_Operations.c.i
+.PHONY : src/hll_Operations.i
+
+# target to preprocess a source file
+src/hll_Operations.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/src/hll_Operations.c.i
+.PHONY : src/hll_Operations.c.i
+
+src/hll_Operations.s: src/hll_Operations.c.s
+.PHONY : src/hll_Operations.s
+
+# target to generate assembly for a file
+src/hll_Operations.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/src/hll_Operations.c.s
+.PHONY : src/hll_Operations.c.s
+
 src/hll_ellpack_Tool.o: src/hll_ellpack_Tool.c.o
 .PHONY : src/hll_ellpack_Tool.o
 
@@ -267,6 +291,9 @@ help:
 	@echo "... src/functionsIO.o"
 	@echo "... src/functionsIO.i"
 	@echo "... src/functionsIO.s"
+	@echo "... src/hll_Operations.o"
+	@echo "... src/hll_Operations.i"
+	@echo "... src/hll_Operations.s"
 	@echo "... src/hll_ellpack_Tool.o"
 	@echo "... src/hll_ellpack_Tool.i"
 	@echo "... src/hll_ellpack_Tool.s"

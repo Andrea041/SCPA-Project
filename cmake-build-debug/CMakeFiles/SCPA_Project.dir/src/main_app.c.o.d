@@ -63,4 +63,6 @@ CMakeFiles/SCPA_Project.dir/src/main_app.c.o: \
  /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/costants.h \
  /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/csrOperations.h \
  /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/../libs/data_structure.h \
+ /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/hll_Operations.h \
+ /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/data_structure.h \
  /usr/include/cjson/cJSON.h

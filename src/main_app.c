@@ -9,6 +9,7 @@
 #include "../libs/data_structure.h"
 #include "../libs/costants.h"
 #include "../libs/csrOperations.h"
+#include "../libs/hll_Operations.h"
 #include "cjson/cJSON.h"
 
 #ifdef USER_PIERFRANCESCO
@@ -317,8 +318,9 @@ int main() {
     const int num_matrices = sizeof(matrix_names) / sizeof(matrix_names[0]);
 
     // Creazione degli array JSON per questa matrice
-    cJSON *serial_array = cJSON_CreateArray();
-    cJSON *parallel_array = cJSON_CreateArray();
+    cJSON *serial_array_csr = cJSON_CreateArray();
+    cJSON *parallel_array_csr_openMP = cJSON_CreateArray();
+    cJSON *parallel_array_hll_openMP = cJSON_CreateArray();
 
     for (int i = 0; i < num_matrices; i++) {
         struct matrixData *matrix_data = malloc(sizeof(struct matrixData));
@@ -341,22 +343,34 @@ int main() {
         }
 
         for (int j = 0; j < ITERATION_PER_MATRIX; j++) {
-            add_performance_to_array(matrix_names[i], matrix_data, x, serial_array, serial_csr);
-            add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array, parallel_csr);
+
+            /*seriale con CSR*/
+            add_performance_to_array(matrix_names[i], matrix_data, x, serial_array_csr, serial_csr);
+
+            /*parallelo OPENMP && CSR*/
+            add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array_csr_openMP, parallel_csr);
+
+            /*parallelo OPENMP && HLL*/
+         //   add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array_hll_openMP, parallel_hll);
+
+
         }
 
         free(x);
         free(matrix_data);
     }
 
-    write_json_to_file("../result/iteration/serial_CSR.json", serial_array);
-    write_json_to_file("../result/iteration/par_OpenMP_CSR.json", parallel_array);
+    write_json_to_file("../result/iteration/serial_CSR.json", serial_array_csr);
+    write_json_to_file("../result/iteration/par_OpenMP_CSR.json", parallel_array_csr_openMP);
+   // write_json_to_file("../result/iteration/par_OpenMP_HLL.json", parallel_array_hll_openMP);
 
-    cJSON_Delete(serial_array);
-    cJSON_Delete(parallel_array);
+    cJSON_Delete(serial_array_csr);
+    cJSON_Delete(parallel_array_csr_openMP);
+   // cJSON_Delete(parallel_array_hll_openMP);
 
     calculatePerformance("../result/iteration/serial_CSR.json", "../result/final/serial_CSR.json");
     calculatePerformance("../result/iteration/par_OpenMP_CSR.json", "../result/final/par_OpenMP_CSR.json");
+   // calculatePerformance("../result/iteration/par_OpenMP_HLL.json", "../result/final/par_OpenMP_HLL.json");
 
     return EXIT_SUCCESS;
 }

@@ -5,8 +5,6 @@
 
 #include <omp.h>
 #include <stdlib.h>
-#include <tgmath.h>
-
 #include "../libs/csrTool.h"
 #include "../libs/data_structure.h"
 
@@ -115,9 +113,6 @@ void compute_thread_row_partition(int M, int nz, int *num_threads, int *IRP, int
     printf("non zeri nella matrice: %d , numero di non zeri assegnati:%d\n",nz,result);
     free(nnz_per_thread_count); // Libera la memoria allocata
 }
-
-
-
 
 struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x) {
     int *IRP, *JA;
