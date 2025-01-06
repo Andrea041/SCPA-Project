@@ -55,32 +55,42 @@ void compute_thread_row_partition(int M, int nz, int *num_threads, int *IRP, int
         exit(EXIT_FAILURE);
     }
 
+    // Inizializza i valori
     for (int t = 0; t < *num_threads; t++) {
         (*start_row)[t] = -1;
         (*end_row)[t] = -1;
         nnz_per_thread_count[t] = 0; // Inizializza il conteggio a 0
     }
 
-    int nnz_per_thread = nz / *num_threads;
-    int current_nnz = 0, current_thread = 0;
-    printf("numero di non zeri = %d\n",nz);
+    int ideal_nnz_per_thread = nz / *num_threads; // Quota ideale di non zeri per ogni thread
+    int current_thread = 0;
+    int current_nnz = 0;
+
+    // Assegna righe in modo da bilanciare i non zeri
     for (int i = 0; i < M; i++) {
-        if (current_nnz >= current_thread * nnz_per_thread && (*start_row)[current_thread] == -1) {
-            (*start_row)[current_thread] = i;
+        int nnz_in_row = IRP[i + 1] - IRP[i]; // Non zeri nella riga corrente
+
+        if ((*start_row)[current_thread] == -1) {
+            (*start_row)[current_thread] = i; // Imposta l'inizio per il thread corrente
         }
 
-        if (current_nnz >= (current_thread + 1) * nnz_per_thread || i == M - 1) {
-            (*end_row)[current_thread] = i + 1; // Include l'ultima riga
-            current_thread++;
-            if (current_thread >= *num_threads) break;
-        }
-
-        int nnz_in_row = IRP[i + 1] - IRP[i];
-        nnz_per_thread_count[current_thread] += nnz_in_row; // Aggiungi i non zeri di questa riga al thread corrente
         current_nnz += nnz_in_row;
+        nnz_per_thread_count[current_thread] += nnz_in_row;
+
+        // Se il limite di non zeri per il thread è raggiunto, passa al prossimo thread
+        if (current_nnz >= ideal_nnz_per_thread && current_thread < *num_threads - 1) {
+            (*end_row)[current_thread] = i + 1; // Fine inclusiva per il thread corrente
+            current_thread++;
+            current_nnz = 0;
+        }
     }
 
-    // Rimuovi i thread non validi e aggiorna num_threads
+    // Assegna la fine per l'ultimo thread
+    if (current_thread < *num_threads) {
+        (*end_row)[current_thread] = M;
+    }
+
+    // Rimuovi i thread non validi (ad esempio, se ci sono più thread rispetto alle righe o i non zeri)
     int valid_threads = 0;
     for (int t = 0; t < *num_threads; t++) {
         if ((*start_row)[t] != -1 && (*end_row)[t] != -1 && nnz_per_thread_count[t] > 0) {
@@ -96,13 +106,16 @@ void compute_thread_row_partition(int M, int nz, int *num_threads, int *IRP, int
     *num_threads = valid_threads;
 
     // Stampa il risultato per ogni thread
+    int result=0;
     for (int t = 0; t < *num_threads; t++) {
-        printf("Thread %d: righe [%d, %d), non zeri = %d\n",
-               t, (*start_row)[t], (*end_row)[t], nnz_per_thread_count[t]);
+        printf("Thread %d: righe [%d, %d), non zeri = %d , numero di righe: %d\n",
+               t, (*start_row)[t], (*end_row)[t], nnz_per_thread_count[t], M);
+        result=result+nnz_per_thread_count[t];
     }
-
+    printf("non zeri nella matrice: %d , numero di non zeri assegnati:%d\n",nz,result);
     free(nnz_per_thread_count); // Libera la memoria allocata
 }
+
 
 
 
