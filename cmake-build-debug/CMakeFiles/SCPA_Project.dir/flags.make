@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -DUSER_PIERFRANCESCO
 
-C_INCLUDES = 
+C_INCLUDES = -I/usr/samples/Common
 
-C_FLAGS = -g -std=gnu99 -fdiagnostics-color=always -fopenmp
+C_FLAGS = -g -fdiagnostics-color=always -fopenmp
 

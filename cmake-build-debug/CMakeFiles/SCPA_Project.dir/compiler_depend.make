@@ -65,9 +65,9 @@ CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o: /home/pierfrancesco/Desktop/S
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/include/omp.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/include/stdarg.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/include/stddef.h
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/omp.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h
 
 CMakeFiles/SCPA_Project.dir/src/csrTool.c.o: /home/pierfrancesco/Desktop/SCPA-Project/src/csrTool.c \
   /home/pierfrancesco/Desktop/SCPA-Project/libs/csrTool.h \
@@ -123,9 +123,9 @@ CMakeFiles/SCPA_Project.dir/src/csrTool.c.o: /home/pierfrancesco/Desktop/SCPA-Pr
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/include/omp.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/include/stdarg.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/include/stddef.h
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/omp.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h
 
 CMakeFiles/SCPA_Project.dir/src/functionsIO.c.o: /home/pierfrancesco/Desktop/SCPA-Project/src/functionsIO.c \
   /home/pierfrancesco/Desktop/SCPA-Project/libs/mmio.h \
@@ -186,10 +186,11 @@ CMakeFiles/SCPA_Project.dir/src/functionsIO.c.o: /home/pierfrancesco/Desktop/SCP
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/include/stdarg.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/include/stddef.h
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h
 
 CMakeFiles/SCPA_Project.dir/src/hll_Operations.c.o: /home/pierfrancesco/Desktop/SCPA-Project/src/hll_Operations.c \
+  /home/pierfrancesco/Desktop/SCPA-Project/libs/costants.h \
   /home/pierfrancesco/Desktop/SCPA-Project/libs/data_structure.h \
   /home/pierfrancesco/Desktop/SCPA-Project/libs/hll_ellpack_Tool.h \
   /home/pierfrancesco/Desktop/SCPA-Project/libs/mmio.h \
@@ -200,6 +201,8 @@ CMakeFiles/SCPA_Project.dir/src/hll_Operations.c.o: /home/pierfrancesco/Desktop/
   /usr/include/stdc-predef.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
   /usr/include/time.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
@@ -251,8 +254,9 @@ CMakeFiles/SCPA_Project.dir/src/hll_Operations.c.o: /home/pierfrancesco/Desktop/
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/include/stdarg.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/include/stddef.h
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/omp.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h
 
 CMakeFiles/SCPA_Project.dir/src/hll_ellpack_Tool.c.o: /home/pierfrancesco/Desktop/SCPA-Project/src/hll_ellpack_Tool.c \
   /home/pierfrancesco/Desktop/SCPA-Project/libs/costants.h \
@@ -267,6 +271,8 @@ CMakeFiles/SCPA_Project.dir/src/hll_ellpack_Tool.c.o: /home/pierfrancesco/Deskto
   /usr/include/stdc-predef.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
@@ -291,11 +297,13 @@ CMakeFiles/SCPA_Project.dir/src/hll_ellpack_Tool.c.o: /home/pierfrancesco/Deskto
   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
@@ -312,8 +320,9 @@ CMakeFiles/SCPA_Project.dir/src/hll_ellpack_Tool.c.o: /home/pierfrancesco/Deskto
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/include/stdarg.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/include/stddef.h
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/omp.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h
 
 CMakeFiles/SCPA_Project.dir/src/main_app.c.o: /home/pierfrancesco/Desktop/SCPA-Project/src/main_app.c \
   /home/pierfrancesco/Desktop/SCPA-Project/libs/data_structure.h \
@@ -384,8 +393,8 @@ CMakeFiles/SCPA_Project.dir/src/main_app.c.o: /home/pierfrancesco/Desktop/SCPA-P
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/stat.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/include/stdarg.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/include/stddef.h
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h
 
 
 /usr/include/x86_64-linux-gnu/sys/stat.h:
@@ -415,6 +424,8 @@ CMakeFiles/SCPA_Project.dir/src/main_app.c.o: /home/pierfrancesco/Desktop/SCPA-P
 /usr/include/ctype.h:
 
 /home/pierfrancesco/Desktop/SCPA-Project/src/hll_Operations.c:
+
+/home/pierfrancesco/Desktop/SCPA-Project/libs/matrixLists.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
@@ -456,10 +467,6 @@ CMakeFiles/SCPA_Project.dir/src/main_app.c.o: /home/pierfrancesco/Desktop/SCPA-P
 
 /usr/include/features-time64.h:
 
-/home/pierfrancesco/Desktop/SCPA-Project/libs/matrixLists.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/14/include/stddef.h:
-
 /usr/include/stdc-predef.h:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
@@ -484,8 +491,6 @@ CMakeFiles/SCPA_Project.dir/src/main_app.c.o: /home/pierfrancesco/Desktop/SCPA-P
 
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
-/usr/include/x86_64-linux-gnu/bits/long-double.h:
-
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
 /home/pierfrancesco/Desktop/SCPA-Project/src/csrTool.c:
@@ -507,8 +512,6 @@ CMakeFiles/SCPA_Project.dir/src/main_app.c.o: /home/pierfrancesco/Desktop/SCPA-P
 /home/pierfrancesco/Desktop/SCPA-Project/libs/csrOperations.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/14/include/stdarg.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
 
@@ -538,13 +541,19 @@ CMakeFiles/SCPA_Project.dir/src/main_app.c.o: /home/pierfrancesco/Desktop/SCPA-P
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
-/usr/include/string.h:
+/usr/lib/gcc/x86_64-linux-gnu/12/include/omp.h:
+
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h:
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
 /usr/include/strings.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/14/include/omp.h:
+/usr/include/string.h:
 
 /home/pierfrancesco/Desktop/SCPA-Project/src/hll_ellpack_Tool.c:
 
