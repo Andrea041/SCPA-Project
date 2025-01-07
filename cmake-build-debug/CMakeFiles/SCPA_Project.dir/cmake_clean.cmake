@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/SCPA_Project.dir/src/csrTool.c.o.d"
   "CMakeFiles/SCPA_Project.dir/src/functionsIO.c.o"
   "CMakeFiles/SCPA_Project.dir/src/functionsIO.c.o.d"
+  "CMakeFiles/SCPA_Project.dir/src/hll_Operations.c.o"
+  "CMakeFiles/SCPA_Project.dir/src/hll_Operations.c.o.d"
   "CMakeFiles/SCPA_Project.dir/src/hll_ellpack_Tool.c.o"
   "CMakeFiles/SCPA_Project.dir/src/hll_ellpack_Tool.c.o.d"
   "CMakeFiles/SCPA_Project.dir/src/main_app.c.o"

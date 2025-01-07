@@ -10,14 +10,17 @@
 #include "../libs/costants.h"
 #include "../libs/csrOperations.h"
 #include "../libs/hll_Operations.h"
-#include "cjson/cJSON.h"
+
 
 #ifdef USER_PIERFRANCESCO
+#include "cjson/cJSON.h"
 const char *base_path = "/home/pierfrancesco/Desktop/matrix/";
 #elif defined(USER_ANDREA)
+#include "cjson/cJSON.h"
 const char *base_path = "/Users/andreaandreoli/matrix/";
 #else
-const char *base_path = "data/aandreoli/matrix/";
+#include "../../cJSON/include/cjson/cJSON.h"
+const char *base_path = "../../matrix/";
 #endif
 
 /* Funzione per controllare e creare directory */
