@@ -1,6 +1,6 @@
 [{
-		"nameMatrix":	"cage4.mtx",
-		"seconds":	0.000193763,
-		"flops":	505772.51590861,
-		"megaFlops":	0.50577251590861
+		"nameMatrix":	"mhda416.mtx",
+		"seconds":	0.000169,
+		"flops":	101325443.78698225,
+		"megaFlops":	101.32544378698225
 	}]

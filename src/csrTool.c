@@ -59,15 +59,14 @@ void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, double *
             y[i] += AS[j] * x[JA[j]];
         }
     }
-    printf("SERIALE\n");
+    /*printf("SERIALE\n");
     for (int i = 0; i < M; i++) { // Considera tutte le righe in base a N
         printf("y[%d] = %.10f\n", i, y[i]); // Stampa come double con 10 cifre decimali
-    }
+    }*/
 }
 
 /* Prodotto matrice-vettore parallelo */
 void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const double *x, double *y, int *start_row, int *end_row, int num_threads, int nz, int M) {
-
     #pragma omp parallel num_threads(num_threads)
     {
         int tid = omp_get_thread_num();
@@ -80,8 +79,8 @@ void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const do
         }
     }
     // Punto di sincronizzazione
-    printf("CSR PARALLELO\n");
+    /*printf("CSR PARALLELO\n");
     for (int i = 0; i < M; i++) { // Considera tutte le righe in base a M
         printf("y[%d] = %.10f\n", i, y[i]); // Stampa come double con 10 cifre decimali
-    }
+    }*/
 }
