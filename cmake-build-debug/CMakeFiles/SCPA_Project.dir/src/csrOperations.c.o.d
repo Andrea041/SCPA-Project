@@ -8,7 +8,7 @@ CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o: \
  /usr/include/x86_64-linux-gnu/bits/long-double.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/14/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/time.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
@@ -26,7 +26,7 @@ CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
- /usr/lib/gcc/x86_64-linux-gnu/14/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
@@ -40,7 +40,7 @@ CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o: \
  /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/csrOperations.h \
  /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/../libs/data_structure.h \
  /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/../libs/mmio.h \
- /usr/lib/gcc/x86_64-linux-gnu/14/include/omp.h /usr/include/stdlib.h \
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/omp.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \

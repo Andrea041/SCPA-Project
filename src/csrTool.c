@@ -55,33 +55,33 @@ void convert_to_csr(int M, int nz, const int *row_indices, const int *col_indice
 /* Prodotto matrice-vettore serializzato */
 void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, double *x, double *y) {
     for (int i = 0; i < M; i++) {
-        y[i] = 0.0;
         for (int j = IRP[i]; j < IRP[i + 1]; j++) {
             y[i] += AS[j] * x[JA[j]];
         }
+    }
+    printf("SERIALE\n");
+    for (int i = 0; i < M; i++) { // Considera tutte le righe in base a N
+        printf("y[%d] = %.10f\n", i, y[i]); // Stampa come double con 10 cifre decimali
     }
 }
 
 /* Prodotto matrice-vettore parallelo */
 void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const double *x, double *y, int *start_row, int *end_row, int num_threads, int nz, int M) {
-    if (nz < 12000) {
-        for (int i = 0; i < M; i++) {
+
+    #pragma omp parallel num_threads(num_threads)
+    {
+        int tid = omp_get_thread_num();
+        for (int i = start_row[tid]; i < end_row[tid]; i++) {
             y[i] = 0.0;
             for (int j = IRP[i]; j < IRP[i + 1]; j++) {
                 y[i] += AS[j] * x[JA[j]];
             }
-        }
-    } else {
-        #pragma omp parallel num_threads(num_threads)
-        {
-            int tid = omp_get_thread_num();
-            for (int i = start_row[tid]; i < end_row[tid]; i++) {
-                y[i] = 0.0;
-                for (int j = IRP[i]; j < IRP[i + 1]; j++) {
-                    y[i] += AS[j] * x[JA[j]];
-                }
 
-            }
         }
+    }
+    // Punto di sincronizzazione
+    printf("CSR PARALLELO\n");
+    for (int i = 0; i < M; i++) { // Considera tutte le righe in base a M
+        printf("y[%d] = %.10f\n", i, y[i]); // Stampa come double con 10 cifre decimali
     }
 }

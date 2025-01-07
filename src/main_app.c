@@ -354,7 +354,7 @@ int main() {
             add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array_csr_openMP, parallel_csr);
 
             /*parallelo OPENMP && HLL*/
-         //   add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array_hll_openMP, parallel_hll);
+            add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array_hll_openMP, parallel_hll);
 
 
         }
@@ -365,15 +365,15 @@ int main() {
 
     write_json_to_file("../result/iteration/serial_CSR.json", serial_array_csr);
     write_json_to_file("../result/iteration/par_OpenMP_CSR.json", parallel_array_csr_openMP);
-   // write_json_to_file("../result/iteration/par_OpenMP_HLL.json", parallel_array_hll_openMP);
+    write_json_to_file("../result/iteration/par_OpenMP_HLL.json", parallel_array_hll_openMP);
 
     cJSON_Delete(serial_array_csr);
     cJSON_Delete(parallel_array_csr_openMP);
-   // cJSON_Delete(parallel_array_hll_openMP);
+    cJSON_Delete(parallel_array_hll_openMP);
 
     calculatePerformance("../result/iteration/serial_CSR.json", "../result/final/serial_CSR.json");
     calculatePerformance("../result/iteration/par_OpenMP_CSR.json", "../result/final/par_OpenMP_CSR.json");
-   // calculatePerformance("../result/iteration/par_OpenMP_HLL.json", "../result/final/par_OpenMP_HLL.json");
+    calculatePerformance("../result/iteration/par_OpenMP_HLL.json", "../result/final/par_OpenMP_HLL.json");
 
     return EXIT_SUCCESS;
 }

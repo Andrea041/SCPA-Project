@@ -22,7 +22,9 @@ struct matrixPerformance serial_csr(struct matrixData *matrix_data, double *x) {
 
     /* Conversione in formato CSR */
     convert_to_csr(matrix_data->M, matrix_data->nz, matrix_data->row_indices, matrix_data->col_indices, matrix_data->values, &IRP, &JA, &AS);
-
+    for (int i = 0; i < matrix_data->M; i++) {
+        y[i] = 0.0;
+    }
     struct timespec start, end;
     clock_gettime(CLOCK_MONOTONIC, &start);
     matvec_csr(matrix_data->M, IRP, JA, AS, x, y);

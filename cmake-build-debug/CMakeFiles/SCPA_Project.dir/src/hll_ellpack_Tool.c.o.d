@@ -9,7 +9,7 @@ CMakeFiles/SCPA_Project.dir/src/hll_ellpack_Tool.c.o: \
  /usr/include/x86_64-linux-gnu/bits/long-double.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/14/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
@@ -43,7 +43,7 @@ CMakeFiles/SCPA_Project.dir/src/hll_ellpack_Tool.c.o: \
  /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/hll_Operations.h \
  /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/data_structure.h \
  /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/mmio.h \
- /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/14/include/stdarg.h \
+ /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
@@ -54,4 +54,8 @@ CMakeFiles/SCPA_Project.dir/src/hll_ellpack_Tool.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/data_structure.h \
  /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/hll_ellpack_Tool.h \
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/omp.h /usr/include/string.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+ /usr/include/strings.h \
  /home/pierfrancesco/Desktop/SCPA-Project/src/../libs/costants.h
