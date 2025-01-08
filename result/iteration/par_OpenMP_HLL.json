@@ -1,7 +1,13 @@
 [{
 		"nameMatrix":	"cage4.mtx",
-		"seconds":	0.004011987,
+		"seconds":	5.2147e-05,
 		"nonzeros":	49,
+		"flops":	0,
+		"megaFlops":	0
+	}, {
+		"nameMatrix":	"dc1.mtx",
+		"seconds":	50.806998253,
+		"nonzeros":	766396,
 		"flops":	0,
 		"megaFlops":	0
 	}]

@@ -265,22 +265,34 @@ CMakeFiles/SCPA_Project.dir/src/hll_ellpack_Tool.c.o: /home/pierfrancesco/Deskto
   /home/pierfrancesco/Desktop/SCPA-Project/libs/hll_ellpack_Tool.h \
   /home/pierfrancesco/Desktop/SCPA-Project/libs/mmio.h \
   /usr/include/alloca.h \
+  /usr/include/complex.h \
   /usr/include/endian.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
+  /usr/include/math.h \
   /usr/include/stdc-predef.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/tgmath.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/cmathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/x86_64-linux-gnu/bits/select.h \
@@ -405,6 +417,26 @@ CMakeFiles/SCPA_Project.dir/src/main_app.c.o: /home/pierfrancesco/Desktop/SCPA-P
 
 /usr/include/cjson/cJSON.h:
 
+/home/pierfrancesco/Desktop/SCPA-Project/libs/matrixLists.h:
+
+/home/pierfrancesco/Desktop/SCPA-Project/src/main_app.c:
+
+/usr/include/x86_64-linux-gnu/bits/mathdef.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
+
+/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
+
+/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
+
+/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
+
+/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
+
+/usr/include/tgmath.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
@@ -424,8 +456,6 @@ CMakeFiles/SCPA_Project.dir/src/main_app.c.o: /home/pierfrancesco/Desktop/SCPA-P
 /usr/include/ctype.h:
 
 /home/pierfrancesco/Desktop/SCPA-Project/src/hll_Operations.c:
-
-/home/pierfrancesco/Desktop/SCPA-Project/libs/matrixLists.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
@@ -449,11 +479,15 @@ CMakeFiles/SCPA_Project.dir/src/main_app.c.o: /home/pierfrancesco/Desktop/SCPA-P
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
+/usr/include/complex.h:
+
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
 /home/pierfrancesco/Desktop/SCPA-Project/libs/csrTool.h:
+
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
 
@@ -533,6 +567,8 @@ CMakeFiles/SCPA_Project.dir/src/main_app.c.o: /home/pierfrancesco/Desktop/SCPA-P
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
+/usr/include/x86_64-linux-gnu/bits/cmathcalls.h:
+
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
@@ -559,4 +595,4 @@ CMakeFiles/SCPA_Project.dir/src/main_app.c.o: /home/pierfrancesco/Desktop/SCPA-P
 
 /home/pierfrancesco/Desktop/SCPA-Project/libs/hll_Operations.h:
 
-/home/pierfrancesco/Desktop/SCPA-Project/src/main_app.c:
+/usr/include/math.h:

@@ -59,6 +59,26 @@ void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, double *
             y[i] += AS[j] * x[JA[j]];
         }
     }
+
+    //debug per verificare che parallelo funzionasse
+    /*
+    // Scrittura dei risultati su file
+    FILE *file = fopen("../result/risultati.txt", "w");
+    if (file == NULL) {
+        fprintf(stderr, "Errore nell'aprire il file.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    for (int i = 0; i < M; i++) {
+        if (fprintf(file, "%.10f\n", y[i]) < 0) {
+            fprintf(stderr, "Errore durante la scrittura nel file alla riga %d\n", i);
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    fclose(file);
+    // Chiude il file dopo aver scritto tutti i risultati
+    */
     /*printf("SERIALE\n");
     for (int i = 0; i < M; i++) { // Considera tutte le righe in base a N
         printf("y[%d] = %.10f\n", i, y[i]); // Stampa come double con 10 cifre decimali

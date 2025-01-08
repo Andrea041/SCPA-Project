@@ -63,8 +63,8 @@ void distribute_rows_to_threads(int M, HLL_Matrix *hll_matrix, int num_threads, 
         fprintf(stderr, "Errore: Allocazione fallita per non_zero_per_row.\n");
         exit(EXIT_FAILURE);
     }
-    printf("Blocco 1 completato\n");
     // Calcola il numero di non-zero per ogni riga
+#pragma omp parallel for
     for (int block_idx = 0; block_idx < hll_matrix->num_blocks; block_idx++) {
         int start_row_block = block_idx * HackSize;
         int end_row_block = (block_idx + 1) * HackSize;
@@ -97,7 +97,7 @@ void distribute_rows_to_threads(int M, HLL_Matrix *hll_matrix, int num_threads, 
         //printf("Block %d completed!\n", block_idx);
     }
 
-    printf("Blocco 2 completato\n");
+
     // Calcola il numero totale di non-zero
     int total_non_zero = 0;
     for (int i = 0; i < M; i++) {
@@ -111,7 +111,7 @@ void distribute_rows_to_threads(int M, HLL_Matrix *hll_matrix, int num_threads, 
     int current_non_zero = 0;
     int thread_id = 0;
     (*start_row)[thread_id] = 0;
-    printf("Blocco 3 completato\n");
+
     for (int i = 0; i < M; i++) {
         // Accumula i non-zero per il thread corrente
         current_non_zero += non_zero_per_row[i];
@@ -128,7 +128,7 @@ void distribute_rows_to_threads(int M, HLL_Matrix *hll_matrix, int num_threads, 
             }
         }
     }
-    printf("Blocco 4 completato\n");
+
     // Se il numero di thread è minore del numero richiesto, aggiorna valid_threads
     *valid_threads = thread_id;
 
@@ -171,29 +171,13 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
     // Conversione in formato HLL
     convert_to_hll(M, N, nz, row_indices, col_indices, values, hll_matrix);
 
-    // Stampa della matrice memorizzata in formato HLL
-    /*printf("Formato HLL (ELLPACK):\n");
-    for (int block_idx = 0; block_idx < hll_matrix->num_blocks; block_idx++) {
-        printf("Blocco %d:\n", block_idx);
-        ELLPACK_Block *block = &hll_matrix->blocks[block_idx];
-        printf("JA (Indici delle colonne):\n");
-        for (int i = 0; i < matrix_data->M * hll_matrix->max_nz_per_row; i++) {
-            printf("%d ", block->JA[i]);
-        }
-        printf("\nAS (Coefficienti):\n");
-        for (int i = 0; i < matrix_data->M * hll_matrix->max_nz_per_row; i++) {
-            printf("%.2f ", block->AS[i]);
-        }
-        printf("\n");
-    }*/
-    printf("Blocco FFF completato\n");
     int num_threads = omp_get_max_threads();
     int *start_row = NULL;
     int *end_row = NULL;
     int valid_threads = 0;
-    printf("Blocco EEE completato\n");
+
     distribute_rows_to_threads(M, hll_matrix, num_threads, &start_row, &end_row, &valid_threads);
-    printf("Blocco HHH completato\n");
+
     // Stampa delle righe assegnate a ciascun thread e dei loro non-zeri
     // Pre-elaborazione degli intervalli di indici per ciascuna riga
     int *row_start = calloc(M + 1, sizeof(int));
