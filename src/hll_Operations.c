@@ -8,8 +8,10 @@
 #include "../libs/data_structure.h"
 #include "../libs/costants.h"
 
+
 // Funzione per calcolare il massimo numero di non zero per riga
 void calculate_max_nz_per_row(int M, int nz, const int *row_indices, HLL_Matrix *hll_matrix) {
+    // Array per contare i non-zero per ogni riga
     int *row_counts = calloc(M, sizeof(int));
     if (!row_counts) {
         fprintf(stderr, "Errore: Allocazione fallita per row_counts.\n");
@@ -18,10 +20,15 @@ void calculate_max_nz_per_row(int M, int nz, const int *row_indices, HLL_Matrix 
 
     // Conta il numero di non-zero per ogni riga
     for (int i = 0; i < nz; i++) {
+        if (row_indices[i] >= M || row_indices[i] < 0) {
+            fprintf(stderr, "Errore: Indice di riga fuori dai limiti. row_indices[%d]=%d\n", i, row_indices[i]);
+            free(row_counts);
+            exit(EXIT_FAILURE);
+        }
         row_counts[row_indices[i]]++;
     }
 
-    // Trova il massimo numero di non-zero
+    // Trova il massimo numero di non-zero tra tutte le righe
     int max_nz_per_row = 0;
     for (int i = 0; i < M; i++) {
         if (row_counts[i] > max_nz_per_row) {
@@ -29,9 +36,16 @@ void calculate_max_nz_per_row(int M, int nz, const int *row_indices, HLL_Matrix 
         }
     }
 
-    hll_matrix->max_nz_per_row = max_nz_per_row; // Include lo zero aggiuntivo richiesto
+    // Debug: Stampa del numero massimo di non-zero
+    printf("Numero massimo di non-zero per riga: %d\n", max_nz_per_row);
+
+    // Salva il valore massimo nella struttura HLL_Matrix
+    hll_matrix->max_nz_per_row = max_nz_per_row;
+
+    // Libera la memoria temporanea
     free(row_counts);
 }
+
 
 
 
@@ -49,7 +63,7 @@ void distribute_rows_to_threads(int M, HLL_Matrix *hll_matrix, int num_threads, 
         fprintf(stderr, "Errore: Allocazione fallita per non_zero_per_row.\n");
         exit(EXIT_FAILURE);
     }
-
+    printf("Blocco 1 completato\n");
     // Calcola il numero di non-zero per ogni riga
     for (int block_idx = 0; block_idx < hll_matrix->num_blocks; block_idx++) {
         int start_row_block = block_idx * HackSize;
@@ -60,17 +74,30 @@ void distribute_rows_to_threads(int M, HLL_Matrix *hll_matrix, int num_threads, 
 
         for (int i = start_row_block; i < end_row_block; i++) {
             int non_zero_count = 0;
+
             for (int j = 0; j < hll_matrix->max_nz_per_row; j++) {
-                int col_idx = block->JA[(i - start_row_block) * hll_matrix->max_nz_per_row + j];
+                // Calculate the index in the JA array
+                int idx = (i - start_row_block) * hll_matrix->max_nz_per_row + j;
+
+                // Ensure the index is within bounds
+                if (idx < 0 || idx >= hll_matrix->max_nz_per_row * (end_row_block - start_row_block)) {
+                    fprintf(stderr, "Errore: Indice fuori dai limiti. i=%d, j=%d, idx=%d, JA_size=%d\n", i, j, idx, hll_matrix->max_nz_per_row * (end_row_block - start_row_block));
+                    exit(EXIT_FAILURE);
+                }
+
+                int col_idx = block->JA[idx];
                 if (col_idx >= 0) {
                     non_zero_count++;
                 }
             }
+
             non_zero_per_row[i] = non_zero_count;
         }
+
         //printf("Block %d completed!\n", block_idx);
     }
 
+    printf("Blocco 2 completato\n");
     // Calcola il numero totale di non-zero
     int total_non_zero = 0;
     for (int i = 0; i < M; i++) {
@@ -84,7 +111,7 @@ void distribute_rows_to_threads(int M, HLL_Matrix *hll_matrix, int num_threads, 
     int current_non_zero = 0;
     int thread_id = 0;
     (*start_row)[thread_id] = 0;
-
+    printf("Blocco 3 completato\n");
     for (int i = 0; i < M; i++) {
         // Accumula i non-zero per il thread corrente
         current_non_zero += non_zero_per_row[i];
@@ -101,7 +128,7 @@ void distribute_rows_to_threads(int M, HLL_Matrix *hll_matrix, int num_threads, 
             }
         }
     }
-
+    printf("Blocco 4 completato\n");
     // Se il numero di thread è minore del numero richiesto, aggiorna valid_threads
     *valid_threads = thread_id;
 
@@ -159,14 +186,14 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
         }
         printf("\n");
     }*/
-
+    printf("Blocco FFF completato\n");
     int num_threads = omp_get_max_threads();
     int *start_row = NULL;
     int *end_row = NULL;
     int valid_threads = 0;
-
+    printf("Blocco EEE completato\n");
     distribute_rows_to_threads(M, hll_matrix, num_threads, &start_row, &end_row, &valid_threads);
-
+    printf("Blocco HHH completato\n");
     // Stampa delle righe assegnate a ciascun thread e dei loro non-zeri
     // Pre-elaborazione degli intervalli di indici per ciascuna riga
     int *row_start = calloc(M + 1, sizeof(int));
