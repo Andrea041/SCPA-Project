@@ -9,6 +9,6 @@
 #define ITERATION_PER_MATRIX 1
 
 // Definizione di HackSize
-#define HackSize 1024  // Dimensione del blocco
+#define HackSize 32  // Dimensione del blocco
 
 #endif //COSTANTS_H

@@ -5,115 +5,95 @@
 #include <stdio.h>
 #include <omp.h>
 #include <string.h>
-#include <tgmath.h>
 
 #include "../libs/costants.h"
 
 // Funzione per convertire una matrice sparsa al formato HLL
-// Funzione per convertire una matrice sparsa al formato HLL
 void convert_to_hll(int M, int N, int nz, const int *row_indices, const int *col_indices, const double *values, HLL_Matrix *hll_matrix) {
     int max_nz_per_row = hll_matrix->max_nz_per_row;
 
-    int *row_start = calloc(M + 1, sizeof(int));
+    int *row_start = calloc(M, sizeof(int));
     if (!row_start) {
         fprintf(stderr, "Errore: allocazione memoria fallita per row_start.\n");
         exit(EXIT_FAILURE);
     }
 
-    // Calcola gli indici di inizio per ciascuna riga
+    // Conta il numero di elementi non-zero per ogni riga
     for (int i = 0; i < nz; i++) {
         row_start[row_indices[i] + 1]++;
     }
+
+    // Cumulativo per ottenere l'inizio di ogni riga
     for (int i = 1; i <= M; i++) {
         row_start[i] += row_start[i - 1];
     }
 
-    int *sorted_col_indices = malloc(nz * sizeof(int));
-    double *sorted_values = malloc(nz * sizeof(double));
-
-    if (!sorted_col_indices || !sorted_values) {
-        fprintf(stderr, "Errore: allocazione memoria fallita per array ordinati.\n");
-        free(row_start);
-        exit(EXIT_FAILURE);
-    }
-
-    // Ordinamento delle colonne e dei valori
-    for (int i = 0; i < nz; i++) {
-        int row = row_indices[i];
-        int pos = row_start[row]++;
-        sorted_col_indices[pos] = col_indices[i];
-        sorted_values[pos] = values[i];
-    }
-
-    // Ripristina gli indici di inizio delle righe
-    for (int i = M; i > 0; i--) {
-        row_start[i] = row_start[i - 1];
-    }
-    row_start[0] = 0;
-
-    // Elabora i blocchi
-    #pragma omp parallel for
+    /* Parallelizzazione dell'elaborazione dei blocchi tra i thread */
+    //#pragma omp parallel for
     for (int block_idx = 0; block_idx < hll_matrix->num_blocks; block_idx++) {
+        /* Identificazione della riga di inizio e fine di ciascun blocco */
         int start_row = block_idx * HackSize;
         int end_row = (block_idx + 1) * HackSize;
         if (end_row > M) end_row = M;
-
         int rows_in_block = end_row - start_row;
+
+        /* Calcolo della dimensione della matrice che contiene gli elementi di JA e AS */
         int size_of_arrays = max_nz_per_row * rows_in_block;
 
-        // Inizializza la memoria per il blocco
+        /* Allocazione della memoria necessaria */
         hll_matrix->blocks[block_idx].JA = (int *)malloc(size_of_arrays * sizeof(int));
         hll_matrix->blocks[block_idx].AS = (double *)malloc(size_of_arrays * sizeof(double));
-
         if (!hll_matrix->blocks[block_idx].JA || !hll_matrix->blocks[block_idx].AS) {
             fprintf(stderr, "Errore: Allocazione fallita per il blocco %d.\n", block_idx);
             exit(EXIT_FAILURE);
         }
 
-        // Elabora le righe del blocco
+        /* Inizializzazione dei blocchi */
+        memset(hll_matrix->blocks[block_idx].JA, 0, size_of_arrays * sizeof(int));
+        memset(hll_matrix->blocks[block_idx].AS, 0, size_of_arrays * sizeof(double));
+        printf("A\n");
+        /* Elaborazione di ciascuna riga del blocco preso in carica */
         for (int i = start_row; i < end_row; i++) {
             int row_offset = (i - start_row) * max_nz_per_row;
+
+            /* Questo perché li abbiamo oranizzati come se fossero in una rappresentazione csr */
             int row_nz_start = row_start[i];
             int row_nz_end = row_start[i + 1];
 
+            /* Azzeramento delle variabili */
             int pos = 0;
             int last_col_idx = -1;
-
-            // Gestione degli elementi non-zero per la riga
+            /* Gestione degli elementi non-zero per la riga */
             for (int j = row_nz_start; j < row_nz_end; j++) {
                 if (pos >= max_nz_per_row) {
                     fprintf(stderr, "Errore: Troppi elementi nella riga %d.\n", i);
                     exit(EXIT_FAILURE);
                 }
 
+                /* Assegnazione dei valori in ciascun array del blocco */
                 int index = row_offset + pos;
-                hll_matrix->blocks[block_idx].JA[index] = sorted_col_indices[j];
-                hll_matrix->blocks[block_idx].AS[index] = sorted_values[j];
-                last_col_idx = sorted_col_indices[j];
+                /* Entrambi gli array sono indicizzabili con j in quanto la memorizzazione interna è 1 a 1 */
+                hll_matrix->blocks[block_idx].JA[index] = col_indices[j];
+                hll_matrix->blocks[block_idx].AS[index] = values[j];
+                /* Tengo traccia del valore dell'ultimo indice di colonna per un eventuale padding */
+                last_col_idx = col_indices[j];
                 pos++;
             }
-            int index = row_offset + pos;
-            pos=index;
-            // Padding per righe con meno di max_nz_per_row
+            /* Padding per righe con meno di max_nz_per_row */
             while (pos < max_nz_per_row) {
-
+                /* Calcolo l'offset a cui ero rimasto precedentemente */
+                int index = row_offset + pos;
                 hll_matrix->blocks[block_idx].JA[index] = last_col_idx;
                 hll_matrix->blocks[block_idx].AS[index] = 0.0;
                 pos++;
             }
         }
-
         printf("Blocco %d completato\n", block_idx + 1);
     }
 
     free(row_start);
-    free(sorted_col_indices);
-    free(sorted_values);
-    printf("Conversione HLL completata!\n");
+    //printf("Conversione HLL completata!\n");
 }
-
-
-
 
 
 void matvec_Hll(HLL_Matrix *hll_matrix, double *x, double *y, int num_threads, int *start_row, int *end_row, int N, int M) {

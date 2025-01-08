@@ -12,7 +12,7 @@
 // Funzione per calcolare il massimo numero di non zero per riga
 void calculate_max_nz_per_row(int M, int nz, const int *row_indices, HLL_Matrix *hll_matrix) {
     // Array per contare i non-zero per ogni riga
-    int *row_counts = calloc(M, sizeof(int));
+    int *row_counts = calloc(M, sizeof(int));  // Inizializzato a zero
     if (!row_counts) {
         fprintf(stderr, "Errore: Allocazione fallita per row_counts.\n");
         exit(EXIT_FAILURE);
@@ -20,11 +20,13 @@ void calculate_max_nz_per_row(int M, int nz, const int *row_indices, HLL_Matrix 
 
     // Conta il numero di non-zero per ogni riga
     for (int i = 0; i < nz; i++) {
+        // Verifica che row_indices[i] sia un indice valido
         if (row_indices[i] >= M || row_indices[i] < 0) {
             fprintf(stderr, "Errore: Indice di riga fuori dai limiti. row_indices[%d]=%d\n", i, row_indices[i]);
             free(row_counts);
             exit(EXIT_FAILURE);
         }
+        // Incrementa il contatore per la riga specificata
         row_counts[row_indices[i]]++;
     }
 
@@ -35,9 +37,6 @@ void calculate_max_nz_per_row(int M, int nz, const int *row_indices, HLL_Matrix 
             max_nz_per_row = row_counts[i];
         }
     }
-
-    // Debug: Stampa del numero massimo di non-zero
-    printf("Numero massimo di non-zero per riga: %d\n", max_nz_per_row);
 
     // Salva il valore massimo nella struttura HLL_Matrix
     hll_matrix->max_nz_per_row = max_nz_per_row;
@@ -208,12 +207,10 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
     for (int i = 0; i < M; i++) {
         y[i] = 0.0;
     }
+
     struct timespec start, end;
     clock_gettime(CLOCK_MONOTONIC, &start);
-
-    // Calcolo del prodotto matrice-vettore
     matvec_Hll(hll_matrix, x, y, valid_threads, start_row, end_row, N, M);
-
     clock_gettime(CLOCK_MONOTONIC, &end);
 
     const double time_spent = (double)(end.tv_sec - start.tv_sec) + (double)(end.tv_nsec - start.tv_nsec) / 1e9;
