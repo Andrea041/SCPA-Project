@@ -1,7 +1,7 @@
 [{
-		"nameMatrix":	"mhda416.mtx",
-		"seconds":	7.1e-05,
-		"nonzeros":	8562,
+		"nameMatrix":	"cage4.mtx",
+		"seconds":	4.8e-05,
+		"nonzeros":	49,
 		"flops":	0,
 		"megaFlops":	0
 	}]

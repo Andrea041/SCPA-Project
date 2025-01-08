@@ -29,7 +29,7 @@ void calculate_max_nz_per_row(int M, int nz, const int *row_indices, HLL_Matrix 
         }
     }
 
-    hll_matrix->max_nz_per_row = max_nz_per_row + 1; // Include lo zero aggiuntivo richiesto
+    hll_matrix->max_nz_per_row = max_nz_per_row; // Include lo zero aggiuntivo richiesto
     free(row_counts);
 }
 
@@ -68,7 +68,7 @@ void distribute_rows_to_threads(int M, HLL_Matrix *hll_matrix, int num_threads, 
             }
             non_zero_per_row[i] = non_zero_count;
         }
-        printf("Block %d completed!\n", block_idx);
+        //printf("Block %d completed!\n", block_idx);
     }
 
     // Calcola il numero totale di non-zero
@@ -168,20 +168,24 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
     distribute_rows_to_threads(M, hll_matrix, num_threads, &start_row, &end_row, &valid_threads);
 
     // Stampa delle righe assegnate a ciascun thread e dei loro non-zeri
-    //printf("\nDistribuzione delle righe ai thread:\n");
-    for (int thread_id = 0; thread_id < valid_threads; thread_id++) {
-        int thread_nz = 0; // Numero di non-zeri per il thread corrente
-       //printf("Thread %d: righe da %d a %d\n", thread_id, start_row[thread_id], end_row[thread_id]);
-
-        for (int i = start_row[thread_id]; i <= end_row[thread_id]; i++) {
-            for (int j = 0; j < nz; j++) {
-                if (row_indices[j] == i) {
-                    thread_nz++;
-                }
-            }
-        }
-       //printf("Thread %d: numero di non-zeri = %d\n", thread_id, thread_nz);
+    // Pre-elaborazione degli intervalli di indici per ciascuna riga
+    int *row_start = calloc(M + 1, sizeof(int));
+    for (int j = 0; j < nz; j++) {
+        row_start[row_indices[j] + 1]++;
     }
+    for (int i = 1; i <= M; i++) {
+        row_start[i] += row_start[i - 1];
+    }
+    //printf("\nDistribuzione delle righe ai thread:\n");
+    #pragma omp parallel for
+    for (int thread_id = 0; thread_id < valid_threads; thread_id++) {
+        int thread_nz = 0;
+        for (int i = start_row[thread_id]; i <= end_row[thread_id]; i++) {
+            thread_nz += row_start[i + 1] - row_start[i]; // Non-zeri in questa riga
+        }
+        //printf("Thread %d: numero di non-zeri = %d\n", thread_id, thread_nz);
+    }
+    free(row_start);
 
     double *y = malloc(M * sizeof(double));
     if (!y) {

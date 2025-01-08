@@ -2,7 +2,7 @@
 #define MATRIXLISTS_H
 
 static const char *matrix_names[] = {
-    "cage4.mtx",
+    /*"cage4.mtx",
     "mhda416.mtx",
     "mcfe.mtx",
     "olm1000.mtx",
@@ -27,11 +27,11 @@ static const char *matrix_names[] = {
     "thermal2.mtx",
     "thermomech_TK.mtx",
     "nlpkkt80.mtx",
-    "webbase-1M.mtx",
+    "webbase-1M.mtx",*/
     "dc1.mtx",
-    "amazon0302.mtx",
+    /*"amazon0302.mtx",
     "af_1_k101.mtx",
-    "roadNet-PA.mtx"
+    "roadNet-PA.mtx"*/
 };
 
 #endif
