@@ -75,7 +75,6 @@ void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, double *
             exit(EXIT_FAILURE);
         }
     }
-
     fclose(file);
     // Chiude il file dopo aver scritto tutti i risultati
 
