@@ -90,13 +90,6 @@ CMakeFiles/SCPA_Project.dir/src/hll_Operations.c.o: \
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/_abort.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_dev_t.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_mode_t.h \
- /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/string.h \
- /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/_string.h \
- /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_rsize_t.h \
- /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_errno_t.h \
- /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/_strings.h \
- /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/secure/_strings.h \
- /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/secure/_string.h \
  /Users/andreaandreoli/CLionProjects/SCPA-Project/src/../libs/hll_ellpack_Tool.h \
  /Users/andreaandreoli/CLionProjects/SCPA-Project/src/../libs/data_structure.h \
  /Users/andreaandreoli/CLionProjects/SCPA-Project/src/../libs/mmio.h \

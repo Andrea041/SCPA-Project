@@ -293,8 +293,6 @@ CMakeFiles/SCPA_Project.dir/src/hll_Operations.c.o: /Users/andreaandreoli/CLionP
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/_ctermid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/_printf.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/_stdlib.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/_string.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/_strings.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/_types/_intmax_t.h \
@@ -325,10 +323,7 @@ CMakeFiles/SCPA_Project.dir/src/hll_Operations.c.o: /Users/andreaandreoli/CLionP
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/malloc/_ptrcheck.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/secure/_common.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/secure/_stdio.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/secure/_string.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/secure/_strings.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/stdlib.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/string.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/__endian.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_endian.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_posix_availability.h \
@@ -339,7 +334,6 @@ CMakeFiles/SCPA_Project.dir/src/hll_Operations.c.o: /Users/andreaandreoli/CLionP
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_clock_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_ct_rune_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_dev_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_errno_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_id_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_int16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_int32_t.h \
@@ -350,7 +344,6 @@ CMakeFiles/SCPA_Project.dir/src/hll_Operations.c.o: /Users/andreaandreoli/CLionP
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_null.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_off_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_pid_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_rsize_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_rune_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_seek_set.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_types/_sigaltstack.h \
@@ -412,6 +405,7 @@ CMakeFiles/SCPA_Project.dir/src/hll_ellpack_Tool.c.o: /Users/andreaandreoli/CLio
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/arm/endian.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/arm/signal.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/arm/types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/complex.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/libkern/_OSByteOrder.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/libkern/arm/_OSByteOrder.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/mach/arm/_structs.h \
@@ -480,11 +474,13 @@ CMakeFiles/SCPA_Project.dir/src/hll_ellpack_Tool.c.o: /Users/andreaandreoli/CLio
   /Users/andreaandreoli/CLionProjects/SCPA-Project/libs/hll_ellpack_Tool.h \
   /Users/andreaandreoli/CLionProjects/SCPA-Project/libs/mmio.h \
   /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include-fixed/_stdio.h \
+  /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include-fixed/math.h \
   /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include-fixed/stdint.h \
   /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include-fixed/stdio.h \
   /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include/omp.h \
   /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include/stdarg.h \
-  /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include/stdint.h
+  /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include/stdint.h \
+  /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include/tgmath.h
 
 CMakeFiles/SCPA_Project.dir/src/main_app.c.o: /Users/andreaandreoli/CLionProjects/SCPA-Project/src/main_app.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/Availability.h \
@@ -684,6 +680,12 @@ CMakeFiles/SCPA_Project.dir/src/main_app.c.o: /Users/andreaandreoli/CLionProject
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_pthread/_pthread_mutexattr_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_pthread/_pthread_condattr_t.h:
+
+/opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include/tgmath.h:
+
+/opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include-fixed/math.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/complex.h:
 
 /Users/andreaandreoli/CLionProjects/SCPA-Project/libs/hll_ellpack_Tool.h:
 

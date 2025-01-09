@@ -12,22 +12,37 @@
 
 // Funzione per calcolare il massimo numero di non-zero per riga nel blocco
 void calculate_max_nz_per_row_in_block(int M, const int *row_indices, int nz, int block_idx, int start_row, int end_row, HLL_Matrix *hll_matrix) {
-    // Variabile per calcolare il massimo numero di non-zero per riga nel blocco
-    int max_nz_per_row_in_block = 0;
+    // Array temporaneo per contare i nonzeri per riga nel blocco
+    int rows_in_block = end_row - start_row;
+    int *nz_per_row = calloc(rows_in_block, sizeof(int));
+    if (!nz_per_row) {
+        fprintf(stderr, "Errore: Allocazione fallita per nz_per_row.\n");
+        exit(EXIT_FAILURE);
+    }
 
-    // Parallelizzazione del conteggio dei non-zero per riga
-    //#pragma omp parallel for reduction(max:max_nz_per_row_in_block)
+    // Conta i nonzeri per ogni riga nel blocco
     for (int i = 0; i < nz; i++) {
         int row_idx = row_indices[i];
 
-        // Verifica se la riga è nel range del blocco
+        // Verifica se la riga appartiene al blocco
         if (row_idx >= start_row && row_idx < end_row) {
-            max_nz_per_row_in_block++;
+            nz_per_row[row_idx - start_row]++;
         }
     }
 
-    // Memorizza il valore massimo nel blocco corrente della matrice HLL
+    // Trova il massimo numero di nonzeri per riga
+    int max_nz_per_row_in_block = 0;
+    for (int i = 0; i < rows_in_block; i++) {
+        if (nz_per_row[i] > max_nz_per_row_in_block) {
+            max_nz_per_row_in_block = nz_per_row[i];
+        }
+    }
+
+    // Memorizza il massimo nel blocco corrente della matrice HLL
     hll_matrix->blocks[block_idx].max_nz_per_row = max_nz_per_row_in_block;
+
+    // Libera la memoria temporanea
+    free(nz_per_row);
 }
 
 
