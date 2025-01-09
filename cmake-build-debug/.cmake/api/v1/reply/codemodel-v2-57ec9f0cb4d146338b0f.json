@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "SCPA_Project::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SCPA_Project-Debug-94feb3e5263ff3cd83b9.json",
+					"jsonFile" : "target-SCPA_Project-Debug-a1a9eca2841a3bd7f96b.json",
 					"name" : "SCPA_Project",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/andreaandreoli/CLionProjects/SCPA-Project/cmake-build-debug",
-		"source" : "/Users/andreaandreoli/CLionProjects/SCPA-Project"
+		"build" : "/home/pierfrancesco/Desktop/SCPA-Project/cmake-build-debug",
+		"source" : "/home/pierfrancesco/Desktop/SCPA-Project"
 	},
 	"version" : 
 	{
