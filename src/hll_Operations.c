@@ -2,51 +2,10 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h> // Include necessario per memset
 
 #include "../libs/hll_ellpack_Tool.h"
 #include "../libs/data_structure.h"
 #include "../libs/costants.h"
-
-
-// Funzione per calcolare il massimo numero di non zero per riga
-void calculate_max_nz_per_row(int M, int nz, const int *row_indices, HLL_Matrix *hll_matrix) {
-    // Array per contare i non-zero per ogni riga
-    int *row_counts = calloc(M, sizeof(int));  // Inizializzato a zero
-    if (!row_counts) {
-        fprintf(stderr, "Errore: Allocazione fallita per row_counts.\n");
-        exit(EXIT_FAILURE);
-    }
-
-    // Conta il numero di non-zero per ogni riga
-    for (int i = 0; i < nz; i++) {
-        // Verifica che row_indices[i] sia un indice valido
-        if (row_indices[i] >= M || row_indices[i] < 0) {
-            fprintf(stderr, "Errore: Indice di riga fuori dai limiti. row_indices[%d]=%d\n", i, row_indices[i]);
-            free(row_counts);
-            exit(EXIT_FAILURE);
-        }
-        // Incrementa il contatore per la riga specificata
-        row_counts[row_indices[i]]++;
-    }
-
-    // Trova il massimo numero di non-zero tra tutte le righe
-    int max_nz_per_row = 0;
-    for (int i = 0; i < M; i++) {
-        if (row_counts[i] > max_nz_per_row) {
-            max_nz_per_row = row_counts[i];
-        }
-    }
-
-    // Salva il valore massimo nella struttura HLL_Matrix
-    hll_matrix->max_nz_per_row = max_nz_per_row;
-
-    // Libera la memoria temporanea
-    free(row_counts);
-}
-
-
-
 
 void distribute_rows_to_threads(int M, HLL_Matrix *hll_matrix, int num_threads, int **start_row, int **end_row, int *valid_threads) {
     *start_row = (int *)malloc((size_t)num_threads * sizeof(int));
@@ -63,8 +22,8 @@ void distribute_rows_to_threads(int M, HLL_Matrix *hll_matrix, int num_threads, 
         exit(EXIT_FAILURE);
     }
     // Calcola il numero di non-zero per ogni riga
-#pragma omp parallel for
     for (int block_idx = 0; block_idx < hll_matrix->num_blocks; block_idx++) {
+        int max_nz_per_row = hll_matrix->blocks[block_idx].max_nz_per_row;
         int start_row_block = block_idx * HackSize;
         int end_row_block = (block_idx + 1) * HackSize;
         if (end_row_block > M) end_row_block = M;
@@ -74,20 +33,19 @@ void distribute_rows_to_threads(int M, HLL_Matrix *hll_matrix, int num_threads, 
         for (int i = start_row_block; i < end_row_block; i++) {
             int non_zero_count = 0;
 
-            for (int j = 0; j < hll_matrix->max_nz_per_row; j++) {
+            for (int j = 0; j < max_nz_per_row; j++) {
                 // Calculate the index in the JA array
-                int idx = (i - start_row_block) * hll_matrix->max_nz_per_row + j;
+                const int idx = (i - start_row_block) * max_nz_per_row + j;
 
                 // Ensure the index is within bounds
-                if (idx < 0 || idx >= hll_matrix->max_nz_per_row * (end_row_block - start_row_block)) {
-                    fprintf(stderr, "Errore: Indice fuori dai limiti. i=%d, j=%d, idx=%d, JA_size=%d\n", i, j, idx, hll_matrix->max_nz_per_row * (end_row_block - start_row_block));
+                if (idx < 0 || idx >= max_nz_per_row * (end_row_block - start_row_block)) {
+                    fprintf(stderr, "Errore: Indice fuori dai limiti. i=%d, j=%d, idx=%d, JA_size=%d\n", i, j, idx, max_nz_per_row * (end_row_block - start_row_block));
                     exit(EXIT_FAILURE);
                 }
 
-                int col_idx = block->JA[idx];
-                if (col_idx >= 0) {
+                int col_id = block->JA[idx];
+                if (col_id >= 0)
                     non_zero_count++;
-                }
             }
 
             non_zero_per_row[i] = non_zero_count;
@@ -156,9 +114,6 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
     hll_matrix->num_blocks = (M + HackSize - 1) / HackSize;
     printf("Numero di blocchi da utilizzare: %d\n", hll_matrix->num_blocks);
 
-    // Calcolo del massimo numero di non-zero per riga
-    calculate_max_nz_per_row(M, nz, row_indices, hll_matrix);
-
     // Allocazione dei blocchi
     hll_matrix->blocks = (ELLPACK_Block *)malloc((size_t)hll_matrix->num_blocks * sizeof(ELLPACK_Block));
     if (!hll_matrix->blocks) {
@@ -169,6 +124,18 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
 
     // Conversione in formato HLL
     convert_to_hll(M, N, nz, row_indices, col_indices, values, hll_matrix);
+    for (int block_idx = 0; block_idx < hll_matrix->num_blocks; block_idx++) {
+        printf("JA = \n");
+        for (int j = 0; j < hll_matrix->blocks->max_nz_per_row * matrix_data->M; j++) {
+            printf("%d - ", hll_matrix->blocks->JA[j]);
+        }
+        printf("\n");
+        printf("AS = \n");
+        for (int j = 0; j < hll_matrix->blocks->max_nz_per_row * matrix_data->M; j++) {
+            printf("%lf - ", hll_matrix->blocks->AS[j]);
+        }
+        printf("\n");
+    }
 
     int num_threads = omp_get_max_threads();
     int *start_row = NULL;
@@ -187,7 +154,7 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
         row_start[i] += row_start[i - 1];
     }
     //printf("\nDistribuzione delle righe ai thread:\n");
-    #pragma omp parallel for
+    //#pragma omp parallel for
     for (int thread_id = 0; thread_id < valid_threads; thread_id++) {
         int thread_nz = 0;
         for (int i = start_row[thread_id]; i <= end_row[thread_id]; i++) {
@@ -197,7 +164,7 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
     }
     free(row_start);
 
-    double *y = malloc(M * sizeof(double));
+    double *y = malloc((size_t)M * sizeof(double));
     if (!y) {
         fprintf(stderr, "Errore: Allocazione fallita per il vettore y.\n");
         free(hll_matrix->blocks);

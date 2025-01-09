@@ -97,4 +97,7 @@ CMakeFiles/SCPA_Project.dir/src/hll_ellpack_Tool.c.o: \
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/_strings.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/secure/_strings.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/secure/_string.h \
+ /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include/tgmath.h \
+ /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include-fixed/math.h \
+ /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/complex.h \
  /Users/andreaandreoli/CLionProjects/SCPA-Project/src/../libs/costants.h

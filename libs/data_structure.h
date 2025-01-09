@@ -5,7 +5,7 @@
 #define DATA_STRUCTURE_H
 
 #include "mmio.h"
-
+#include <stdint.h>
 
 // Struttura per i dati della matrice
 struct matrixData {
@@ -22,13 +22,13 @@ struct matrixData {
 typedef struct {
     int *JA;   // Indici delle colonne
     double *AS; // Valori non nulli
+    int max_nz_per_row;     // Numero massimo di non nulli per riga
 } ELLPACK_Block;
 
 // Struttura per memorizzare l'intera matrice HLL
 typedef struct {
     ELLPACK_Block *blocks;  // Array di blocchi ELLPACK
     int num_blocks;         // Numero di blocchi
-    int max_nz_per_row;     // Numero massimo di non nulli per riga
 } HLL_Matrix;
 
 // Struttura per le performance
