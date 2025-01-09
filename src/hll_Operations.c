@@ -124,7 +124,7 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
 
     // Conversione in formato HLL
     convert_to_hll(M, N, nz, row_indices, col_indices, values, hll_matrix);
-    for (int block_idx = 0; block_idx < hll_matrix->num_blocks; block_idx++) {
+   /* for (int block_idx = 0; block_idx < hll_matrix->num_blocks; block_idx++) {
         printf("JA = \n");
         for (int j = 0; j < hll_matrix->blocks->max_nz_per_row * matrix_data->M; j++) {
             printf("%d - ", hll_matrix->blocks->JA[j]);
@@ -135,7 +135,7 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
             printf("%lf - ", hll_matrix->blocks->AS[j]);
         }
         printf("\n");
-    }
+    }*/
 
     int num_threads = omp_get_max_threads();
     int *start_row = NULL;

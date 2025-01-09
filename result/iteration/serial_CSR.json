@@ -1,1 +1,7 @@
-[]
+[{
+		"nameMatrix":	"cage4.mtx",
+		"seconds":	0.000727914,
+		"nonzeros":	49,
+		"flops":	0,
+		"megaFlops":	0
+	}]
