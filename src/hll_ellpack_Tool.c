@@ -226,7 +226,7 @@ void matvec_Hll(HLL_Matrix *hll_matrix, double *x, double *y, int num_threads, i
     }*/
     //debug per verificare che hll funzionasse
 
-    FILE *file = fopen("../result/risultati.txt", "r");
+   /* FILE *file = fopen("../result/risultati.txt", "r");
     if (file == NULL) {
         perror("Errore nell'aprire il file");
         exit(EXIT_FAILURE);
@@ -248,5 +248,5 @@ void matvec_Hll(HLL_Matrix *hll_matrix, double *x, double *y, int num_threads, i
     }
 
     fclose(file); // Chiude il file
-    printf("Controllo completato, tutti i valori di y sono corretti.\n");
+    printf("Controllo completato, tutti i valori di y sono corretti.\n");*/
 }
