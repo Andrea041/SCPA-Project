@@ -7,6 +7,32 @@
 #include "../libs/data_structure.h"
 #include "../libs/costants.h"
 
+void printJAandAS(ELLPACK_Block *block, struct matrixData *matrix_data) {
+    printf("Vettore JA (Indici delle colonne) per il blocco:\n");
+
+    // Stampa degli indici delle colonne (vettore JA)
+    for (int i = 0; i < matrix_data->M; i++) {
+        printf("Riga %d: ", i);  // Indice della riga (1-based)
+        for (int j = 0; j < block->max_nz_per_row; j++) {
+            int col_idx = block->JA[i * block->max_nz_per_row + j];  // Indice della colonna
+            printf("%d ", col_idx);  // Indice di colonna (1-based)
+        }
+        printf("\n");
+    }
+
+    printf("\nVettore AS (Valori non nulli) per il blocco:\n");
+
+    // Stampa dei valori non nulli (vettore AS)
+    for (int i = 0; i < matrix_data->M; i++) {
+        printf("Riga %d: ", i);  // Indice della riga (1-based)
+        for (int j = 0; j < block->max_nz_per_row; j++) {
+            double value = block->AS[i * block->max_nz_per_row + j];  // Valore non nullo
+            printf("%.2f ", value);  // Stampa il valore (fino a 2 decimali)
+        }
+        printf("\n");
+    }
+}
+
 void distribute_rows_to_threads(int M, HLL_Matrix *hll_matrix, int num_threads, int **start_row, int **end_row, int *valid_threads) {
     *start_row = (int *)malloc((size_t)num_threads * sizeof(int));
     *end_row = (int *)malloc((size_t)num_threads * sizeof(int));
@@ -95,7 +121,6 @@ void distribute_rows_to_threads(int M, HLL_Matrix *hll_matrix, int num_threads, 
 // Funzione principale per calcolare il prodotto parallelo
 struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x) {
     int M = matrix_data->M;
-    int N = matrix_data->N;
     int nz = matrix_data->nz;
     int *row_indices = matrix_data->row_indices;
 
@@ -118,6 +143,10 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
 
     // Conversione in formato HLL
     convert_to_hll(matrix_data, hll_matrix);
+    /*for (int i = 0; i < hll_matrix->num_blocks; i++) {
+        printf("\nStampa del blocco %d:\n", i + 1);
+        printJAandAS(&hll_matrix->blocks[i], matrix_data);
+    }*/
 
     int num_threads = omp_get_max_threads();
     int *start_row = NULL;

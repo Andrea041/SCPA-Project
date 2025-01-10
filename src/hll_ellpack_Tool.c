@@ -5,6 +5,9 @@
 
 #include "../libs/data_structure.h"
 #include "../libs/hll_ellpack_Tool.h"
+
+#include <tgmath.h>
+
 #include "../libs/costants.h"
 
 /* Funzione per calcolare il massimo numero di nonzeri per ciascuna riga */
@@ -99,14 +102,34 @@ void convert_to_hll(struct matrixData *matrix_data, HLL_Matrix *hll_matrix) {
         memset(hll_matrix->blocks[block_idx].JA, -1, size_of_arrays * sizeof(int));  // Default
         memset(hll_matrix->blocks[block_idx].AS, 0, size_of_arrays * sizeof(double));
 
-        // Copia i valori per riga
         for (int i = start_row; i < end_row; i++) {
             int row_offset = (i - start_row) * max_nz_per_row;
             int row_nz_start = row_start[i];
             int row_nz_end = row_start[i + 1];
-            for (int j = row_nz_start, pos = 0; j < row_nz_end; j++, pos++) {
-                hll_matrix->blocks[block_idx].JA[row_offset + pos] = sorted_col_indices[j];
-                hll_matrix->blocks[block_idx].AS[row_offset + pos] = sorted_values[j];
+
+            int pos = 0;
+            int last_col_idx = -1;
+
+            /* Assegna i valori nel formato HLL */
+            for (int j = row_nz_start; j < row_nz_end; j++) {
+                if (pos >= max_nz_per_row) break;
+                if (pos >= max_nz_per_row) {
+                    fprintf(stderr, "Errore: Troppi elementi nella riga %d.\n", i);
+                    exit(EXIT_FAILURE);
+                }
+                int index = row_offset + pos;
+                hll_matrix->blocks[block_idx].JA[index] = sorted_col_indices[j];
+                hll_matrix->blocks[block_idx].AS[index] = sorted_values[j];
+                last_col_idx = sorted_col_indices[j];
+                pos++;
+            }
+
+            /* Aggiunta del padding */
+            while (pos < max_nz_per_row) {
+                int index = row_offset + pos;
+                hll_matrix->blocks[block_idx].JA[index] = last_col_idx;
+                hll_matrix->blocks[block_idx].AS[index] = 0.0;
+                pos++;
             }
         }
     }
@@ -156,7 +179,7 @@ void matvec_Hll(HLL_Matrix *hll_matrix, double *x, double *y, int num_threads, i
     }
     //debug per verificare che hll funzionasse
 
-   /*FILE *file = fopen("../result/risultati.txt", "r");
+   FILE *file = fopen("../result/risultati.txt", "r");
     if (file == NULL) {
         perror("Errore nell'aprire il file");
         exit(EXIT_FAILURE);
@@ -178,5 +201,5 @@ void matvec_Hll(HLL_Matrix *hll_matrix, double *x, double *y, int num_threads, i
     }
 
     fclose(file); // Chiude il file
-    printf("Controllo completato, tutti i valori di y sono corretti.\n");*/
+    printf("Controllo completato, tutti i valori di y sono corretti.\n");
 }

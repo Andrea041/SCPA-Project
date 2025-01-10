@@ -1,121 +1,181 @@
 [{
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	3.6e-05,
-		"nonzeros":	6,
+		"nameMatrix":	"cage4.mtx",
+		"seconds":	8.5e-05,
+		"nonzeros":	49,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	1.1e-05,
-		"nonzeros":	6,
+		"nameMatrix":	"mhda416.mtx",
+		"seconds":	3.1e-05,
+		"nonzeros":	8562,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	1e-05,
-		"nonzeros":	6,
+		"nameMatrix":	"mcfe.mtx",
+		"seconds":	5.3e-05,
+		"nonzeros":	24382,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	9e-06,
-		"nonzeros":	6,
+		"nameMatrix":	"olm1000.mtx",
+		"seconds":	5.1e-05,
+		"nonzeros":	3996,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	1e-05,
-		"nonzeros":	6,
+		"nameMatrix":	"adder_dcop_32.mtx",
+		"seconds":	6.6e-05,
+		"nonzeros":	11246,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	9e-06,
-		"nonzeros":	6,
+		"nameMatrix":	"west2021.mtx",
+		"seconds":	4.9e-05,
+		"nonzeros":	7353,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	7e-06,
-		"nonzeros":	6,
+		"nameMatrix":	"cavity10.mtx",
+		"seconds":	7.5e-05,
+		"nonzeros":	76367,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	8e-06,
-		"nonzeros":	6,
+		"nameMatrix":	"rdist2.mtx",
+		"seconds":	6.1e-05,
+		"nonzeros":	56934,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	9e-06,
-		"nonzeros":	6,
+		"nameMatrix":	"cant.mtx",
+		"seconds":	0.001653,
+		"nonzeros":	4007383,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	9e-06,
-		"nonzeros":	6,
+		"nameMatrix":	"olafu.mtx",
+		"seconds":	0.000458,
+		"nonzeros":	1015156,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	8e-06,
-		"nonzeros":	6,
+		"nameMatrix":	"Cube_Coup_dt0.mtx",
+		"seconds":	0.060769,
+		"nonzeros":	127206144,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	8e-06,
-		"nonzeros":	6,
+		"nameMatrix":	"ML_Laplace.mtx",
+		"seconds":	0.013428,
+		"nonzeros":	27689972,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	1e-05,
-		"nonzeros":	6,
+		"nameMatrix":	"bcsstk17.mtx",
+		"seconds":	0.000234,
+		"nonzeros":	428650,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	8e-06,
-		"nonzeros":	6,
+		"nameMatrix":	"mac_econ_fwd500.mtx",
+		"seconds":	0.000717,
+		"nonzeros":	1273389,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	7e-06,
-		"nonzeros":	6,
+		"nameMatrix":	"mhd4800a.mtx",
+		"seconds":	0.000163,
+		"nonzeros":	102252,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	8e-06,
-		"nonzeros":	6,
+		"nameMatrix":	"cop20k_A.mtx",
+		"seconds":	0.001456,
+		"nonzeros":	2624331,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	8e-06,
-		"nonzeros":	6,
+		"nameMatrix":	"raefsky2.mtx",
+		"seconds":	0.00017,
+		"nonzeros":	294276,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	9e-06,
-		"nonzeros":	6,
+		"nameMatrix":	"af23560.mtx",
+		"seconds":	0.000245,
+		"nonzeros":	484256,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	2.3e-05,
-		"nonzeros":	6,
+		"nameMatrix":	"lung2.mtx",
+		"seconds":	0.000426,
+		"nonzeros":	492564,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
-		"nameMatrix":	"sym_sup.mtx",
-		"seconds":	2.2e-05,
-		"nonzeros":	6,
+		"nameMatrix":	"PR02R.mtx",
+		"seconds":	0.004079,
+		"nonzeros":	8185136,
+		"flops":	0,
+		"megaFlops":	0
+	}, {
+		"nameMatrix":	"FEM_3D_thermal1.mtx",
+		"seconds":	0.000244,
+		"nonzeros":	430740,
+		"flops":	0,
+		"megaFlops":	0
+	}, {
+		"nameMatrix":	"thermal1.mtx",
+		"seconds":	0.000357,
+		"nonzeros":	574458,
+		"flops":	0,
+		"megaFlops":	0
+	}, {
+		"nameMatrix":	"thermal2.mtx",
+		"seconds":	0.005793,
+		"nonzeros":	8580313,
+		"flops":	0,
+		"megaFlops":	0
+	}, {
+		"nameMatrix":	"thermomech_TK.mtx",
+		"seconds":	0.000507,
+		"nonzeros":	711558,
+		"flops":	0,
+		"megaFlops":	0
+	}, {
+		"nameMatrix":	"nlpkkt80.mtx",
+		"seconds":	0.01367,
+		"nonzeros":	28704672,
+		"flops":	0,
+		"megaFlops":	0
+	}, {
+		"nameMatrix":	"webbase-1M.mtx",
+		"seconds":	0.002155,
+		"nonzeros":	3105536,
+		"flops":	0,
+		"megaFlops":	0
+	}, {
+		"nameMatrix":	"dc1.mtx",
+		"seconds":	0.000436,
+		"nonzeros":	766396,
+		"flops":	0,
+		"megaFlops":	0
+	}, {
+		"nameMatrix":	"amazon0302.mtx",
+		"seconds":	0.000902,
+		"nonzeros":	1234877,
+		"flops":	0,
+		"megaFlops":	0
+	}, {
+		"nameMatrix":	"af_1_k101.mtx",
+		"seconds":	0.008722,
+		"nonzeros":	17550675,
+		"flops":	0,
+		"megaFlops":	0
+	}, {
+		"nameMatrix":	"roadNet-PA.mtx",
+		"seconds":	0.002697,
+		"nonzeros":	3083796,
 		"flops":	0,
 		"megaFlops":	0
 	}]
