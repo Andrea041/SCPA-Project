@@ -63,7 +63,7 @@ void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, double *
     //debug per verificare che parallelo funzionasse
 
     // Scrittura dei risultati su file
-   /* FILE *file = fopen("../result/risultati.txt", "w");
+    /*FILE *file = fopen("../result/risultati.txt", "w");
     if (file == NULL) {
         fprintf(stderr, "Errore nell'aprire il file.\n");
         exit(EXIT_FAILURE);

@@ -39,7 +39,6 @@ struct matrixPerformance {
     double megaFlops;
 };
 
-
 struct matrixPerformanceAverage {
     char nameMatrix[50];  // Nome della matrice
     double avarangeFlops; // Flops medi

@@ -351,12 +351,10 @@ int main() {
             add_performance_to_array(matrix_names[i], matrix_data, x, serial_array_csr, serial_csr);
 
             /*parallelo OPENMP && CSR*/
-            //add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array_csr_openMP, parallel_csr);
+            add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array_csr_openMP, parallel_csr);
 
             /*parallelo OPENMP && HLL*/
-             add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array_hll_openMP, parallel_hll);
-
-
+            add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array_hll_openMP, parallel_hll);
         }
 
         free(x);

@@ -50,8 +50,6 @@ void distribute_rows_to_threads(int M, HLL_Matrix *hll_matrix, int num_threads, 
 
             non_zero_per_row[i] = non_zero_count;
         }
-
-        //printf("Block %d completed!\n", block_idx);
     }
 
 
@@ -112,7 +110,7 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
 
     // Calcolo del numero di blocchi
     hll_matrix->num_blocks = (M + HackSize - 1) / HackSize;
-    printf("Numero di blocchi da utilizzare: %d\n", hll_matrix->num_blocks);
+    //printf("Numero di blocchi da utilizzare: %d\n", hll_matrix->num_blocks);
 
     // Allocazione dei blocchi
     hll_matrix->blocks = (ELLPACK_Block *)malloc((size_t)hll_matrix->num_blocks * sizeof(ELLPACK_Block));
@@ -123,7 +121,7 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
     }
 
     // Conversione in formato HLL
-    convert_to_hll(M, N, nz, row_indices, col_indices, values, hll_matrix);
+    convert_to_hll(matrix_data, hll_matrix);
    /* for (int block_idx = 0; block_idx < hll_matrix->num_blocks; block_idx++) {
         printf("JA = \n");
         for (int j = 0; j < hll_matrix->blocks->max_nz_per_row * matrix_data->M; j++) {
