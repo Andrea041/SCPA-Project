@@ -23,6 +23,7 @@ typedef struct {
     int *JA;   // Indici delle colonne
     double *AS; // Valori non nulli
     int max_nz_per_row;     // Numero massimo di non nulli per riga
+    int nz_per_block;
 } ELLPACK_Block;
 
 // Struttura per memorizzare l'intera matrice HLL

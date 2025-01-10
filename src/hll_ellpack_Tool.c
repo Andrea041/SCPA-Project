@@ -28,14 +28,21 @@ int find_max_nz(const int *nz_per_row, int start_row, int end_row) {
     return max_nz;
 }
 
+int find_max_nz_per_block(const int *nz_per_row, int start_row, int end_row) {
+    int tot_nz = 0;
+    for (int i = start_row; i < end_row; i++) {
+        tot_nz += nz_per_row[i];
+    }
+
+    return tot_nz;
+}
+
 void convert_to_hll(struct matrixData *matrix_data, HLL_Matrix *hll_matrix) {
-    int *row_start = malloc((matrix_data->M + 1) * sizeof(int));
+    int *row_start = calloc(matrix_data->M + 1, sizeof(int));
     if (!row_start) {
         fprintf(stderr, "Errore: allocazione memoria fallita per row_start.\n");
         exit(EXIT_FAILURE);
     }
-
-    memset(row_start, 0, (matrix_data->M + 1) * sizeof(int));  // Inizializzazione a 0
 
     // Conta gli elementi in ogni riga
     for (int i = 0; i < matrix_data->nz; i++) {
@@ -82,24 +89,30 @@ void convert_to_hll(struct matrixData *matrix_data, HLL_Matrix *hll_matrix) {
         int end_row = (block_idx + 1) * HackSize;
         if (end_row > matrix_data->M) end_row = matrix_data->M;
 
+        hll_matrix->blocks[block_idx].nz_per_block = find_max_nz_per_block(nz_per_row, start_row, end_row);
         hll_matrix->blocks[block_idx].max_nz_per_row = find_max_nz(nz_per_row, start_row, end_row);
 
         int max_nz_per_row = hll_matrix->blocks[block_idx].max_nz_per_row;
-
         int rows_in_block = end_row - start_row;
         int size_of_arrays = max_nz_per_row * rows_in_block;
-
-        hll_matrix->blocks[block_idx].JA = (int *)malloc(size_of_arrays * sizeof(int));
-        hll_matrix->blocks[block_idx].AS = (double *)malloc(size_of_arrays * sizeof(double));
-        if (!hll_matrix->blocks[block_idx].JA || !hll_matrix->blocks[block_idx].AS) {
-            fprintf(stderr, "Errore: allocazione memoria fallita per il blocco %d.\n", block_idx);
-            free(row_start);
-            free(sorted_col_indices);
-            free(sorted_values);
+        if (max_nz_per_row < 0 || rows_in_block < 0) {
+            fprintf(stderr, "Errore: Valori invalidi per il blocco %d: %d - %d\n", block_idx, rows_in_block, max_nz_per_row);
             exit(EXIT_FAILURE);
         }
 
-        memset(hll_matrix->blocks[block_idx].JA, -1, size_of_arrays * sizeof(int));  // Default
+        hll_matrix->blocks[block_idx].JA = calloc(size_of_arrays, sizeof(int));
+        hll_matrix->blocks[block_idx].AS = calloc(size_of_arrays, sizeof(double));
+        if (!hll_matrix->blocks[block_idx].JA || !hll_matrix->blocks[block_idx].AS) {
+            fprintf(stderr, "Errore: allocazione memoria fallita per il blocco %d.\n", block_idx);
+            for (int k = 0; k < block_idx; k++) {
+                free(hll_matrix->blocks[k].JA);
+                free(hll_matrix->blocks[k].AS);
+            }
+            free(nz_per_row);
+            exit(EXIT_FAILURE);
+        }
+
+        memset(hll_matrix->blocks[block_idx].JA, -1, size_of_arrays * sizeof(int));
         memset(hll_matrix->blocks[block_idx].AS, 0, size_of_arrays * sizeof(double));
 
         for (int i = start_row; i < end_row; i++) {
@@ -110,13 +123,9 @@ void convert_to_hll(struct matrixData *matrix_data, HLL_Matrix *hll_matrix) {
             int pos = 0;
             int last_col_idx = -1;
 
-            /* Assegna i valori nel formato HLL */
+            // Assegna i valori nel formato HLL
             for (int j = row_nz_start; j < row_nz_end; j++) {
                 if (pos >= max_nz_per_row) break;
-                if (pos >= max_nz_per_row) {
-                    fprintf(stderr, "Errore: Troppi elementi nella riga %d.\n", i);
-                    exit(EXIT_FAILURE);
-                }
                 int index = row_offset + pos;
                 hll_matrix->blocks[block_idx].JA[index] = sorted_col_indices[j];
                 hll_matrix->blocks[block_idx].AS[index] = sorted_values[j];
@@ -124,7 +133,7 @@ void convert_to_hll(struct matrixData *matrix_data, HLL_Matrix *hll_matrix) {
                 pos++;
             }
 
-            /* Aggiunta del padding */
+            // Aggiunta del padding
             while (pos < max_nz_per_row) {
                 int index = row_offset + pos;
                 hll_matrix->blocks[block_idx].JA[index] = last_col_idx;
@@ -137,55 +146,41 @@ void convert_to_hll(struct matrixData *matrix_data, HLL_Matrix *hll_matrix) {
     free(row_start);
     free(sorted_col_indices);
     free(sorted_values);
+    free(nz_per_row);
 }
 
-void matvec_Hll(HLL_Matrix *hll_matrix, double *x, double *y, int num_threads, int M) {
-  #pragma omp parallel num_threads(num_threads)
+void matvec_Hll(const HLL_Matrix *hll_matrix, const double *x, double *y, int num_threads, const int *start_block, const int *end_block, int max_row_in_matrix) {
+    #pragma omp parallel num_threads(num_threads)
     {
-        int thread_id = omp_get_thread_num();
+        int tid = omp_get_thread_num();
+        /* Scorrimento dei blocchi assegnati al thread tid */
+        for (int block_id = start_block[tid]; block_id <= end_block[tid]; block_id++) {
+            /* Calcolo delle righe di inizio e fine del blocco */
+            int start_row = block_id * HackSize;
+            int end_row = (block_id + 1) * HackSize;
+            if (end_row > max_row_in_matrix) end_row = max_row_in_matrix;
 
-        // Definiamo i limiti delle righe per ogni thread
-        int start_row = M / num_threads * thread_id;
-        int end_row = thread_id == num_threads - 1 ? M : M / num_threads * (thread_id + 1);
-
-        for (int block_idx = 0; block_idx < hll_matrix->num_blocks; block_idx++) {
-            int block_start_row = block_idx * HackSize;
-            int block_end_row = (block_idx + 1) * HackSize;
-            if (block_end_row > M) block_end_row = M;
-
-            int max_nz_per_row = hll_matrix->blocks[block_idx].max_nz_per_row;
-            ELLPACK_Block *block = &hll_matrix->blocks[block_idx];
-
-            // Itera sulle righe del blocco, solo quelle assegnate al thread
-            for (int row_idx = block_start_row; row_idx < block_end_row; row_idx++) {
-                if (row_idx < start_row || row_idx >= end_row) continue;
-
-                double temp_sum = 0.0;
-
-                // Itera sui non-zero per ogni riga
-                for (int j = 0; j < max_nz_per_row; j++) {
-                    int col_idx = block->JA[(row_idx - block_start_row) * max_nz_per_row + j];
-                    double value = block->AS[(row_idx - block_start_row) * max_nz_per_row + j];
-
-                    if (col_idx >= 0) { // Colonna valida
-                        temp_sum += value * x[col_idx];
-                    }
+            int row_offset = 0;
+            /* Scorrimento delle righe di un unico blocco */
+            for (int i = start_row; i < end_row; i++) {
+                y[i] = 0.0;
+                /* Scorrimento della riga selezionata (sarà lunga maxnz) */
+                for (int j = 0; j < hll_matrix->blocks[block_id].max_nz_per_row; j++) {
+                    y[i] += hll_matrix->blocks[block_id].AS[j + row_offset] * x[hll_matrix->blocks[block_id].JA[j + row_offset]];
                 }
-
-                // Aggiungi il risultato al vettore y
-                y[row_idx] += temp_sum;
+                /* Incremento dell'offset per passare alla riga successiva */
+                row_offset += hll_matrix->blocks[block_id].max_nz_per_row;
             }
         }
     }
-    //debug per verificare che hll funzionasse
 
-   FILE *file = fopen("../result/risultati.txt", "r");
+    /*FILE *file = fopen("../result/risultati.txt", "r");
     if (file == NULL) {
         perror("Errore nell'aprire il file");
         exit(EXIT_FAILURE);
     }
 
-    for (int t = 0; t < M; t++) {
+    for (int t = 0; t < max_row_in_matrix; t++) {
         double file_value;
         if (fscanf(file, "%lf", &file_value) != 1) {
             fprintf(stderr, "Errore nella lettura del file. Non sono stati letti abbastanza valori.\n");
@@ -201,5 +196,5 @@ void matvec_Hll(HLL_Matrix *hll_matrix, double *x, double *y, int num_threads, i
     }
 
     fclose(file); // Chiude il file
-    printf("Controllo completato, tutti i valori di y sono corretti.\n");
+    printf("Controllo completato, tutti i valori di y sono corretti.\n");*/
 }

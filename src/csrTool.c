@@ -60,10 +60,8 @@ void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, double *
         }
     }
 
-    //debug per verificare che parallelo funzionasse
-
     // Scrittura dei risultati su file
-    FILE *file = fopen("../result/risultati.txt", "w");
+    /*FILE *file = fopen("../result/risultati.txt", "w");
     if (file == NULL) {
         fprintf(stderr, "Errore nell'aprire il file.\n");
         exit(EXIT_FAILURE);
@@ -75,17 +73,11 @@ void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, double *
             exit(EXIT_FAILURE);
         }
     }
-    fclose(file);
-    // Chiude il file dopo aver scritto tutti i risultati
-
-    /*printf("SERIALE\n");
-    for (int i = 0; i < M; i++) { // Considera tutte le righe in base a N
-        printf("y[%d] = %.10f\n", i, y[i]); // Stampa come double con 10 cifre decimali
-    }*/
+    fclose(file);*/
 }
 
 /* Prodotto matrice-vettore parallelo */
-void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const double *x, double *y, int *start_row, int *end_row, int num_threads, int nz, int M) {
+void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const double *x, double *y, const int *start_row, const int *end_row, int num_threads, int nz, int M) {
     #pragma omp parallel num_threads(num_threads)
     {
         int tid = omp_get_thread_num();
@@ -94,12 +86,6 @@ void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const do
             for (int j = IRP[i]; j < IRP[i + 1]; j++) {
                 y[i] += AS[j] * x[JA[j]];
             }
-
         }
     }
-    // Punto di sincronizzazione
-    /*printf("CSR PARALLELO\n");
-    for (int i = 0; i < M; i++) { // Considera tutte le righe in base a M
-        printf("y[%d] = %.10f\n", i, y[i]); // Stampa come double con 10 cifre decimali
-    }*/
 }
