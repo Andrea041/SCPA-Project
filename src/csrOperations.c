@@ -45,6 +45,51 @@ struct matrixPerformance serial_csr(struct matrixData *matrix_data, double *x) {
     return node;
 }
 
+/* Funzione per calcolare una soglia dinamica per nz_per_thread_threshold */
+int calculate_nz_per_thread_threshold(int M, int N, int nz) {
+    if (M <= 0 || N <= 0 || nz <= 0) {
+        printf("Errore: Parametri non validi per calculate_nz_per_thread_threshold (M: %d, N: %d, nz: %d)\n", M, N, nz);
+        exit(EXIT_FAILURE);
+    }
+
+    double base_threshold = 500.0;
+    double dynamic_threshold = base_threshold * (1 + ((double)nz / (M * N)));
+    return (int)dynamic_threshold;
+}
+
+/* Funzione per calcolare il numero ideale di thread */
+int calculate_optimal_threads(int M, int N, int nz) {
+    if (M <= 0 || N <= 0 || nz <= 0) {
+        printf("Errore: Parametri non validi per calculate_optimal_threads (M: %d, N: %d, nz: %d)\n", M, N, nz);
+        exit(EXIT_FAILURE);
+    }
+
+    int max_threads = omp_get_max_threads();
+
+    // Calcolo della soglia dinamica per nz_per_thread_threshold
+    int nz_per_thread_threshold = calculate_nz_per_thread_threshold(M, N, nz);
+
+    // Calcolo dinamico della soglia minima di righe per thread
+    int rows_per_thread_threshold = (M > 100) ? (M / 10) : 1; // Minimo 10% di righe per thread o almeno 1
+
+    // Calcolo del numero ideale di thread
+    int threads_based_on_nz = nz / nz_per_thread_threshold;
+    int threads_based_on_rows = M / rows_per_thread_threshold;
+
+    int optimal_threads = (threads_based_on_nz < threads_based_on_rows) ? threads_based_on_nz : threads_based_on_rows;
+
+    // Assicura almeno 3 thread se il numero medio di non zeri per riga è disparo, 4 se è pari
+    int avg_nnz_per_row = nz / M;
+    if (optimal_threads < 2) {
+        optimal_threads = (avg_nnz_per_row % 2 == 0) ? 4 : 3;
+    }
+    if (optimal_threads > max_threads) optimal_threads = max_threads;
+
+    printf("Numero di thread calcolato: %d (max_threads: %d, avg_nnz_per_row: %d)\n", optimal_threads, max_threads, avg_nnz_per_row);
+
+    return optimal_threads;
+}
+
 void compute_thread_row_partition(int M, int nz, int *num_threads, int *IRP, int **start_row, int **end_row) {
     *start_row = malloc((size_t)(*num_threads) * sizeof(int));
     *end_row = malloc((size_t)(*num_threads) * sizeof(int));
@@ -108,11 +153,11 @@ void compute_thread_row_partition(int M, int nz, int *num_threads, int *IRP, int
     // Stampa il risultato per ogni thread
     int result=0;
     for (int t = 0; t < *num_threads; t++) {
-        /*printf("Thread %d: righe [%d, %d), non zeri = %d , numero di righe: %d\n",
-               t, (*start_row)[t], (*end_row)[t], nnz_per_thread_count[t], M);*/
+        printf("Thread %d: righe [%d, %d), non zeri = %d , numero di righe: %d\n",
+               t, (*start_row)[t], (*end_row)[t], nnz_per_thread_count[t], M);
         result=result+nnz_per_thread_count[t];
     }
-    //printf("non zeri nella matrice: %d , numero di non zeri assegnati:%d\n",nz,result);
+    printf("non zeri nella matrice: %d , numero di non zeri assegnati:%d\n",nz,result);
     free(nnz_per_thread_count); // Libera la memoria allocata
 }
 
@@ -134,12 +179,15 @@ struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x)
 
     convert_to_csr(matrix_data->M, matrix_data->nz, matrix_data->row_indices, matrix_data->col_indices, matrix_data->values, &IRP, &JA, &AS);
 
-    int num_threads = omp_get_max_threads();
+    int num_threads= calculate_optimal_threads(matrix_data->M,matrix_data->N, matrix_data->nz);
+    printf("numero di thread: %d\n",num_threads);
     int *start_row, *end_row;
+
 
     compute_thread_row_partition(matrix_data->M, matrix_data->nz, &num_threads, IRP, &start_row, &end_row);
 
     struct timespec start, end;
+
     clock_gettime(CLOCK_MONOTONIC, &start);
     matvec_csr_openMP(IRP, JA, AS, x, y, start_row, end_row, num_threads, matrix_data->nz, matrix_data->M);
     clock_gettime(CLOCK_MONOTONIC, &end);
