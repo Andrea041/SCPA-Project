@@ -1,15 +1,13 @@
 #include <stdlib.h>
-#include "../libs/hll_Operations.h"
-#include "../libs/data_structure.h"
-#include "../libs/hll_ellpack_Tool.h"
-
 #include <stdio.h>
 #include <omp.h>
 #include <string.h>
-#include <tgmath.h>
 
+#include "../libs/data_structure.h"
+#include "../libs/hll_ellpack_Tool.h"
 #include "../libs/costants.h"
 
+/* Funzione per calcolare il massimo numero di nonzeri per ciascuna riga */
 void calculate_max_nz_in_row_in_block(const struct matrixData *matrix_data, int *nz_per_row) {
     for (int i = 0; i < matrix_data->nz; i++) {
         int row_idx = matrix_data->row_indices[i];
@@ -17,6 +15,7 @@ void calculate_max_nz_in_row_in_block(const struct matrixData *matrix_data, int 
     }
 }
 
+/* Funzione per trovare il massimo numero di nonzeri all'interno di un intervallo di righe */
 int find_max_nz(const int *nz_per_row, int start_row, int end_row) {
     int max_nz = 0;
     for (int i = start_row; i < end_row; i++) {
@@ -110,7 +109,6 @@ void convert_to_hll(struct matrixData *matrix_data, HLL_Matrix *hll_matrix) {
                 hll_matrix->blocks[block_idx].AS[row_offset + pos] = sorted_values[j];
             }
         }
-        //printf("Blocco %d completato\n", block_idx);
     }
 
     free(row_start);
@@ -118,14 +116,14 @@ void convert_to_hll(struct matrixData *matrix_data, HLL_Matrix *hll_matrix) {
     free(sorted_values);
 }
 
-void matvec_Hll(HLL_Matrix *hll_matrix, double *x, double *y, int num_threads, int *start_row, int *end_row, int N, int M) {
+void matvec_Hll(HLL_Matrix *hll_matrix, double *x, double *y, int num_threads, int M) {
   #pragma omp parallel num_threads(num_threads)
     {
         int thread_id = omp_get_thread_num();
 
         // Definiamo i limiti delle righe per ogni thread
-        int start_row = (M / num_threads) * thread_id;
-        int end_row = (thread_id == num_threads - 1) ? M : (M / num_threads) * (thread_id + 1);
+        int start_row = M / num_threads * thread_id;
+        int end_row = thread_id == num_threads - 1 ? M : M / num_threads * (thread_id + 1);
 
         for (int block_idx = 0; block_idx < hll_matrix->num_blocks; block_idx++) {
             int block_start_row = block_idx * HackSize;
@@ -156,28 +154,6 @@ void matvec_Hll(HLL_Matrix *hll_matrix, double *x, double *y, int num_threads, i
             }
         }
     }
-   /*for (int block_idx = 0; block_idx < hll_matrix->num_blocks; block_idx++) {
-        int start_row_block = block_idx * HackSize;
-        int end_row_block = (block_idx + 1) * HackSize;
-        if (end_row_block > M) end_row_block = M;
-
-        int rows_in_block = end_row_block - start_row_block;
-        int max_nz_per_row = hll_matrix->blocks[block_idx].max_nz_per_row;
-
-        for (int i = 0; i < rows_in_block; i++) {
-            int row_idx = start_row_block + i;
-            int row_offset = i * max_nz_per_row;
-
-            for (int j = 0; j < max_nz_per_row; j++) {
-                int col_idx = hll_matrix->blocks[block_idx].JA[row_offset + j];
-                double value = hll_matrix->blocks[block_idx].AS[row_offset + j];
-
-                if (value != 0) {
-                    y[row_idx] += value * x[col_idx];
-                }
-            }
-        }
-    }*/
     //debug per verificare che hll funzionasse
 
    /*FILE *file = fopen("../result/risultati.txt", "r");

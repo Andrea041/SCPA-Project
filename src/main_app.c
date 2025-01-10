@@ -4,13 +4,13 @@
 #include <stdlib.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+
 #include "../libs/mmio.h"
 #include "../libs/matrixLists.h"
 #include "../libs/data_structure.h"
 #include "../libs/costants.h"
 #include "../libs/csrOperations.h"
 #include "../libs/hll_Operations.h"
-
 
 #ifdef USER_PIERFRANCESCO
 #include "cjson/cJSON.h"
@@ -311,7 +311,6 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
     fclose(output_file);
     cJSON_Delete(output_array);
 }
-
 
 int main() {
     ensure_directory_exists("../result");

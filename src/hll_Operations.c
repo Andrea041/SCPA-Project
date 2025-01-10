@@ -60,7 +60,6 @@ void distribute_rows_to_threads(int M, HLL_Matrix *hll_matrix, int num_threads, 
     }
 
     int target_non_zero_per_thread = total_non_zero / num_threads;
-    //printf("Total non zero: %d\n", total_non_zero);
 
     // Suddivisione delle righe ai thread
     int current_non_zero = 0;
@@ -99,8 +98,6 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
     int N = matrix_data->N;
     int nz = matrix_data->nz;
     int *row_indices = matrix_data->row_indices;
-    int *col_indices = matrix_data->col_indices;
-    double *values = matrix_data->values;
 
     HLL_Matrix *hll_matrix = malloc(sizeof(HLL_Matrix));
     if (!hll_matrix) {
@@ -110,7 +107,6 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
 
     // Calcolo del numero di blocchi
     hll_matrix->num_blocks = (M + HackSize - 1) / HackSize;
-    //printf("Numero di blocchi da utilizzare: %d\n", hll_matrix->num_blocks);
 
     // Allocazione dei blocchi
     hll_matrix->blocks = (ELLPACK_Block *)malloc((size_t)hll_matrix->num_blocks * sizeof(ELLPACK_Block));
@@ -122,18 +118,6 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
 
     // Conversione in formato HLL
     convert_to_hll(matrix_data, hll_matrix);
-   /* for (int block_idx = 0; block_idx < hll_matrix->num_blocks; block_idx++) {
-        printf("JA = \n");
-        for (int j = 0; j < hll_matrix->blocks->max_nz_per_row * matrix_data->M; j++) {
-            printf("%d - ", hll_matrix->blocks->JA[j]);
-        }
-        printf("\n");
-        printf("AS = \n");
-        for (int j = 0; j < hll_matrix->blocks->max_nz_per_row * matrix_data->M; j++) {
-            printf("%lf - ", hll_matrix->blocks->AS[j]);
-        }
-        printf("\n");
-    }*/
 
     int num_threads = omp_get_max_threads();
     int *start_row = NULL;
@@ -142,7 +126,6 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
 
     distribute_rows_to_threads(M, hll_matrix, num_threads, &start_row, &end_row, &valid_threads);
 
-    // Stampa delle righe assegnate a ciascun thread e dei loro non-zeri
     // Pre-elaborazione degli intervalli di indici per ciascuna riga
     int *row_start = calloc(M + 1, sizeof(int));
     for (int j = 0; j < nz; j++) {
@@ -151,14 +134,12 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
     for (int i = 1; i <= M; i++) {
         row_start[i] += row_start[i - 1];
     }
-    //printf("\nDistribuzione delle righe ai thread:\n");
-    //#pragma omp parallel for
+
     for (int thread_id = 0; thread_id < valid_threads; thread_id++) {
         int thread_nz = 0;
         for (int i = start_row[thread_id]; i <= end_row[thread_id]; i++) {
             thread_nz += row_start[i + 1] - row_start[i]; // Non-zeri in questa riga
         }
-        //printf("Thread %d: numero di non-zeri = %d\n", thread_id, thread_nz);
     }
     free(row_start);
 
@@ -175,13 +156,15 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
 
     struct timespec start, end;
     clock_gettime(CLOCK_MONOTONIC, &start);
-    matvec_Hll(hll_matrix, x, y, valid_threads, start_row, end_row, N, M);
+    matvec_Hll(hll_matrix, x, y, valid_threads, M);
     clock_gettime(CLOCK_MONOTONIC, &end);
 
     const double time_spent = (double)(end.tv_sec - start.tv_sec) + (double)(end.tv_nsec - start.tv_nsec) / 1e9;
 
     struct matrixPerformance performance;
     performance.seconds = time_spent;
+    performance.flops = 0;
+    performance.megaFlops = 0;
 
     // Libera memoria
     free(y);
