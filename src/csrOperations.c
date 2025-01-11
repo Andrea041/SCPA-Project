@@ -106,14 +106,15 @@ void compute_thread_row_partition(int M, int nz, int *num_threads, int *IRP, int
     *num_threads = valid_threads;
 
     // Stampa il risultato per ogni thread
-    int result=0;
+    /*int result=0;
     for (int t = 0; t < *num_threads; t++) {
         printf("Thread %d: righe [%d, %d), non zeri = %d , numero di righe: %d\n",
                t, (*start_row)[t], (*end_row)[t], nnz_per_thread_count[t], M);
         result=result+nnz_per_thread_count[t];
     }
-    printf("non zeri nella matrice: %d , numero di non zeri assegnati:%d\n",nz,result);
-    free(nnz_per_thread_count); // Libera la memoria allocata
+    printf("non zeri nella matrice: %d , numero di non zeri assegnati:%d\n",nz,result);*/
+
+    free(nnz_per_thread_count);
 }
 
 struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x) {
@@ -139,7 +140,7 @@ struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x)
 
 
     compute_thread_row_partition(matrix_data->M, matrix_data->nz, &num_threads, IRP, &start_row, &end_row);
-    printf("CSR Numero di thread: %d\n", num_threads);
+    //printf("CSR Numero di thread: %d\n", num_threads);
     struct timespec start, end;
 
     clock_gettime(CLOCK_MONOTONIC, &start);
