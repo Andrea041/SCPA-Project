@@ -1,16 +1,16 @@
 [{
 		"nameMatrix":	"cage4.mtx",
-		"seconds":	6.61e-07,
-		"flops":	73773071104.3873,
-		"megaFlops":	73773.0711043873
+		"seconds":	3.3e-07,
+		"flops":	147769696969.697,
+		"megaFlops":	147769.696969697
 	}, {
 		"nameMatrix":	"mhda416.mtx",
-		"seconds":	5.147e-05,
-		"flops":	947425684.86497,
-		"megaFlops":	947.42568486497
+		"seconds":	2.5769e-05,
+		"flops":	1892351274.7875354,
+		"megaFlops":	1892.3512747875354
 	}, {
 		"nameMatrix":	"mcfe.mtx",
-		"seconds":	0.000148645,
-		"flops":	328056779.57549864,
-		"megaFlops":	328.05677957549864
+		"seconds":	7.1165e-05,
+		"flops":	685224478.32501936,
+		"megaFlops":	685.22447832501939
 	}]

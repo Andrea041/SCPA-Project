@@ -1,18 +1,18 @@
 [{
 		"nameMatrix":	"cage4.mtx",
-		"seconds":	6.61e-07,
+		"seconds":	3.3e-07,
 		"nonzeros":	49,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mhda416.mtx",
-		"seconds":	5.147e-05,
+		"seconds":	2.5769e-05,
 		"nonzeros":	8562,
 		"flops":	0,
 		"megaFlops":	0
 	}, {
 		"nameMatrix":	"mcfe.mtx",
-		"seconds":	0.000148645,
+		"seconds":	7.1165e-05,
 		"nonzeros":	24382,
 		"flops":	0,
 		"megaFlops":	0

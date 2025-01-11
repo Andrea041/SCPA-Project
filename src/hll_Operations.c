@@ -37,6 +37,8 @@ void distribute_blocks_to_threads(struct matrixData *matrix_data, HLL_Matrix *hl
 
     (*start_block)[thread_id] = 0; // Primo blocco assegnato al primo thread
 
+    printf("HLL Distribuzione dei blocchi ai thread:\n");
+
     // Assegna i blocchi ai thread
     for (int block_id = 0; block_id < hll_matrix->num_blocks; block_id++) {
         // Aggiunge i non-zero del blocco corrente
@@ -45,9 +47,18 @@ void distribute_blocks_to_threads(struct matrixData *matrix_data, HLL_Matrix *hl
         // Controlla se è necessario passare al prossimo thread
         if (current_non_zero >= non_zero_per_thread && thread_id < num_threads - 1) {
             (*end_block)[thread_id] = block_id; // Assegna il blocco finale per il thread corrente
-            thread_id++;
-            (*start_block)[thread_id] = block_id + 1; // Inizia il prossimo thread dal blocco successivo
-            current_non_zero = 0; // Reset per il prossimo thread
+
+            // Verifica che il thread abbia un sottoinsieme non nullo
+            if ((*end_block)[thread_id] >= (*start_block)[thread_id]) {
+                printf("HLL Thread %d: blocchi da %d a %d, non-zero = %d\n", thread_id, (*start_block)[thread_id], (*end_block)[thread_id], current_non_zero);
+                thread_id++;
+                (*start_block)[thread_id] = block_id + 1; // Inizia il prossimo thread dal blocco successivo
+                current_non_zero = 0; // Reset per il prossimo thread
+            } else {
+                // Se il sottoinsieme di blocchi è nullo, riassigna al thread precedente
+                (*end_block)[thread_id - 1] = block_id;
+                current_non_zero += hll_matrix->blocks[block_id].nz_per_block;
+            }
         }
     }
 
@@ -55,14 +66,51 @@ void distribute_blocks_to_threads(struct matrixData *matrix_data, HLL_Matrix *hl
     if (hll_matrix->num_blocks > 1) {
         (*end_block)[thread_id] = hll_matrix->num_blocks - 1;
 
-        // Aggiorna il numero di thread validi
-        *valid_threads = thread_id + 1;
-    } else
+        // Verifica che il thread abbia un sottoinsieme non nullo
+        if ((*end_block)[thread_id] >= (*start_block)[thread_id]) {
+            printf("HLL Thread %d: blocchi da %d a %d, non-zero = %d\n", thread_id, (*start_block)[thread_id], (*end_block)[thread_id], current_non_zero);
+            *valid_threads = thread_id + 1;
+        } else {
+            // Se il sottoinsieme di blocchi è nullo, riassigna al thread precedente
+            (*end_block)[thread_id - 1] = (*end_block)[thread_id];
+            *valid_threads = thread_id;
+        }
+    } else {
         *valid_threads = thread_id;
+    }
+
+    // Verifica che tutti i blocchi siano stati assegnati una sola volta e che il numero totale corrisponda
+    int assigned_blocks = 0;
+    int assigned_non_zero = 0;
+    for (int i = 0; i < *valid_threads; i++) {
+        if ((*start_block)[i] > (*end_block)[i]) {
+            fprintf(stderr, "Errore: Assegnazione non valida per il thread %d.\n", i);
+            exit(EXIT_FAILURE);
+        }
+        assigned_blocks += (*end_block)[i] - (*start_block)[i] + 1;
+        for (int block_id = (*start_block)[i]; block_id <= (*end_block)[i]; block_id++) {
+            assigned_non_zero += hll_matrix->blocks[block_id].nz_per_block;
+        }
+    }
+
+    if (assigned_blocks != hll_matrix->num_blocks) {
+        fprintf(stderr, "Errore: Il numero di blocchi assegnati (%d) non corrisponde al numero totale di blocchi (%d).\n", assigned_blocks, hll_matrix->num_blocks);
+        exit(EXIT_FAILURE);
+    }
+
+    if (assigned_non_zero != total_non_zero) {
+        fprintf(stderr, "Errore: Il numero totale di non-zero assegnati (%d) non corrisponde al totale nella matrice (%d).\n", assigned_non_zero, total_non_zero);
+        exit(EXIT_FAILURE);
+    }
+
+    printf("HLL Numero totale di thread validi: %d\n", *valid_threads);
+    printf("HLL Verifica completata: tutti i blocchi e i non-zero sono stati assegnati correttamente.\n");
 
     // Libera memoria temporanea
     free(non_zero_per_row);
 }
+
+
 
 // Funzione principale per calcolare il prodotto parallelo
 struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x) {
@@ -95,7 +143,7 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
 
     /* Distribuzione dei blocchi tra i thread */
     distribute_blocks_to_threads(matrix_data, hll_matrix, num_threads, &start_block, &end_block, &valid_threads);
-    printf("HLL Numero di thread: %d\n", num_threads);
+    printf("HLL Numero di thread: %d\n", valid_threads);
     double *y = malloc((size_t)M * sizeof(double));
     if (!y) {
         fprintf(stderr, "Errore: Allocazione fallita per il vettore y.\n");
