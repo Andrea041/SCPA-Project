@@ -44,7 +44,7 @@ void clean_matrix_mem(struct matrixData *matrix_data) {
     free(matrix_data->col_indices);
     free(matrix_data->row_indices);
     free(matrix_data->values);
-    free(matrix_data->matcode);
+    memset(matrix_data->matcode, 0, sizeof(matrix_data->matcode));
     matrix_data->M = 0;
     matrix_data->N = 0;
     matrix_data->nz = 0;
