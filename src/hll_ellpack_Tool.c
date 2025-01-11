@@ -5,9 +5,6 @@
 
 #include "../libs/data_structure.h"
 #include "../libs/hll_ellpack_Tool.h"
-
-#include <tgmath.h>
-
 #include "../libs/costants.h"
 
 /* Funzione per calcolare il massimo numero di nonzeri per ciascuna riga */

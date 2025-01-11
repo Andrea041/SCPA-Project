@@ -1,10 +1,9 @@
 #include <time.h>
 #include <stdio.h>
-
-#include "../libs/csrOperations.h"
-
 #include <omp.h>
 #include <stdlib.h>
+
+#include "../libs/csrOperations.h"
 #include "../libs/csrTool.h"
 #include "../libs/data_structure.h"
 
