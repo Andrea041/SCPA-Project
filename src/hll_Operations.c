@@ -95,7 +95,7 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
 
     /* Distribuzione dei blocchi tra i thread */
     distribute_blocks_to_threads(matrix_data, hll_matrix, num_threads, &start_block, &end_block, &valid_threads);
-
+    printf("HLL Numero di thread: %d\n", num_threads);
     double *y = malloc((size_t)M * sizeof(double));
     if (!y) {
         fprintf(stderr, "Errore: Allocazione fallita per il vettore y.\n");
