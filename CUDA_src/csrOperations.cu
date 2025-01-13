@@ -4,14 +4,14 @@
 #include "../libs/csrTool.h"
 #include "../libs/data_structure.h"
 
-/* Implementazione di del prodotto matrice-vettore seriale su CPU */
-matrixPerformance serial_csr_cuda(matrixData *matrix_data_host, double *x_h) {
+/* Implementazione del prodotto matrice-vettore seriale su CPU */
+matrixPerformance serial_csr_cuda(const matrixData *matrix_data_host, double *x_h) {
     int *IRP, *JA;
     double *AS;
 
     /* Vettore di output del risultato y <- Ax inizializzato su host */
     auto *y_h = static_cast<double *>(malloc(matrix_data_host->M * sizeof(double)));
-    if (y_h == NULL) {
+    if (y_h == nullptr) {
         printf("Errore nell'allocazione della memoria per il vettore di output y\n");
         exit(EXIT_FAILURE);
     }

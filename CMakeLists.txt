@@ -36,7 +36,6 @@ find_path(CJSON_INCLUDE_DIR cJSON.h PATHS ../cJSON/include/cjson)
 find_library(CJSON_LIBRARY cjson PATHS ../cJSON/build)
 
 if(CJSON_INCLUDE_DIR AND CJSON_LIBRARY)
-    message(STATUS "Found cJSON at ${CJSON_INCLUDE_DIR} and ${CJSON_LIBRARY}")
     include_directories(${CJSON_INCLUDE_DIR})
 else()
     message(FATAL_ERROR "Could not find cJSON!")

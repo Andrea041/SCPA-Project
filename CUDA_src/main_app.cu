@@ -22,10 +22,6 @@ const char *base_path = "/home/pierfrancesco/Desktop/matrix/";
 const char *base_path = "../../matrix/";
 #endif
 
-#define XBD
-#define YBD
-const dim3 BLOCK_DIM(XBD,YBD);
-
 /* Funzione per controllare e creare directory */
 void ensure_directory_exists(const char *path) {
     struct stat st;
@@ -150,9 +146,9 @@ void preprocess_matrix(matrixData *matrix_data, int i) {
 
 /* Funzione per aggiungere i risultati in un array JSON */
 void add_performance_to_array(const char *nameMatrix,
-                              matrixData *matrix_data, double *x,
+                              const matrixData *matrix_data, double *x,
                               cJSON *matrix_array,
-                              matrixPerformance (*calculation_function)(matrixData *, double *)) {
+                              matrixPerformance (*calculation_function)(const matrixData *, double *)) {
     struct matrixPerformance matrixPerformance{};
 
     // Esegui il calcolo
@@ -302,7 +298,7 @@ int main() {
     ensure_directory_exists("../result/iteration");
     ensure_directory_exists("../result/final");
 
-    const int num_matrices = sizeof(matrix_names) / sizeof(matrix_names[0]);
+    constexpr int num_matrices = sizeof(matrix_names) / sizeof(matrix_names[0]);
 
     // Creazione degli array JSON per questa matrice
     cJSON *cuda_array_csr_serial = cJSON_CreateArray();
