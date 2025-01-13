@@ -30,7 +30,6 @@ int find_max_nz_per_block(const int *nz_per_row, int start_row, int end_row) {
     for (int i = start_row; i < end_row; i++) {
         tot_nz += nz_per_row[i];
     }
-
     return tot_nz;
 }
 

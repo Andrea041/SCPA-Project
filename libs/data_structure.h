@@ -37,7 +37,7 @@ struct matrixPerformance {
     char nameMatrix[50];
     double seconds;
     double flops;
-    double megaFlops;
+    double gigaFlops;
 };
 
 struct matrixPerformanceAverage {
@@ -46,5 +46,11 @@ struct matrixPerformanceAverage {
     double avarangeMegaFlops; // MFLOPS medi
     double avarangeSeconds; // Tempo medio
 };
+
+typedef struct {
+    char nameMatrix[50];
+    double total_seconds;
+    int count;
+} MatrixPerformanceResult;
 
 #endif // DATA_STRUCTURE_H

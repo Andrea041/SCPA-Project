@@ -19,7 +19,7 @@ const char *base_path = "/home/pierfrancesco/Desktop/matrix/";
 #include "cjson/cJSON.h"
 const char *base_path = "/Users/andreaandreoli/matrix/";
 #else
-#include "../../cJSON/include/cjson/cJSON.h"
+#include "../cjson/cJSON.h"
 const char *base_path = "../../matrix/";
 #endif
 
@@ -156,7 +156,7 @@ void preprocess_matrix(struct matrixData *matrix_data, int i) {
     fclose(f);
 }
 
-// Funzione per aggiungere i risultati in un array JSON
+/* Funzione per aggiungere i risultati in un array JSON */
 void add_performance_to_array(const char *nameMatrix,
                               struct matrixData *matrix_data, double *x,
                               cJSON *matrix_array,
@@ -176,13 +176,13 @@ void add_performance_to_array(const char *nameMatrix,
     cJSON_AddNumberToObject(performance_obj, "seconds", matrixPerformance.seconds);
     cJSON_AddNumberToObject(performance_obj, "nonzeros", matrix_data->nz);
     cJSON_AddNumberToObject(performance_obj, "flops", 0);
-    cJSON_AddNumberToObject(performance_obj, "megaFlops", 0);
+    cJSON_AddNumberToObject(performance_obj, "gigaFlops", 0);
 
     // Aggiungi l'oggetto all'array JSON
     cJSON_AddItemToArray(matrix_array, performance_obj);
 }
 
-// Funzione per scrivere l'array JSON in un file
+/* Funzione per scrivere l'array JSON in un file */
 void write_json_to_file(const char *file_path, cJSON *json_array) {
     FILE *file = fopen(file_path, "w");
     if (!file) {
@@ -232,13 +232,6 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
         exit(EXIT_FAILURE);
     }
 
-    // Dizionario per accumulare i risultati per ogni nameMatrix
-    typedef struct {
-        char nameMatrix[50];
-        double total_seconds;
-        int count;
-    } MatrixPerformanceResult;
-
     MatrixPerformanceResult *matrix_results = malloc(1000 * sizeof(MatrixPerformanceResult)); // Buffer iniziale
     int matrix_result_count = 0;
     int nz = 0;
@@ -279,16 +272,16 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
         // Calcola la media dei seconds
         double average_seconds = matrix_results[i].total_seconds / ITERATION_PER_MATRIX;
 
-        // Calcola FLOPS e MegaFLOPS
+        // Calcola FLOPS e gigaFLOPS
         double flops = 2.0 * nz / average_seconds;
-        double megaFlops = flops / 1e6;
+        double gigaFlops = flops / 1e9;
 
         // Creazione dell'oggetto JSON
         cJSON *output_data = cJSON_CreateObject();
         cJSON_AddStringToObject(output_data, "nameMatrix", matrix_results[i].nameMatrix);
         cJSON_AddNumberToObject(output_data, "seconds", average_seconds);
         cJSON_AddNumberToObject(output_data, "flops", flops);
-        cJSON_AddNumberToObject(output_data, "megaFlops", megaFlops);
+        cJSON_AddNumberToObject(output_data, "gigaFlops", gigaFlops);
 
         // Aggiungi l'oggetto all'array JSON
         cJSON_AddItemToArray(output_array, output_data);
@@ -345,7 +338,6 @@ int main() {
         }
 
         for (int j = 0; j < ITERATION_PER_MATRIX; j++) {
-
             /*seriale con CSR*/
             add_performance_to_array(matrix_names[i], matrix_data, x, serial_array_csr, serial_csr);
 

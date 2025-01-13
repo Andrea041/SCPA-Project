@@ -161,7 +161,7 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
     struct matrixPerformance performance;
     performance.seconds = time_spent;
     performance.flops = 0;
-    performance.megaFlops = 0;
+    performance.gigaFlops = 0;
 
     // Libera memoria
     free(y);

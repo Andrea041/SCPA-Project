@@ -405,7 +405,6 @@ CMakeFiles/SCPA_Project.dir/src/hll_ellpack_Tool.c.o: /Users/andreaandreoli/CLio
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/arm/endian.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/arm/signal.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/arm/types.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/complex.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/libkern/_OSByteOrder.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/libkern/arm/_OSByteOrder.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/mach/arm/_structs.h \
@@ -473,13 +472,11 @@ CMakeFiles/SCPA_Project.dir/src/hll_ellpack_Tool.c.o: /Users/andreaandreoli/CLio
   /Users/andreaandreoli/CLionProjects/SCPA-Project/libs/hll_ellpack_Tool.h \
   /Users/andreaandreoli/CLionProjects/SCPA-Project/libs/mmio.h \
   /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include-fixed/_stdio.h \
-  /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include-fixed/math.h \
   /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include-fixed/stdint.h \
   /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include-fixed/stdio.h \
   /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include/omp.h \
   /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include/stdarg.h \
-  /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include/stdint.h \
-  /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include/tgmath.h
+  /opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include/stdint.h
 
 CMakeFiles/SCPA_Project.dir/src/main_app.c.o: /Users/andreaandreoli/CLionProjects/SCPA-Project/src/main_app.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/Availability.h \
@@ -679,12 +676,6 @@ CMakeFiles/SCPA_Project.dir/src/main_app.c.o: /Users/andreaandreoli/CLionProject
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_pthread/_pthread_mutexattr_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/sys/_pthread/_pthread_condattr_t.h:
-
-/opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include/tgmath.h:
-
-/opt/homebrew/Cellar/gcc/14.2.0_1/lib/gcc/current/gcc/aarch64-apple-darwin24/14/include-fixed/math.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/complex.h:
 
 /Users/andreaandreoli/CLionProjects/SCPA-Project/libs/hll_ellpack_Tool.h:
 

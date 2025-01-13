@@ -1,17 +1,13 @@
-/Users/andreaandreoli/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/opt/homebrew/bin/gcc-14 -G "Unix Makefiles" -S /Users/andreaandreoli/CLionProjects/SCPA-Project -B /Users/andreaandreoli/CLionProjects/SCPA-Project/cmake-build-debug
--- The C compiler identification is GNU 14.2.0
--- Checking whether C compiler has -isysroot
--- Checking whether C compiler has -isysroot - yes
--- Checking whether C compiler supports OSX deployment target flag
--- Checking whether C compiler supports OSX deployment target flag - yes
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: /opt/homebrew/bin/gcc-14 - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Found OpenMP_C: -fopenmp (found version "4.5")
--- Found OpenMP: TRUE (found version "4.5")
--- Compilazione per Andrea Andreoli
--- Configuring done (1.1s)
--- Generating done (0.0s)
--- Build files have been written to: /Users/andreaandreoli/CLionProjects/SCPA-Project/cmake-build-debug
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S /tmp/tmp.PylhlBiyCv -B /tmp/tmp.PylhlBiyCv/cmake-build-debug
+CMake Error at CMakeLists.txt:4:
+  Parse error.  Expected "(", got unquoted argument with text
+  "-DCMAKE_PREFIX_PATH=../../cJSON".
+
+
+-- Configuring incomplete, errors occurred!
+
+Cannot get compiler information:
+	Compiler exited with error code 127: /opt/homebrew/bin/gcc-14 -xc -DUSER_ANDREA -isystem/opt/homebrew/Cellar/cjson/1.7.18/include -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -fopenmp -fpch-preprocess -v -dD -E
+	env: "/opt/homebrew/bin/gcc-14": File o directory non esistente
+	
+	

@@ -21,9 +21,7 @@ struct matrixPerformance serial_csr(struct matrixData *matrix_data, double *x) {
 
     /* Conversione in formato CSR */
     convert_to_csr(matrix_data->M, matrix_data->nz, matrix_data->row_indices, matrix_data->col_indices, matrix_data->values, &IRP, &JA, &AS);
-    for (int i = 0; i < matrix_data->M; i++) {
-        y[i] = 0.0;
-    }
+
     struct timespec start, end;
     clock_gettime(CLOCK_MONOTONIC, &start);
     matvec_csr(matrix_data->M, IRP, JA, AS, x, y);
@@ -34,7 +32,7 @@ struct matrixPerformance serial_csr(struct matrixData *matrix_data, double *x) {
     struct matrixPerformance node;
     node.seconds = time_spent;
     node.flops = 0;
-    node.megaFlops = 0;
+    node.gigaFlops = 0;
 
     free(y);
     free(IRP);
@@ -130,16 +128,14 @@ struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x)
     struct matrixPerformance node;
     node.seconds = 0.0;
     node.flops = 0.0;
-    node.megaFlops = 0.0;
+    node.gigaFlops = 0.0;
 
     convert_to_csr(matrix_data->M, matrix_data->nz, matrix_data->row_indices, matrix_data->col_indices, matrix_data->values, &IRP, &JA, &AS);
 
     int num_threads = omp_get_max_threads();
     int *start_row, *end_row;
 
-
     compute_thread_row_partition(matrix_data->M, matrix_data->nz, &num_threads, IRP, &start_row, &end_row);
-    //printf("CSR Numero di thread: %d\n", num_threads);
     struct timespec start, end;
 
     clock_gettime(CLOCK_MONOTONIC, &start);
