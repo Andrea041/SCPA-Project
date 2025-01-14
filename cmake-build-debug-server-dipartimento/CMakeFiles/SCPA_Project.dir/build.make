@@ -172,6 +172,7 @@ SCPA_Project: CMakeFiles/SCPA_Project.dir/src/csrOperations.c.o
 SCPA_Project: CMakeFiles/SCPA_Project.dir/src/hll_ellpack_Tool.c.o
 SCPA_Project: CMakeFiles/SCPA_Project.dir/src/hll_Operations.c.o
 SCPA_Project: CMakeFiles/SCPA_Project.dir/build.make
+SCPA_Project: /data/aandreoli/cJSON/build/libcjson.so
 SCPA_Project: /usr/lib/gcc/x86_64-redhat-linux/11/libgomp.so
 SCPA_Project: /usr/lib64/libpthread.a
 SCPA_Project: CMakeFiles/SCPA_Project.dir/link.txt

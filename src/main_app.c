@@ -19,7 +19,7 @@ const char *base_path = "/home/pierfrancesco/Desktop/matrix/";
 #include "cjson/cJSON.h"
 const char *base_path = "/Users/andreaandreoli/matrix/";
 #else
-#include "../cjson/cJSON.h"
+#include "../../cJSON/include/cjson/cJSON.h"
 const char *base_path = "../../matrix/";
 #endif
 

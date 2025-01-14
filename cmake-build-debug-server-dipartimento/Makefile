@@ -143,17 +143,17 @@ deviceQuery/fast:
 .PHONY : deviceQuery/fast
 
 #=============================================================================
-# Target rules for targets named main
+# Target rules for targets named SCPA-Project-CUDA
 
 # Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
-.PHONY : main
+SCPA-Project-CUDA: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SCPA-Project-CUDA
+.PHONY : SCPA-Project-CUDA
 
 # fast build rule for target.
-main/fast:
-	$(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/main.dir/build.make CUDA_src/CMakeFiles/main.dir/build
-.PHONY : main/fast
+SCPA-Project-CUDA/fast:
+	$(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build
+.PHONY : SCPA-Project-CUDA/fast
 
 src/csrOperations.o: src/csrOperations.c.o
 .PHONY : src/csrOperations.o
@@ -307,9 +307,9 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... SCPA-Project-CUDA"
 	@echo "... SCPA_Project"
 	@echo "... deviceQuery"
-	@echo "... main"
 	@echo "... src/csrOperations.o"
 	@echo "... src/csrOperations.i"
 	@echo "... src/csrOperations.s"

@@ -12,10 +12,13 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.26.5/CMakeCCompiler.cmake"
   "CMakeFiles/3.26.5/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.26.5/CMakeSystem.cmake"
-  "CUDA_src/CMakeFiles/main.dir/main_generated_csrOperations.cu.o.cmake.pre-gen"
-  "CUDA_src/CMakeFiles/main.dir/main_generated_csrOperations.cu.o.depend"
-  "CUDA_src/CMakeFiles/main.dir/main_generated_main_app.cu.o.cmake.pre-gen"
-  "CUDA_src/CMakeFiles/main.dir/main_generated_main_app.cu.o.depend"
+  "CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o.cmake.pre-gen"
+  "CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o.depend"
+  "CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o.cmake.pre-gen"
+  "CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o.depend"
+  "CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o.cmake.pre-gen"
+  "CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o.depend"
+  "/data/aandreoli/cJSON/build/FindcJSON.cmake"
   "/usr/share/cmake/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"
@@ -56,10 +59,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "CUDA_src/CMakeFiles/main.dir/main_generated_main_app.cu.o.cmake.pre-gen"
-  "CUDA_src/CMakeFiles/main.dir/main_generated_csrOperations.cu.o.cmake.pre-gen"
-  "CUDA_src/CMakeFiles/main.dir/main_generated_main_app.cu.o.Debug.cmake"
-  "CUDA_src/CMakeFiles/main.dir/main_generated_csrOperations.cu.o.Debug.cmake"
+  "CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o.cmake.pre-gen"
+  "CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o.cmake.pre-gen"
+  "CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o.cmake.pre-gen"
+  "CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o.Debug.cmake"
+  "CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o.Debug.cmake"
+  "CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o.Debug.cmake"
   "CUDA_src/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -67,5 +72,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/SCPA_Project.dir/DependInfo.cmake"
   "CUDA_src/CMakeFiles/deviceQuery.dir/DependInfo.cmake"
-  "CUDA_src/CMakeFiles/main.dir/DependInfo.cmake"
+  "CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/DependInfo.cmake"
   )

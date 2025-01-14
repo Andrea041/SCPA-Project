@@ -18,6 +18,9 @@
 CJSON_INCLUDE_DIR:PATH=/data/aandreoli/cJSON/include/cjson
 
 //Path to a library.
+CJSON_LIBRARIES:FILEPATH=/data/aandreoli/cJSON/build/libcjson.so
+
+//Path to a library.
 CJSON_LIBRARY:FILEPATH=/data/aandreoli/cJSON/build/libcjson.so
 
 //Path to a program.
@@ -25,6 +28,10 @@ CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 
 //Path to a program.
 CMAKE_AR:FILEPATH=/usr/bin/ar
+
+//For backwards compatibility, what version of CMake commands and
+// syntax should this version of CMake try to support.
+CMAKE_BACKWARDS_COMPATIBILITY:STRING=2.4
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
@@ -38,6 +45,21 @@ CMAKE_CUDA_ARCHITECTURES:STRING=
 
 //CUDA compiler
 CMAKE_CUDA_COMPILER:FILEPATH=CMAKE_CUDA_COMPILER-NOTFOUND
+
+//Flags used by the CUDA compiler during all build types.
+CMAKE_CUDA_FLAGS:STRING=
+
+//Flags used by the CUDA compiler during DEBUG builds.
+CMAKE_CUDA_FLAGS_DEBUG:STRING=
+
+//Flags used by the CUDA compiler during MINSIZEREL builds.
+CMAKE_CUDA_FLAGS_MINSIZEREL:STRING=
+
+//Flags used by the CUDA compiler during RELEASE builds.
+CMAKE_CUDA_FLAGS_RELEASE:STRING=
+
+//Flags used by the CUDA compiler during RELWITHDEBINFO builds.
+CMAKE_CUDA_FLAGS_RELWITHDEBINFO:STRING=
 
 //CXX compiler
 CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/c++
@@ -271,7 +293,7 @@ CUDA_HOST_COMPILATION_CPP:BOOL=ON
 CUDA_HOST_COMPILER:FILEPATH=/usr/bin/cc
 
 //Path to a file.
-CUDA_INCLUDE_DIR:PATH=CUDA_INCLUDE_DIR-NOTFOUND
+CUDA_INCLUDE_DIR:PATH=/data/aandreoli/cuda-samples/Common
 
 //Path to a program.
 CUDA_NVCC_EXECUTABLE:FILEPATH=/usr/local/cuda/bin/nvcc
@@ -297,6 +319,15 @@ CUDA_OpenCL_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libOpenCL.so
 
 //Propagate C/CXX_FLAGS and friends to the host compiler via -Xcompile
 CUDA_PROPAGATE_HOST_FLAGS:BOOL=ON
+
+//Value Computed by CMake
+CUDA_Project_BINARY_DIR:STATIC=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src
+
+//Value Computed by CMake
+CUDA_Project_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+CUDA_Project_SOURCE_DIR:STATIC=/data/aandreoli/SCPA-Project/CUDA_src
 
 //Path to a file.
 CUDA_SDK_ROOT_DIR:PATH=CUDA_SDK_ROOT_DIR-NOTFOUND
@@ -521,6 +552,12 @@ CUDA_nvrtc_static_LIBRARY:FILEPATH=/opt/cuda/12.3/targets/x86_64-linux/lib/libnv
 //Path to a library.
 CUDA_rt_LIBRARY:FILEPATH=/usr/lib64/librt.a
 
+//Single output directory for building all executables.
+EXECUTABLE_OUTPUT_PATH:PATH=
+
+//Single output directory for building all libraries.
+LIBRARY_OUTPUT_PATH:PATH=
+
 //CXX compiler flags for OpenMP parallelization
 OpenMP_CXX_FLAGS:STRING=-fopenmp
 
@@ -551,6 +588,9 @@ SCPA_Project_SOURCE_DIR:STATIC=/data/aandreoli/SCPA-Project
 //Path to a program.
 _CUDA_NVCC_EXECUTABLE:FILEPATH=/usr/local/cuda/bin/nvcc
 
+//The directory containing a CMake configuration file for cJSON.
+cJSON_DIR:PATH=cJSON_DIR-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries
@@ -576,6 +616,16 @@ CMAKE_CPACK_COMMAND:INTERNAL=/usr/bin/cpack
 CMAKE_CTEST_COMMAND:INTERNAL=/usr/bin/ctest
 //ADVANCED property for variable: CMAKE_CUDA_COMPILER
 CMAKE_CUDA_COMPILER-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CUDA_FLAGS
+CMAKE_CUDA_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CUDA_FLAGS_DEBUG
+CMAKE_CUDA_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CUDA_FLAGS_MINSIZEREL
+CMAKE_CUDA_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CUDA_FLAGS_RELEASE
+CMAKE_CUDA_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CUDA_FLAGS_RELWITHDEBINFO
+CMAKE_CUDA_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_COMPILER
 CMAKE_CXX_COMPILER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_COMPILER_AR
@@ -715,7 +765,7 @@ CUDAToolkit_rt_LIBRARY-ADVANCED:INTERNAL=1
 CUDA_64_BIT_DEVICE_CODE-ADVANCED:INTERNAL=1
 //List of intermediate files that are part of the cuda dependency
 // scanning.
-CUDA_ADDITIONAL_CLEAN_FILES:INTERNAL=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/main.dir//main_generated_main.cu.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/main.dir//main_generated_main.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/main.dir//main_generated_mainCSR.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/main_app.dir//main_app_generated_main_app.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/main.dir//main_generated_main_app.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/main.dir//main_generated_csrOperations.cu.o.depend
+CUDA_ADDITIONAL_CLEAN_FILES:INTERNAL=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/main.dir//main_generated_main.cu.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/main.dir//main_generated_main.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/main.dir//main_generated_mainCSR.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/main_app.dir//main_app_generated_main_app.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/main.dir//main_generated_main_app.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/main.dir//main_generated_csrOperations.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/main.dir//main_generated_main_app.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/main.dir//main_generated_csrOperations.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/SCPA-Project.dir//SCPA-Project_generated_main_app.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/SCPA-Project.dir//SCPA-Project_generated_csrOperations.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project.dir//SCPA-Project_generated_main_app.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project.dir//SCPA-Project_generated_csrOperations.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/csrOperations.dir//csrOperations_generated_csrOperations.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/csrOp.dir//csrOp_generated_csrOperations.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/mainCU.dir//mainCU_generated_main_app.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/mainCU.dir/CUDA_src/mainCU_generated_main_app.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/SCPA_CUDA.dir/CUDA_src/SCPA_CUDA_generated_main_app.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/SCPA_CUDA.dir/CUDA_src/SCPA_CUDA_generated_csrOperations.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/SCPA_Project.dir/CUDA_src/SCPA_Project_generated_main_app.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/SCPA_Project.dir/CUDA_src/SCPA_Project_generated_csrOperations.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//SCPA-Project-CUDA_generated_main_app.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//SCPA-Project-CUDA_generated_csrOperations.cu.o.depend;/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//SCPA-Project-CUDA_generated_csrTool.cu.o.depend
 //ADVANCED property for variable: CUDA_ATTACH_VS_BUILD_RULE_TO_CUDA_FILE
 CUDA_ATTACH_VS_BUILD_RULE_TO_CUDA_FILE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDA_BUILD_CUBIN

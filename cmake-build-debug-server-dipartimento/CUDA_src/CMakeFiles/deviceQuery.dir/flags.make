@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/data/aandreoli/cJSON/include/cjson -I/usr/local/cuda/include -I/usr/local/cuda/samples/Common
+CXX_INCLUDES = -I/usr/local/cuda/include -I/data/aandreoli/cuda-samples/Common
 
 CXX_FLAGS = -O3 -g -fdiagnostics-color=always
 

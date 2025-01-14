@@ -1,24 +1,24 @@
 #include <cstdio>
-#include <cstring>
 #include <cstdlib>
+#include <cstring>
 #include <sys/stat.h>
 #include <sys/types.h>
 
-#include "helper_cuda.h"
-#include "cuda_runtime.h"
-#include "helper_timer.h"
+#include <helper_cuda.h>
 
-#include "../libs/mmio.h"
-#include "../libs/matrixLists.h"
-#include "../libs/data_structure.h"
+#include "../CUDA_libs/csrOperations.h"
 #include "../libs/costants.h"
-#include "../CUDA_libs//csrOperations.h"
+#include "../libs/data_structure.h"
+#include "../libs/matrixLists.h"
+#include "../libs/mmio.h"
+
+#include <unistd.h>
 
 #ifdef USER_PIERFRANCESCO
 #include "cjson/cJSON.h"
 const char *base_path = "/home/pierfrancesco/Desktop/matrix/";
 #else
-#include "../cjson/cJSON.h"
+#include "../../cJSON/include/cjson/cJSON.h"
 const char *base_path = "../../matrix/";
 #endif
 
@@ -45,7 +45,7 @@ void preprocess_matrix(matrixData *matrix_data, int i) {
 
     FILE *f = fopen(full_path, "r");
     if (!f) {
-        perror("Errore nell'apertura del file");
+        perror("Errore nell'apertura del file della matrice");
         exit(EXIT_FAILURE);
     }
 
@@ -78,7 +78,7 @@ void preprocess_matrix(matrixData *matrix_data, int i) {
     matrix_data->N = N;
     matrix_data->nz = nz;
 
-    if (matrix_data->row_indices == NULL || matrix_data->col_indices == NULL || matrix_data->values == NULL || matrix_data->M == 0 || matrix_data->N == 0 || matrix_data->nz == 0) {
+    if (matrix_data->row_indices == nullptr || matrix_data->col_indices == nullptr || matrix_data->values == nullptr || matrix_data->M == 0 || matrix_data->N == 0 || matrix_data->nz == 0) {
         perror("Errore nell'allocazione della memoria.");
         fclose(f);
         exit(EXIT_FAILURE);
@@ -146,9 +146,9 @@ void preprocess_matrix(matrixData *matrix_data, int i) {
 
 /* Funzione per aggiungere i risultati in un array JSON */
 void add_performance_to_array(const char *nameMatrix,
-                              const matrixData *matrix_data, double *x,
+                              matrixData *matrix_data, double *x,
                               cJSON *matrix_array,
-                              matrixPerformance (*calculation_function)(const matrixData *, double *)) {
+                              matrixPerformance (*calculation_function)(matrixData *, double *)) {
     struct matrixPerformance matrixPerformance{};
 
     // Esegui il calcolo
@@ -189,7 +189,7 @@ void write_json_to_file(const char *file_path, cJSON *json_array) {
 // Funzione per calcolare la media dei seconds e generare il JSON finale
 void calculatePerformance(const char *input_file_path, const char *output_file_path) {
     FILE *input_file = fopen(input_file_path, "r");
-    if (input_file == NULL) {
+    if (input_file == nullptr) {
         perror("Errore nell'apertura del file di input");
         exit(EXIT_FAILURE);
     }
@@ -200,7 +200,7 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
     fseek(input_file, 0, SEEK_SET);
 
     char *file_content = static_cast<char *>(malloc(file_size + 1));
-    if (file_content == NULL) {
+    if (file_content == nullptr) {
         perror("Errore nell'allocazione della memoria per il contenuto del file");
         fclose(input_file);
         exit(EXIT_FAILURE);
@@ -214,7 +214,7 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
     cJSON *json_array = cJSON_Parse(file_content);
     free(file_content);
 
-    if (json_array == NULL || !cJSON_IsArray(json_array)) {
+    if (json_array == nullptr || !cJSON_IsArray(json_array)) {
         fprintf(stderr, "Errore nel parsing del JSON o il file non è un array JSON valido.\n");
         cJSON_Delete(json_array);
         exit(EXIT_FAILURE);
@@ -279,7 +279,7 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
 
     // Scrivi l'array JSON nel file di output
     FILE *output_file = fopen(output_file_path, "w");
-    if (output_file == NULL) {
+    if (output_file == nullptr) {
         perror("Errore nell'apertura del file di output");
         cJSON_Delete(output_array);
         exit(EXIT_FAILURE);

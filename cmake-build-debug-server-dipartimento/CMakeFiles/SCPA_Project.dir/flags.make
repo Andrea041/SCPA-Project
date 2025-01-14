@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/data/aandreoli/cJSON/include/cjson -I/usr/local/cuda/include -I/usr/local/cuda/samples/Common
+C_INCLUDES = -I/usr/local/cuda/include -I/data/aandreoli/cuda-samples/Common -isystem /data/aandreoli/cJSON/include/cjson
 
 C_FLAGS = -g -fdiagnostics-color=always -fopenmp
 

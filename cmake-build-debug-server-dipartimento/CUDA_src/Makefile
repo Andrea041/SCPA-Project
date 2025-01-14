@@ -131,18 +131,18 @@ deviceQuery/fast:
 .PHONY : deviceQuery/fast
 
 # Convenience name for target.
-CUDA_src/CMakeFiles/main.dir/rule:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CUDA_src/CMakeFiles/main.dir/rule
-.PHONY : CUDA_src/CMakeFiles/main.dir/rule
+CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/rule:
+	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/rule
+.PHONY : CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/rule
 
 # Convenience name for target.
-main: CUDA_src/CMakeFiles/main.dir/rule
-.PHONY : main
+SCPA-Project-CUDA: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/rule
+.PHONY : SCPA-Project-CUDA
 
 # fast build rule for target.
-main/fast:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/main.dir/build.make CUDA_src/CMakeFiles/main.dir/build
-.PHONY : main/fast
+SCPA-Project-CUDA/fast:
+	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build
+.PHONY : SCPA-Project-CUDA/fast
 
 00-deviceQuery.o: 00-deviceQuery.cpp.o
 .PHONY : 00-deviceQuery.o
@@ -168,6 +168,54 @@ main/fast:
 	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/deviceQuery.dir/build.make CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.s
 .PHONY : 00-deviceQuery.cpp.s
 
+__/src/functionsIO.o: __/src/functionsIO.c.o
+.PHONY : __/src/functionsIO.o
+
+# target to build an object file
+__/src/functionsIO.c.o:
+	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o
+.PHONY : __/src/functionsIO.c.o
+
+__/src/functionsIO.i: __/src/functionsIO.c.i
+.PHONY : __/src/functionsIO.i
+
+# target to preprocess a source file
+__/src/functionsIO.c.i:
+	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.i
+.PHONY : __/src/functionsIO.c.i
+
+__/src/functionsIO.s: __/src/functionsIO.c.s
+.PHONY : __/src/functionsIO.s
+
+# target to generate assembly for a file
+__/src/functionsIO.c.s:
+	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.s
+.PHONY : __/src/functionsIO.c.s
+
+data/aandreoli/cJSON/cJSON.o: data/aandreoli/cJSON/cJSON.c.o
+.PHONY : data/aandreoli/cJSON/cJSON.o
+
+# target to build an object file
+data/aandreoli/cJSON/cJSON.c.o:
+	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.o
+.PHONY : data/aandreoli/cJSON/cJSON.c.o
+
+data/aandreoli/cJSON/cJSON.i: data/aandreoli/cJSON/cJSON.c.i
+.PHONY : data/aandreoli/cJSON/cJSON.i
+
+# target to preprocess a source file
+data/aandreoli/cJSON/cJSON.c.i:
+	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.i
+.PHONY : data/aandreoli/cJSON/cJSON.c.i
+
+data/aandreoli/cJSON/cJSON.s: data/aandreoli/cJSON/cJSON.c.s
+.PHONY : data/aandreoli/cJSON/cJSON.s
+
+# target to generate assembly for a file
+data/aandreoli/cJSON/cJSON.c.s:
+	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.s
+.PHONY : data/aandreoli/cJSON/cJSON.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -176,11 +224,17 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... SCPA-Project-CUDA"
 	@echo "... deviceQuery"
-	@echo "... main"
 	@echo "... 00-deviceQuery.o"
 	@echo "... 00-deviceQuery.i"
 	@echo "... 00-deviceQuery.s"
+	@echo "... __/src/functionsIO.o"
+	@echo "... __/src/functionsIO.i"
+	@echo "... __/src/functionsIO.s"
+	@echo "... data/aandreoli/cJSON/cJSON.o"
+	@echo "... data/aandreoli/cJSON/cJSON.i"
+	@echo "... data/aandreoli/cJSON/cJSON.s"
 .PHONY : help
 
 

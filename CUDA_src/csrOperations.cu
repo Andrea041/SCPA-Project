@@ -1,11 +1,13 @@
 #include <cstdio>
 #include <cstdlib>
+#include <helper_timer.h>
 
-#include "../libs/csrTool.h"
+#include "../CUDA_libs/csrTool.h"
 #include "../libs/data_structure.h"
+#include "../CUDA_libs/csrOperations.h"
 
 /* Implementazione del prodotto matrice-vettore seriale su CPU */
-matrixPerformance serial_csr_cuda(const matrixData *matrix_data_host, double *x_h) {
+matrixPerformance serial_csr_cuda(matrixData *matrix_data_host, double *x_h) {
     int *IRP, *JA;
     double *AS;
 
@@ -19,7 +21,7 @@ matrixPerformance serial_csr_cuda(const matrixData *matrix_data_host, double *x_
     /* Conversione in formato CSR */
     convert_to_csr(matrix_data_host->M, matrix_data_host->nz, matrix_data_host->row_indices, matrix_data_host->col_indices, matrix_data_host->values, &IRP, &JA, &AS);
 
-    StopWatchInterface* timer = 0;
+    StopWatchInterface* timer = nullptr;
     sdkCreateTimer(&timer);
 
     timer->start();

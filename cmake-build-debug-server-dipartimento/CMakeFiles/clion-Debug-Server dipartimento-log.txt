@@ -1,4 +1,5 @@
 /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -S /data/aandreoli/SCPA-Project -B /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento
+-- Found cJSON: /data/aandreoli/cJSON/build/libcjson.so, /data/aandreoli/cJSON/include/cjson
 -- Compilazione da server di dipartimento completata
 -- Configuring done (0.0s)
 -- Generating done (0.0s)

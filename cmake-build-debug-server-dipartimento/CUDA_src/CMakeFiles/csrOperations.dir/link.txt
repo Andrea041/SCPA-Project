@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -g CMakeFiles/csrOperations.dir/csrOperations_generated_csrOperations.cu.o -o csrOperations  /usr/local/cuda/lib64/libcudart_static.a -ldl /usr/lib64/librt.a 

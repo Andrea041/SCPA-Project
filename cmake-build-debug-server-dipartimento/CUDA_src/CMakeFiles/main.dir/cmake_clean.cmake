@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/main.dir/main_generated_csrOperations.cu.o"
   "CMakeFiles/main.dir/main_generated_main_app.cu.o"
   "main"
   "main.pdb"
