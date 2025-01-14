@@ -5,9 +5,9 @@
 
 /* Funzione per convertire la matrice in formato CSR */
 void convert_to_csr(int M, int nz, const int *row_indices, const int *col_indices, const double *values, int **IRP, int **JA, double **AS) {
-    *IRP = static_cast<int *>(malloc((M + 1) * sizeof(int)));    // Dimensione del vettore M
-    *JA = static_cast<int *>(malloc(nz * sizeof(int)));          // Dimensione del vettore NZ - 1
-    *AS = static_cast<double *>(malloc(nz * sizeof(double)));    // Dimensione del vettore NZ - 1
+    *IRP = (int *)malloc((M + 1) * sizeof(int));    // Dimensione del vettore M
+    *JA = (int *)malloc(nz * sizeof(int));          // Dimensione del vettore NZ - 1
+    *AS = (double *)malloc(nz * sizeof(double));    // Dimensione del vettore NZ - 1
 
     if (*IRP == nullptr || *JA == nullptr || *AS == nullptr) {
         fprintf(stderr, "Errore nell'allocazione della memoria.\n");
@@ -30,7 +30,7 @@ void convert_to_csr(int M, int nz, const int *row_indices, const int *col_indice
         (*IRP)[i + 1] += (*IRP)[i];
     }
 
-    auto row_position = static_cast<int *>(malloc(M * sizeof(int)));
+    int *row_position = static_cast<int *>(malloc(M * sizeof(int)));
     if (row_position == nullptr) {
         fprintf(stderr, "Errore nell'allocazione di row_position.\n");
         exit(1);
