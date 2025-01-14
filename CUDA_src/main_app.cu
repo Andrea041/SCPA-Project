@@ -298,7 +298,7 @@ int main() {
     ensure_directory_exists("../result/iteration");
     ensure_directory_exists("../result/final");
 
-    constexpr int num_matrices = sizeof(matrix_names) / sizeof(matrix_names[0]);
+    constexpr int num_matrices = std::size(matrix_names);
 
     // Creazione degli array JSON per questa matrice
     cJSON *cuda_array_csr_serial = cJSON_CreateArray();

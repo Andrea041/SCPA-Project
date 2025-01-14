@@ -28,7 +28,7 @@ matrixPerformance serial_csr_cuda(matrixData *matrix_data_host, double *x_h) {
     matvec_csr(matrix_data_host->M, IRP, JA, AS, x_h, y_h);
     timer->stop();
 
-    struct matrixPerformance node;
+    matrixPerformance node{};
     node.seconds = timer->getTime();
     node.flops = 0;
     node.gigaFlops = 0;

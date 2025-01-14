@@ -55,9 +55,15 @@ void convert_to_csr(int M, int nz, const int *row_indices, const int *col_indice
 /* Prodotto matrice-vettore serializzato */
 void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, double *x, double *y) {
     for (int i = 0; i < M; i++) {
+        y[i] = 0.0;
         for (int j = IRP[i]; j < IRP[i + 1]; j++) {
             y[i] += AS[j] * x[JA[j]];
         }
+    }
+
+    printf("\nSeriale CSR\n");
+    for (int i = 0; i < M; i++) {
+        printf("y[%d] = %lf\n", i, y[i]);
     }
 
     // Scrittura dei risultati su file
@@ -87,5 +93,9 @@ void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const do
                 y[i] += AS[j] * x[JA[j]];
             }
         }
+    }
+    printf("Parallelo CSR\n");
+    for (int i = 0; i < M; i++) {
+        printf("y[%d] = %lf\n", i, y[i]);
     }
 }
