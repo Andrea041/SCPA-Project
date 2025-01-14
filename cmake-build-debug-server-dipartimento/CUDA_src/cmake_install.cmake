@@ -1,4 +1,4 @@
-# Install script for directory: /data/aandreoli/SCPA-Project/CUDA_src
+# Install script for directory: /data/plijoi/SCPA-Project/CUDA_src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -7,8 +7,8 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/data/aandreoli/SCPA-Project/CMakeLists.txt"
-  "/data/aandreoli/SCPA-Project/CUDA_src/CMakeLists.txt"
+  "/data/plijoi/SCPA-Project/CMakeLists.txt"
+  "/data/plijoi/SCPA-Project/CUDA_src/CMakeLists.txt"
   "CMakeFiles/3.26.5/CMakeCCompiler.cmake"
   "CMakeFiles/3.26.5/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.26.5/CMakeSystem.cmake"
@@ -18,7 +18,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o.depend"
   "CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o.cmake.pre-gen"
   "CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o.depend"
-  "/data/aandreoli/cJSON/build/FindcJSON.cmake"
+  "/data/plijoi/cJSON/build/FindcJSON.cmake"
   "/usr/share/cmake/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"

@@ -28,7 +28,29 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
       
       The C compiler identification is GNU, found in:
-        /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/3.26.5/CompilerIdC/a.out
+        /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/3.26.5/CompilerIdC/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /usr/bin/c++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is GNU, found in:
+        /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/3.26.5/CompilerIdCXX/a.out
       
   -
     kind: "try_compile-v1"
@@ -39,8 +61,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-AoZom9"
-      binary: "/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-AoZom9"
+      source: "/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-djmsoY"
+      binary: "/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-djmsoY"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -49,12 +71,12 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-AoZom9
+        Change Dir: /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-djmsoY
         
-        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_3a140/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3a140.dir/build.make CMakeFiles/cmTC_3a140.dir/build
-        gmake[1]: Entering directory '/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-AoZom9'
-        Building C object CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.o
-        /usr/bin/cc   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4a38e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4a38e.dir/build.make CMakeFiles/cmTC_4a38e.dir/build
+        gmake[1]: Entering directory '/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-djmsoY'
+        Building C object CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.o
+        /usr/bin/cc   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
         Using built-in specs.
         COLLECT_GCC=/usr/bin/cc
         OFFLOAD_TARGET_NAMES=nvptx-none
@@ -64,8 +86,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
         gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC) 
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_3a140.dir/'
-         /usr/libexec/gcc/x86_64-redhat-linux/11/cc1 -quiet -v /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_3a140.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64-v2 -version -fdiagnostics-color=always -o /tmp/ccwQlbHo.s
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_4a38e.dir/'
+         /usr/libexec/gcc/x86_64-redhat-linux/11/cc1 -quiet -v /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_4a38e.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64-v2 -version -fdiagnostics-color=always -o /tmp/ccgmbi56.s
         GNU C17 (GCC) version 11.4.1 20231218 (Red Hat 11.4.1-3) (x86_64-redhat-linux)
         	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3), GMP version 6.2.0, MPFR version 4.1.0-p9, MPC version 1.2.1, isl version none
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
@@ -81,15 +103,15 @@ events:
         	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3), GMP version 6.2.0, MPFR version 4.1.0-p9, MPC version 1.2.1, isl version none
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: 9c7bd6f3fbc56c9768a4e1b49c2dffc0
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_3a140.dir/'
-         as -v --64 -o CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.o /tmp/ccwQlbHo.s
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_4a38e.dir/'
+         as -v --64 -o CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.o /tmp/ccgmbi56.s
         GNU assembler version 2.35.2 (x86_64-redhat-linux) using BFD version version 2.35.2-43.el9
         COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.'
-        Linking C executable cmTC_3a140
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3a140.dir/link.txt --verbose=1
-        /usr/bin/cc  -v CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.o -o cmTC_3a140 
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.'
+        Linking C executable cmTC_4a38e
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4a38e.dir/link.txt --verbose=1
+        /usr/bin/cc  -v CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.o -o cmTC_4a38e 
         Using built-in specs.
         COLLECT_GCC=/usr/bin/cc
         COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper
@@ -102,10 +124,10 @@ events:
         gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC) 
         COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3a140' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'cmTC_3a140.'
-         /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccpa8ciD.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_3a140 /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3a140' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'cmTC_3a140.'
-        gmake[1]: Leaving directory '/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-AoZom9'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_4a38e' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'cmTC_4a38e.'
+         /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccQOoGNK.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_4a38e /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_4a38e' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'cmTC_4a38e.'
+        gmake[1]: Leaving directory '/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-djmsoY'
         
       exitCode: 0
   -
@@ -137,12 +159,12 @@ events:
     message: |
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-AoZom9]
+        ignore line: [Change Dir: /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-djmsoY]
         ignore line: []
-        ignore line: [Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_3a140/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3a140.dir/build.make CMakeFiles/cmTC_3a140.dir/build]
-        ignore line: [gmake[1]: Entering directory '/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-AoZom9']
-        ignore line: [Building C object CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.o]
-        ignore line: [/usr/bin/cc   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4a38e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4a38e.dir/build.make CMakeFiles/cmTC_4a38e.dir/build]
+        ignore line: [gmake[1]: Entering directory '/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-djmsoY']
+        ignore line: [Building C object CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/cc   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/cc]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
@@ -152,8 +174,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_3a140.dir/']
-        ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/cc1 -quiet -v /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_3a140.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64-v2 -version -fdiagnostics-color=always -o /tmp/ccwQlbHo.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_4a38e.dir/']
+        ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/cc1 -quiet -v /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_4a38e.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64-v2 -version -fdiagnostics-color=always -o /tmp/ccgmbi56.s]
         ignore line: [GNU C17 (GCC) version 11.4.1 20231218 (Red Hat 11.4.1-3) (x86_64-redhat-linux)]
         ignore line: [	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3)  GMP version 6.2.0  MPFR version 4.1.0-p9  MPC version 1.2.1  isl version none]
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
@@ -169,15 +191,15 @@ events:
         ignore line: [	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3)  GMP version 6.2.0  MPFR version 4.1.0-p9  MPC version 1.2.1  isl version none]
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: 9c7bd6f3fbc56c9768a4e1b49c2dffc0]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_3a140.dir/']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.o /tmp/ccwQlbHo.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_4a38e.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.o /tmp/ccgmbi56.s]
         ignore line: [GNU assembler version 2.35.2 (x86_64-redhat-linux) using BFD version version 2.35.2-43.el9]
         ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.']
-        ignore line: [Linking C executable cmTC_3a140]
-        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3a140.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/cc  -v CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.o -o cmTC_3a140 ]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.']
+        ignore line: [Linking C executable cmTC_4a38e]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4a38e.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/cc  -v CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.o -o cmTC_4a38e ]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/cc]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper]
@@ -190,13 +212,13 @@ events:
         ignore line: [gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC) ]
         ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3a140' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'cmTC_3a140.']
-        link line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccpa8ciD.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_3a140 /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_4a38e' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'cmTC_4a38e.']
+        link line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccQOoGNK.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_4a38e /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o]
           arg [/usr/libexec/gcc/x86_64-redhat-linux/11/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccpa8ciD.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccQOoGNK.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -211,7 +233,7 @@ events:
           arg [-dynamic-linker] ==> ignore
           arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_3a140] ==> ignore
+          arg [cmTC_4a38e] ==> ignore
           arg [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o]
           arg [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o]
           arg [/usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o]
@@ -220,7 +242,7 @@ events:
           arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
           arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
           arg [-L/usr/lib/gcc/x86_64-redhat-linux/11/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../..]
-          arg [CMakeFiles/cmTC_3a140.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [CMakeFiles/cmTC_4a38e.dir/CMakeCCompilerABI.c.o] ==> ignore
           arg [-lgcc] ==> lib [gcc]
           arg [--push-state] ==> ignore
           arg [--as-needed] ==> ignore
@@ -251,298 +273,14 @@ events:
   -
     kind: "try_compile-v1"
     backtrace:
-      - "/usr/share/cmake/Modules/FindOpenMP.cmake:219 (try_compile)"
-      - "/usr/share/cmake/Modules/FindOpenMP.cmake:483 (_OPENMP_GET_FLAGS)"
-      - "CMakeLists.txt:5 (find_package)"
-    description: "Detecting C OpenMP compiler info"
-    directories:
-      source: "/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-mhdV7n"
-      binary: "/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-mhdV7n"
-    cmakeVariables:
-      CMAKE_C_FLAGS: ""
-      CMAKE_C_FLAGS_DEBUG: "-g"
-      CMAKE_EXE_LINKER_FLAGS: ""
-    buildResult:
-      variable: "OpenMP_COMPILE_RESULT_C_fopenmp"
-      cached: true
-      stdout: |
-        Change Dir: /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-mhdV7n
-        
-        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_5ba61/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5ba61.dir/build.make CMakeFiles/cmTC_5ba61.dir/build
-        gmake[1]: ingresso nella directory «/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-mhdV7n»
-        Building C object CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.o
-        /usr/bin/cc   -fopenmp -v -fdiagnostics-color=always -o CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.o -c /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-mhdV7n/OpenMPTryFlag.c
-        Using built-in specs.
-        COLLECT_GCC=/usr/bin/cc
-        OFFLOAD_TARGET_NAMES=nvptx-none
-        OFFLOAD_TARGET_DEFAULT=1
-        Target: x86_64-redhat-linux
-        Configured with: ../configure --enable-bootstrap --enable-host-pie --enable-host-bind-now --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.rockylinux.org/ --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-plugin --enable-initfini-array --without-isl --enable-multilib --with-linker-hash-style=gnu --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_64=x86-64-v2 --with-arch_32=x86-64 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1
-        Thread model: posix
-        Supported LTO compression algorithms: zlib zstd
-        gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC) 
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_5ba61.dir/'
-         /usr/libexec/gcc/x86_64-redhat-linux/11/cc1 -quiet -v -D_REENTRANT /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-mhdV7n/OpenMPTryFlag.c -quiet -dumpdir CMakeFiles/cmTC_5ba61.dir/ -dumpbase OpenMPTryFlag.c.c -dumpbase-ext .c -mtune=generic -march=x86-64-v2 -version -fdiagnostics-color=always -fopenmp -o /tmp/ccpS3Y3y.s
-        GNU C17 (GCC) version 11.4.1 20231218 (Red Hat 11.4.1-3) (x86_64-redhat-linux)
-        	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3), GMP version 6.2.0, MPFR version 4.1.0-p9, MPC version 1.2.1, isl version none
-        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-        ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/include-fixed"
-        ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/../../../../x86_64-redhat-linux/include"
-        #include "..." search starts here:
-        #include <...> search starts here:
-         /usr/lib/gcc/x86_64-redhat-linux/11/include
-         /usr/local/include
-         /usr/include
-        End of search list.
-        GNU C17 (GCC) version 11.4.1 20231218 (Red Hat 11.4.1-3) (x86_64-redhat-linux)
-        	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3), GMP version 6.2.0, MPFR version 4.1.0-p9, MPC version 1.2.1, isl version none
-        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-        Compiler executable checksum: 9c7bd6f3fbc56c9768a4e1b49c2dffc0
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_5ba61.dir/'
-         as -v --64 -o CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.o /tmp/ccpS3Y3y.s
-        GNU assembler version 2.35.2 (x86_64-redhat-linux) using BFD version version 2.35.2-43.el9
-        COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/
-        LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.'
-        Linking C executable cmTC_5ba61
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ba61.dir/link.txt --verbose=1
-        /usr/bin/cc  -fopenmp -v CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.o -o cmTC_5ba61  -v 
-        Using built-in specs.
-        COLLECT_GCC=/usr/bin/cc
-        COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper
-        OFFLOAD_TARGET_NAMES=nvptx-none
-        OFFLOAD_TARGET_DEFAULT=1
-        Target: x86_64-redhat-linux
-        Configured with: ../configure --enable-bootstrap --enable-host-pie --enable-host-bind-now --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.rockylinux.org/ --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-plugin --enable-initfini-array --without-isl --enable-multilib --with-linker-hash-style=gnu --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_64=x86-64-v2 --with-arch_32=x86-64 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1
-        Thread model: posix
-        Supported LTO compression algorithms: zlib zstd
-        gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC) 
-        COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/
-        LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/
-        Reading specs from /usr/lib/gcc/x86_64-redhat-linux/11/libgomp.spec
-        COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_5ba61' '-v' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'cmTC_5ba61.'
-         /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cczZaPMe.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_5ba61 /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.o -lgomp -lgcc --push-state --as-needed -lgcc_s --pop-state -lpthread -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadend.o
-        COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_5ba61' '-v' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'cmTC_5ba61.'
-        gmake[1]: uscita dalla directory «/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-mhdV7n»
-        
-      exitCode: 0
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/FindOpenMP.cmake:262 (message)"
-      - "/usr/share/cmake/Modules/FindOpenMP.cmake:483 (_OPENMP_GET_FLAGS)"
-      - "CMakeLists.txt:5 (find_package)"
-    message: |
-      Parsed C OpenMP implicit link information from above output:
-        link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-mhdV7n]
-        ignore line: []
-        ignore line: [Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_5ba61/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5ba61.dir/build.make CMakeFiles/cmTC_5ba61.dir/build]
-        ignore line: [gmake[1]: ingresso nella directory «/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-mhdV7n»]
-        ignore line: [Building C object CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.o]
-        ignore line: [/usr/bin/cc   -fopenmp -v -fdiagnostics-color=always -o CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.o -c /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-mhdV7n/OpenMPTryFlag.c]
-        ignore line: [Using built-in specs.]
-        ignore line: [COLLECT_GCC=/usr/bin/cc]
-        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
-        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
-        ignore line: [Target: x86_64-redhat-linux]
-        ignore line: [Configured with: ../configure --enable-bootstrap --enable-host-pie --enable-host-bind-now --enable-languages=c c++ fortran lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.rockylinux.org/ --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-plugin --enable-initfini-array --without-isl --enable-multilib --with-linker-hash-style=gnu --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_64=x86-64-v2 --with-arch_32=x86-64 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1]
-        ignore line: [Thread model: posix]
-        ignore line: [Supported LTO compression algorithms: zlib zstd]
-        ignore line: [gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_5ba61.dir/']
-        ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/cc1 -quiet -v -D_REENTRANT /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-mhdV7n/OpenMPTryFlag.c -quiet -dumpdir CMakeFiles/cmTC_5ba61.dir/ -dumpbase OpenMPTryFlag.c.c -dumpbase-ext .c -mtune=generic -march=x86-64-v2 -version -fdiagnostics-color=always -fopenmp -o /tmp/ccpS3Y3y.s]
-        ignore line: [GNU C17 (GCC) version 11.4.1 20231218 (Red Hat 11.4.1-3) (x86_64-redhat-linux)]
-        ignore line: [	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3)  GMP version 6.2.0  MPFR version 4.1.0-p9  MPC version 1.2.1  isl version none]
-        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
-        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/include-fixed"]
-        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/../../../../x86_64-redhat-linux/include"]
-        ignore line: [#include "..." search starts here:]
-        ignore line: [#include <...> search starts here:]
-        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/11/include]
-        ignore line: [ /usr/local/include]
-        ignore line: [ /usr/include]
-        ignore line: [End of search list.]
-        ignore line: [GNU C17 (GCC) version 11.4.1 20231218 (Red Hat 11.4.1-3) (x86_64-redhat-linux)]
-        ignore line: [	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3)  GMP version 6.2.0  MPFR version 4.1.0-p9  MPC version 1.2.1  isl version none]
-        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
-        ignore line: [Compiler executable checksum: 9c7bd6f3fbc56c9768a4e1b49c2dffc0]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_5ba61.dir/']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.o /tmp/ccpS3Y3y.s]
-        ignore line: [GNU assembler version 2.35.2 (x86_64-redhat-linux) using BFD version version 2.35.2-43.el9]
-        ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/]
-        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.']
-        ignore line: [Linking C executable cmTC_5ba61]
-        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ba61.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/cc  -fopenmp -v CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.o -o cmTC_5ba61  -v ]
-        ignore line: [Using built-in specs.]
-        ignore line: [COLLECT_GCC=/usr/bin/cc]
-        ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper]
-        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
-        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
-        ignore line: [Target: x86_64-redhat-linux]
-        ignore line: [Configured with: ../configure --enable-bootstrap --enable-host-pie --enable-host-bind-now --enable-languages=c c++ fortran lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.rockylinux.org/ --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-plugin --enable-initfini-array --without-isl --enable-multilib --with-linker-hash-style=gnu --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_64=x86-64-v2 --with-arch_32=x86-64 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1]
-        ignore line: [Thread model: posix]
-        ignore line: [Supported LTO compression algorithms: zlib zstd]
-        ignore line: [gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC) ]
-        ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/]
-        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/]
-        ignore line: [Reading specs from /usr/lib/gcc/x86_64-redhat-linux/11/libgomp.spec]
-        ignore line: [COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_5ba61' '-v' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'cmTC_5ba61.']
-        link line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cczZaPMe.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_5ba61 /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.o -lgomp -lgcc --push-state --as-needed -lgcc_s --pop-state -lpthread -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadend.o]
-          arg [/usr/libexec/gcc/x86_64-redhat-linux/11/collect2] ==> ignore
-          arg [-plugin] ==> ignore
-          arg [/usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so] ==> ignore
-          arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/cczZaPMe.res] ==> ignore
-          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
-          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
-          arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
-          arg [-plugin-opt=-pass-through=-lc] ==> ignore
-          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
-          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
-          arg [--build-id] ==> ignore
-          arg [--no-add-needed] ==> ignore
-          arg [--eh-frame-hdr] ==> ignore
-          arg [--hash-style=gnu] ==> ignore
-          arg [-m] ==> ignore
-          arg [elf_x86_64] ==> ignore
-          arg [-dynamic-linker] ==> ignore
-          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
-          arg [-o] ==> ignore
-          arg [cmTC_5ba61] ==> ignore
-          arg [-L/usr/lib/gcc/x86_64-redhat-linux/11] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/11]
-          arg [-L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64]
-          arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
-          arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
-          arg [-L/usr/lib/gcc/x86_64-redhat-linux/11/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../..]
-          arg [CMakeFiles/cmTC_5ba61.dir/OpenMPTryFlag.c.o] ==> ignore
-          arg [-lgomp] ==> lib [gomp]
-          arg [-lgcc] ==> lib [gcc]
-          arg [--push-state] ==> ignore
-          arg [--as-needed] ==> ignore
-          arg [-lgcc_s] ==> lib [gcc_s]
-          arg [--pop-state] ==> ignore
-          arg [-lpthread] ==> lib [pthread]
-          arg [-lc] ==> lib [c]
-          arg [-lgcc] ==> lib [gcc]
-          arg [--push-state] ==> ignore
-          arg [--as-needed] ==> ignore
-          arg [-lgcc_s] ==> lib [gcc_s]
-          arg [--pop-state] ==> ignore
-        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/11] ==> [/usr/lib/gcc/x86_64-redhat-linux/11]
-        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64] ==> [/usr/lib64]
-        collapse library dir [/lib/../lib64] ==> [/lib64]
-        collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
-        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../..] ==> [/usr/lib]
-        implicit libs: [gomp;gcc;gcc_s;pthread;c;gcc;gcc_s]
-        implicit objs: []
-        implicit dirs: [/usr/lib/gcc/x86_64-redhat-linux/11;/usr/lib64;/lib64;/usr/lib]
-        implicit fwks: []
-      
-      
-  -
-    kind: "try_compile-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/FindOpenMP.cmake:419 (try_compile)"
-      - "/usr/share/cmake/Modules/FindOpenMP.cmake:557 (_OPENMP_GET_SPEC_DATE)"
-      - "CMakeLists.txt:5 (find_package)"
-    description: "Detecting C OpenMP version"
-    directories:
-      source: "/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-Q5l9xW"
-      binary: "/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-Q5l9xW"
-    cmakeVariables:
-      CMAKE_C_FLAGS: ""
-      CMAKE_C_FLAGS_DEBUG: "-g"
-      CMAKE_EXE_LINKER_FLAGS: ""
-    buildResult:
-      variable: "OpenMP_SPECTEST_C_"
-      cached: true
-      stdout: |
-        Change Dir: /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-Q5l9xW
-        
-        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_8617f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_8617f.dir/build.make CMakeFiles/cmTC_8617f.dir/build
-        gmake[1]: ingresso nella directory «/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-Q5l9xW»
-        Building C object CMakeFiles/cmTC_8617f.dir/OpenMPCheckVersion.c.o
-        /usr/bin/cc   -fopenmp -fdiagnostics-color=always -o CMakeFiles/cmTC_8617f.dir/OpenMPCheckVersion.c.o -c /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-Q5l9xW/OpenMPCheckVersion.c
-        Linking C executable cmTC_8617f
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8617f.dir/link.txt --verbose=1
-        /usr/bin/cc  -fopenmp CMakeFiles/cmTC_8617f.dir/OpenMPCheckVersion.c.o -o cmTC_8617f 
-        gmake[1]: uscita dalla directory «/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-Q5l9xW»
-        
-      exitCode: 0
-  -
-    kind: "try_compile-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
-      - "/usr/share/cmake/Modules/CheckCSourceCompiles.cmake:76 (cmake_check_source_compiles)"
-      - "/usr/share/cmake/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
-      - "/usr/share/cmake/Modules/FindThreads.cmake:163 (_threads_check_libc)"
-      - "/usr/share/cmake/Modules/FindCUDA.cmake:1049 (find_package)"
-      - "CMakeLists.txt:6 (find_package)"
-    checks:
-      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
-    directories:
-      source: "/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-MhUMtS"
-      binary: "/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-MhUMtS"
-    cmakeVariables:
-      CMAKE_C_FLAGS: "-fPIC"
-      CMAKE_C_FLAGS_DEBUG: "-g"
-      CMAKE_EXE_LINKER_FLAGS: ""
-    buildResult:
-      variable: "CMAKE_HAVE_LIBC_PTHREAD"
-      cached: true
-      stdout: |
-        Change Dir: /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-MhUMtS
-        
-        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_48df7/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_48df7.dir/build.make CMakeFiles/cmTC_48df7.dir/build
-        gmake[1]: ingresso nella directory «/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-MhUMtS»
-        Building C object CMakeFiles/cmTC_48df7.dir/src.c.o
-        /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC  -fdiagnostics-color=always -o CMakeFiles/cmTC_48df7.dir/src.c.o -c /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-MhUMtS/src.c
-        Linking C executable cmTC_48df7
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_48df7.dir/link.txt --verbose=1
-        /usr/bin/cc -fPIC  CMakeFiles/cmTC_48df7.dir/src.c.o -o cmTC_48df7 
-        gmake[1]: uscita dalla directory «/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-MhUMtS»
-        
-      exitCode: 0
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:2 (project)"
-    message: |
-      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-      Compiler: /usr/bin/c++ 
-      Build flags: 
-      Id flags:  
-      
-      The output was:
-      0
-      
-      
-      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
-      
-      The CXX compiler identification is GNU, found in:
-        /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/3.26.5/CompilerIdCXX/a.out
-      
-  -
-    kind: "try_compile-v1"
-    backtrace:
       - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
       - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-tqXmjb"
-      binary: "/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-tqXmjb"
+      source: "/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-hgEk3s"
+      binary: "/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-hgEk3s"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -551,12 +289,12 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-tqXmjb
+        Change Dir: /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-hgEk3s
         
-        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_bcb5a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bcb5a.dir/build.make CMakeFiles/cmTC_bcb5a.dir/build
-        gmake[1]: Entering directory '/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-tqXmjb'
-        Building CXX object CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.o
-        /usr/bin/c++   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_f16f6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f16f6.dir/build.make CMakeFiles/cmTC_f16f6.dir/build
+        gmake[1]: Entering directory '/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-hgEk3s'
+        Building CXX object CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         OFFLOAD_TARGET_NAMES=nvptx-none
@@ -566,8 +304,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
         gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC) 
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_bcb5a.dir/'
-         /usr/libexec/gcc/x86_64-redhat-linux/11/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_bcb5a.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64-v2 -version -fdiagnostics-color=always -o /tmp/ccfxUEso.s
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_f16f6.dir/'
+         /usr/libexec/gcc/x86_64-redhat-linux/11/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_f16f6.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64-v2 -version -fdiagnostics-color=always -o /tmp/cc3AtFED.s
         GNU C++17 (GCC) version 11.4.1 20231218 (Red Hat 11.4.1-3) (x86_64-redhat-linux)
         	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3), GMP version 6.2.0, MPFR version 4.1.0-p9, MPC version 1.2.1, isl version none
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
@@ -586,15 +324,15 @@ events:
         	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3), GMP version 6.2.0, MPFR version 4.1.0-p9, MPC version 1.2.1, isl version none
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: 9405b6ffeb72113ec6541eb381112dcb
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_bcb5a.dir/'
-         as -v --64 -o CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccfxUEso.s
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_f16f6.dir/'
+         as -v --64 -o CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc3AtFED.s
         GNU assembler version 2.35.2 (x86_64-redhat-linux) using BFD version version 2.35.2-43.el9
         COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.'
-        Linking CXX executable cmTC_bcb5a
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bcb5a.dir/link.txt --verbose=1
-        /usr/bin/c++  -v CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_bcb5a 
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_f16f6
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f16f6.dir/link.txt --verbose=1
+        /usr/bin/c++  -v CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_f16f6 
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper
@@ -607,10 +345,10 @@ events:
         gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC) 
         COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_bcb5a' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'cmTC_bcb5a.'
-         /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccC5CQqi.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_bcb5a /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_bcb5a' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'cmTC_bcb5a.'
-        gmake[1]: Leaving directory '/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-tqXmjb'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_f16f6' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'cmTC_f16f6.'
+         /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccbvV7L5.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_f16f6 /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_f16f6' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'cmTC_f16f6.'
+        gmake[1]: Leaving directory '/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-hgEk3s'
         
       exitCode: 0
   -
@@ -648,12 +386,12 @@ events:
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-tqXmjb]
+        ignore line: [Change Dir: /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-hgEk3s]
         ignore line: []
-        ignore line: [Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_bcb5a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bcb5a.dir/build.make CMakeFiles/cmTC_bcb5a.dir/build]
-        ignore line: [gmake[1]: Entering directory '/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-tqXmjb']
-        ignore line: [Building CXX object CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/usr/bin/c++   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_f16f6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f16f6.dir/build.make CMakeFiles/cmTC_f16f6.dir/build]
+        ignore line: [gmake[1]: Entering directory '/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-hgEk3s']
+        ignore line: [Building CXX object CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
@@ -663,8 +401,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_bcb5a.dir/']
-        ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_bcb5a.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64-v2 -version -fdiagnostics-color=always -o /tmp/ccfxUEso.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_f16f6.dir/']
+        ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_f16f6.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64-v2 -version -fdiagnostics-color=always -o /tmp/cc3AtFED.s]
         ignore line: [GNU C++17 (GCC) version 11.4.1 20231218 (Red Hat 11.4.1-3) (x86_64-redhat-linux)]
         ignore line: [	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3)  GMP version 6.2.0  MPFR version 4.1.0-p9  MPC version 1.2.1  isl version none]
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
@@ -683,15 +421,15 @@ events:
         ignore line: [	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3)  GMP version 6.2.0  MPFR version 4.1.0-p9  MPC version 1.2.1  isl version none]
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: 9405b6ffeb72113ec6541eb381112dcb]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_bcb5a.dir/']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccfxUEso.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_f16f6.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc3AtFED.s]
         ignore line: [GNU assembler version 2.35.2 (x86_64-redhat-linux) using BFD version version 2.35.2-43.el9]
         ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.']
-        ignore line: [Linking CXX executable cmTC_bcb5a]
-        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bcb5a.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/c++  -v CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_bcb5a ]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_f16f6]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f16f6.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/c++  -v CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_f16f6 ]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper]
@@ -704,13 +442,13 @@ events:
         ignore line: [gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC) ]
         ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_bcb5a' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'cmTC_bcb5a.']
-        link line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccC5CQqi.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_bcb5a /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_f16f6' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'cmTC_f16f6.']
+        link line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccbvV7L5.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_f16f6 /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o]
           arg [/usr/libexec/gcc/x86_64-redhat-linux/11/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccC5CQqi.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccbvV7L5.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -725,7 +463,7 @@ events:
           arg [-dynamic-linker] ==> ignore
           arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_bcb5a] ==> ignore
+          arg [cmTC_f16f6] ==> ignore
           arg [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o]
           arg [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o]
           arg [/usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o]
@@ -734,7 +472,7 @@ events:
           arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
           arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
           arg [-L/usr/lib/gcc/x86_64-redhat-linux/11/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../..]
-          arg [CMakeFiles/cmTC_bcb5a.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_f16f6.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lstdc++] ==> lib [stdc++]
           arg [-lm] ==> lib [m]
           arg [-lgcc_s] ==> lib [gcc_s]
@@ -763,25 +501,221 @@ events:
     backtrace:
       - "/usr/share/cmake/Modules/FindOpenMP.cmake:219 (try_compile)"
       - "/usr/share/cmake/Modules/FindOpenMP.cmake:483 (_OPENMP_GET_FLAGS)"
-      - "CMakeLists.txt:7 (find_package)"
+      - "CMakeLists.txt:25 (find_package)"
+    description: "Detecting C OpenMP compiler info"
+    directories:
+      source: "/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-TTMUjF"
+      binary: "/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-TTMUjF"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/data/plijoi/cJSON/build"
+    buildResult:
+      variable: "OpenMP_COMPILE_RESULT_C_fopenmp"
+      cached: true
+      stdout: |
+        Change Dir: /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-TTMUjF
+        
+        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_49a9b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_49a9b.dir/build.make CMakeFiles/cmTC_49a9b.dir/build
+        gmake[1]: ingresso nella directory «/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-TTMUjF»
+        Building C object CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.o
+        /usr/bin/cc   -fopenmp -v -fdiagnostics-color=always -o CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.o -c /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-TTMUjF/OpenMPTryFlag.c
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        OFFLOAD_TARGET_NAMES=nvptx-none
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-redhat-linux
+        Configured with: ../configure --enable-bootstrap --enable-host-pie --enable-host-bind-now --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.rockylinux.org/ --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-plugin --enable-initfini-array --without-isl --enable-multilib --with-linker-hash-style=gnu --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_64=x86-64-v2 --with-arch_32=x86-64 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC) 
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_49a9b.dir/'
+         /usr/libexec/gcc/x86_64-redhat-linux/11/cc1 -quiet -v -D_REENTRANT /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-TTMUjF/OpenMPTryFlag.c -quiet -dumpdir CMakeFiles/cmTC_49a9b.dir/ -dumpbase OpenMPTryFlag.c.c -dumpbase-ext .c -mtune=generic -march=x86-64-v2 -version -fdiagnostics-color=always -fopenmp -o /tmp/ccX4ZRym.s
+        GNU C17 (GCC) version 11.4.1 20231218 (Red Hat 11.4.1-3) (x86_64-redhat-linux)
+        	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3), GMP version 6.2.0, MPFR version 4.1.0-p9, MPC version 1.2.1, isl version none
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/../../../../x86_64-redhat-linux/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/lib/gcc/x86_64-redhat-linux/11/include
+         /usr/local/include
+         /usr/include
+        End of search list.
+        GNU C17 (GCC) version 11.4.1 20231218 (Red Hat 11.4.1-3) (x86_64-redhat-linux)
+        	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3), GMP version 6.2.0, MPFR version 4.1.0-p9, MPC version 1.2.1, isl version none
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: 9c7bd6f3fbc56c9768a4e1b49c2dffc0
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_49a9b.dir/'
+         as -v --64 -o CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.o /tmp/ccX4ZRym.s
+        GNU assembler version 2.35.2 (x86_64-redhat-linux) using BFD version version 2.35.2-43.el9
+        COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.'
+        Linking C executable cmTC_49a9b
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_49a9b.dir/link.txt --verbose=1
+        /usr/bin/cc  -fopenmp -v CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.o -o cmTC_49a9b  -v 
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper
+        OFFLOAD_TARGET_NAMES=nvptx-none
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-redhat-linux
+        Configured with: ../configure --enable-bootstrap --enable-host-pie --enable-host-bind-now --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.rockylinux.org/ --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-plugin --enable-initfini-array --without-isl --enable-multilib --with-linker-hash-style=gnu --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_64=x86-64-v2 --with-arch_32=x86-64 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC) 
+        COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/
+        Reading specs from /usr/lib/gcc/x86_64-redhat-linux/11/libgomp.spec
+        COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_49a9b' '-v' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'cmTC_49a9b.'
+         /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccpTlmPQ.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_49a9b /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.o -lgomp -lgcc --push-state --as-needed -lgcc_s --pop-state -lpthread -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadend.o
+        COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_49a9b' '-v' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'cmTC_49a9b.'
+        gmake[1]: uscita dalla directory «/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-TTMUjF»
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindOpenMP.cmake:262 (message)"
+      - "/usr/share/cmake/Modules/FindOpenMP.cmake:483 (_OPENMP_GET_FLAGS)"
+      - "CMakeLists.txt:25 (find_package)"
+    message: |
+      Parsed C OpenMP implicit link information from above output:
+        link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-TTMUjF]
+        ignore line: []
+        ignore line: [Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_49a9b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_49a9b.dir/build.make CMakeFiles/cmTC_49a9b.dir/build]
+        ignore line: [gmake[1]: ingresso nella directory «/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-TTMUjF»]
+        ignore line: [Building C object CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.o]
+        ignore line: [/usr/bin/cc   -fopenmp -v -fdiagnostics-color=always -o CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.o -c /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-TTMUjF/OpenMPTryFlag.c]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-redhat-linux]
+        ignore line: [Configured with: ../configure --enable-bootstrap --enable-host-pie --enable-host-bind-now --enable-languages=c c++ fortran lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.rockylinux.org/ --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-plugin --enable-initfini-array --without-isl --enable-multilib --with-linker-hash-style=gnu --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_64=x86-64-v2 --with-arch_32=x86-64 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_49a9b.dir/']
+        ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/cc1 -quiet -v -D_REENTRANT /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-TTMUjF/OpenMPTryFlag.c -quiet -dumpdir CMakeFiles/cmTC_49a9b.dir/ -dumpbase OpenMPTryFlag.c.c -dumpbase-ext .c -mtune=generic -march=x86-64-v2 -version -fdiagnostics-color=always -fopenmp -o /tmp/ccX4ZRym.s]
+        ignore line: [GNU C17 (GCC) version 11.4.1 20231218 (Red Hat 11.4.1-3) (x86_64-redhat-linux)]
+        ignore line: [	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3)  GMP version 6.2.0  MPFR version 4.1.0-p9  MPC version 1.2.1  isl version none]
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/../../../../x86_64-redhat-linux/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/11/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [GNU C17 (GCC) version 11.4.1 20231218 (Red Hat 11.4.1-3) (x86_64-redhat-linux)]
+        ignore line: [	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3)  GMP version 6.2.0  MPFR version 4.1.0-p9  MPC version 1.2.1  isl version none]
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [Compiler executable checksum: 9c7bd6f3fbc56c9768a4e1b49c2dffc0]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_49a9b.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.o /tmp/ccX4ZRym.s]
+        ignore line: [GNU assembler version 2.35.2 (x86_64-redhat-linux) using BFD version version 2.35.2-43.el9]
+        ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.']
+        ignore line: [Linking C executable cmTC_49a9b]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_49a9b.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/cc  -fopenmp -v CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.o -o cmTC_49a9b  -v ]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-redhat-linux]
+        ignore line: [Configured with: ../configure --enable-bootstrap --enable-host-pie --enable-host-bind-now --enable-languages=c c++ fortran lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.rockylinux.org/ --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-plugin --enable-initfini-array --without-isl --enable-multilib --with-linker-hash-style=gnu --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_64=x86-64-v2 --with-arch_32=x86-64 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC) ]
+        ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/]
+        ignore line: [Reading specs from /usr/lib/gcc/x86_64-redhat-linux/11/libgomp.spec]
+        ignore line: [COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_49a9b' '-v' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'cmTC_49a9b.']
+        link line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccpTlmPQ.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_49a9b /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.o -lgomp -lgcc --push-state --as-needed -lgcc_s --pop-state -lpthread -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadend.o]
+          arg [/usr/libexec/gcc/x86_64-redhat-linux/11/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccpTlmPQ.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--no-add-needed] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_49a9b] ==> ignore
+          arg [-L/usr/lib/gcc/x86_64-redhat-linux/11] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/11]
+          arg [-L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64]
+          arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+          arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+          arg [-L/usr/lib/gcc/x86_64-redhat-linux/11/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../..]
+          arg [CMakeFiles/cmTC_49a9b.dir/OpenMPTryFlag.c.o] ==> ignore
+          arg [-lgomp] ==> lib [gomp]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [-lpthread] ==> lib [pthread]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/11] ==> [/usr/lib/gcc/x86_64-redhat-linux/11]
+        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib/../lib64] ==> [/lib64]
+        collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../..] ==> [/usr/lib]
+        implicit libs: [gomp;gcc;gcc_s;pthread;c;gcc;gcc_s]
+        implicit objs: []
+        implicit dirs: [/usr/lib/gcc/x86_64-redhat-linux/11;/usr/lib64;/lib64;/usr/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindOpenMP.cmake:219 (try_compile)"
+      - "/usr/share/cmake/Modules/FindOpenMP.cmake:483 (_OPENMP_GET_FLAGS)"
+      - "CMakeLists.txt:25 (find_package)"
     description: "Detecting CXX OpenMP compiler info"
     directories:
-      source: "/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-rKMgJ7"
-      binary: "/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-rKMgJ7"
+      source: "/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-kkiaxn"
+      binary: "/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-kkiaxn"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
       CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/data/plijoi/cJSON/build"
     buildResult:
       variable: "OpenMP_COMPILE_RESULT_CXX_fopenmp"
       cached: true
       stdout: |
-        Change Dir: /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-rKMgJ7
+        Change Dir: /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-kkiaxn
         
-        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_3ded4/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3ded4.dir/build.make CMakeFiles/cmTC_3ded4.dir/build
-        gmake[1]: ingresso nella directory «/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-rKMgJ7»
-        Building CXX object CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.o
-        /usr/bin/c++   -fopenmp -v -fdiagnostics-color=always -o CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.o -c /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-rKMgJ7/OpenMPTryFlag.cpp
+        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_bdecf/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bdecf.dir/build.make CMakeFiles/cmTC_bdecf.dir/build
+        gmake[1]: ingresso nella directory «/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-kkiaxn»
+        Building CXX object CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.o
+        /usr/bin/c++   -fopenmp -v -fdiagnostics-color=always -o CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.o -c /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-kkiaxn/OpenMPTryFlag.cpp
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         OFFLOAD_TARGET_NAMES=nvptx-none
@@ -791,8 +725,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
         gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC) 
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_3ded4.dir/'
-         /usr/libexec/gcc/x86_64-redhat-linux/11/cc1plus -quiet -v -D_GNU_SOURCE -D_REENTRANT /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-rKMgJ7/OpenMPTryFlag.cpp -quiet -dumpdir CMakeFiles/cmTC_3ded4.dir/ -dumpbase OpenMPTryFlag.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64-v2 -version -fdiagnostics-color=always -fopenmp -o /tmp/cckye758.s
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_bdecf.dir/'
+         /usr/libexec/gcc/x86_64-redhat-linux/11/cc1plus -quiet -v -D_GNU_SOURCE -D_REENTRANT /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-kkiaxn/OpenMPTryFlag.cpp -quiet -dumpdir CMakeFiles/cmTC_bdecf.dir/ -dumpbase OpenMPTryFlag.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64-v2 -version -fdiagnostics-color=always -fopenmp -o /tmp/ccf7DeUh.s
         GNU C++17 (GCC) version 11.4.1 20231218 (Red Hat 11.4.1-3) (x86_64-redhat-linux)
         	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3), GMP version 6.2.0, MPFR version 4.1.0-p9, MPC version 1.2.1, isl version none
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
@@ -811,15 +745,15 @@ events:
         	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3), GMP version 6.2.0, MPFR version 4.1.0-p9, MPC version 1.2.1, isl version none
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: 9405b6ffeb72113ec6541eb381112dcb
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_3ded4.dir/'
-         as -v --64 -o CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.o /tmp/cckye758.s
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_bdecf.dir/'
+         as -v --64 -o CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.o /tmp/ccf7DeUh.s
         GNU assembler version 2.35.2 (x86_64-redhat-linux) using BFD version version 2.35.2-43.el9
         COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.'
-        Linking CXX executable cmTC_3ded4
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3ded4.dir/link.txt --verbose=1
-        /usr/bin/c++  -fopenmp -v CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.o -o cmTC_3ded4  -v 
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.'
+        Linking CXX executable cmTC_bdecf
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bdecf.dir/link.txt --verbose=1
+        /usr/bin/c++  -fopenmp -v CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.o -o cmTC_bdecf  -v 
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper
@@ -833,10 +767,10 @@ events:
         COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/
         Reading specs from /usr/lib/gcc/x86_64-redhat-linux/11/libgomp.spec
-        COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_3ded4' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'cmTC_3ded4.'
-         /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccnCCzbX.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_3ded4 /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.o -lstdc++ -lm -lgomp -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadend.o
-        COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_3ded4' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'cmTC_3ded4.'
-        gmake[1]: uscita dalla directory «/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-rKMgJ7»
+        COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_bdecf' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'cmTC_bdecf.'
+         /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccgmjqwF.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_bdecf /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.o -lstdc++ -lm -lgomp -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadend.o
+        COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_bdecf' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'cmTC_bdecf.'
+        gmake[1]: uscita dalla directory «/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-kkiaxn»
         
       exitCode: 0
   -
@@ -844,16 +778,16 @@ events:
     backtrace:
       - "/usr/share/cmake/Modules/FindOpenMP.cmake:262 (message)"
       - "/usr/share/cmake/Modules/FindOpenMP.cmake:483 (_OPENMP_GET_FLAGS)"
-      - "CMakeLists.txt:7 (find_package)"
+      - "CMakeLists.txt:25 (find_package)"
     message: |
       Parsed CXX OpenMP implicit link information from above output:
         link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-rKMgJ7]
+        ignore line: [Change Dir: /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-kkiaxn]
         ignore line: []
-        ignore line: [Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_3ded4/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3ded4.dir/build.make CMakeFiles/cmTC_3ded4.dir/build]
-        ignore line: [gmake[1]: ingresso nella directory «/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-rKMgJ7»]
-        ignore line: [Building CXX object CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.o]
-        ignore line: [/usr/bin/c++   -fopenmp -v -fdiagnostics-color=always -o CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.o -c /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-rKMgJ7/OpenMPTryFlag.cpp]
+        ignore line: [Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_bdecf/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bdecf.dir/build.make CMakeFiles/cmTC_bdecf.dir/build]
+        ignore line: [gmake[1]: ingresso nella directory «/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-kkiaxn»]
+        ignore line: [Building CXX object CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.o]
+        ignore line: [/usr/bin/c++   -fopenmp -v -fdiagnostics-color=always -o CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.o -c /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-kkiaxn/OpenMPTryFlag.cpp]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
@@ -863,8 +797,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 11.4.1 20231218 (Red Hat 11.4.1-3) (GCC) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_3ded4.dir/']
-        ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/cc1plus -quiet -v -D_GNU_SOURCE -D_REENTRANT /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-rKMgJ7/OpenMPTryFlag.cpp -quiet -dumpdir CMakeFiles/cmTC_3ded4.dir/ -dumpbase OpenMPTryFlag.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64-v2 -version -fdiagnostics-color=always -fopenmp -o /tmp/cckye758.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_bdecf.dir/']
+        ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/cc1plus -quiet -v -D_GNU_SOURCE -D_REENTRANT /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-kkiaxn/OpenMPTryFlag.cpp -quiet -dumpdir CMakeFiles/cmTC_bdecf.dir/ -dumpbase OpenMPTryFlag.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64-v2 -version -fdiagnostics-color=always -fopenmp -o /tmp/ccf7DeUh.s]
         ignore line: [GNU C++17 (GCC) version 11.4.1 20231218 (Red Hat 11.4.1-3) (x86_64-redhat-linux)]
         ignore line: [	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3)  GMP version 6.2.0  MPFR version 4.1.0-p9  MPC version 1.2.1  isl version none]
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
@@ -883,15 +817,15 @@ events:
         ignore line: [	compiled by GNU C version 11.4.1 20231218 (Red Hat 11.4.1-3)  GMP version 6.2.0  MPFR version 4.1.0-p9  MPC version 1.2.1  isl version none]
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: 9405b6ffeb72113ec6541eb381112dcb]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_3ded4.dir/']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.o /tmp/cckye758.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_bdecf.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.o /tmp/ccf7DeUh.s]
         ignore line: [GNU assembler version 2.35.2 (x86_64-redhat-linux) using BFD version version 2.35.2-43.el9]
         ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.']
-        ignore line: [Linking CXX executable cmTC_3ded4]
-        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3ded4.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/c++  -fopenmp -v CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.o -o cmTC_3ded4  -v ]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.']
+        ignore line: [Linking CXX executable cmTC_bdecf]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bdecf.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/c++  -fopenmp -v CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.o -o cmTC_bdecf  -v ]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper]
@@ -905,13 +839,13 @@ events:
         ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/]
         ignore line: [Reading specs from /usr/lib/gcc/x86_64-redhat-linux/11/libgomp.spec]
-        ignore line: [COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_3ded4' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'cmTC_3ded4.']
-        link line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccnCCzbX.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_3ded4 /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.o -lstdc++ -lm -lgomp -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadend.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_bdecf' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'cmTC_bdecf.']
+        link line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccgmjqwF.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_bdecf /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.o -lstdc++ -lm -lgomp -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadend.o]
           arg [/usr/libexec/gcc/x86_64-redhat-linux/11/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccnCCzbX.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccgmjqwF.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
@@ -927,13 +861,13 @@ events:
           arg [-dynamic-linker] ==> ignore
           arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_3ded4] ==> ignore
+          arg [cmTC_bdecf] ==> ignore
           arg [-L/usr/lib/gcc/x86_64-redhat-linux/11] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/11]
           arg [-L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64]
           arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
           arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
           arg [-L/usr/lib/gcc/x86_64-redhat-linux/11/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../..]
-          arg [CMakeFiles/cmTC_3ded4.dir/OpenMPTryFlag.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_bdecf.dir/OpenMPTryFlag.cpp.o] ==> ignore
           arg [-lstdc++] ==> lib [stdc++]
           arg [-lm] ==> lib [m]
           arg [-lgomp] ==> lib [gomp]
@@ -959,959 +893,96 @@ events:
     backtrace:
       - "/usr/share/cmake/Modules/FindOpenMP.cmake:419 (try_compile)"
       - "/usr/share/cmake/Modules/FindOpenMP.cmake:557 (_OPENMP_GET_SPEC_DATE)"
-      - "CMakeLists.txt:7 (find_package)"
+      - "CMakeLists.txt:25 (find_package)"
+    description: "Detecting C OpenMP version"
+    directories:
+      source: "/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-hRdpYM"
+      binary: "/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-hRdpYM"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/data/plijoi/cJSON/build"
+    buildResult:
+      variable: "OpenMP_SPECTEST_C_"
+      cached: true
+      stdout: |
+        Change Dir: /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-hRdpYM
+        
+        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4cc5b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4cc5b.dir/build.make CMakeFiles/cmTC_4cc5b.dir/build
+        gmake[1]: ingresso nella directory «/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-hRdpYM»
+        Building C object CMakeFiles/cmTC_4cc5b.dir/OpenMPCheckVersion.c.o
+        /usr/bin/cc   -fopenmp -fdiagnostics-color=always -o CMakeFiles/cmTC_4cc5b.dir/OpenMPCheckVersion.c.o -c /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-hRdpYM/OpenMPCheckVersion.c
+        Linking C executable cmTC_4cc5b
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4cc5b.dir/link.txt --verbose=1
+        /usr/bin/cc  -fopenmp CMakeFiles/cmTC_4cc5b.dir/OpenMPCheckVersion.c.o -o cmTC_4cc5b 
+        gmake[1]: uscita dalla directory «/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-hRdpYM»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindOpenMP.cmake:419 (try_compile)"
+      - "/usr/share/cmake/Modules/FindOpenMP.cmake:557 (_OPENMP_GET_SPEC_DATE)"
+      - "CMakeLists.txt:25 (find_package)"
     description: "Detecting CXX OpenMP version"
     directories:
-      source: "/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-YKq51j"
-      binary: "/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-YKq51j"
+      source: "/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-EWzx2J"
+      binary: "/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-EWzx2J"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
       CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/data/plijoi/cJSON/build"
     buildResult:
       variable: "OpenMP_SPECTEST_CXX_"
       cached: true
       stdout: |
-        Change Dir: /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-YKq51j
+        Change Dir: /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-EWzx2J
         
-        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4104a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4104a.dir/build.make CMakeFiles/cmTC_4104a.dir/build
-        gmake[1]: ingresso nella directory «/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-YKq51j»
-        Building CXX object CMakeFiles/cmTC_4104a.dir/OpenMPCheckVersion.cpp.o
-        /usr/bin/c++   -fopenmp -fdiagnostics-color=always -o CMakeFiles/cmTC_4104a.dir/OpenMPCheckVersion.cpp.o -c /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-YKq51j/OpenMPCheckVersion.cpp
-        Linking CXX executable cmTC_4104a
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4104a.dir/link.txt --verbose=1
-        /usr/bin/c++  -fopenmp CMakeFiles/cmTC_4104a.dir/OpenMPCheckVersion.cpp.o -o cmTC_4104a 
-        gmake[1]: uscita dalla directory «/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-YKq51j»
+        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_7df23/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_7df23.dir/build.make CMakeFiles/cmTC_7df23.dir/build
+        gmake[1]: ingresso nella directory «/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-EWzx2J»
+        Building CXX object CMakeFiles/cmTC_7df23.dir/OpenMPCheckVersion.cpp.o
+        /usr/bin/c++   -fopenmp -fdiagnostics-color=always -o CMakeFiles/cmTC_7df23.dir/OpenMPCheckVersion.cpp.o -c /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-EWzx2J/OpenMPCheckVersion.cpp
+        Linking CXX executable cmTC_7df23
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7df23.dir/link.txt --verbose=1
+        /usr/bin/c++  -fopenmp CMakeFiles/cmTC_7df23.dir/OpenMPCheckVersion.cpp.o -o cmTC_7df23 
+        gmake[1]: uscita dalla directory «/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-EWzx2J»
         
       exitCode: 0
-...
-
----
-events:
   -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:307 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:2 (project)"
-    message: |
-      Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
-      Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
-      Build flags: 
-      Id flags:  -v
-      
-      The output was:
-      No such file or directory
-      
-      
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:307 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:2 (project)"
-    message: |
-      Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
-      Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
-      Build flags: 
-      Id flags:  -v
-      
-      The output was:
-      No such file or directory
-      
-      
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:1 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:1 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:8 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:8 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:1 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:1 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:1 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:1 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:1 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:1 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:1 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:1 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:1 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:1 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:1 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:1 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:3 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:3 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:307 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
-      Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
-      Build flags: 
-      Id flags:  -v
-      
-      The output was:
-      No such file or directory
-      
-      
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:307 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
-      Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
-      Build flags: 
-      Id flags:  -v
-      
-      The output was:
-      No such file or directory
-      
-      
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:307 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
-      Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
-      Build flags: 
-      Id flags:  -v
-      
-      The output was:
-      No such file or directory
-      
-      
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:307 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
-      Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
-      Build flags: 
-      Id flags:  -v
-      
-      The output was:
-      No such file or directory
-      
-      
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:307 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
-      Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
-      Build flags: 
-      Id flags:  -v
-      
-      The output was:
-      No such file or directory
-      
-      
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:307 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
-      Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
-      Build flags: 
-      Id flags:  -v
-      
-      The output was:
-      No such file or directory
-      
-      
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CUDA_src/CMakeLists.txt:4 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:6 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:6 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:307 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:6 (project)"
-    message: |
-      Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
-      Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
-      Build flags: 
-      Id flags:  -v
-      
-      The output was:
-      No such file or directory
-      
-      
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:307 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:6 (project)"
-    message: |
-      Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
-      Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
-      Build flags: 
-      Id flags:  -v
-      
-      The output was:
-      No such file or directory
-      
-      
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:6 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:6 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:3 (enable_language)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:3 (enable_language)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:3 (enable_language)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:3 (enable_language)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:6 (enable_language)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:6 (enable_language)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
-...
-
----
-events:
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:1115 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:2 (project)"
-    message: |
-      Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckCSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "/usr/share/cmake/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "/usr/share/cmake/Modules/FindCUDA.cmake:1049 (find_package)"
+      - "CMakeLists.txt:26 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-RGw94y"
+      binary: "/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-RGw94y"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "-fPIC"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/data/plijoi/cJSON/build"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-RGw94y
+        
+        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_c57a4/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c57a4.dir/build.make CMakeFiles/cmTC_c57a4.dir/build
+        gmake[1]: ingresso nella directory «/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-RGw94y»
+        Building C object CMakeFiles/cmTC_c57a4.dir/src.c.o
+        /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC  -fdiagnostics-color=always -o CMakeFiles/cmTC_c57a4.dir/src.c.o -c /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-RGw94y/src.c
+        Linking C executable cmTC_c57a4
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c57a4.dir/link.txt --verbose=1
+        /usr/bin/cc -fPIC  CMakeFiles/cmTC_c57a4.dir/src.c.o -o cmTC_c57a4 
+        gmake[1]: uscita dalla directory «/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/CMakeScratch/TryCompile-RGw94y»
+        
+      exitCode: 0
 ...

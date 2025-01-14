@@ -4,8 +4,26 @@ project(SCPA_Project)
 # Architettura CUDA
 set(CC 75)
 
-# Configurazione dei moduli di CMake
-set(CMAKE_MODULE_PATH /data/aandreoli/cJSON/build ${CMAKE_MODULE_PATH})
+# Ottenere lo username direttamente tramite comando
+execute_process(
+        COMMAND whoami
+        OUTPUT_VARIABLE CURRENT_USER
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+
+# Condizionalmente modificare CMAKE_MODULE_PATH in base all'utente
+if(CURRENT_USER STREQUAL "aandreoli")
+    set(CMAKE_MODULE_PATH /data/aandreoli/cJSON/build ${CMAKE_MODULE_PATH})
+    add_compile_definitions(USER_ANDREA)
+endif()
+
+if(CURRENT_USER STREQUAL "plijoi")
+
+    set(CMAKE_MODULE_PATH /data/plijoi/cJSON/build ${CMAKE_MODULE_PATH})
+    add_compile_definitions(USER_PIERFRANCESCO)
+
+endif()
+
 
 # Trova le librerie richieste
 find_package(cJSON REQUIRED)
@@ -36,8 +54,18 @@ target_link_libraries(SCPA_Project PUBLIC OpenMP::OpenMP_C)
 target_link_libraries(SCPA_Project PUBLIC cJSON::cJSON)
 
 # Includi directory aggiuntive
-include_directories(${CUDA_INCLUDE_DIRS})
-include_directories(/data/aandreoli/cuda-samples/Common)
+
+if(CURRENT_USER STREQUAL "aandreoli")
+    include_directories(${CUDA_INCLUDE_DIRS})
+    include_directories(/data/aandreoli/cuda-samples/Common)
+endif()
+
+if(CURRENT_USER STREQUAL "plijoi")
+
+    include_directories(${CUDA_INCLUDE_DIRS})
+    include_directories(/data/plijoi/cuda-samples/Common)
+
+endif()
 
 # Imposta i flag di compilazione
 set(CMAKE_CXX_FLAGS "-O3")
@@ -46,14 +74,3 @@ set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS};-DSM_${CC};-arch=sm_${CC};-lineinfo;-Xcom
 
 # Includi la directory CUDA_src
 add_subdirectory(CUDA_src)
-
-# Configurazione per utenti specifici
-if($ENV{USER} STREQUAL "pierfrancesco")
-    message(STATUS "Compilazione per Pierfrancesco Lijoi completata")
-    add_compile_definitions(USER_PIERFRANCESCO)
-elseif($ENV{USER} STREQUAL "andreaandreoli")
-    message(STATUS "Compilazione per Andrea Andreoli completata")
-    add_compile_definitions(USER_ANDREA)
-else()
-    message(STATUS "Compilazione da server di dipartimento completata")
-endif()

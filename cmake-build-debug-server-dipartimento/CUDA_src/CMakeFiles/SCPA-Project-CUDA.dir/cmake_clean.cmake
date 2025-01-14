@@ -4,8 +4,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o"
   "CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o"
   "CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o.d"
-  "CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.o"
-  "CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.o.d"
+  "CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.o"
+  "CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.o.d"
   "SCPA-Project-CUDA"
   "SCPA-Project-CUDA.pdb"
 )

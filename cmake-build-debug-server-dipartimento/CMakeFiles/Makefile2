@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /data/aandreoli/SCPA-Project
+CMAKE_SOURCE_DIR = /data/plijoi/SCPA-Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento
+CMAKE_BINARY_DIR = /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -100,14 +100,14 @@ CUDA_src/clean: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/clean
 CMakeFiles/SCPA_Project.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SCPA_Project.dir/build.make CMakeFiles/SCPA_Project.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=7,8,9,10,11,12,13 "Built target SCPA_Project"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=7,8,9,10,11,12,13 "Built target SCPA_Project"
 .PHONY : CMakeFiles/SCPA_Project.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/SCPA_Project.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/SCPA_Project.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles 0
 .PHONY : CMakeFiles/SCPA_Project.dir/rule
 
 # Convenience name for target.
@@ -126,14 +126,14 @@ CMakeFiles/SCPA_Project.dir/clean:
 CUDA_src/CMakeFiles/deviceQuery.dir/all:
 	$(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/deviceQuery.dir/build.make CUDA_src/CMakeFiles/deviceQuery.dir/depend
 	$(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/deviceQuery.dir/build.make CUDA_src/CMakeFiles/deviceQuery.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=14,15 "Built target deviceQuery"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=14,15 "Built target deviceQuery"
 .PHONY : CUDA_src/CMakeFiles/deviceQuery.dir/all
 
 # Build rule for subdir invocation for target.
 CUDA_src/CMakeFiles/deviceQuery.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CUDA_src/CMakeFiles/deviceQuery.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles 0
 .PHONY : CUDA_src/CMakeFiles/deviceQuery.dir/rule
 
 # Convenience name for target.
@@ -152,14 +152,14 @@ CUDA_src/CMakeFiles/deviceQuery.dir/clean:
 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/all:
 	$(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/depend
 	$(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target SCPA-Project-CUDA"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target SCPA-Project-CUDA"
 .PHONY : CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/all
 
 # Build rule for subdir invocation for target.
 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles 0
 .PHONY : CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/rule
 
 # Convenience name for target.

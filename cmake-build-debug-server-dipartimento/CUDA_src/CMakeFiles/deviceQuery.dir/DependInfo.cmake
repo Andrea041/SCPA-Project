@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/data/aandreoli/SCPA-Project/CUDA_src/00-deviceQuery.cpp" "CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o" "gcc" "CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o.d"
+  "/data/plijoi/SCPA-Project/CUDA_src/00-deviceQuery.cpp" "CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o" "gcc" "CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -1,5 +1,5 @@
 CMakeFiles/SCPA_Project.dir/src/main_app.c.o: \
- /data/aandreoli/SCPA-Project/src/main_app.c /usr/include/stdc-predef.h \
+ /data/plijoi/SCPA-Project/src/main_app.c /usr/include/stdc-predef.h \
  /usr/include/ctype.h /usr/include/features.h \
  /usr/include/features-time64.h /usr/include/bits/wordsize.h \
  /usr/include/bits/timesize.h /usr/include/sys/cdefs.h \
@@ -32,16 +32,16 @@ CMakeFiles/SCPA_Project.dir/src/main_app.c.o: \
  /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/bits/stdlib-float.h /usr/include/sys/stat.h \
  /usr/include/bits/stat.h /usr/include/bits/struct_stat.h \
- /data/aandreoli/SCPA-Project/src/../libs/mmio.h \
- /data/aandreoli/SCPA-Project/src/../libs/matrixLists.h \
- /data/aandreoli/SCPA-Project/src/../libs/data_structure.h \
- /data/aandreoli/SCPA-Project/src/../libs/mmio.h \
+ /data/plijoi/SCPA-Project/src/../libs/mmio.h \
+ /data/plijoi/SCPA-Project/src/../libs/matrixLists.h \
+ /data/plijoi/SCPA-Project/src/../libs/data_structure.h \
+ /data/plijoi/SCPA-Project/src/../libs/mmio.h \
  /usr/lib/gcc/x86_64-redhat-linux/11/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/wchar.h \
  /usr/include/bits/stdint-uintn.h \
- /data/aandreoli/SCPA-Project/src/../libs/costants.h \
- /data/aandreoli/SCPA-Project/src/../libs/csrOperations.h \
- /data/aandreoli/SCPA-Project/src/../libs/../libs/data_structure.h \
- /data/aandreoli/SCPA-Project/src/../libs/hll_Operations.h \
- /data/aandreoli/SCPA-Project/src/../libs/data_structure.h \
- /data/aandreoli/SCPA-Project/src/../../cJSON/include/cjson/cJSON.h
+ /data/plijoi/SCPA-Project/src/../libs/costants.h \
+ /data/plijoi/SCPA-Project/src/../libs/csrOperations.h \
+ /data/plijoi/SCPA-Project/src/../libs/../libs/data_structure.h \
+ /data/plijoi/SCPA-Project/src/../libs/hll_Operations.h \
+ /data/plijoi/SCPA-Project/src/../libs/data_structure.h \
+ /data/plijoi/cJSON/cJSON.h

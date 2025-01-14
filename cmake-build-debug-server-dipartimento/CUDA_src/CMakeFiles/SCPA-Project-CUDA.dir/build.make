@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /data/aandreoli/SCPA-Project
+CMAKE_SOURCE_DIR = /data/plijoi/SCPA-Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento
+CMAKE_BINARY_DIR = /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento
 
 # Include any dependencies generated for this target.
 include CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/depend.make
@@ -69,851 +69,68 @@ include CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/progress.make
 # Include the compile flags for this target's objects.
 include CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/flags.make
 
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /data/aandreoli/SCPA-Project/CUDA_src/main_app.cu
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /data/aandreoli/SCPA-Project/CUDA_libs/csrOperations.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /data/aandreoli/SCPA-Project/CUDA_src/main_app.cu
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /data/aandreoli/SCPA-Project/libs/costants.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /data/aandreoli/SCPA-Project/libs/data_structure.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /data/aandreoli/SCPA-Project/libs/matrixLists.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /data/aandreoli/SCPA-Project/libs/mmio.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /data/aandreoli/cJSON/include/cjson/cJSON.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /data/aandreoli/cuda-samples/Common/helper_cuda.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /data/aandreoli/cuda-samples/Common/helper_string.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/alloca.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/asm-generic/bitsperlong.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/asm-generic/errno-base.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/asm-generic/errno.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/asm-generic/int-ll64.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/asm-generic/posix_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/asm-generic/types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/asm/bitsperlong.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/asm/errno.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/asm/posix_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/asm/posix_types_64.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/asm/types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/assert.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/byteswap.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/confname.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/cpu-set.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/endian.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/endianness.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/environments.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/errno.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/floatn-common.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/floatn.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/flt-eval-method.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/fp-fast.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/fp-logb.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/getopt_core.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/getopt_posix.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/iscanonical.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/libc-header-start.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/libm-simd-decl-stubs.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/local_lim.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/locale.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/long-double.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/math-vector.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/mathcalls-helper-functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/mathcalls-narrow.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/mathcalls.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/posix1_lim.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/posix2_lim.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/posix_opt.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/pthread_stack_min-dynamic.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/pthreadtypes-arch.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/pthreadtypes.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/sched.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/select.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/setjmp.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/stat.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/statx-generic.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/statx.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/stdint-intn.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/stdint-uintn.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/stdio.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/stdio_lim.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/stdlib-bsearch.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/stdlib-float.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/struct_mutex.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/struct_rwlock.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/struct_stat.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/thread-shared-types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/time.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/time64.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/timesize.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/timex.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/FILE.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/__FILE.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/__fpos64_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/__fpos_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/__locale_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/__mbstate_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/__sigset_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/clock_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/clockid_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/cookie_io_functions_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/error_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/locale_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/mbstate_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/sigset_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/struct_FILE.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/struct___jmp_buf_tag.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/struct_itimerspec.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/struct_sched_param.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/struct_statx.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/struct_statx_timestamp.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/struct_timespec.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/struct_timeval.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/struct_tm.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/time_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/timer_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/types/wint_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/typesizes.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/uintn-identity.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/uio_lim.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/unistd_ext.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/waitflags.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/waitstatus.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/wchar.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/wctype-wchar.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/wordsize.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/bits/xopen_lim.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/backward/binders.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/alloc_traits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/allocator.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/basic_ios.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/basic_ios.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/basic_string.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/basic_string.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/char_traits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/charconv.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/codecvt.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/concept_check.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/cpp_type_traits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/cxxabi_forced.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/cxxabi_init_exception.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/exception.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/exception_defines.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/exception_ptr.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/fstream.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/functexcept.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/functional_hash.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/hash_bytes.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/ios_base.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/istream.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/locale_classes.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/locale_classes.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/locale_facets.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/locale_facets.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/localefwd.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/memoryfwd.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/move.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/nested_exception.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/ostream.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/ostream_insert.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/postypes.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/predefined_ops.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/ptr_traits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/range_access.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/specfun.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/std_abs.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/stl_algobase.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/stl_construct.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/stl_function.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/stl_iterator.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/stl_iterator_base_funcs.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/stl_iterator_base_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/stl_pair.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/stl_relops.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/streambuf.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/streambuf_iterator.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/string_view.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/bits/stringfwd.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/cctype
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/cerrno
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/clocale
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/cmath
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/cstdint
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/cstdio
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/cstdlib
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/cstring
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/cwchar
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/cwctype
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/debug/assertions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/debug/debug.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/exception
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/ext/alloc_traits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/ext/atomicity.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/ext/new_allocator.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/ext/numeric_traits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/ext/string_conversions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/ext/type_traits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/fstream
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/initializer_list
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/ios
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/iosfwd
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/istream
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/limits
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/math.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/new
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/ostream
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/pstl/pstl_config.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/stdexcept
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/stdlib.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/streambuf
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/string
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/string_view
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/system_error
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/tr1/bessel_function.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/tr1/beta_function.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/tr1/ell_integral.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/tr1/exp_integral.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/tr1/gamma.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/tr1/hypergeometric.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/tr1/legendre_function.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/tr1/modified_bessel_func.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/tr1/poly_hermite.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/tr1/poly_laguerre.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/tr1/riemann_zeta.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/tr1/special_function_util.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/type_traits
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/typeinfo
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/utility
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/atomic_word.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/basic_file.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/c++allocator.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/c++config.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/c++io.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/c++locale.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/cpu_defines.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/ctype_base.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/ctype_inline.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/error_constants.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/gthr-default.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/gthr.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/os_defines.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/ctype.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/endian.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/errno.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/features-time64.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/features.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/gnu/stubs-64.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/gnu/stubs.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/limits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/linux/close_range.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/linux/errno.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/linux/limits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/linux/posix_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/linux/stat.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/linux/stddef.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/linux/types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/locale.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/math.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/pthread.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/sched.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/stdc-predef.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/stdint.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/stdio.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/stdlib.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/string.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/strings.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/sys/cdefs.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/sys/select.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/sys/single_threaded.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/sys/stat.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/sys/types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/time.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/unistd.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/wchar.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/include/wctype.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/lib/gcc/x86_64-redhat-linux/11/include/limits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/lib/gcc/x86_64-redhat-linux/11/include/stdarg.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/lib/gcc/x86_64-redhat-linux/11/include/stddef.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/lib/gcc/x86_64-redhat-linux/11/include/stdint.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/lib/gcc/x86_64-redhat-linux/11/include/syslimits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/builtin_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/channel_descriptor.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/crt/common_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/crt/cudacc_ext.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/crt/device_double_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/crt/device_double_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/crt/device_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/crt/device_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/crt/host_config.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/crt/host_defines.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/crt/math_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/crt/math_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/crt/sm_70_rt.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/crt/sm_70_rt.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/crt/sm_80_rt.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/crt/sm_80_rt.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/crt/sm_90_rt.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/crt/sm_90_rt.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/cuda_device_runtime_api.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/cuda_runtime.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/cuda_runtime_api.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/device_atomic_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/device_atomic_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/device_launch_parameters.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/device_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/driver_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/driver_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/library_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/sm_20_atomic_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/sm_20_atomic_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/sm_20_intrinsics.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/sm_20_intrinsics.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/sm_30_intrinsics.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/sm_30_intrinsics.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/sm_32_atomic_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/sm_32_atomic_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/sm_32_intrinsics.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/sm_32_intrinsics.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/sm_35_atomic_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/sm_35_intrinsics.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/sm_60_atomic_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/sm_60_atomic_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/sm_61_intrinsics.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/sm_61_intrinsics.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/surface_indirect_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/surface_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/texture_indirect_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/texture_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/vector_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/vector_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /usr/local/cuda/include/vector_types.h
+CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: /data/plijoi/SCPA-Project/CUDA_src/main_app.cu
+CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o.depend
 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o.Debug.cmake
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building NVCC (Device) object CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o"
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir && /usr/bin/cmake -E make_directory /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//.
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Debug -D generated_file:STRING=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//./SCPA-Project-CUDA_generated_main_app.cu.o -D generated_cubin_file:STRING=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//./SCPA-Project-CUDA_generated_main_app.cu.o.cubin.txt -P /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//SCPA-Project-CUDA_generated_main_app.cu.o.Debug.cmake
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building NVCC (Device) object CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o"
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir && /usr/bin/cmake -E make_directory /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//.
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Debug -D generated_file:STRING=/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//./SCPA-Project-CUDA_generated_main_app.cu.o -D generated_cubin_file:STRING=/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//./SCPA-Project-CUDA_generated_main_app.cu.o.cubin.txt -P /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//SCPA-Project-CUDA_generated_main_app.cu.o.Debug.cmake
 
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /data/aandreoli/SCPA-Project/CUDA_src/csrOperations.cu
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /data/aandreoli/SCPA-Project/CUDA_libs/csrOperations.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /data/aandreoli/SCPA-Project/CUDA_libs/csrTool.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /data/aandreoli/SCPA-Project/CUDA_src/csrOperations.cu
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /data/aandreoli/SCPA-Project/libs/data_structure.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /data/aandreoli/SCPA-Project/libs/mmio.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /data/aandreoli/cuda-samples/Common/exception.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /data/aandreoli/cuda-samples/Common/helper_timer.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/alloca.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/asm-generic/errno-base.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/asm-generic/errno.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/asm/errno.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/assert.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/byteswap.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/cpu-set.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/endian.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/endianness.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/errno.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/floatn-common.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/floatn.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/flt-eval-method.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/fp-fast.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/fp-logb.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/iscanonical.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/libc-header-start.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/libm-simd-decl-stubs.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/local_lim.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/locale.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/long-double.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/math-vector.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/mathcalls-helper-functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/mathcalls-narrow.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/mathcalls.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/posix1_lim.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/posix2_lim.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/pthread_stack_min-dynamic.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/pthreadtypes-arch.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/pthreadtypes.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/sched.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/select.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/setjmp.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/stdint-intn.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/stdint-uintn.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/stdio.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/stdio_lim.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/stdlib-bsearch.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/stdlib-float.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/struct_mutex.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/struct_rwlock.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/thread-shared-types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/time.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/time64.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/timesize.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/timex.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/FILE.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/__FILE.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/__fpos64_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/__fpos_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/__locale_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/__mbstate_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/__sigset_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/clock_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/clockid_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/cookie_io_functions_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/error_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/locale_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/mbstate_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/sigset_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/struct_FILE.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/struct___jmp_buf_tag.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/struct_itimerspec.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/struct_sched_param.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/struct_timespec.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/struct_timeval.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/struct_tm.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/time_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/timer_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/types/wint_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/typesizes.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/uintn-identity.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/uio_lim.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/waitflags.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/waitstatus.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/wchar.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/wctype-wchar.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/wordsize.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/bits/xopen_lim.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/backward/binders.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/alloc_traits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/allocator.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/basic_ios.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/basic_ios.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/basic_string.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/basic_string.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/char_traits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/charconv.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/concept_check.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/cpp_type_traits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/cxxabi_forced.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/cxxabi_init_exception.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/exception.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/exception_defines.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/exception_ptr.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/functexcept.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/functional_hash.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/hash_bytes.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/ios_base.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/istream.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/locale_classes.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/locale_classes.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/locale_facets.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/locale_facets.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/localefwd.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/memoryfwd.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/move.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/nested_exception.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/ostream.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/ostream_insert.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/postypes.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/predefined_ops.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/ptr_traits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/range_access.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/specfun.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/sstream.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/std_abs.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/stl_algobase.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/stl_bvector.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/stl_construct.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/stl_function.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/stl_iterator.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/stl_iterator_base_funcs.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/stl_iterator_base_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/stl_pair.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/stl_relops.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/stl_uninitialized.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/stl_vector.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/streambuf.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/streambuf_iterator.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/string_view.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/stringfwd.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/bits/vector.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/cctype
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/cerrno
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/clocale
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/cmath
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/cstdint
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/cstdio
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/cstdlib
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/ctime
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/cwchar
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/cwctype
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/debug/assertions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/debug/debug.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/exception
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/ext/alloc_traits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/ext/atomicity.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/ext/new_allocator.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/ext/numeric_traits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/ext/string_conversions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/ext/type_traits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/initializer_list
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/ios
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/iosfwd
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/iostream
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/istream
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/limits
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/math.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/new
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/ostream
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/pstl/pstl_config.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/sstream
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/stdexcept
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/stdlib.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/streambuf
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/string
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/string_view
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/system_error
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/tr1/bessel_function.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/tr1/beta_function.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/tr1/ell_integral.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/tr1/exp_integral.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/tr1/gamma.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/tr1/hypergeometric.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/tr1/legendre_function.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/tr1/modified_bessel_func.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/tr1/poly_hermite.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/tr1/poly_laguerre.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/tr1/riemann_zeta.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/tr1/special_function_util.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/type_traits
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/typeinfo
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/utility
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/vector
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/atomic_word.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/c++allocator.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/c++config.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/c++locale.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/cpu_defines.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/ctype_base.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/ctype_inline.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/error_constants.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/gthr-default.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/gthr.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/os_defines.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/ctype.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/endian.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/errno.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/features-time64.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/features.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/gnu/stubs-64.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/gnu/stubs.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/limits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/linux/errno.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/linux/limits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/locale.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/math.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/pthread.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/sched.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/stdc-predef.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/stdint.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/stdio.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/stdlib.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/string.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/strings.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/sys/cdefs.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/sys/select.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/sys/single_threaded.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/sys/time.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/sys/types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/time.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/wchar.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/include/wctype.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/lib/gcc/x86_64-redhat-linux/11/include/limits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/lib/gcc/x86_64-redhat-linux/11/include/stdarg.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/lib/gcc/x86_64-redhat-linux/11/include/stddef.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/lib/gcc/x86_64-redhat-linux/11/include/stdint.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/lib/gcc/x86_64-redhat-linux/11/include/syslimits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/builtin_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/channel_descriptor.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/crt/common_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/crt/cudacc_ext.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/crt/device_double_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/crt/device_double_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/crt/device_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/crt/device_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/crt/host_config.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/crt/host_defines.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/crt/math_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/crt/math_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/crt/sm_70_rt.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/crt/sm_70_rt.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/crt/sm_80_rt.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/crt/sm_80_rt.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/crt/sm_90_rt.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/crt/sm_90_rt.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/cuda_device_runtime_api.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/cuda_runtime.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/cuda_runtime_api.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/device_atomic_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/device_atomic_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/device_launch_parameters.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/device_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/driver_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/driver_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/library_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/sm_20_atomic_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/sm_20_atomic_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/sm_20_intrinsics.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/sm_20_intrinsics.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/sm_30_intrinsics.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/sm_30_intrinsics.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/sm_32_atomic_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/sm_32_atomic_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/sm_32_intrinsics.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/sm_32_intrinsics.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/sm_35_atomic_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/sm_35_intrinsics.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/sm_60_atomic_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/sm_60_atomic_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/sm_61_intrinsics.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/sm_61_intrinsics.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/surface_indirect_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/surface_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/texture_indirect_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/texture_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/vector_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/vector_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /usr/local/cuda/include/vector_types.h
+CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: /data/plijoi/SCPA-Project/CUDA_src/csrOperations.cu
+CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o.depend
 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o.Debug.cmake
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building NVCC (Device) object CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o"
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir && /usr/bin/cmake -E make_directory /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//.
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Debug -D generated_file:STRING=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//./SCPA-Project-CUDA_generated_csrOperations.cu.o -D generated_cubin_file:STRING=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//./SCPA-Project-CUDA_generated_csrOperations.cu.o.cubin.txt -P /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//SCPA-Project-CUDA_generated_csrOperations.cu.o.Debug.cmake
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building NVCC (Device) object CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o"
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir && /usr/bin/cmake -E make_directory /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//.
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Debug -D generated_file:STRING=/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//./SCPA-Project-CUDA_generated_csrOperations.cu.o -D generated_cubin_file:STRING=/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//./SCPA-Project-CUDA_generated_csrOperations.cu.o.cubin.txt -P /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//SCPA-Project-CUDA_generated_csrOperations.cu.o.Debug.cmake
 
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /data/aandreoli/SCPA-Project/CUDA_src/csrTool.cu
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /data/aandreoli/SCPA-Project/CUDA_libs/csrTool.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /data/aandreoli/SCPA-Project/CUDA_src/csrTool.cu
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/alloca.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/assert.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/byteswap.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/endian.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/endianness.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/floatn-common.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/floatn.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/flt-eval-method.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/fp-fast.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/fp-logb.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/iscanonical.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/libc-header-start.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/libm-simd-decl-stubs.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/local_lim.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/long-double.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/math-vector.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/mathcalls-helper-functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/mathcalls-narrow.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/mathcalls.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/posix1_lim.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/posix2_lim.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/pthread_stack_min-dynamic.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/pthreadtypes-arch.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/pthreadtypes.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/select.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/stdint-intn.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/stdio.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/stdio_lim.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/stdlib-bsearch.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/stdlib-float.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/struct_mutex.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/struct_rwlock.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/thread-shared-types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/time.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/time64.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/timesize.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/timex.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/FILE.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/__FILE.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/__fpos64_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/__fpos_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/__locale_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/__mbstate_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/__sigset_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/clock_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/clockid_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/cookie_io_functions_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/locale_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/sigset_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/struct_FILE.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/struct_itimerspec.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/struct_timespec.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/struct_timeval.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/struct_tm.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/time_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/types/timer_t.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/typesizes.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/uintn-identity.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/uio_lim.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/waitflags.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/waitstatus.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/wordsize.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/bits/xopen_lim.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/bits/concept_check.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/bits/cpp_type_traits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/bits/exception.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/bits/exception_defines.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/bits/functexcept.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/bits/move.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/bits/predefined_ops.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/bits/ptr_traits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/bits/specfun.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/bits/std_abs.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/bits/stl_algobase.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/bits/stl_iterator.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/bits/stl_iterator_base_funcs.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/bits/stl_iterator_base_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/bits/stl_pair.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/bits/stl_relops.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/cmath
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/cstdio
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/cstdlib
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/debug/assertions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/debug/debug.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/ext/numeric_traits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/ext/type_traits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/initializer_list
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/limits
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/math.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/new
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/pstl/pstl_config.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/stdlib.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/tr1/bessel_function.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/tr1/beta_function.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/tr1/ell_integral.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/tr1/exp_integral.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/tr1/gamma.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/tr1/hypergeometric.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/tr1/legendre_function.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/tr1/modified_bessel_func.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/tr1/poly_hermite.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/tr1/poly_laguerre.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/tr1/riemann_zeta.tcc
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/tr1/special_function_util.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/type_traits
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/utility
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/c++config.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/cpu_defines.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/c++/11/x86_64-redhat-linux/bits/os_defines.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/ctype.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/endian.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/features-time64.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/features.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/gnu/stubs-64.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/gnu/stubs.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/limits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/linux/limits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/math.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/stdc-predef.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/stdio.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/stdlib.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/string.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/strings.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/sys/cdefs.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/sys/select.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/sys/types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/include/time.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/lib/gcc/x86_64-redhat-linux/11/include/limits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/lib/gcc/x86_64-redhat-linux/11/include/stdarg.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/lib/gcc/x86_64-redhat-linux/11/include/stddef.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/lib/gcc/x86_64-redhat-linux/11/include/syslimits.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/builtin_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/channel_descriptor.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/crt/common_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/crt/cudacc_ext.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/crt/device_double_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/crt/device_double_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/crt/device_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/crt/device_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/crt/host_config.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/crt/host_defines.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/crt/math_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/crt/math_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/crt/sm_70_rt.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/crt/sm_70_rt.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/crt/sm_80_rt.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/crt/sm_80_rt.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/crt/sm_90_rt.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/crt/sm_90_rt.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/cuda_device_runtime_api.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/cuda_runtime.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/cuda_runtime_api.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/device_atomic_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/device_atomic_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/device_launch_parameters.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/device_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/driver_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/driver_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/library_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/sm_20_atomic_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/sm_20_atomic_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/sm_20_intrinsics.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/sm_20_intrinsics.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/sm_30_intrinsics.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/sm_30_intrinsics.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/sm_32_atomic_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/sm_32_atomic_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/sm_32_intrinsics.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/sm_32_intrinsics.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/sm_35_atomic_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/sm_35_intrinsics.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/sm_60_atomic_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/sm_60_atomic_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/sm_61_intrinsics.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/sm_61_intrinsics.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/surface_indirect_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/surface_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/texture_indirect_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/texture_types.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/vector_functions.h
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/vector_functions.hpp
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /usr/local/cuda/include/vector_types.h
+CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: /data/plijoi/SCPA-Project/CUDA_src/csrTool.cu
+CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o.depend
 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o.Debug.cmake
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building NVCC (Device) object CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o"
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir && /usr/bin/cmake -E make_directory /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//.
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Debug -D generated_file:STRING=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//./SCPA-Project-CUDA_generated_csrTool.cu.o -D generated_cubin_file:STRING=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//./SCPA-Project-CUDA_generated_csrTool.cu.o.cubin.txt -P /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//SCPA-Project-CUDA_generated_csrTool.cu.o.Debug.cmake
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building NVCC (Device) object CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o"
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir && /usr/bin/cmake -E make_directory /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//.
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Debug -D generated_file:STRING=/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//./SCPA-Project-CUDA_generated_csrTool.cu.o -D generated_cubin_file:STRING=/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//./SCPA-Project-CUDA_generated_csrTool.cu.o.cubin.txt -P /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir//SCPA-Project-CUDA_generated_csrTool.cu.o.Debug.cmake
 
 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/flags.make
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o: /data/aandreoli/SCPA-Project/src/functionsIO.c
+CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o: /data/plijoi/SCPA-Project/src/functionsIO.c
 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o"
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o -MF CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o.d -o CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o -c /data/aandreoli/SCPA-Project/src/functionsIO.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o"
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o -MF CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o.d -o CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o -c /data/plijoi/SCPA-Project/src/functionsIO.c
 
 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.i"
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/aandreoli/SCPA-Project/src/functionsIO.c > CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.i
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/plijoi/SCPA-Project/src/functionsIO.c > CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.i
 
 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.s"
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/aandreoli/SCPA-Project/src/functionsIO.c -o CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.s
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/plijoi/SCPA-Project/src/functionsIO.c -o CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.s
 
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.o: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/flags.make
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.o: /data/aandreoli/cJSON/cJSON.c
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.o: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.o"
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.o -MF CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.o.d -o CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.o -c /data/aandreoli/cJSON/cJSON.c
+CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.o: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/flags.make
+CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.o: /data/plijoi/cJSON/cJSON.c
+CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.o: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.o"
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.o -MF CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.o.d -o CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.o -c /data/plijoi/cJSON/cJSON.c
 
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.i"
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/aandreoli/cJSON/cJSON.c > CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.i
+CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.i"
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/plijoi/cJSON/cJSON.c > CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.i
 
-CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.s"
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/aandreoli/cJSON/cJSON.c -o CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.s
+CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.s"
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/plijoi/cJSON/cJSON.c -o CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.s
 
 # Object files for target SCPA-Project-CUDA
 SCPA__Project__CUDA_OBJECTS = \
 "CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o" \
-"CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.o"
+"CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.o"
 
 # External object files for target SCPA-Project-CUDA
 SCPA__Project__CUDA_EXTERNAL_OBJECTS = \
-"/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o" \
-"/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o" \
-"/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o"
+"/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o" \
+"/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o" \
+"/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o"
 
 CUDA_src/SCPA-Project-CUDA: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o
-CUDA_src/SCPA-Project-CUDA: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.o
+CUDA_src/SCPA-Project-CUDA: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.o
 CUDA_src/SCPA-Project-CUDA: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o
 CUDA_src/SCPA-Project-CUDA: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o
 CUDA_src/SCPA-Project-CUDA: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o
@@ -921,20 +138,20 @@ CUDA_src/SCPA-Project-CUDA: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make
 CUDA_src/SCPA-Project-CUDA: /usr/local/cuda/lib64/libcudart_static.a
 CUDA_src/SCPA-Project-CUDA: /usr/lib64/librt.a
 CUDA_src/SCPA-Project-CUDA: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable SCPA-Project-CUDA"
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SCPA-Project-CUDA.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable SCPA-Project-CUDA"
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SCPA-Project-CUDA.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build: CUDA_src/SCPA-Project-CUDA
 .PHONY : CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build
 
 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/clean:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && $(CMAKE_COMMAND) -P CMakeFiles/SCPA-Project-CUDA.dir/cmake_clean.cmake
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && $(CMAKE_COMMAND) -P CMakeFiles/SCPA-Project-CUDA.dir/cmake_clean.cmake
 .PHONY : CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/clean
 
 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/depend: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrOperations.cu.o
 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/depend: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_csrTool.cu.o
 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/depend: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/SCPA-Project-CUDA_generated_main_app.cu.o
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /data/aandreoli/SCPA-Project /data/aandreoli/SCPA-Project/CUDA_src /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/DependInfo.cmake --color=$(COLOR)
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /data/plijoi/SCPA-Project /data/plijoi/SCPA-Project/CUDA_src /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/depend
 

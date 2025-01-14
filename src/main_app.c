@@ -13,12 +13,9 @@
 #include "../libs/hll_Operations.h"
 
 #ifdef USER_PIERFRANCESCO
-#include "cjson/cJSON.h"
-const char *base_path = "/home/pierfrancesco/Desktop/matrix/";
+#include "../cJSON/cJSON.h"
+const char *base_path = "../../matrix/";
 #elif defined(USER_ANDREA)
-#include "cjson/cJSON.h"
-const char *base_path = "/Users/andreaandreoli/matrix/";
-#else
 #include "../../cJSON/include/cjson/cJSON.h"
 const char *base_path = "../../matrix/";
 #endif

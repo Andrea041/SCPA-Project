@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /data/aandreoli/SCPA-Project
+CMAKE_SOURCE_DIR = /data/plijoi/SCPA-Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento
+CMAKE_BINARY_DIR = /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(CMAKE_COMMAND) -E cmake_progress_start /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src//CMakeFiles/progress.marks
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CUDA_src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles 0
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(CMAKE_COMMAND) -E cmake_progress_start /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src//CMakeFiles/progress.marks
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CUDA_src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CUDA_src/clean
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CUDA_src/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CUDA_src/preinstall
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CUDA_src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CUDA_src/preinstall
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CUDA_src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 CUDA_src/CMakeFiles/deviceQuery.dir/rule:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CUDA_src/CMakeFiles/deviceQuery.dir/rule
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CUDA_src/CMakeFiles/deviceQuery.dir/rule
 .PHONY : CUDA_src/CMakeFiles/deviceQuery.dir/rule
 
 # Convenience name for target.
@@ -127,12 +127,12 @@ deviceQuery: CUDA_src/CMakeFiles/deviceQuery.dir/rule
 
 # fast build rule for target.
 deviceQuery/fast:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/deviceQuery.dir/build.make CUDA_src/CMakeFiles/deviceQuery.dir/build
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/deviceQuery.dir/build.make CUDA_src/CMakeFiles/deviceQuery.dir/build
 .PHONY : deviceQuery/fast
 
 # Convenience name for target.
 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/rule:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/rule
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/rule
 .PHONY : CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/rule
 
 # Convenience name for target.
@@ -141,7 +141,7 @@ SCPA-Project-CUDA: CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/rule
 
 # fast build rule for target.
 SCPA-Project-CUDA/fast:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build
 .PHONY : SCPA-Project-CUDA/fast
 
 00-deviceQuery.o: 00-deviceQuery.cpp.o
@@ -149,7 +149,7 @@ SCPA-Project-CUDA/fast:
 
 # target to build an object file
 00-deviceQuery.cpp.o:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/deviceQuery.dir/build.make CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/deviceQuery.dir/build.make CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o
 .PHONY : 00-deviceQuery.cpp.o
 
 00-deviceQuery.i: 00-deviceQuery.cpp.i
@@ -157,7 +157,7 @@ SCPA-Project-CUDA/fast:
 
 # target to preprocess a source file
 00-deviceQuery.cpp.i:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/deviceQuery.dir/build.make CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.i
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/deviceQuery.dir/build.make CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.i
 .PHONY : 00-deviceQuery.cpp.i
 
 00-deviceQuery.s: 00-deviceQuery.cpp.s
@@ -165,7 +165,7 @@ SCPA-Project-CUDA/fast:
 
 # target to generate assembly for a file
 00-deviceQuery.cpp.s:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/deviceQuery.dir/build.make CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.s
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/deviceQuery.dir/build.make CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.s
 .PHONY : 00-deviceQuery.cpp.s
 
 __/src/functionsIO.o: __/src/functionsIO.c.o
@@ -173,7 +173,7 @@ __/src/functionsIO.o: __/src/functionsIO.c.o
 
 # target to build an object file
 __/src/functionsIO.c.o:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.o
 .PHONY : __/src/functionsIO.c.o
 
 __/src/functionsIO.i: __/src/functionsIO.c.i
@@ -181,7 +181,7 @@ __/src/functionsIO.i: __/src/functionsIO.c.i
 
 # target to preprocess a source file
 __/src/functionsIO.c.i:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.i
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.i
 .PHONY : __/src/functionsIO.c.i
 
 __/src/functionsIO.s: __/src/functionsIO.c.s
@@ -189,32 +189,32 @@ __/src/functionsIO.s: __/src/functionsIO.c.s
 
 # target to generate assembly for a file
 __/src/functionsIO.c.s:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.s
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/__/src/functionsIO.c.s
 .PHONY : __/src/functionsIO.c.s
 
-data/aandreoli/cJSON/cJSON.o: data/aandreoli/cJSON/cJSON.c.o
-.PHONY : data/aandreoli/cJSON/cJSON.o
+data/plijoi/cJSON/cJSON.o: data/plijoi/cJSON/cJSON.c.o
+.PHONY : data/plijoi/cJSON/cJSON.o
 
 # target to build an object file
-data/aandreoli/cJSON/cJSON.c.o:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.o
-.PHONY : data/aandreoli/cJSON/cJSON.c.o
+data/plijoi/cJSON/cJSON.c.o:
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.o
+.PHONY : data/plijoi/cJSON/cJSON.c.o
 
-data/aandreoli/cJSON/cJSON.i: data/aandreoli/cJSON/cJSON.c.i
-.PHONY : data/aandreoli/cJSON/cJSON.i
+data/plijoi/cJSON/cJSON.i: data/plijoi/cJSON/cJSON.c.i
+.PHONY : data/plijoi/cJSON/cJSON.i
 
 # target to preprocess a source file
-data/aandreoli/cJSON/cJSON.c.i:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.i
-.PHONY : data/aandreoli/cJSON/cJSON.c.i
+data/plijoi/cJSON/cJSON.c.i:
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.i
+.PHONY : data/plijoi/cJSON/cJSON.c.i
 
-data/aandreoli/cJSON/cJSON.s: data/aandreoli/cJSON/cJSON.c.s
-.PHONY : data/aandreoli/cJSON/cJSON.s
+data/plijoi/cJSON/cJSON.s: data/plijoi/cJSON/cJSON.c.s
+.PHONY : data/plijoi/cJSON/cJSON.s
 
 # target to generate assembly for a file
-data/aandreoli/cJSON/cJSON.c.s:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/aandreoli/cJSON/cJSON.c.s
-.PHONY : data/aandreoli/cJSON/cJSON.c.s
+data/plijoi/cJSON/cJSON.c.s:
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(MAKE) $(MAKESILENT) -f CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/build.make CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir/data/plijoi/cJSON/cJSON.c.s
+.PHONY : data/plijoi/cJSON/cJSON.c.s
 
 # Help Target
 help:
@@ -232,9 +232,9 @@ help:
 	@echo "... __/src/functionsIO.o"
 	@echo "... __/src/functionsIO.i"
 	@echo "... __/src/functionsIO.s"
-	@echo "... data/aandreoli/cJSON/cJSON.o"
-	@echo "... data/aandreoli/cJSON/cJSON.i"
-	@echo "... data/aandreoli/cJSON/cJSON.s"
+	@echo "... data/plijoi/cJSON/cJSON.o"
+	@echo "... data/plijoi/cJSON/cJSON.i"
+	@echo "... data/plijoi/cJSON/cJSON.s"
 .PHONY : help
 
 
@@ -246,6 +246,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

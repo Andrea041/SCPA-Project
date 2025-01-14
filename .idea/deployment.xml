@@ -3,14 +3,13 @@
   <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
     <option name="confirmBeforeUploading" value="false" />
     <serverData>
-      <paths name="Server dipartimento (7b7cfeeb-32e5-4346-a686-294f748739c7)">
+      <paths name="Remote Host (aa8c7d92-e2a6-4a5f-a5ef-9e58c250ed0a)">
         <serverdata>
           <mappings>
-            <mapping deploy="/data/aandreoli/SCPA-Project" local="$PROJECT_DIR$" />
+            <mapping deploy="/data/plijoi/SCPA-Project" local="$PROJECT_DIR$" />
           </mappings>
           <excludedPaths>
             <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-server-dipartimento" />
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
           </excludedPaths>
         </serverdata>
       </paths>

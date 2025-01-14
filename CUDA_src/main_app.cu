@@ -15,12 +15,13 @@
 #include <unistd.h>
 
 #ifdef USER_PIERFRANCESCO
-#include "cjson/cJSON.h"
-const char *base_path = "/home/pierfrancesco/Desktop/matrix/";
-#else
+#include "../../cJSON/cJSON.h"
+const char *base_path = "../../matrix/";
+#elif defined(USER_ANDREA)
 #include "../../cJSON/include/cjson/cJSON.h"
 const char *base_path = "../../matrix/";
 #endif
+
 
 /* Funzione per controllare e creare directory */
 void ensure_directory_exists(const char *path) {

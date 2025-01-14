@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /data/aandreoli/SCPA-Project
+CMAKE_SOURCE_DIR = /data/plijoi/SCPA-Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento
+CMAKE_BINARY_DIR = /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento
 
 # Include any dependencies generated for this target.
 include CUDA_src/CMakeFiles/deviceQuery.dir/depend.make
@@ -70,18 +70,18 @@ include CUDA_src/CMakeFiles/deviceQuery.dir/progress.make
 include CUDA_src/CMakeFiles/deviceQuery.dir/flags.make
 
 CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o: CUDA_src/CMakeFiles/deviceQuery.dir/flags.make
-CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o: /data/aandreoli/SCPA-Project/CUDA_src/00-deviceQuery.cpp
+CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o: /data/plijoi/SCPA-Project/CUDA_src/00-deviceQuery.cpp
 CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o: CUDA_src/CMakeFiles/deviceQuery.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o"
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o -MF CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o.d -o CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o -c /data/aandreoli/SCPA-Project/CUDA_src/00-deviceQuery.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o"
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o -MF CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o.d -o CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o -c /data/plijoi/SCPA-Project/CUDA_src/00-deviceQuery.cpp
 
 CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.i"
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/aandreoli/SCPA-Project/CUDA_src/00-deviceQuery.cpp > CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.i
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/plijoi/SCPA-Project/CUDA_src/00-deviceQuery.cpp > CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.i
 
 CUDA_src/CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.s"
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/aandreoli/SCPA-Project/CUDA_src/00-deviceQuery.cpp -o CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.s
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/plijoi/SCPA-Project/CUDA_src/00-deviceQuery.cpp -o CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.s
 
 # Object files for target deviceQuery
 deviceQuery_OBJECTS = \
@@ -95,18 +95,18 @@ CUDA_src/deviceQuery: CUDA_src/CMakeFiles/deviceQuery.dir/build.make
 CUDA_src/deviceQuery: /usr/local/cuda/lib64/libcudart_static.a
 CUDA_src/deviceQuery: /usr/lib64/librt.a
 CUDA_src/deviceQuery: CUDA_src/CMakeFiles/deviceQuery.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable deviceQuery"
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/deviceQuery.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable deviceQuery"
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/deviceQuery.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 CUDA_src/CMakeFiles/deviceQuery.dir/build: CUDA_src/deviceQuery
 .PHONY : CUDA_src/CMakeFiles/deviceQuery.dir/build
 
 CUDA_src/CMakeFiles/deviceQuery.dir/clean:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && $(CMAKE_COMMAND) -P CMakeFiles/deviceQuery.dir/cmake_clean.cmake
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src && $(CMAKE_COMMAND) -P CMakeFiles/deviceQuery.dir/cmake_clean.cmake
 .PHONY : CUDA_src/CMakeFiles/deviceQuery.dir/clean
 
 CUDA_src/CMakeFiles/deviceQuery.dir/depend:
-	cd /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /data/aandreoli/SCPA-Project /data/aandreoli/SCPA-Project/CUDA_src /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src /data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/deviceQuery.dir/DependInfo.cmake --color=$(COLOR)
+	cd /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /data/plijoi/SCPA-Project /data/plijoi/SCPA-Project/CUDA_src /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src /data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/deviceQuery.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CUDA_src/CMakeFiles/deviceQuery.dir/depend
 

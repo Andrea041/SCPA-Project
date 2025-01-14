@@ -1,4 +1,4 @@
-# Install script for directory: /data/aandreoli/SCPA-Project
+# Install script for directory: /data/plijoi/SCPA-Project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/cmake_install.cmake")
+  include("/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/cmake_install.cmake")
 
 endif()
 
@@ -56,5 +56,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

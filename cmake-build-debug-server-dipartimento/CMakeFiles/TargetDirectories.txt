@@ -1,7 +1,7 @@
-/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/SCPA_Project.dir
-/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/edit_cache.dir
-/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/rebuild_cache.dir
-/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/deviceQuery.dir
-/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir
-/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/edit_cache.dir
-/data/aandreoli/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/rebuild_cache.dir
+/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/SCPA_Project.dir
+/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/edit_cache.dir
+/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CMakeFiles/rebuild_cache.dir
+/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/deviceQuery.dir
+/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/SCPA-Project-CUDA.dir
+/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/edit_cache.dir
+/data/plijoi/SCPA-Project/cmake-build-debug-server-dipartimento/CUDA_src/CMakeFiles/rebuild_cache.dir
