@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -g "CMakeFiles/SCPA_CUDA.dir/CUDA_src/00-deviceQuery.cpp.o" CMakeFiles/SCPA_CUDA.dir/CUDA_src/SCPA_CUDA_generated_main_app.cu.o CMakeFiles/SCPA_CUDA.dir/CUDA_src/SCPA_CUDA_generated_csrOperations.cu.o -o SCPA_CUDA  /usr/local/cuda/lib64/libcudart_static.a -ldl /usr/lib64/librt.a 

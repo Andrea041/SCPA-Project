@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -g "CMakeFiles/deviceQuery.dir/00-deviceQuery.cpp.o" -o deviceQuery  /usr/local/cuda/lib64/libcudart_static.a -ldl /usr/lib64/librt.a 
