@@ -92,9 +92,9 @@ matrixPerformance parallel_csr_cuda(matrixData *matrix_data_host, double *x_h) {
 
     checkCudaErrors(cudaMemcpy(y_h, d_y, matrix_data_host->M * sizeof(double), cudaMemcpyDeviceToHost));
 
-    for (int i = 0; i < matrix_data_host->M; i++) {
+    /*for (int i = 0; i < matrix_data_host->M; i++) {
         printf("y[%d] = %lf\n", i, y_h[i]);
-    }
+    }*/
 
     matrixPerformance node{};
     node.seconds = timer->getTime();

@@ -109,7 +109,7 @@ void distribute_blocks_to_threads(struct matrixData *matrix_data, HLL_Matrix *hl
 
 
 // Funzione principale per calcolare il prodotto parallelo
-struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x) {
+struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x_h) {
     int M = matrix_data->M;
 
     HLL_Matrix *hll_matrix = malloc(sizeof(HLL_Matrix));
@@ -147,13 +147,10 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x)
         free(hll_matrix);
         exit(EXIT_FAILURE);
     }
-    for (int i = 0; i < M; i++) {
-        y[i] = 0.0;
-    }
 
     struct timespec start, end;
     clock_gettime(CLOCK_MONOTONIC, &start);
-    matvec_Hll(hll_matrix, x, y, valid_threads, start_block, end_block, matrix_data->M);
+    matvec_Hll(hll_matrix, x_h, y, valid_threads, start_block, end_block, matrix_data->M);
     clock_gettime(CLOCK_MONOTONIC, &end);
 
     const double time_spent = (double)(end.tv_sec - start.tv_sec) + (double)(end.tv_nsec - start.tv_nsec) / 1e9;

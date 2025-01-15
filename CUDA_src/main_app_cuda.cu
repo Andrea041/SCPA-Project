@@ -7,6 +7,7 @@
 #include <helper_cuda.h>
 
 #include "../CUDA_libs/csrOperations.h"
+#include "../CUDA_libs/hllOperations.h"
 #include "../libs/costants.h"
 #include "../libs/data_structure.h"
 #include "../libs/matrixLists.h"
@@ -304,7 +305,8 @@ int main() {
     // Creazione degli array JSON per questa matrice
     cJSON *cuda_array_csr_serial = cJSON_CreateArray();
     cJSON *cuda_array_csr_parallel = cJSON_CreateArray();
-    cJSON *cuda_array_hll = cJSON_CreateArray();
+    cJSON *cuda_array_hll_parallel = cJSON_CreateArray();
+
 
     for (int i = 0; i < num_matrices; i++) {
         /* Inizializzazione della struct contente le informazioni della matrice su host (CPU) */
@@ -330,10 +332,11 @@ int main() {
 
         for (int j = 0; j < ITERATION_PER_MATRIX; j++) {
             /* Esecuzione seriale su CPU */
-            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_serial, serial_csr_cuda);
+           // add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_serial, serial_csr_cuda);
             // Calcolo parallelo su GPU formato CSR
-            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel, parallel_csr_cuda);
+            //add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel, parallel_csr_cuda);
             // Calcolo parallelo su GPU formato HLL
+            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_hll_parallel, parallel_hll_cuda);
         }
 
         free(x_h);
@@ -342,11 +345,11 @@ int main() {
 
     write_json_to_file("../result/iteration/CUDA_serial_CSR.json", cuda_array_csr_serial);
     write_json_to_file("../result/iteration/CUDA_CSR.json", cuda_array_csr_parallel);
-    write_json_to_file("../result/iteration/CUDA_HLL.json", cuda_array_hll);
+    write_json_to_file("../result/iteration/CUDA_HLL.json", cuda_array_hll_parallel);
 
     cJSON_Delete(cuda_array_csr_serial);
     cJSON_Delete(cuda_array_csr_parallel);
-    cJSON_Delete(cuda_array_hll);
+    cJSON_Delete(cuda_array_hll_parallel);
 
     calculatePerformance("../result/iteration/CUDA_serial_CSR.json", "../result/final/CUDA_serial_CSR.json");
     calculatePerformance("../result/iteration/CUDA_CSR.json", "../result/final/CUDA_CSR.json");
