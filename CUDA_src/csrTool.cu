@@ -1,13 +1,14 @@
 #include <cstdlib>
 #include <cstdio>
+#include <helper_cuda.h>
 
 #include "../CUDA_libs/csrTool.h"
 
 /* Funzione per convertire la matrice in formato CSR */
 void convert_to_csr(int M, int nz, const int *row_indices, const int *col_indices, const double *values, int **IRP, int **JA, double **AS) {
-    *IRP = (int *)malloc((M + 1) * sizeof(int));    // Dimensione del vettore M
-    *JA = (int *)malloc(nz * sizeof(int));          // Dimensione del vettore NZ - 1
-    *AS = (double *)malloc(nz * sizeof(double));    // Dimensione del vettore NZ - 1
+    *IRP = static_cast<int *>(malloc((M + 1) * sizeof(int)));    // Dimensione del vettore M
+    *JA = static_cast<int *>(malloc(nz * sizeof(int)));          // Dimensione del vettore NZ - 1
+    *AS = static_cast<double *>(malloc(nz * sizeof(double)));    // Dimensione del vettore NZ - 1
 
     if (*IRP == nullptr || *JA == nullptr || *AS == nullptr) {
         fprintf(stderr, "Errore nell'allocazione della memoria.\n");
@@ -60,18 +61,21 @@ void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, double *
         }
     }
 
-    // Scrittura dei risultati su file
-    /*FILE *file = fopen("../result/risultati.txt", "w");
-    if (file == NULL) {
-        fprintf(stderr, "Errore nell'aprire il file.\n");
-        exit(EXIT_FAILURE);
-    }
+}
 
-    for (int i = 0; i < M; i++) {
-        if (fprintf(file, "%.10f\n", y[i]) < 0) {
-            fprintf(stderr, "Errore durante la scrittura nel file alla riga %d\n", i);
-            exit(EXIT_FAILURE);
+__global__ void gpuMatVec_csr(const int *d_IRP, const int *d_JA, const double *d_AS, const double *d_x, double *d_y, int M) {
+    // Ogni thread è responsabile di una riga della matrice
+    int row = blockIdx.x * blockDim.x + threadIdx.x;
+
+    // Controlla che la riga non ecceda il numero totale di righe
+    if (row < M) {
+        d_y[row] = 0.0;
+
+        // Itera sugli elementi non nulli della riga `row`
+        for (int index = d_IRP[row]; index < d_IRP[row + 1]; ++index) {
+            int col = d_JA[index]; // Colonna dell'elemento
+            double val = d_AS[index]; // Valore dell'elemento
+            d_y[row] += val * d_x[col]; // Calcola il prodotto scalare
         }
     }
-    fclose(file);*/
 }

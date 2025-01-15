@@ -324,13 +324,13 @@ int main() {
         printf("Calcolo su matrice: %s\n", matrix_names[i]);
         preprocess_matrix(matrix_data, i);
 
-        double *x = malloc(matrix_data->N * sizeof(double));
+        double *x = malloc(matrix_data->M * sizeof(double));
         if (!x) {
             perror("Errore nell'allocazione della memoria per il vettore x.");
             free(matrix_data);
             return EXIT_FAILURE;
         }
-        for (int j = 0; j < matrix_data->N; j++) {
+        for (int j = 0; j < matrix_data->M; j++) {
             x[j] = 1.0;
         }
 

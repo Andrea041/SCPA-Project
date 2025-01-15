@@ -303,7 +303,7 @@ int main() {
 
     // Creazione degli array JSON per questa matrice
     cJSON *cuda_array_csr_serial = cJSON_CreateArray();
-    cJSON *cuda_array_csr = cJSON_CreateArray();
+    cJSON *cuda_array_csr_parallel = cJSON_CreateArray();
     cJSON *cuda_array_hll = cJSON_CreateArray();
 
     for (int i = 0; i < num_matrices; i++) {
@@ -318,7 +318,7 @@ int main() {
         preprocess_matrix(matrix_data_host, i);
 
         /* Inizializzazione del vettore x su host */
-        auto *x_h = static_cast<double *>(malloc(matrix_data_host->N * sizeof(double)));
+        auto *x_h = static_cast<double *>(malloc(matrix_data_host->M * sizeof(double)));
         if (!x_h) {
             perror("Errore nell'allocazione della memoria per il vettore x.");
             free(matrix_data_host);
@@ -332,6 +332,7 @@ int main() {
             /* Esecuzione seriale su CPU */
             add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_serial, serial_csr_cuda);
             // Calcolo parallelo su GPU formato CSR
+            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel, parallel_csr_cuda);
             // Calcolo parallelo su GPU formato HLL
         }
 
@@ -340,11 +341,11 @@ int main() {
     }
 
     write_json_to_file("../result/iteration/CUDA_serial_CSR.json", cuda_array_csr_serial);
-    write_json_to_file("../result/iteration/CUDA_CSR.json", cuda_array_csr);
+    write_json_to_file("../result/iteration/CUDA_CSR.json", cuda_array_csr_parallel);
     write_json_to_file("../result/iteration/CUDA_HLL.json", cuda_array_hll);
 
     cJSON_Delete(cuda_array_csr_serial);
-    cJSON_Delete(cuda_array_csr);
+    cJSON_Delete(cuda_array_csr_parallel);
     cJSON_Delete(cuda_array_hll);
 
     calculatePerformance("../result/iteration/CUDA_serial_CSR.json", "../result/final/CUDA_serial_CSR.json");
