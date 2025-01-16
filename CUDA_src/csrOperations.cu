@@ -83,11 +83,8 @@ matrixPerformance parallel_csr_cuda(matrixData *matrix_data_host, double *x_h) {
     const dim3 GRID_DIM((matrix_data_host->M-1+YBD)/YBD); //this way we have the right number of block rows even if m is not multiple of YBD.
 
     timer->start();
-
     gpuMatVec_csr<<<GRID_DIM, BLOCK_DIM>>>(d_IRP, d_JA, d_AS, d_x, d_y, matrix_data_host->M);
-
     checkCudaErrors(cudaDeviceSynchronize());   //GPU kernel calls are asynchronous: cudaDeviceSynchronize() is useful to take the actual execution time on the GPU before timer->stop().
-
     timer->stop();
 
     checkCudaErrors(cudaMemcpy(y_h, d_y, matrix_data_host->M * sizeof(double), cudaMemcpyDeviceToHost));

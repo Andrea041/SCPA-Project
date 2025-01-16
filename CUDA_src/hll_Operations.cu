@@ -52,7 +52,7 @@ matrixPerformance parallel_hll_cuda(matrixData *matrix_data_host, double *x_h) {
         ELLPACK_Block *block = &hllMatrixHost->blocks[i];
         printf("Blocco %d: max_nz_per_row = %d, nz_per_block = %d\n", i, block->max_nz_per_row, block->nz_per_block);
         printf("JA: ");
-        for (int j = 0; j < matrix_data_host->M* block->max_nz_per_row; j++) {
+        for (int j = 0; j < matrix_data_host->M * block->max_nz_per_row; j++) {
             printf("%d ", block->JA[j]);
         }
         printf("\nAS: ");
@@ -64,14 +64,13 @@ matrixPerformance parallel_hll_cuda(matrixData *matrix_data_host, double *x_h) {
 
     // Copia della struttura HLL_Matrix in memoria GPU
     HLL_Matrix *d_hll_matrix;
-    cudaMalloc(&d_hll_matrix, sizeof(HLL_Matrix));
-    cudaMemcpy(d_hll_matrix, hllMatrixHost, sizeof(HLL_Matrix), cudaMemcpyHostToDevice);
-    printf("HLL 2\n");
+    checkCudaErrors(cudaMalloc(&d_hll_matrix, sizeof(HLL_Matrix)));
+    checkCudaErrors(cudaMemcpy(d_hll_matrix, hllMatrixHost, sizeof(HLL_Matrix), cudaMemcpyHostToDevice));
 
     // Allocazione di memoria GPU per i blocchi
     ELLPACK_Block *d_blocks;
-    cudaMalloc(&d_blocks, hllMatrixHost->num_blocks * sizeof(ELLPACK_Block));
-    cudaMemcpy(&d_hll_matrix->blocks, &d_blocks, sizeof(ELLPACK_Block *), cudaMemcpyHostToDevice);
+    checkCudaErrors(cudaMalloc(&d_blocks, hllMatrixHost->num_blocks * sizeof(ELLPACK_Block)));
+    checkCudaErrors(cudaMemcpy(&d_hll_matrix->blocks, &d_blocks, sizeof(ELLPACK_Block *), cudaMemcpyHostToDevice));
 
     // Iterazione per copiare i blocchi uno per uno
     for (int i = 0; i < hllMatrixHost->num_blocks; i++) {
@@ -81,12 +80,12 @@ matrixPerformance parallel_hll_cuda(matrixData *matrix_data_host, double *x_h) {
         double *d_AS;
 
         // Allocazione e copia di JA
-        cudaMalloc(&d_JA, block->nz_per_block * sizeof(int));
-        cudaMemcpy(d_JA, block->JA, block->nz_per_block * sizeof(int), cudaMemcpyHostToDevice);
+        checkCudaErrors(cudaMalloc(&d_JA, block->max_nz_per_row * matrix_data_host->M * sizeof(int)));
+        checkCudaErrors(cudaMemcpy(d_JA, block->JA, block->max_nz_per_row * matrix_data_host->M * sizeof(int), cudaMemcpyHostToDevice));
 
         // Allocazione e copia di AS
-        cudaMalloc(&d_AS, block->nz_per_block * sizeof(double));
-        cudaMemcpy(d_AS, block->AS, block->nz_per_block * sizeof(double), cudaMemcpyHostToDevice);
+        checkCudaErrors(cudaMalloc(&d_AS, block->max_nz_per_row * matrix_data_host->M * sizeof(double)));
+        checkCudaErrors(cudaMemcpy(d_AS, block->AS, block->max_nz_per_row * matrix_data_host->M * sizeof(double), cudaMemcpyHostToDevice));
 
         // Imposta i puntatori nel blocco GPU
         ELLPACK_Block d_block;
@@ -95,23 +94,23 @@ matrixPerformance parallel_hll_cuda(matrixData *matrix_data_host, double *x_h) {
         d_block.max_nz_per_row = block->max_nz_per_row;
         d_block.nz_per_block = block->nz_per_block;
 
-        cudaMemcpy(&d_blocks[i], &d_block, sizeof(ELLPACK_Block), cudaMemcpyHostToDevice);
+        checkCudaErrors(cudaMemcpy(&d_blocks[i], &d_block, sizeof(ELLPACK_Block), cudaMemcpyHostToDevice));
         printf("Blocco %d copiato in GPU\n", i);
 
         // Debug: Verifica i dati copiati su GPU
-        int *debug_JA = (int *)malloc(block->nz_per_block * sizeof(int));
-        double *debug_AS = (double *)malloc(block->nz_per_block * sizeof(double));
+        auto debug_JA = static_cast<int *>(malloc(block->max_nz_per_row * matrix_data_host->M * sizeof(int)));
+        auto *debug_AS = static_cast<double *>(malloc(block->max_nz_per_row * matrix_data_host->M * sizeof(double)));
 
-        cudaMemcpy(debug_JA, d_JA, block->nz_per_block * sizeof(int), cudaMemcpyDeviceToHost);
-        cudaMemcpy(debug_AS, d_AS, block->nz_per_block * sizeof(double), cudaMemcpyDeviceToHost);
+        checkCudaErrors(cudaMemcpy(debug_JA, d_JA, block->max_nz_per_row * matrix_data_host->M * sizeof(int), cudaMemcpyDeviceToHost));
+        checkCudaErrors(cudaMemcpy(debug_AS, d_AS, block->max_nz_per_row * matrix_data_host->M * sizeof(double), cudaMemcpyDeviceToHost));
 
         printf("JA (GPU -> CPU): ");
-        for (int j = 0; j < block->nz_per_block; j++) {
+        for (int j = 0; j < block->max_nz_per_row * matrix_data_host->M; j++) {
             printf("%d ", debug_JA[j]);
         }
         printf("\nAS (GPU -> CPU): ");
-        for (int j = 0; j < block->nz_per_block; j++) {
-            printf("%f ", debug_AS[j]);
+        for (int j = 0; j < block->max_nz_per_row * matrix_data_host->M; j++) {
+            printf("%lf ", debug_AS[j]);
         }
         printf("\n");
 
@@ -131,14 +130,11 @@ matrixPerformance parallel_hll_cuda(matrixData *matrix_data_host, double *x_h) {
     checkCudaErrors(cudaMemcpy(d_y, y_h, matrix_data_host->M * sizeof(double), cudaMemcpyHostToDevice));
     printf("Copiato y iniziale in GPU\n");
 
-
-
     const dim3 GRID_DIM((matrix_data_host->M-1+YBD)/YBD);
 
     timer->start();
-    gpuMatVec_Hll<<<GRID_DIM, BLOCK_DIM>>>(hllMatrixHost, d_x, d_y, matrix_data_host->M);
+    matvec_Hll_cuda<<<GRID_DIM, BLOCK_DIM>>>(hllMatrixHost, d_x, d_y, matrix_data_host->M);
     checkCudaErrors(cudaDeviceSynchronize());
-
     timer->stop();
 
     checkCudaErrors(cudaMemcpy(y_h, d_y,  matrix_data_host->M * sizeof(double), cudaMemcpyDeviceToHost));
