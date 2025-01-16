@@ -32,10 +32,10 @@ int find_max_nz_per_block(const int *nz_per_row, int start_row, int end_row) {
     return tot_nz;
 }
 
-void convert_to_hll(matrixData *matrix_data, HLL_Matrix *hll_matrix) {
-
-    int *row_start = static_cast<int *>(calloc(matrix_data->M + 1, sizeof(int)));
-    if (row_start==nullptr) {
+/* Funzione per convertire una matrice in formato HLL su CPU */
+void convert_to_hll_cuda( matrixData *matrix_data, HLL_Matrix *hll_matrix) {
+    int *row_start = (int *)calloc(matrix_data->M + 1, sizeof(int));
+    if (!row_start) {
         fprintf(stderr, "Errore: allocazione memoria fallita per row_start.\n");
         exit(EXIT_FAILURE);
     }
@@ -50,9 +50,9 @@ void convert_to_hll(matrixData *matrix_data, HLL_Matrix *hll_matrix) {
         row_start[i] += row_start[i - 1];
     }
 
-    int *sorted_col_indices = static_cast<int *>(malloc(matrix_data->nz * sizeof(int)));
-    double *sorted_values = static_cast<double *>(malloc(matrix_data->nz * sizeof(double)));
-    if (sorted_col_indices==nullptr|| sorted_values==nullptr) {
+    int *sorted_col_indices = (int *)malloc(matrix_data->nz * sizeof(int));
+    double *sorted_values = (double *)malloc(matrix_data->nz * sizeof(double));
+    if (!sorted_col_indices || !sorted_values) {
         fprintf(stderr, "Errore: allocazione memoria fallita per array ordinati.\n");
         free(row_start);
         exit(EXIT_FAILURE);
@@ -72,9 +72,12 @@ void convert_to_hll(matrixData *matrix_data, HLL_Matrix *hll_matrix) {
     }
     row_start[0] = 0;
 
-    int *nz_per_row = static_cast<int *>(calloc(matrix_data->M, sizeof(int)));
-    if (nz_per_row==nullptr) {
+    int *nz_per_row = (int *)calloc(matrix_data->M, sizeof(int));
+    if (!nz_per_row) {
         fprintf(stderr, "Errore: Allocazione fallita per nz_per_row.\n");
+        free(row_start);
+        free(sorted_col_indices);
+        free(sorted_values);
         exit(EXIT_FAILURE);
     }
 
@@ -93,17 +96,24 @@ void convert_to_hll(matrixData *matrix_data, HLL_Matrix *hll_matrix) {
         int size_of_arrays = max_nz_per_row * rows_in_block;
         if (max_nz_per_row < 0 || rows_in_block < 0) {
             fprintf(stderr, "Errore: Valori invalidi per il blocco %d: %d - %d\n", block_idx, rows_in_block, max_nz_per_row);
+            free(row_start);
+            free(sorted_col_indices);
+            free(sorted_values);
+            free(nz_per_row);
             exit(EXIT_FAILURE);
         }
 
-        hll_matrix->blocks[block_idx].JA = static_cast<int *>(calloc(size_of_arrays, sizeof(int)));
-        hll_matrix->blocks[block_idx].AS = static_cast<double *>(calloc(size_of_arrays, sizeof(double)));
-        if (hll_matrix->blocks[block_idx].JA==nullptr || hll_matrix->blocks[block_idx].AS==nullptr) {
+        hll_matrix->blocks[block_idx].JA = (int *)calloc(size_of_arrays, sizeof(int));
+        hll_matrix->blocks[block_idx].AS = (double *)calloc(size_of_arrays, sizeof(double));
+        if (!hll_matrix->blocks[block_idx].JA || !hll_matrix->blocks[block_idx].AS) {
             fprintf(stderr, "Errore: allocazione memoria fallita per il blocco %d.\n", block_idx);
-            for (int k = 0; k < block_idx; k++) {
+            for (int k = 0; k <= block_idx; k++) {
                 free(hll_matrix->blocks[k].JA);
                 free(hll_matrix->blocks[k].AS);
             }
+            free(row_start);
+            free(sorted_col_indices);
+            free(sorted_values);
             free(nz_per_row);
             exit(EXIT_FAILURE);
         }
@@ -119,7 +129,6 @@ void convert_to_hll(matrixData *matrix_data, HLL_Matrix *hll_matrix) {
             int pos = 0;
             int last_col_idx = -1;
 
-            // Assegna i valori nel formato HLL
             for (int j = row_nz_start; j < row_nz_end; j++) {
                 if (pos >= max_nz_per_row) break;
                 int index = row_offset + pos;
@@ -129,7 +138,6 @@ void convert_to_hll(matrixData *matrix_data, HLL_Matrix *hll_matrix) {
                 pos++;
             }
 
-            // Aggiunta del padding
             while (pos < max_nz_per_row) {
                 int index = row_offset + pos;
                 hll_matrix->blocks[block_idx].JA[index] = last_col_idx;
@@ -145,35 +153,27 @@ void convert_to_hll(matrixData *matrix_data, HLL_Matrix *hll_matrix) {
     free(nz_per_row);
 }
 
+
+
 __global__ void gpuMatVec_Hll(const HLL_Matrix *d_hll_matrix, const double *d_x, double *d_y, int M) {
-    // Identifica il blocco (HLL) e il thread
-    int block_idx = blockIdx.x;   // Indice del blocco
-    int thread_idx = threadIdx.x; // Indice del thread all'interno del blocco
+    // Inizializza il vettore risultato
+    for (int i = 0; i < M; i++) {
+        d_y[i] = 0.0;
+    }
 
-    // Verifica che il blocco sia valido
-    if (block_idx < d_hll_matrix->num_blocks) {
-        const ELLPACK_Block *block = &d_hll_matrix->blocks[block_idx];
+    // Itera sui blocchi ELLPACK
+    for (int b = 0; b < d_hll_matrix->num_blocks; b++) {
+        ELLPACK_Block *block = &d_hll_matrix->blocks[b];
 
-        // Calcolo per ogni riga del blocco, distribuito tra i thread
-        for (int row = thread_idx; row < block->nz_per_block; row += blockDim.x) {
-            double row_sum = 0.0;
-
-            // Calcola il prodotto scalare per questa riga
-            for (int col_idx = 0; col_idx < block->max_nz_per_row; col_idx++) {
-                int col = block->JA[row * block->max_nz_per_row + col_idx];
-                double val = block->AS[row * block->max_nz_per_row + col_idx];
-
-                // Accumula il prodotto
-                row_sum += val * d_x[col];
-            }
-
-            // Scrivi il risultato nel vettore d_y
-            int global_row = block_idx * block->nz_per_block + row;
-            if (global_row < M) {
-                d_y[global_row] = row_sum;
+        for (int i = 0; i < block->nz_per_block; i++) {
+            for (int j = 0; j < block->max_nz_per_row; j++) {
+                int col = block->JA[i * block->max_nz_per_row + j];
+                if (col == -1) {
+                    break; // Fine delle colonne non nulle
+                }
+                d_y[i] += block->AS[i * block->max_nz_per_row + j] * d_x[col];
             }
         }
     }
 }
-
 
