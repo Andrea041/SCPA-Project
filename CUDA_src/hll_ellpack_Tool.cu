@@ -155,7 +155,52 @@ void convert_to_hll_cuda( matrixData *matrix_data, HLL_Matrix *hll_matrix) {
 
 
 
-__global__ void matvec_Hll_cuda(const HLL_Matrix *hll_matrix, const double *x, double *y, int max_row_in_matrix) {
+/*__global__ void matvec_Hll_cuda(HLL_Matrix *d_hll_matrix, double *d_x, double *d_y, int M) {
+    for (int block_id = 0; block_id < d_hll_matrix->num_blocks; block_id++) {
 
+        int start_row = block_id * HackSize;
+        int end_row = (block_id + 1) * HackSize;
+        if (end_row > M) end_row = M;
+
+        int row_offset = 0;
+
+        for (int i = start_row; i < end_row; i++) {
+            d_y[i] = 0.0;
+
+            for (int j = 0; j < d_hll_matrix->blocks[block_id].max_nz_per_row; j++) {
+                d_y[i] += d_hll_matrix->blocks[block_id].AS[j + row_offset] * d_x[d_hll_matrix->blocks[block_id].JA[j + row_offset]];
+            }
+
+            row_offset += d_hll_matrix->blocks[block_id].max_nz_per_row;
+        }
+    }
+}*/
+
+__global__ void matvec_Hll_cuda(const HLL_Matrix *d_hll_matrix, const double *d_x, double *d_y, int M) {
+    // Calcola l'indice della riga globale
+    int global_row = blockIdx.x * blockDim.x + threadIdx.x;
+
+    // Controlla che l'indice non ecceda il numero di righe
+    if (global_row >= M) return;
+
+    // Trova il blocco corrispondente
+    int block_id = global_row / HackSize;
+    int local_row = global_row % HackSize;
+
+    // Ottieni il blocco corrente
+    const ELLPACK_Block *block = &d_hll_matrix->blocks[block_id];
+
+    // Calcola l'offset della riga all'interno del blocco
+    int row_offset = local_row * block->max_nz_per_row;
+
+    // Calcola il prodotto matrice-vettore
+    double result = 0.0;
+    for (int j = 0; j < block->max_nz_per_row; j++) {
+        int col = block->JA[row_offset + j];
+        double value = block->AS[row_offset + j];
+        result += value * d_x[col];
+    }
+
+    // Salva il risultato
+    d_y[global_row] = result;
 }
-
