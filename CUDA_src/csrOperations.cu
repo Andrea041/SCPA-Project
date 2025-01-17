@@ -80,7 +80,7 @@ matrixPerformance parallel_csr_cuda(matrixData *matrix_data_host, double *x_h) {
     StopWatchInterface* timer = nullptr;
     sdkCreateTimer(&timer);
 
-    const dim3 GRID_DIM((matrix_data_host->M + XBD - 1) / XBD); //this way we have the right number of block rows even if m is not multiple of YBD.
+    const dim3 GRID_DIM((matrix_data_host->M + YBD - 1) / YBD); //this way we have the right number of block rows even if m is not multiple of YBD.
 
     timer->start();
     gpuMatVec_csr<<<GRID_DIM, BLOCK_DIM>>>(d_IRP, d_JA, d_AS, d_x, d_y, matrix_data_host->M);
