@@ -252,9 +252,8 @@ matrixPerformance parallel_hll_cuda(matrixData *matrix_data_host, double *x_h) {
     node.gigaFlops = 0;
 
 
-    //free(hllMatrixHost);
+    free(hllMatrixHost);
 
-    checkCudaErrors(cudaFree(hllMatrixHost));
 
     return node;
 }
