@@ -203,4 +203,5 @@ __global__ void matvec_Hll_cuda(const HLL_Matrix *d_hll_matrix, const double *d_
 
     // Salva il risultato
     d_y[global_row] = result;
+
 }
