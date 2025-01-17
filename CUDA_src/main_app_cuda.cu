@@ -8,7 +8,7 @@
 
 #include "../CUDA_libs/csrOperations.h"
 #include "../CUDA_libs/hllOperations.h"
-#include "../libs/costants.h"
+#include "../CUDA_libs/cudaCostants.h"
 #include "../libs/data_structure.h"
 #include "../libs/matrixLists.h"
 #include "../libs/mmio.h"
