@@ -155,25 +155,7 @@ void convert_to_hll_cuda( matrixData *matrix_data, HLL_Matrix *hll_matrix) {
 
 
 
-__global__ void gpuMatVec_Hll(const HLL_Matrix *d_hll_matrix, const double *d_x, double *d_y, int M) {
-    // Inizializza il vettore risultato
-    for (int i = 0; i < M; i++) {
-        d_y[i] = 0.0;
-    }
+__global__ void matvec_Hll_cuda(const HLL_Matrix *hll_matrix, const double *x, double *y, int max_row_in_matrix) {
 
-    // Itera sui blocchi ELLPACK
-    for (int b = 0; b < d_hll_matrix->num_blocks; b++) {
-        ELLPACK_Block *block = &d_hll_matrix->blocks[b];
-
-        for (int i = 0; i < block->nz_per_block; i++) {
-            for (int j = 0; j < block->max_nz_per_row; j++) {
-                int col = block->JA[i * block->max_nz_per_row + j];
-                if (col == -1) {
-                    break; // Fine delle colonne non nulle
-                }
-                d_y[i] += block->AS[i * block->max_nz_per_row + j] * d_x[col];
-            }
-        }
-    }
 }
 

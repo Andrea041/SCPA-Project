@@ -6,9 +6,8 @@
 
 // Definizione di HackSize
 #define HackSize 32  // Dimensione del blocco
-#define XBD 512
-#define YBD 2
+#define XBD 192 // Provare anche con 256, 384, ...
 
-const dim3 BLOCK_DIM(XBD, YBD);
+constexpr dim3 BLOCK_DIM(XBD);
 
 #endif //CUDACOSTANTS_H

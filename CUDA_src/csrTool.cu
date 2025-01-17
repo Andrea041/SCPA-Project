@@ -63,19 +63,15 @@ void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, double *
 
 }
 
+/* Prodotto matrice-vettore parallelo con GPU */
 __global__ void gpuMatVec_csr(const int *d_IRP, const int *d_JA, const double *d_AS, const double *d_x, double *d_y, int M) {
-    // Ogni thread è responsabile di una riga della matrice
-    int row = blockIdx.x * blockDim.x + threadIdx.x;
+    const int row = blockIdx.x * blockDim.x + threadIdx.x;
 
-    // Controlla che la riga non ecceda il numero totale di righe
-    if (row < M) {
-        d_y[row] = 0.0;
+    /* Controlla che la riga non ecceda il numero totale di righe */
+    if (row >= M) return;
 
-        // Itera sugli elementi non nulli della riga `row`
-        for (int index = d_IRP[row]; index < d_IRP[row + 1]; ++index) {
-            int col = d_JA[index]; // Colonna dell'elemento
-            double val = d_AS[index]; // Valore dell'elemento
-            d_y[row] += val * d_x[col]; // Calcola il prodotto scalare
-        }
-    }
+    d_y[row] = 0.0;
+    /* Ciascun thread si fa carico di una riga */
+    for (int index = d_IRP[row]; index < d_IRP[row + 1]; ++index)
+        d_y[row] += d_AS[index] * d_x[d_JA[index]];
 }
