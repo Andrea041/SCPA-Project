@@ -7,48 +7,9 @@
 #include <helper_cuda.h>
 #include <helper_timer.h>
 
-// Funzione sequenziale per il prodotto matrice-vettore usando la memorizzazione HLL in ELLPACK
-void sequentialMatVec_Hll(HLL_Matrix *hll_matrix, double *x, double *y, int M) {
-    for (int block_id = 0; block_id < hll_matrix->num_blocks; block_id++) {
-        /* Calcolo delle righe di inizio e fine del blocco */
-        int start_row = block_id * HackSize;
-        int end_row = (block_id + 1) * HackSize;
-        if (end_row > M) end_row = M;
-
-        int row_offset = 0;
-        /* Scorrimento delle righe di un unico blocco */
-        for (int i = start_row; i < end_row; i++) {
-            y[i] = 0.0;
-            /* Scorrimento della riga selezionata (sarà lunga maxnz) */
-            for (int j = 0; j < hll_matrix->blocks[block_id].max_nz_per_row; j++) {
-                y[i] += hll_matrix->blocks[block_id].AS[j + row_offset] * x[hll_matrix->blocks[block_id].JA[j + row_offset]];
-            }
-            /* Incremento dell'offset per passare alla riga successiva */
-            row_offset += hll_matrix->blocks[block_id].max_nz_per_row;
-        }
-    }
-}
-
-/**
- * Configura dinamicamente la griglia CUDA per l'esecuzione di un kernel, tenendo conto della gerarchia
- * di thread e della dimensione del warp (32 thread). La configurazione ottimizza l'utilizzo dei Streaming
- * Multiprocessors (SM) e dei thread disponibili sulla GPU.
- *
- * La funzione calcola il numero di blocchi e il numero di thread per blocco rispettando i seguenti criteri:
- * 1. Il numero di thread per blocco è un multiplo della dimensione del warp (32).
- * 2. Il numero di blocchi è un multiplo del numero di SM della GPU, per garantire un carico bilanciato.
- * 3. Si tiene conto del limite massimo di thread per blocco e thread per SM supportati dalla GPU.
- * 4. Se il prodotto `blocks_per_grid * threads_per_block` eccede il massimo supportato dalla GPU,
- *    la configurazione viene ridimensionata per evitare spreco di risorse.
- *
- * @param num_rows       Numero di righe della matrice o dimensione del problema.
- * @param sm_count       Numero di Streaming Multiprocessors (SM) della GPU.
- * @param blocks         Puntatore per restituire il numero di blocchi calcolati.
- * @param threads        Puntatore per restituire il numero di thread per blocco calcolati.
- */
 void configure_grid_warp(int num_rows, int sm_count, int *blocks, int *threads) {
     // Definizione della dimensione del warp
-    const int warp_size = 32;
+
 
     // Numero massimo di thread per blocco dalla GPU
     int max_threads_per_block;
@@ -60,10 +21,10 @@ void configure_grid_warp(int num_rows, int sm_count, int *blocks, int *threads) 
 
     // Configurazione dinamica dei thread per blocco
     int threads_per_block = (num_rows < max_threads_per_block) ? num_rows : max_threads_per_block;
-    threads_per_block = (threads_per_block / warp_size) * warp_size; // Arrotonda al multiplo di warp_size
+    threads_per_block = (threads_per_block / WARP_SIZE) * WARP_SIZE; // Arrotonda al multiplo di warp_size
 
     if (threads_per_block == 0) {
-        threads_per_block = warp_size; // Almeno un warp
+        threads_per_block = WARP_SIZE; // Almeno un warp
     }
 
     // Numero di blocchi necessario
@@ -84,6 +45,23 @@ void configure_grid_warp(int num_rows, int sm_count, int *blocks, int *threads) 
     printf("Configurazione griglia warp-aware: blocks_per_grid = %d, threads_per_block = %d\n", blocks_per_grid, threads_per_block);
 }
 
+
+// Configura la griglia dei blocchi e dei thread
+/*void configure_grid_warp(int M, int sm_count, int *blocks, int *threads) {
+  //  printf("Configurazione griglia: M=%d, sm_count=%d\n", M, sm_count);
+    int total_threads = ((M + WARP_SIZE - 1) / WARP_SIZE) * WARP_SIZE; // Allinea a warp
+    *threads = WARP_SIZE;  // Ogni blocco ha un warp
+    *blocks = (total_threads + *threads - 1) / *threads;
+  //  printf("Threads per blocco: %d, Numero di blocchi: %d\n", *threads, *blocks);
+
+    // Assicura che il numero di warp sia multiplo di SM count
+    if (*blocks % sm_count != 0) {
+        *blocks = ((*blocks / sm_count) + 1) * sm_count;
+    }
+
+    printf("Configurazione griglia warp-aware: blocks_per_grid = %d, threads_per_block = %d\n", *blocks,    *threads);
+}
+*/
 // Funzione principale per calcolare il prodotto parallelo
 matrixPerformance parallel_hll_cuda(matrixData *matrix_data_host, double *x_h) {
     double *d_y;
@@ -122,27 +100,10 @@ matrixPerformance parallel_hll_cuda(matrixData *matrix_data_host, double *x_h) {
     }
 
     // Conversione in formato HLL
-    convert_to_hll_cuda(matrix_data_host, hllMatrixHost);
+    convert_to_hll_cuda(matrix_data_host, hllMatrixHost, hllMatrixHost);
 
-    //printf("HLL 1\n");
 
-    // Stampa della struttura HLL_Matrix
-    printf("HLL_Matrix: num_blocks = %d\n", hllMatrixHost->num_blocks);
-    /*for (int i = 0; i < hllMatrixHost->num_blocks; i++) {
-        ELLPACK_Block *block = &hllMatrixHost->blocks[i];
-        printf("Blocco %d: max_nz_per_row = %d, nz_per_block = %d\n", i, block->max_nz_per_row, block->nz_per_block);
-        printf("JA: ");
-        for (int j = 0; j < matrix_data_host->M * block->max_nz_per_row; j++) {
-            printf("%d ", block->JA[j]);
-        }
-        printf("\nAS: ");
-        for (int j = 0; j < matrix_data_host->M * block->max_nz_per_row; j++) {
-            printf("%f ", block->AS[j]);
-        }
-        printf("\n");
-    }*/
-
-    // Copia della struttura HLL_Matrix in memoria GPU
+        // Copia della struttura HLL_Matrix in memoria GPU
     HLL_Matrix *d_hll_matrix;
     checkCudaErrors(cudaMalloc(&d_hll_matrix, sizeof(HLL_Matrix)));
     checkCudaErrors(cudaMemcpy(d_hll_matrix, hllMatrixHost, sizeof(HLL_Matrix), cudaMemcpyHostToDevice));
@@ -152,20 +113,23 @@ matrixPerformance parallel_hll_cuda(matrixData *matrix_data_host, double *x_h) {
     checkCudaErrors(cudaMalloc(&d_blocks, hllMatrixHost->num_blocks * sizeof(ELLPACK_Block)));
     checkCudaErrors(cudaMemcpy(&d_hll_matrix->blocks, &d_blocks, sizeof(ELLPACK_Block *), cudaMemcpyHostToDevice));
 
-    // Iterazione per copiare i blocchi uno per uno
-    for (int i = 0; i < hllMatrixHost->num_blocks; i++) {
+      for (int i = 0; i < hllMatrixHost->num_blocks; i++) {
         ELLPACK_Block *block = &hllMatrixHost->blocks[i];
 
         int *d_JA=nullptr;
         double *d_AS=nullptr;
 
+          // Supponiamo che 'size_of_arrays' sia il numero di elementi in 'JA' e 'AS'
+        size_t JA_size = hllMatrixHost->blocks[i].size_of_arrays * sizeof(int);
+        size_t AS_size = hllMatrixHost->blocks[i].size_of_arrays * sizeof(double);
+
         // Allocazione e copia di JA
-        checkCudaErrors(cudaMalloc(&d_JA, block->max_nz_per_row * matrix_data_host->M * sizeof(int)));
-        checkCudaErrors(cudaMemcpy(d_JA, block->JA, block->max_nz_per_row * matrix_data_host->M * sizeof(int), cudaMemcpyHostToDevice));
+        checkCudaErrors(cudaMalloc(&d_JA, JA_size));
+        checkCudaErrors(cudaMemcpy(d_JA, block->JA, JA_size, cudaMemcpyHostToDevice));
 
         // Allocazione e copia di AS
-        checkCudaErrors(cudaMalloc(&d_AS, block->max_nz_per_row * matrix_data_host->M * sizeof(double)));
-        checkCudaErrors(cudaMemcpy(d_AS, block->AS, block->max_nz_per_row * matrix_data_host->M * sizeof(double), cudaMemcpyHostToDevice));
+        checkCudaErrors(cudaMalloc(&d_AS, AS_size));
+        checkCudaErrors(cudaMemcpy(d_AS, block->AS, AS_size, cudaMemcpyHostToDevice));
 
         // Imposta i puntatori nel blocco GPU
         ELLPACK_Block d_block;
@@ -175,27 +139,6 @@ matrixPerformance parallel_hll_cuda(matrixData *matrix_data_host, double *x_h) {
         d_block.nz_per_block = block->nz_per_block;
 
         checkCudaErrors(cudaMemcpy(&d_blocks[i], &d_block, sizeof(ELLPACK_Block), cudaMemcpyHostToDevice));
-        printf("Blocco %d copiato in GPU\n", i);
-
-        // Debug: Verifica i dati copiati su GPU
-       /*auto debug_JA = static_cast<int *>(malloc(block->max_nz_per_row * matrix_data_host->M * sizeof(int)));
-        auto *debug_AS = static_cast<double *>(malloc(block->max_nz_per_row * matrix_data_host->M * sizeof(double)));
-
-        checkCudaErrors(cudaMemcpy(debug_JA, d_JA, block->max_nz_per_row * matrix_data_host->M * sizeof(int), cudaMemcpyDeviceToHost));
-        checkCudaErrors(cudaMemcpy(debug_AS, d_AS, block->max_nz_per_row * matrix_data_host->M * sizeof(double), cudaMemcpyDeviceToHost));
-
-        printf("JA (GPU -> CPU): ");
-        for (int j = 0; j < block->max_nz_per_row * matrix_data_host->M; j++) {
-            printf("%d ", debug_JA[j]);
-        }
-        printf("\nAS (GPU -> CPU): ");
-        for (int j = 0; j < block->max_nz_per_row * matrix_data_host->M; j++) {
-            printf("%lf ", debug_AS[j]);
-        }
-        printf("\n");
-
-        free(debug_JA);
-        free(debug_AS);*/
     }
 
 
@@ -213,26 +156,9 @@ matrixPerformance parallel_hll_cuda(matrixData *matrix_data_host, double *x_h) {
     // Ottieni il numero di Streaming Multiprocessors
     int sm_count;
     cudaDeviceGetAttribute(&sm_count, cudaDevAttrMultiProcessorCount, 0);
-   // printf("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA sm_count %d\n", sm_count);
+   // printf(" sm_count: %d\n", sm_count);
 
 
-
-    /*double *x = (double *)malloc(matrix_data_host->N * sizeof(double));
-    double *y = (double *)malloc(M * sizeof(double));
-
-    // Inizializza il vettore x
-    for (int i = 0; i < matrix_data_host->N ; i++) {
-        x[i] = 1.0; // Esempio di inizializzazione
-    }
-
-    // Calcolo sequenziale
-    sequentialMatVec_Hll(hllMatrixHost, x, y, M);
-
-    // Stampa del risultato
-    printf("Risultato del prodotto matrice-vettore:\n");
-    for (int i = 0; i < M; i++) {
-        printf("y[%d] = %f\n", i, y[i]);
-    }*/
     //debug usando una versione seriale del calcolo in hll, la memorizzazione funzina correttamente.
 
 
@@ -244,7 +170,7 @@ matrixPerformance parallel_hll_cuda(matrixData *matrix_data_host, double *x_h) {
     const dim3 GRID_DIM(blocks_per_grid);*/
     // Configura la griglia automaticamente
     int blocks_per_grid, threads_per_block;
-    int num_rows = matrix_data_host->N; // Numero di righe della matrice
+    int num_rows = matrix_data_host->M; // Numero di righe della matrice
 
     configure_grid_warp(num_rows, sm_count, &blocks_per_grid, &threads_per_block);
 
@@ -266,8 +192,8 @@ matrixPerformance parallel_hll_cuda(matrixData *matrix_data_host, double *x_h) {
 
     // Ferma il timer
     timer->stop();
-
-  /* checkCudaErrors(cudaMemcpy(y_h, d_y,  matrix_data_host->M * sizeof(double), cudaMemcpyDeviceToHost));
+/*
+    checkCudaErrors(cudaMemcpy(y_h, d_y,  matrix_data_host->M * sizeof(double), cudaMemcpyDeviceToHost));
     printf("Risultato copiato da GPU a CPU:\n");
     for (int i = 0; i < matrix_data_host->M; i++) {
         printf("y[%d] = %lf\n", i, y_h[i]);
@@ -292,7 +218,5 @@ matrixPerformance parallel_hll_cuda(matrixData *matrix_data_host, double *x_h) {
     free(y_h);
     free(hllMatrixHost->blocks);
     free(hllMatrixHost);
-
-
     return node;
 }

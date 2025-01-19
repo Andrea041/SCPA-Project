@@ -33,7 +33,8 @@ int find_max_nz_per_block(const int *nz_per_row, int start_row, int end_row) {
 }
 
 /* Funzione per convertire una matrice in formato HLL su CPU */
-void convert_to_hll_cuda( matrixData *matrix_data, HLL_Matrix *hll_matrix) {
+/* Funzione per convertire una matrice in formato HLL su CPU */
+void convert_to_hll_cuda( matrixData *matrix_data, HLL_Matrix *hll_matrix, HLL_Matrix *d_hll_matrix) {
     int *row_start = (int *)calloc(matrix_data->M + 1, sizeof(int));
     if (!row_start) {
         fprintf(stderr, "Errore: allocazione memoria fallita per row_start.\n");
@@ -102,7 +103,7 @@ void convert_to_hll_cuda( matrixData *matrix_data, HLL_Matrix *hll_matrix) {
             free(nz_per_row);
             exit(EXIT_FAILURE);
         }
-
+        hll_matrix->blocks[block_idx].size_of_arrays=size_of_arrays ;
         hll_matrix->blocks[block_idx].JA = (int *)calloc(size_of_arrays, sizeof(int));
         hll_matrix->blocks[block_idx].AS = (double *)calloc(size_of_arrays, sizeof(double));
         if (!hll_matrix->blocks[block_idx].JA || !hll_matrix->blocks[block_idx].AS) {
@@ -154,28 +155,6 @@ void convert_to_hll_cuda( matrixData *matrix_data, HLL_Matrix *hll_matrix) {
 }
 
 
-
-/*__global__ void matvec_Hll_cuda(HLL_Matrix *d_hll_matrix, double *d_x, double *d_y, int M) {
-    for (int block_id = 0; block_id < d_hll_matrix->num_blocks; block_id++) {
-
-        int start_row = block_id * HackSize;
-        int end_row = (block_id + 1) * HackSize;
-        if (end_row > M) end_row = M;
-
-        int row_offset = 0;
-
-        for (int i = start_row; i < end_row; i++) {
-            d_y[i] = 0.0;
-
-            for (int j = 0; j < d_hll_matrix->blocks[block_id].max_nz_per_row; j++) {
-                d_y[i] += d_hll_matrix->blocks[block_id].AS[j + row_offset] * d_x[d_hll_matrix->blocks[block_id].JA[j + row_offset]];
-            }
-
-            row_offset += d_hll_matrix->blocks[block_id].max_nz_per_row;
-        }
-    }
-}*/
-
 __global__ void matvec_Hll_cuda(const HLL_Matrix *d_hll_matrix, const double *d_x, double *d_y, int M) {
     // Calcola l'indice della riga globale
     int global_row = blockIdx.x * blockDim.x + threadIdx.x;
@@ -205,3 +184,4 @@ __global__ void matvec_Hll_cuda(const HLL_Matrix *d_hll_matrix, const double *d_
     d_y[global_row] = result;
 
 }
+
