@@ -33,7 +33,8 @@ int find_max_nz_per_block(const int *nz_per_row, int start_row, int end_row) {
 }
 
 /* Funzione per convertire una matrice in formato HLL su CPU */
-void convert_to_hll_cuda( matrixData *matrix_data, HLL_Matrix *hll_matrix) {
+/* Funzione per convertire una matrice in formato HLL su CPU */
+void convert_to_hll_cuda( matrixData *matrix_data, HLL_Matrix *hll_matrix, HLL_Matrix *d_hll_matrix) {
     int *row_start = (int *)calloc(matrix_data->M + 1, sizeof(int));
     if (!row_start) {
         fprintf(stderr, "Errore: allocazione memoria fallita per row_start.\n");
@@ -102,7 +103,7 @@ void convert_to_hll_cuda( matrixData *matrix_data, HLL_Matrix *hll_matrix) {
             free(nz_per_row);
             exit(EXIT_FAILURE);
         }
-
+        hll_matrix->blocks[block_idx].size_of_arrays=size_of_arrays ;
         hll_matrix->blocks[block_idx].JA = (int *)calloc(size_of_arrays, sizeof(int));
         hll_matrix->blocks[block_idx].AS = (double *)calloc(size_of_arrays, sizeof(double));
         if (!hll_matrix->blocks[block_idx].JA || !hll_matrix->blocks[block_idx].AS) {
@@ -154,8 +155,33 @@ void convert_to_hll_cuda( matrixData *matrix_data, HLL_Matrix *hll_matrix) {
 }
 
 
+__global__ void matvec_Hll_cuda(const HLL_Matrix *d_hll_matrix, const double *d_x, double *d_y, int M) {
+    // Calcola l'indice della riga globale
+    int global_row = blockIdx.x * blockDim.x + threadIdx.x;
 
-__global__ void matvec_Hll_cuda(const HLL_Matrix *hll_matrix, const double *x, double *y, int max_row_in_matrix) {
+    // Controlla che l'indice non ecceda il numero di righe
+    if (global_row >= M) return;
+
+    // Trova il blocco corrispondente
+    int block_id = global_row / HackSize;
+    int local_row = global_row % HackSize;
+
+    // Ottieni il blocco corrente
+    const ELLPACK_Block *block = &d_hll_matrix->blocks[block_id];
+
+    // Calcola l'offset della riga all'interno del blocco
+    int row_offset = local_row * block->max_nz_per_row;
+
+    // Calcola il prodotto matrice-vettore
+    double result = 0.0;
+    for (int j = 0; j < block->max_nz_per_row; j++) {
+        int col = block->JA[row_offset + j];
+        double value = block->AS[row_offset + j];
+        result += value * d_x[col];
+    }
+
+    // Salva il risultato
+    d_y[global_row] = result;
 
 }
 

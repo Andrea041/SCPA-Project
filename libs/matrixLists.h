@@ -2,17 +2,18 @@
 #define MATRIXLISTS_H
 
 static const char *matrix_names[] = {
-    "cage4.mtx",
-    "mhda416.mtx",
+   "cage4.mtx",
+  /* "mhda416.mtx",
     "mcfe.mtx",
     "olm1000.mtx",
     "adder_dcop_32.mtx",
     "west2021.mtx",
     "cavity10.mtx",
-    "rdist2.mtx",
-    "cant.mtx",
-    "olafu.mtx",
-    "Cube_Coup_dt0.mtx",
+   "rdist2.mtx",
+   "cant.mtx",
+   "olafu.mtx",
+    //"Cube_Coup_dt0.mtx", //code=2(cudaErrorMemoryAllocation) "cudaMalloc(&d_AS, block->max_nz_per_row * matrix_data_host->M * sizeof(double))"
+
     "ML_Laplace.mtx",
     "bcsstk17.mtx",
     "mac_econ_fwd500.mtx",
@@ -31,7 +32,7 @@ static const char *matrix_names[] = {
     "dc1.mtx",
     "amazon0302.mtx",
     "af_1_k101.mtx",
-    "roadNet-PA.mtx"
+    "roadNet-PA.mtx"*/
 };
 
 #endif

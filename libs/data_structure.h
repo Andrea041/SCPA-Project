@@ -21,7 +21,8 @@ struct matrixData {
 // Struttura per memorizzare i dati di un singolo blocco ELLPACK
 typedef struct {
     int *JA;   // Indici delle colonne
-    double *AS; // Valori non nulli
+    double *AS;
+    int size_of_arrays;
     int max_nz_per_row;     // Numero massimo di non nulli per riga
     int nz_per_block;
 } ELLPACK_Block;
