@@ -51,7 +51,6 @@ void checkDifferences(double *y_h, int matrix_row) {
     }
 }
 
-
 /* Implementazione del prodotto matrice-vettore seriale su CPU */
 matrixPerformance serial_csr_cuda(matrixData *matrix_data_host, double *x_h) {
     int *IRP, *JA;
@@ -78,7 +77,7 @@ matrixPerformance serial_csr_cuda(matrixData *matrix_data_host, double *x_h) {
     memcpy(y_CPU, y_h, matrix_data_host->M * sizeof(double));
 
     matrixPerformance node{};
-    node.seconds = timer->getTime();
+    node.seconds = timer->getTime()/1000.0f;
     node.flops = 0;
     node.gigaFlops = 0;
 
@@ -238,6 +237,7 @@ matrixPerformance parallel_csr_cuda_v2(matrixData *matrix_data_host, double *x_h
     return node;
 }
 
+/* Implementazione del prodotto matrice-vettore seriale su GPU - v3 */
 matrixPerformance parallel_csr_cuda_v3(matrixData *matrix_data_host, double *x_h) {
     int *h_IRP, *h_JA;
     double *h_AS;

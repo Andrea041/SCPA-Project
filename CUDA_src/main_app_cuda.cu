@@ -168,6 +168,9 @@ void add_performance_to_array(const char *nameMatrix,
     cJSON_AddNumberToObject(performance_obj, "flops", 0);
     cJSON_AddNumberToObject(performance_obj, "gigaFlops", 0);
 
+    cJSON_AddNumberToObject(performance_obj, "righe",matrix_data->M);
+    cJSON_AddNumberToObject(performance_obj, "colonne", matrix_data->N);
+
     // Aggiungi l'oggetto all'array JSON
     cJSON_AddItemToArray(matrix_array, performance_obj);
 }
@@ -225,12 +228,15 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
     auto *matrix_results = static_cast<MatrixPerformanceResult *>(malloc(1000 * sizeof(MatrixPerformanceResult))); // Buffer iniziale
     int matrix_result_count = 0;
     int nz = 0;
+    int righe,colonne;
 
     cJSON *item;
     cJSON_ArrayForEach(item, json_array) {
         const char *nameMatrix = cJSON_GetObjectItem(item, "nameMatrix")->valuestring;
         double seconds = cJSON_GetObjectItem(item, "seconds")->valuedouble;
         nz = cJSON_GetObjectItem(item, "nonzeros")->valueint;  // Debug: verifica i valori letti
+        righe = cJSON_GetObjectItem(item, "righe")->valueint;
+        colonne = cJSON_GetObjectItem(item, "colonne")->valueint;
 
         // Cerca se il nameMatrix esiste già
         int found = 0;
@@ -262,6 +268,7 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
         // Calcola la media dei seconds
         double average_seconds = matrix_results[i].total_seconds / ITERATION_PER_MATRIX;
 
+
         // Calcola FLOPS e gigaFLOPS
         double flops = 2.0 * nz / average_seconds;
         double gigaFlops = flops / 1e9;
@@ -272,6 +279,8 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
         cJSON_AddNumberToObject(output_data, "seconds", average_seconds);
         cJSON_AddNumberToObject(output_data, "flops", flops);
         cJSON_AddNumberToObject(output_data, "gigaFlops", gigaFlops);
+        cJSON_AddNumberToObject(output_data, "righe",righe);
+        cJSON_AddNumberToObject(output_data, "colonne", colonne);
 
         // Aggiungi l'oggetto all'array JSON
         cJSON_AddItemToArray(output_array, output_data);
@@ -307,7 +316,9 @@ int main() {
     cJSON *cuda_array_csr_parallel_v1 = cJSON_CreateArray();
     cJSON *cuda_array_csr_parallel_v2 = cJSON_CreateArray();
     cJSON *cuda_array_csr_parallel_v3 = cJSON_CreateArray();
-    cJSON *cuda_array_hll_parallel = cJSON_CreateArray();
+    cJSON *cuda_array_hll_parallel_v1= cJSON_CreateArray();
+    cJSON *cuda_array_hll_parallel_v2 = cJSON_CreateArray();
+    cJSON *cuda_array_hll_parallel_v3 = cJSON_CreateArray();
 
 
     for (int i = 0; i < num_matrices; i++) {
@@ -340,7 +351,8 @@ int main() {
             add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel_v2, parallel_csr_cuda_v2);
             add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel_v3, parallel_csr_cuda_v3);
             // Calcolo parallelo su GPU formato HLL
-            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_hll_parallel, parallel_hll_cuda);
+            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_hll_parallel_v1, parallel_hll_cuda_v1);
+            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_hll_parallel_v2, parallel_hll_cuda_v2);
         }
 
         free(x_h);
@@ -351,13 +363,13 @@ int main() {
     write_json_to_file("../result/iteration/CUDA_CSR_v1.json", cuda_array_csr_parallel_v1);
     write_json_to_file("../result/iteration/CUDA_CSR_v2.json", cuda_array_csr_parallel_v2);
     write_json_to_file("../result/iteration/CUDA_CSR_v3.json", cuda_array_csr_parallel_v3);
-    write_json_to_file("../result/iteration/CUDA_HLL.json", cuda_array_hll_parallel);
+    write_json_to_file("../result/iteration/CUDA_HLL.json", cuda_array_hll_parallel_v1);
 
     cJSON_Delete(cuda_array_csr_serial);
     cJSON_Delete(cuda_array_csr_parallel_v1);
     cJSON_Delete(cuda_array_csr_parallel_v2);
     cJSON_Delete(cuda_array_csr_parallel_v3);
-    cJSON_Delete(cuda_array_hll_parallel);
+    cJSON_Delete(cuda_array_hll_parallel_v1);
 
     calculatePerformance("../result/iteration/CUDA_serial_CSR.json", "../result/final/CUDA_serial_CSR.json");
     calculatePerformance("../result/iteration/CUDA_CSR_v1.json", "../result/final/CUDA_CSR_v1.json");

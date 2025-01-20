@@ -5,6 +5,7 @@
 #include "../libs/data_structure.h"
 #include "../libs/hll_ellpack_Tool.h"
 #include "../libs/costants.h"
+#include "../CUDA_libs/cudaCostants.h"
 
 /* Funzione per calcolare il massimo numero di nonzeri per ciascuna riga */
 void calculate_max_nz_in_row_in_block(const struct matrixData *matrix_data, int *nz_per_row) {
@@ -32,7 +33,7 @@ int find_max_nz_per_block(const int *nz_per_row, int start_row, int end_row) {
     return tot_nz;
 }
 
-/* Funzione per convertire una matrice in formato HLL su CPU */
+
 /* Funzione per convertire una matrice in formato HLL su CPU */
 void convert_to_hll_cuda( matrixData *matrix_data, HLL_Matrix *hll_matrix, HLL_Matrix *d_hll_matrix) {
     int *row_start = (int *)calloc(matrix_data->M + 1, sizeof(int));
@@ -154,7 +155,6 @@ void convert_to_hll_cuda( matrixData *matrix_data, HLL_Matrix *hll_matrix, HLL_M
     free(nz_per_row);
 }
 
-
 __global__ void matvec_Hll_cuda(const HLL_Matrix *d_hll_matrix, const double *d_x, double *d_y, int M) {
     // Calcola l'indice della riga globale
     int global_row = blockIdx.x * blockDim.x + threadIdx.x;
@@ -185,3 +185,43 @@ __global__ void matvec_Hll_cuda(const HLL_Matrix *d_hll_matrix, const double *d_
 
 }
 
+__global__ void matvec_Hll_cuda_SH( HLL_Matrix *d_hll_matrix,  double *d_x, double *d_y, int M) {
+    // Calcola l'indice della riga globale
+    int global_row = blockIdx.x * blockDim.x + threadIdx.x;
+
+    // Controlla che l'indice non ecceda il numero di righe
+    if (global_row >= M) return;
+
+    // Trova il blocco corrispondente
+    int block_id = global_row / HackSize;
+    int local_row = global_row % HackSize;
+
+    // Ottieni il blocco corrente
+    const ELLPACK_Block *block = &d_hll_matrix->blocks[block_id];
+
+    // Calcola l'offset della riga all'interno del blocco
+    int row_offset = local_row * block->max_nz_per_row;
+
+    // Dichiarazione della memoria condivisa per le colonne e i valori non nulli
+    extern __shared__ int shared_JA[];
+    extern __shared__ double shared_AS[];
+
+    // Carica i dati di JA e AS nella memoria condivisa
+    int thread_id = threadIdx.x;
+    if (thread_id < block->max_nz_per_row) {
+        shared_JA[thread_id] = block->JA[row_offset + thread_id];
+        shared_AS[thread_id] = block->AS[row_offset + thread_id];
+    }
+    __syncthreads(); // Sincronizza i thread per garantire che i dati siano caricati
+
+    // Calcola il prodotto matrice-vettore
+    double result = 0.0;
+    for (int j = 0; j < block->max_nz_per_row; j++) {
+        int col = shared_JA[j];
+        double value = shared_AS[j];
+        result += value * d_x[col];
+    }
+
+    // Salva il risultato
+    d_y[global_row] = result;
+}
