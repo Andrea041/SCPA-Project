@@ -7,11 +7,11 @@
 #include <helper_cuda.h>
 
 #include "../CUDA_libs/csrOperations.h"
-#include "../CUDA_libs/hllOperations.h"
-#include "../CUDA_libs/cudaCostants.h"
 #include "../libs/data_structure.h"
 #include "../libs/matrixLists.h"
 #include "../libs/mmio.h"
+#include "../libs/costants.h"
+#include "../CUDA_libs/hllOperations.h"
 
 #include <unistd.h>
 
@@ -336,11 +336,11 @@ int main() {
             /* Esecuzione seriale su CPU */
             add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_serial, serial_csr_cuda);
             // Calcolo parallelo su GPU formato CSR
-            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel_v1, parallel_csr_cuda_v1);
-            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel_v2, parallel_csr_cuda_v2);
-            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel_v3, parallel_csr_cuda_v3);
+            //add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel_v1, parallel_csr_cuda_v1);
+            //add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel_v2, parallel_csr_cuda_v2);
+            //add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel_v3, parallel_csr_cuda_v3);
             // Calcolo parallelo su GPU formato HLL
-            //add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_hll_parallel, parallel_hll_cuda);
+            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_hll_parallel, parallel_hll_cuda);
         }
 
         free(x_h);

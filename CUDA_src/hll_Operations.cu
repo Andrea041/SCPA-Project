@@ -1,4 +1,4 @@
-#include "../CUDA_libs/csrTool.h"
+#include "../libs/costants.h"
 #include "../CUDA_libs/csrOperations.h"
 #include "../CUDA_libs/cudaCostants.h"
 #include "../CUDA_libs/hllTool.h"

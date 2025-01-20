@@ -148,12 +148,11 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x_
         exit(EXIT_FAILURE);
     }
 
-    struct timespec start, end;
-    clock_gettime(CLOCK_MONOTONIC, &start);
+    double start = omp_get_wtime();
     matvec_Hll(hll_matrix, x_h, y, valid_threads, start_block, end_block, matrix_data->M);
-    clock_gettime(CLOCK_MONOTONIC, &end);
+    double end = omp_get_wtime();
 
-    const double time_spent = (double)(end.tv_sec - start.tv_sec) + (double)(end.tv_nsec - start.tv_nsec) / 1e9;
+    const double time_spent = end - start;
 
     struct matrixPerformance performance;
     performance.seconds = time_spent;
