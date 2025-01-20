@@ -8,8 +8,6 @@
 #include <helper_timer.h>
 
 void configure_grid_warp(int num_rows, int sm_count, int *blocks, int *threads) {
-    // Definizione della dimensione del warp
-
 
     // Numero massimo di thread per blocco dalla GPU
     int max_threads_per_block;
@@ -29,14 +27,6 @@ void configure_grid_warp(int num_rows, int sm_count, int *blocks, int *threads) 
 
     // Numero di blocchi necessario
     int blocks_per_grid = (num_rows + threads_per_block - 1) / threads_per_block;
-
-    // Arrotonda il numero di blocchi al multiplo del numero di SM
-    blocks_per_grid = ((blocks_per_grid + sm_count - 1) / sm_count) * sm_count;
-
-    // Se il numero di blocchi è troppo grande, riducilo per evitare overhead
-    if (blocks_per_grid * threads_per_block > max_threads_per_sm * sm_count) {
-        blocks_per_grid = sm_count * max_threads_per_sm / threads_per_block;
-    }
 
     // Configura i valori di output
     *blocks = blocks_per_grid;
@@ -174,13 +164,13 @@ matrixPerformance parallel_hll_cuda(matrixData *matrix_data_host, double *x_h) {
 
     configure_grid_warp(num_rows, sm_count, &blocks_per_grid, &threads_per_block);
 
-    const dim3 GRID_DIM(blocks_per_grid);
+    //const dim3 GRID_DIM(blocks_per_grid);
 
     // Avvia il timer
     timer->start();
 
     // Invoca il kernel CUDA
-    matvec_Hll_cuda<<<GRID_DIM, threads_per_block>>>(d_hll_matrix, d_x, d_y, matrix_data_host->M);
+    matvec_Hll_cuda<<<blocks_per_grid, threads_per_block>>>(d_hll_matrix, d_x, d_y, matrix_data_host->M);
     // Dopo il kernel CUDA, verifica errori
     cudaError_t err = cudaDeviceSynchronize();
     if (err != cudaSuccess) {
