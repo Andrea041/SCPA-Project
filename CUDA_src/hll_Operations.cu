@@ -7,7 +7,7 @@
 #include <helper_cuda.h>
 #include <helper_timer.h>
 
-void configure_grid_warp(int num_rows, int sm_count, int *blocks, int *threads) {
+/*void configure_grid_warp(int num_rows, int sm_count, int *blocks, int *threads) {
 
     // Numero massimo di thread per blocco dalla GPU
     int max_threads_per_block;
@@ -33,11 +33,11 @@ void configure_grid_warp(int num_rows, int sm_count, int *blocks, int *threads) 
     *threads = threads_per_block;
 
     printf("Configurazione griglia warp-aware: blocks_per_grid = %d, threads_per_block = %d\n", blocks_per_grid, threads_per_block);
-}
+}*/
 
 
 // Configura la griglia dei blocchi e dei thread
-/*void configure_grid_warp(int M, int sm_count, int *blocks, int *threads) {
+void configure_grid_warp(int M, int sm_count, int *blocks, int *threads) {
   //  printf("Configurazione griglia: M=%d, sm_count=%d\n", M, sm_count);
     int total_threads = ((M + WARP_SIZE - 1) / WARP_SIZE) * WARP_SIZE; // Allinea a warp
     *threads = WARP_SIZE;  // Ogni blocco ha un warp
@@ -51,7 +51,7 @@ void configure_grid_warp(int num_rows, int sm_count, int *blocks, int *threads) 
 
     printf("Configurazione griglia warp-aware: blocks_per_grid = %d, threads_per_block = %d\n", *blocks,    *threads);
 }
-*/
+
 // Funzione principale per calcolare il prodotto parallelo
 matrixPerformance parallel_hll_cuda(matrixData *matrix_data_host, double *x_h) {
     double *d_y;
@@ -172,12 +172,6 @@ matrixPerformance parallel_hll_cuda(matrixData *matrix_data_host, double *x_h) {
     // Invoca il kernel CUDA
     matvec_Hll_cuda<<<blocks_per_grid, threads_per_block>>>(d_hll_matrix, d_x, d_y, matrix_data_host->M);
     // Dopo il kernel CUDA, verifica errori
-    cudaError_t err = cudaDeviceSynchronize();
-    if (err != cudaSuccess) {
-        printf("CUDA error after kernel launch: %s\n", cudaGetErrorString(err));
-        exit(EXIT_FAILURE);
-    }
-    // Sincronizzazione e controllo degli errori
     checkCudaErrors(cudaDeviceSynchronize());
 
     // Ferma il timer

@@ -103,9 +103,8 @@ __global__ void gpuMatVec_csr_sm_seq(const int *d_IRP, const int *d_JA, const do
     __syncthreads();
 
     for (unsigned int s = blockDim.x >> 1; s > 0; s >>= 1) {
-        if (tid < s) {
+        if (tid < s)
             sharedMem[tid] += sharedMem[tid + s];
-        }
         __syncthreads();
     }
 

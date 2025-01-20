@@ -328,7 +328,7 @@ int main() {
             free(matrix_data_host);
             return EXIT_FAILURE;
         }
-        for (int j = 0; j < matrix_data_host->N; j++) {
+        for (int j = 0; j < matrix_data_host->M; j++) {
             x_h[j] = 1.0;
         }
 

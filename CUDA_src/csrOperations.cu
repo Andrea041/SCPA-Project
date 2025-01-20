@@ -124,6 +124,7 @@ matrixPerformance parallel_csr_cuda_v1(matrixData *matrix_data_host, double *x_h
     checkCudaErrors(cudaMemcpy(d_JA, h_JA, matrix_data_host->nz * sizeof(int), cudaMemcpyHostToDevice));
     checkCudaErrors(cudaMemcpy(d_AS, h_AS, matrix_data_host->nz * sizeof(double), cudaMemcpyHostToDevice));
     checkCudaErrors(cudaMemcpy(d_x, x_h, matrix_data_host->M * sizeof(double), cudaMemcpyHostToDevice));
+    checkCudaErrors(cudaMemset(d_y, 0, matrix_data_host->M * sizeof(double)));
 
     StopWatchInterface* timer = nullptr;
     sdkCreateTimer(&timer);
