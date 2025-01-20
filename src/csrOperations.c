@@ -22,15 +22,12 @@ struct matrixPerformance serial_csr(struct matrixData *matrix_data, double *x) {
     /* Conversione in formato CSR */
     convert_to_csr(matrix_data->M, matrix_data->nz, matrix_data->row_indices, matrix_data->col_indices, matrix_data->values, &IRP, &JA, &AS);
 
-    struct timespec start, end;
-    clock_gettime(CLOCK_MONOTONIC, &start);
+    double start = omp_get_wtime();
     matvec_csr(matrix_data->M, IRP, JA, AS, x, y);
-    clock_gettime(CLOCK_MONOTONIC, &end);
-
-    const double time_spent = (double)(end.tv_sec - start.tv_sec) + (double)(end.tv_nsec - start.tv_nsec) / 1e9;
+    double end = omp_get_wtime();
 
     struct matrixPerformance node;
-    node.seconds = time_spent;
+    node.seconds = end - start;
     node.flops = 0;
     node.gigaFlops = 0;
 
@@ -136,14 +133,12 @@ struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x)
     int *start_row, *end_row;
 
     compute_thread_row_partition(matrix_data->M, matrix_data->nz, &num_threads, IRP, &start_row, &end_row);
-    struct timespec start, end;
 
-    clock_gettime(CLOCK_MONOTONIC, &start);
+    double start = omp_get_wtime();
     matvec_csr_openMP(IRP, JA, AS, x, y, start_row, end_row, num_threads, matrix_data->nz, matrix_data->M);
-    clock_gettime(CLOCK_MONOTONIC, &end);
+    double end = omp_get_wtime();
 
-    const double time_spent = (double)(end.tv_sec - start.tv_sec) + (double)(end.tv_nsec - start.tv_nsec) / 1e9;
-    node.seconds = time_spent;
+    node.seconds = end - start;
 
     free(start_row);
     free(end_row);

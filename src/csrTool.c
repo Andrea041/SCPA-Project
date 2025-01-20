@@ -61,11 +61,6 @@ void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, double *
         }
     }
 
-    printf("\nSeriale CSR\n");
-    for (int i = 0; i < M; i++) {
-        printf("y[%d] = %lf\n", i, y[i]);
-    }
-
     // Scrittura dei risultati su file
     /*FILE *file = fopen("../result/risultati.txt", "w");
     if (file == NULL) {
@@ -93,9 +88,5 @@ void matvec_csr_openMP(const int *IRP, const int *JA, const double *AS, const do
                 y[i] += AS[j] * x[JA[j]];
             }
         }
-    }
-    printf("Parallelo CSR\n");
-    for (int i = 0; i < M; i++) {
-        printf("y[%d] = %lf\n", i, y[i]);
     }
 }

@@ -304,7 +304,9 @@ int main() {
 
     // Creazione degli array JSON per questa matrice
     cJSON *cuda_array_csr_serial = cJSON_CreateArray();
-    cJSON *cuda_array_csr_parallel = cJSON_CreateArray();
+    cJSON *cuda_array_csr_parallel_v1 = cJSON_CreateArray();
+    cJSON *cuda_array_csr_parallel_v2 = cJSON_CreateArray();
+    cJSON *cuda_array_csr_parallel_v3 = cJSON_CreateArray();
     cJSON *cuda_array_hll_parallel = cJSON_CreateArray();
 
 
@@ -332,11 +334,13 @@ int main() {
 
         for (int j = 0; j < ITERATION_PER_MATRIX; j++) {
             /* Esecuzione seriale su CPU */
-           // add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_serial, serial_csr_cuda);
+            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_serial, serial_csr_cuda);
             // Calcolo parallelo su GPU formato CSR
-            //add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel, parallel_csr_cuda);
+            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel_v1, parallel_csr_cuda_v1);
+            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel_v2, parallel_csr_cuda_v2);
+            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel_v3, parallel_csr_cuda_v3);
             // Calcolo parallelo su GPU formato HLL
-            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_hll_parallel, parallel_hll_cuda);
+            //add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_hll_parallel, parallel_hll_cuda);
         }
 
         free(x_h);
@@ -344,15 +348,21 @@ int main() {
     }
 
     write_json_to_file("../result/iteration/CUDA_serial_CSR.json", cuda_array_csr_serial);
-    write_json_to_file("../result/iteration/CUDA_CSR.json", cuda_array_csr_parallel);
+    write_json_to_file("../result/iteration/CUDA_CSR_v1.json", cuda_array_csr_parallel_v1);
+    write_json_to_file("../result/iteration/CUDA_CSR_v2.json", cuda_array_csr_parallel_v2);
+    write_json_to_file("../result/iteration/CUDA_CSR_v3.json", cuda_array_csr_parallel_v3);
     write_json_to_file("../result/iteration/CUDA_HLL.json", cuda_array_hll_parallel);
 
     cJSON_Delete(cuda_array_csr_serial);
-    cJSON_Delete(cuda_array_csr_parallel);
+    cJSON_Delete(cuda_array_csr_parallel_v1);
+    cJSON_Delete(cuda_array_csr_parallel_v2);
+    cJSON_Delete(cuda_array_csr_parallel_v3);
     cJSON_Delete(cuda_array_hll_parallel);
 
     calculatePerformance("../result/iteration/CUDA_serial_CSR.json", "../result/final/CUDA_serial_CSR.json");
-    calculatePerformance("../result/iteration/CUDA_CSR.json", "../result/final/CUDA_CSR.json");
+    calculatePerformance("../result/iteration/CUDA_CSR_v1.json", "../result/final/CUDA_CSR_v1.json");
+    calculatePerformance("../result/iteration/CUDA_CSR_v2.json", "../result/final/CUDA_CSR_v2.json");
+    calculatePerformance("../result/iteration/CUDA_CSR_v3.json", "../result/final/CUDA_CSR_v3.json");
     calculatePerformance("../result/iteration/CUDA_HLL.json", "../result/final/CUDA_HLL.json");
 
     return EXIT_SUCCESS;
