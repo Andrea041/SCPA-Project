@@ -82,7 +82,7 @@ matrixPerformance serial_csr_cuda(matrixData *matrix_data_host, double *x_h) {
     node.flops = 0;
     node.gigaFlops = 0;
 
-    printf("Time taken by CPU: %f\n", timer->getTime() / 1000.0f);
+    //printf("Time taken by CPU: %f\n", timer->getTime() / 1000.0f);
 
     free(y_h);
     free(IRP);
@@ -198,6 +198,7 @@ matrixPerformance parallel_csr_cuda_v2(matrixData *matrix_data_host, double *x_h
     checkCudaErrors(cudaMemcpy(d_JA, h_JA, matrix_data_host->nz * sizeof(int), cudaMemcpyHostToDevice));
     checkCudaErrors(cudaMemcpy(d_AS, h_AS, matrix_data_host->nz * sizeof(double), cudaMemcpyHostToDevice));
     checkCudaErrors(cudaMemcpy(d_x, x_h, matrix_data_host->M * sizeof(double), cudaMemcpyHostToDevice));
+    checkCudaErrors(cudaMemset(d_y, 0, matrix_data_host->M * sizeof(double)));
 
     /* In questo modo ciascun blocco potrà processare una riga in parallelo */
     const dim3 GRID_DIM(matrix_data_host->M);
@@ -212,7 +213,6 @@ matrixPerformance parallel_csr_cuda_v2(matrixData *matrix_data_host, double *x_h
 
     checkCudaErrors(cudaMemcpy(y_h, d_y, matrix_data_host->M * sizeof(double), cudaMemcpyDeviceToHost));
 
-
     /* Con questa funzione controlliamo se il vettore y ottenuto da GPU è uguale a quello su CPU */
     checkDifferences(y_h , matrix_data_host->M);
 
@@ -221,7 +221,7 @@ matrixPerformance parallel_csr_cuda_v2(matrixData *matrix_data_host, double *x_h
     node.flops = 0;
     node.gigaFlops = 0;
 
-    printf("Time taken by GPU: %f\n", timer->getTime() / 1000.0f);
+    //printf("Time taken by GPU: %f\n", timer->getTime() / 1000.0f);
 
     free(y_h);
     free(h_IRP);
@@ -268,6 +268,7 @@ matrixPerformance parallel_csr_cuda_v3(matrixData *matrix_data_host, double *x_h
     checkCudaErrors(cudaMemcpy(d_JA, h_JA, matrix_data_host->nz * sizeof(int), cudaMemcpyHostToDevice));
     checkCudaErrors(cudaMemcpy(d_AS, h_AS, matrix_data_host->nz * sizeof(double), cudaMemcpyHostToDevice));
     checkCudaErrors(cudaMemcpy(d_x, x_h, matrix_data_host->M * sizeof(double), cudaMemcpyHostToDevice));
+    checkCudaErrors(cudaMemset(d_y, 0, matrix_data_host->M * sizeof(double)));
 
     /* In questo modo ciascun blocco potrà processare una riga in parallelo */
     const dim3 GRID_DIM(matrix_data_host->M);
@@ -291,7 +292,7 @@ matrixPerformance parallel_csr_cuda_v3(matrixData *matrix_data_host, double *x_h
     node.flops = 0;
     node.gigaFlops = 0;
 
-    printf("Time taken by GPU: %f\n", timer->getTime() / 1000.0f);
+    //printf("Time taken by GPU: %f\n", timer->getTime() / 1000.0f);
 
 
     free(y_h);
