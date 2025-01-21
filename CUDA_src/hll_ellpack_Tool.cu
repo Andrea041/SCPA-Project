@@ -1,11 +1,11 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include <cstdlib>
+#include <cstdio>
+#include <cstring>
 
 #include "../libs/data_structure.h"
 #include "../libs/hll_ellpack_Tool.h"
 #include "../libs/costants.h"
-#include "../CUDA_libs/cudaCostants.h"
+#include "../CUDA_libs/hllTool.h"
 
 /* Funzione per calcolare il massimo numero di nonzeri per ciascuna riga */
 void calculate_max_nz_in_row_in_block(const struct matrixData *matrix_data, int *nz_per_row) {
@@ -155,73 +155,130 @@ void convert_to_hll_cuda( matrixData *matrix_data, HLL_Matrix *hll_matrix, HLL_M
     free(nz_per_row);
 }
 
+/* Prodotto matrice-vettore parallelo su GPU - ciascun thread di un blocco prende in carico una riga */
 __global__ void matvec_Hll_cuda(const HLL_Matrix *d_hll_matrix, const double *d_x, double *d_y, int M) {
-    // Calcola l'indice della riga globale
     int global_row = blockIdx.x * blockDim.x + threadIdx.x;
 
-    // Controlla che l'indice non ecceda il numero di righe
     if (global_row >= M) return;
 
-    // Trova il blocco corrispondente
+    // Identifico il blocco a livello globale
     int block_id = global_row / HackSize;
+    // Identifico la riga all'interno del blocco
     int local_row = global_row % HackSize;
 
-    // Ottieni il blocco corrente
     const ELLPACK_Block *block = &d_hll_matrix->blocks[block_id];
 
-    // Calcola l'offset della riga all'interno del blocco
+    // Individuo la riga da cui devo partire ad effettuare il prodotto
     int row_offset = local_row * block->max_nz_per_row;
 
     // Calcola il prodotto matrice-vettore
-    double result = 0.0;
-    for (int j = 0; j < block->max_nz_per_row; j++) {
-        int col = block->JA[row_offset + j];
-        double value = block->AS[row_offset + j];
-        result += value * d_x[col];
-    }
+    double sum = 0.0;
+    for (int j = 0; j < block->max_nz_per_row; j++)
+        sum += block->AS[row_offset + j] * d_x[block->JA[row_offset + j]];
 
-    // Salva il risultato
-    d_y[global_row] = result;
-
+    d_y[global_row] = sum;
 }
 
-__global__ void matvec_Hll_cuda_SH( HLL_Matrix *d_hll_matrix,  double *d_x, double *d_y, int M) {
-    // Calcola l'indice della riga globale
-    int global_row = blockIdx.x * blockDim.x + threadIdx.x;
+/*__device__ void process_other_blocks(ELLPACK_Block *block, const double *d_x, double *d_y, int M, const int global_row, const int global_col,
+                                    int block_number, int tid, int block_x, volatile double *sharedMem, int local_index) {
+    int aux_block = blockIdx.y;
+    if (aux_block != block_number || blockIdx.x != block_x) return;
 
-    // Controlla che l'indice non ecceda il numero di righe
-    if (global_row >= M) return;
+    const int global_index = global_row * block->max_nz_per_row + global_col;
+    if (global_index >= block->max_nz_per_row * M) return;
 
-    // Trova il blocco corrispondente
-    int block_id = global_row / HackSize;
+    // Memoria condivisa per il blocco
+    sharedMem[local_index] = 0.0;  // Inizializzazione a 0
+    __syncthreads();
+
+    // Accumulo del prodotto matrice-vettore
+    double sum = 0.0;
+    sum = block->AS[global_index] * d_x[block->JA[global_index]];
+    sharedMem[local_index] = sum;
+
+    // Riduzione parallela per ciascuna riga
+    if (local_index % block->max_nz_per_row == 0) {
+        for (int j = 1; j < block->max_nz_per_row; j++)
+            sharedMem[local_index] += sharedMem[local_index + j];
+    }
+    __syncthreads();
+
+    int row = global_index / block->max_nz_per_row;
+    if (tid == 0) {
+        for (int i = 0; i < block->max_nz_per_row * M; i += block->max_nz_per_row) {
+            d_y[row] += sharedMem[i];
+            row++;
+        }
+    }
+}*/
+
+/* Prodotto matrice-vettore parallelo su GPU - ciascun blocco prende in carico un blocco ellpack e ciascun thread si occupa di svolgere il prodotto per una componente */
+__global__ void matvec_Hll_cuda_SH(const HLL_Matrix *d_hll_matrix, const double *d_x, double *d_y, int M, int N) {
+    // Indici globali di riga e colonna (blocchi 2D)
+    const int global_col = blockIdx.x * blockDim.x + threadIdx.x;
+    const int global_row = blockIdx.y * blockDim.y + threadIdx.y;
+    const int local_thread_idx = threadIdx.y * blockDim.x + threadIdx.x; // Indice locale nel blocco
+    int block_x = blockIdx.x;
+
+    // Controllo limiti globali
+    if (global_row >= M || global_col >= N) return;
+
+    // Identifico il blocco a livello globale
+    int main_block = global_row / HackSize;
+    // Identifico la riga all'interno del blocco
     int local_row = global_row % HackSize;
+    if (main_block >= d_hll_matrix->num_blocks || block_x != main_block) return;
 
-    // Ottieni il blocco corrente
-    const ELLPACK_Block *block = &d_hll_matrix->blocks[block_id];
+    ELLPACK_Block *block = &d_hll_matrix->blocks[main_block];
 
-    // Calcola l'offset della riga all'interno del blocco
-    int row_offset = local_row * block->max_nz_per_row;
+    // Decommentare se si riesce ad implementare la gestione nel caso in cui la matrice abbia un numero di nonzeri maggiore di 32
+    /*int auxiliary_blocks = 0;
+    if (block->max_nz_per_row >= 32) {
+        // Colonne rimanenti dopo aver processato il primo blocco
+        int remaining_columns = block->max_nz_per_row - 32;
+        // Calcolo quanti blocchi mi servono per completare il calcolo di un singolo blocco JA - AS
+        auxiliary_blocks = remaining_columns / 32 + 1;
+    }*/
 
-    // Dichiarazione della memoria condivisa per le colonne e i valori non nulli
-    extern __shared__ int shared_JA[];
-    extern __shared__ double shared_AS[];
-
-    // Carica i dati di JA e AS nella memoria condivisa
-    int thread_id = threadIdx.x;
-    if (thread_id < block->max_nz_per_row) {
-        shared_JA[thread_id] = block->JA[row_offset + thread_id];
-        shared_AS[thread_id] = block->AS[row_offset + thread_id];
+    int block_start_col = 0;
+    for (int i = 0; i < main_block; i++) {
+        block_start_col += d_hll_matrix->blocks[i].max_nz_per_row;
     }
-    __syncthreads(); // Sincronizza i thread per garantire che i dati siano caricati
+    int local_col = global_col - block_start_col;
 
-    // Calcola il prodotto matrice-vettore
-    double result = 0.0;
-    for (int j = 0; j < block->max_nz_per_row; j++) {
-        int col = shared_JA[j];
-        double value = shared_AS[j];
-        result += value * d_x[col];
+
+    const int local_index = local_row * block->max_nz_per_row + local_col;
+    if (local_index >= block->max_nz_per_row * M) return;
+
+    // Memoria condivisa per il blocco
+    extern __shared__ double sharedMem[];
+    sharedMem[local_index] = 0.0;  // Inizializzazione a 0
+
+    // Decommentare se si riesce ad implementare la gestione nel caso in cui la matrice abbia un numero di nonzeri maggiore di 32
+    /*if (auxiliary_blocks > 0) {
+        for (int block_number = 1; block_number < auxiliary_blocks + 1; block_number++) {
+            //process_other_blocks(block, d_x, d_y, M, global_row, global_col, block_number, local_thread_idx, main_block, sharedMem, local_index);
+        }
+    }*/
+
+    // Accumulo del prodotto matrice-vettore
+    double sum = 0.0;
+    sum = block->AS[local_index] * d_x[block->JA[local_index]];
+    sharedMem[local_index] = sum;
+
+    // Riduzione parallela per ciascuna riga
+    if (local_index % block->max_nz_per_row == 0) {
+        for (int j = 1; j < block->max_nz_per_row; j++)
+            sharedMem[local_index] += sharedMem[local_index + j];
     }
+    __syncthreads();
 
-    // Salva il risultato
-    d_y[global_row] = result;
+    int row = 0;
+    if (local_thread_idx == 0) {
+        for (int i = 0; i < block->max_nz_per_row * M; i += block->max_nz_per_row) {
+            d_y[row] += sharedMem[i];
+            row++;
+        }
+    }
 }
+
