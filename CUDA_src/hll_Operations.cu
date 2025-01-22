@@ -207,7 +207,9 @@ matrixPerformance parallel_hll_cuda_v2(matrixData *matrix_data_host, double *x_h
     double *d_y;
     double *d_x;
     int M = matrix_data_host->M;
-
+    int N = matrix_data_host->N;
+    int maxThreadsPerBlock,maxGridDimX,grid_x, grid_y,numBlock;
+    int max_nz_per_row_global = 0;
     // Pulizia della memoria GPU prima delle allocazioni
     cudaDeviceReset();
     // Controllo memoria iniziale
@@ -251,7 +253,7 @@ matrixPerformance parallel_hll_cuda_v2(matrixData *matrix_data_host, double *x_h
     checkCudaErrors(cudaMalloc(&d_blocks, hllMatrixHost->num_blocks * sizeof(ELLPACK_Block)));
     checkCudaErrors(cudaMemcpy(&d_hll_matrix->blocks, &d_blocks, sizeof(ELLPACK_Block *), cudaMemcpyHostToDevice));
 
-      for (int i = 0; i < hllMatrixHost->num_blocks; i++) {
+    for (int i = 0; i < hllMatrixHost->num_blocks; i++) {
         ELLPACK_Block *block = &hllMatrixHost->blocks[i];
 
         int *d_JA=nullptr;
@@ -291,31 +293,74 @@ matrixPerformance parallel_hll_cuda_v2(matrixData *matrix_data_host, double *x_h
     checkCudaErrors(cudaMemcpy(d_y, y_h, matrix_data_host->M * sizeof(double), cudaMemcpyHostToDevice));
     checkCudaErrors(cudaMemset(d_y, 0, matrix_data_host->M * sizeof(double)));
 
-    //printf("Copiato y iniziale in GPU\n");
 
-    // Ottieni il numero di Streaming Multiprocessors
-    int sm_count;
-    cudaDeviceGetAttribute(&sm_count, cudaDevAttrMultiProcessorCount, 0);
 
-    dim3 BLOCK_DIM(HackSize, HackSize); // Blocco 32 x 32
-    dim3 GRID_DIM(matrix_data_host->N, matrix_data_host->M); // griglia di dimensioni n x m
+    cudaDeviceGetAttribute(&maxThreadsPerBlock, cudaDevAttrMaxThreadsPerBlock, 0);
+    cudaDeviceGetAttribute(&maxGridDimX, cudaDevAttrMaxGridDimX, 0);
+
+    printf("maxGridDimX %d e maxThreadsPerBlock: %d\n", maxGridDimX, maxThreadsPerBlock);
+
+    numBlock = hllMatrixHost->num_blocks;
+
+
+    // L'obiettivo è calcolare e allineare le dimensioni della griglia e
+    // del blocco per ottenere un'efficiente distribuzione del carico di lavoro.
+    // La configurazione della griglia viene ottimizzata per:
+    // - adattarsi ai limiti hardware,
+    // - garantire che i blocchi e il numero massimo di non zeri per riga siano multipli di HackSize,
+    // - assicurarsi che la griglia non superi le dimensioni massime supportate dalla GPU,
+    // - migliorare il bilanciamento del lavoro suddividendo la griglia in due dimensioni.
+
+
+    // Trova il massimo numero di non zeri per riga nei blocchi
+    for (int i = 0; i < hllMatrixHost->num_blocks; i++) {
+        if (hllMatrixHost->blocks[i].max_nz_per_row > max_nz_per_row_global) {
+            max_nz_per_row_global = hllMatrixHost->blocks[i].max_nz_per_row;
+        }
+    }
+
+    if (max_nz_per_row_global % HackSize != 0) {
+        max_nz_per_row_global = ((max_nz_per_row_global / HackSize) + 1) * HackSize;
+    }
+    if (max_nz_per_row_global > maxThreadsPerBlock / HackSize) {
+        max_nz_per_row_global = maxThreadsPerBlock / HackSize;
+    }
+
+    // Allinea num_blocks a multiplo di HackSize senza superare maxGridDimX
+    if (numBlock % HackSize != 0) {
+        numBlock = ((numBlock / HackSize) + 1) * HackSize;
+    }
+    if (numBlock > maxGridDimX) {
+        numBlock = maxGridDimX;
+    }
+
+    // Distribuzione della griglia su due dimensioni per migliorare la parallelizzazione
+    grid_x = (int)sqrt((float)numBlock);
+    grid_y = (numBlock + grid_x - 1) / grid_x; // Arrotonda all'intero superiore
+
+    printf("Configurazione griglia: HackSize = %d, max_nz_per_row = %d, grid_x = %d, grid_y = %d\n",
+           HackSize, max_nz_per_row_global, grid_x, grid_y);
+
+    dim3 BLOCK_DIM1(HackSize, max_nz_per_row_global);
+    dim3 GRID_DIM1(grid_x, grid_y);
+
+
+    printf("Configurazione griglia: HackSize = %d, max_nz_per_row_global = %d, numBlock = %d , 1\n",
+           HackSize, max_nz_per_row_global, numBlock);
+
     // Avvia il timer
     timer->start();
     // Invoca il kernel CUDA
-    matvec_Hll_cuda_SH<<<GRID_DIM, BLOCK_DIM, SHARED_MEM_SIZE>>>(d_hll_matrix, d_x, d_y, matrix_data_host->M, matrix_data_host->N);
+    matvec_Hll_cuda_SH<<<GRID_DIM1, BLOCK_DIM1>>>(d_hll_matrix, d_x, d_y, M, N);
     // Dopo il kernel CUDA, verifica errori
     checkCudaErrors(cudaDeviceSynchronize());
 
     // Ferma il timer
     timer->stop();
 
-    checkCudaErrors(cudaMemcpy(y_h, d_y,  matrix_data_host->M * sizeof(double), cudaMemcpyDeviceToHost));
+    checkCudaErrors(cudaMemcpy(y_h, d_y,  M* sizeof(double), cudaMemcpyDeviceToHost));
     checkDifferences(y_h, matrix_data_host->M);
-    /*printf("Risultato copiato da GPU a CPU:\n");
-    for (int i = 0; i < matrix_data_host->M; i++) {
-        printf("y[%d] = %lf\n", i, y_h[i]);
-    }
-*/
+
     matrixPerformance node{};
     node.seconds = timer->getTime()/1000.0f;
     node.flops = 0;
