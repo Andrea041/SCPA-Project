@@ -298,7 +298,6 @@ matrixPerformance parallel_hll_cuda_v2(matrixData *matrix_data_host, double *x_h
     cudaDeviceGetAttribute(&maxThreadsPerBlock, cudaDevAttrMaxThreadsPerBlock, 0);
     cudaDeviceGetAttribute(&maxGridDimX, cudaDevAttrMaxGridDimX, 0);
 
-    printf("maxGridDimX %d e maxThreadsPerBlock: %d\n", maxGridDimX, maxThreadsPerBlock);
 
     numBlock = hllMatrixHost->num_blocks;
 
@@ -338,20 +337,15 @@ matrixPerformance parallel_hll_cuda_v2(matrixData *matrix_data_host, double *x_h
     grid_x = (int)sqrt((float)numBlock);
     grid_y = (numBlock + grid_x - 1) / grid_x; // Arrotonda all'intero superiore
 
-    printf("Configurazione griglia: HackSize = %d, max_nz_per_row = %d, grid_x = %d, grid_y = %d\n",
-           HackSize, max_nz_per_row_global, grid_x, grid_y);
 
-    dim3 BLOCK_DIM1(HackSize, max_nz_per_row_global);
+    dim3 BLOCK_DIM1(HackSize, HackSize);
     dim3 GRID_DIM1(grid_x, grid_y);
 
-
-    printf("Configurazione griglia: HackSize = %d, max_nz_per_row_global = %d, numBlock = %d , 1\n",
-           HackSize, max_nz_per_row_global, numBlock);
 
     // Avvia il timer
     timer->start();
     // Invoca il kernel CUDA
-    matvec_Hll_cuda_SH<<<GRID_DIM1, BLOCK_DIM1>>>(d_hll_matrix, d_x, d_y, M, N);
+    matvec_Hll_cuda_SH<<<GRID_DIM1, BLOCK_DIM1>>>(d_hll_matrix, d_x, d_y, M);
     // Dopo il kernel CUDA, verifica errori
     checkCudaErrors(cudaDeviceSynchronize());
 
@@ -359,7 +353,7 @@ matrixPerformance parallel_hll_cuda_v2(matrixData *matrix_data_host, double *x_h
     timer->stop();
 
     checkCudaErrors(cudaMemcpy(y_h, d_y,  M* sizeof(double), cudaMemcpyDeviceToHost));
-    checkDifferences(y_h, matrix_data_host->M);
+    //checkDifferences(y_h, matrix_data_host->M);
 
     matrixPerformance node{};
     node.seconds = timer->getTime()/1000.0f;

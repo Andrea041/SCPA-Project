@@ -10,5 +10,6 @@ constexpr dim3 BLOCK_DIM(BDX, BDY);
 
 /* Dimensione della shared memory -> limita il parallelismo a SHARED_MEM_SIZE threads */
 #define SHARED_MEM_SIZE 1024 * sizeof(double)
+#define SHARED_MEM_SIZE_HLL 192
 
 #endif //CUDACOSTANTS_H

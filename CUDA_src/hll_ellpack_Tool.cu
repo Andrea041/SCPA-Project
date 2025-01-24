@@ -4,6 +4,8 @@
 
 #include "../libs/data_structure.h"
 #include "../libs/hll_ellpack_Tool.h"
+
+#include "../CUDA_libs/cudaCostants.h"
 #include "../libs/costants.h"
 #include "../CUDA_libs/hllTool.h"
 
@@ -255,7 +257,7 @@ __global__ void matvec_Hll_cuda_SH(const HLL_Matrix *d_hll_matrix, const double 
  */
 
 
-__global__ void matvec_Hll_cuda_SH(const HLL_Matrix *d_hll_matrix, const double *d_x, double *d_y, int M, int N) {
+__global__ void matvec_Hll_cuda_SH(const HLL_Matrix *d_hll_matrix, const double *d_x, double *d_y, int M) {
     int global_row = (blockIdx.x + blockIdx.y * gridDim.x) * blockDim.x + threadIdx.x;
     int thread_col = threadIdx.y;
 
