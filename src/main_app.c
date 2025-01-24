@@ -1,4 +1,5 @@
 #include <ctype.h>
+#include <omp.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -11,6 +12,7 @@
 #include "../libs/costants.h"
 #include "../libs/csrOperations.h"
 #include "../libs/hll_Operations.h"
+#include "../../cJSON/cJSON.h"
 const char *base_path = "../../matrix/";
 #ifdef USER_PIERFRANCESCO
 #include "../cJSON/cJSON.h"
@@ -155,11 +157,11 @@ void preprocess_matrix(struct matrixData *matrix_data, int i) {
 void add_performance_to_array(const char *nameMatrix,
                               struct matrixData *matrix_data, double *x,
                               cJSON *matrix_array,
-                              struct matrixPerformance (*calculation_function)(struct matrixData *, double *)) {
+                              struct matrixPerformance (*calculation_function)(struct matrixData *, double *, int), int num_threads) {
     struct matrixPerformance matrixPerformance;
 
     // Esegui il calcolo
-    matrixPerformance = calculation_function(matrix_data, x);
+    matrixPerformance = calculation_function(matrix_data, x,num_threads);
 
     // Copia il nome della matrice
     strncpy(matrixPerformance.nameMatrix, nameMatrix, sizeof(matrixPerformance.nameMatrix) - 1);
@@ -305,59 +307,84 @@ int main() {
     ensure_directory_exists("../result/iteration");
     ensure_directory_exists("../result/final");
 
+    int numMax = omp_get_max_threads();
+    int numThread[] = {2, 4, 8, 16, 32, numMax, numMax+1};
+
+
     const int num_matrices = sizeof(matrix_names) / sizeof(matrix_names[0]);
 
-    // Creazione degli array JSON per questa matrice
-    cJSON *serial_array_csr = cJSON_CreateArray();
-    cJSON *parallel_array_csr_openMP = cJSON_CreateArray();
-    cJSON *parallel_array_hll_openMP = cJSON_CreateArray();
+    for (int Thread = 1; Thread < 7+1; Thread++) {
+            // Creazione degli array JSON per questa matrice
+        cJSON *serial_array_csr = cJSON_CreateArray();
+        cJSON *parallel_array_csr_openMP = cJSON_CreateArray();
+        cJSON *parallel_array_hll_openMP = cJSON_CreateArray();
 
-    for (int i = 0; i < num_matrices; i++) {
-        struct matrixData *matrix_data = malloc(sizeof(struct matrixData));
-        if (!matrix_data) {
-            perror("Errore nell'allocazione della memoria per matrix_data.");
-            return EXIT_FAILURE;
-        }
+        for (int i = 0; i < num_matrices; i++) {
+            struct matrixData *matrix_data = malloc(sizeof(struct matrixData));
+            if (!matrix_data) {
+                perror("Errore nell'allocazione della memoria per matrix_data.");
+                return EXIT_FAILURE;
+            }
 
-        printf("Calcolo su matrice: %s\n", matrix_names[i]);
-        preprocess_matrix(matrix_data, i);
+            printf("Calcolo su matrice: %s\n", matrix_names[i]);
+            preprocess_matrix(matrix_data, i);
 
-        double *x = malloc(matrix_data->M * sizeof(double));
-        if (!x) {
-            perror("Errore nell'allocazione della memoria per il vettore x.");
+            double *x = malloc(matrix_data->M * sizeof(double));
+            if (!x) {
+                perror("Errore nell'allocazione della memoria per il vettore x.");
+                free(matrix_data);
+                return EXIT_FAILURE;
+            }
+            for (int j = 0; j < matrix_data->M; j++) {
+                x[j] = 1.0;
+            }
+
+            for (int j = 0; j < ITERATION_PER_MATRIX; j++) {
+                /*seriale con CSR*/
+                add_performance_to_array(matrix_names[i], matrix_data, x, serial_array_csr, serial_csr, 1);
+
+                /*parallelo OPENMP && CSR*/
+                add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array_csr_openMP, parallel_csr, numThread[j] );
+
+                /*parallelo OPENMP && HLL*/
+                add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array_hll_openMP, parallel_hll,  numThread[j]);
+            }
+
+            free(x);
             free(matrix_data);
-            return EXIT_FAILURE;
-        }
-        for (int j = 0; j < matrix_data->M; j++) {
-            x[j] = 1.0;
         }
 
-        for (int j = 0; j < ITERATION_PER_MATRIX; j++) {
-            /*seriale con CSR*/
-            add_performance_to_array(matrix_names[i], matrix_data, x, serial_array_csr, serial_csr);
+        // Scrittura dei file includendo il numero di thread
+        char serial_filename[256];
+        snprintf(serial_filename, sizeof(serial_filename), "../result/iteration/serial_CSR_NumThread_%d.json", numThread[Thread]);
+        write_json_to_file(serial_filename, serial_array_csr);
 
-            /*parallelo OPENMP && CSR*/
-            add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array_csr_openMP, parallel_csr);
+        char parallel_csr_filename[256];
+        snprintf(parallel_csr_filename, sizeof(parallel_csr_filename), "../result/iteration/par_OpenMP_CSR_NumThread_%d.json", numThread[Thread]);
+        write_json_to_file(parallel_csr_filename, parallel_array_csr_openMP);
 
-            /*parallelo OPENMP && HLL*/
-            add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array_hll_openMP, parallel_hll);
-        }
+        char parallel_hll_filename[256];
+        snprintf(parallel_hll_filename, sizeof(parallel_hll_filename), "../result/iteration/par_OpenMP_HLL_NumThread_%d.json", numThread[Thread]);
+        write_json_to_file(parallel_hll_filename, parallel_array_hll_openMP);
 
-        free(x);
-        free(matrix_data);
+        cJSON_Delete(serial_array_csr);
+        cJSON_Delete(parallel_array_csr_openMP);
+        cJSON_Delete(parallel_array_hll_openMP);
+
+        // Calcolo delle performance
+        char final_serial_filename[256];
+        snprintf(final_serial_filename, sizeof(final_serial_filename), "../result/final/serial_CSR_NumThread_%d.json", numThread[Thread]);
+        calculatePerformance(serial_filename, final_serial_filename);
+
+        char final_parallel_csr_filename[256];
+        snprintf(final_parallel_csr_filename, sizeof(final_parallel_csr_filename), "../result/final/par_OpenMP_CSR_NumThread_%d.json", numThread[Thread]);
+        calculatePerformance(parallel_csr_filename, final_parallel_csr_filename);
+
+        char final_parallel_hll_filename[256];
+        snprintf(final_parallel_hll_filename, sizeof(final_parallel_hll_filename), "../result/final/par_OpenMP_HLL_NumThread_%d.json", numThread[Thread]);
+        calculatePerformance(parallel_hll_filename, final_parallel_hll_filename);
     }
 
-    write_json_to_file("../result/iteration/serial_CSR.json", serial_array_csr);
-    write_json_to_file("../result/iteration/par_OpenMP_CSR.json", parallel_array_csr_openMP);
-    write_json_to_file("../result/iteration/par_OpenMP_HLL.json", parallel_array_hll_openMP);
-
-    cJSON_Delete(serial_array_csr);
-    cJSON_Delete(parallel_array_csr_openMP);
-    cJSON_Delete(parallel_array_hll_openMP);
-
-    calculatePerformance("../result/iteration/serial_CSR.json", "../result/final/serial_CSR.json");
-    calculatePerformance("../result/iteration/par_OpenMP_CSR.json", "../result/final/par_OpenMP_CSR.json");
-    calculatePerformance("../result/iteration/par_OpenMP_HLL.json", "../result/final/par_OpenMP_HLL.json");
 
     return EXIT_SUCCESS;
 }
