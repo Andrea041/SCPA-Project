@@ -12,7 +12,8 @@
 #include "../libs/costants.h"
 #include "../libs/csrOperations.h"
 #include "../libs/hll_Operations.h"
-#include "../../cJSON/cJSON.h"
+#include "../../cJSON/include/cjson/cJSON.h"
+
 const char *base_path = "../../matrix/";
 #ifdef USER_PIERFRANCESCO
 #include "../cJSON/cJSON.h"
@@ -161,7 +162,7 @@ void add_performance_to_array(const char *nameMatrix,
     struct matrixPerformance matrixPerformance;
 
     // Esegui il calcolo
-    matrixPerformance = calculation_function(matrix_data, x,num_threads);
+    matrixPerformance = calculation_function(matrix_data, x, num_threads);
 
     // Copia il nome della matrice
     strncpy(matrixPerformance.nameMatrix, nameMatrix, sizeof(matrixPerformance.nameMatrix) - 1);
@@ -173,7 +174,10 @@ void add_performance_to_array(const char *nameMatrix,
     cJSON_AddNumberToObject(performance_obj, "seconds", matrixPerformance.seconds);
     cJSON_AddNumberToObject(performance_obj, "nonzeros", matrix_data->nz);
     cJSON_AddNumberToObject(performance_obj, "flops", 0);
-    cJSON_AddNumberToObject(performance_obj, "gigaFlops", 0);
+    cJSON_AddNumberToObject(performance_obj, "megaFlops", 0);
+    cJSON_AddNumberToObject(performance_obj, "colonne", matrix_data->N);
+    cJSON_AddNumberToObject(performance_obj, "righe", matrix_data->M);
+
 
     // Aggiungi l'oggetto all'array JSON
     cJSON_AddItemToArray(matrix_array, performance_obj);
@@ -231,13 +235,14 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
 
     MatrixPerformanceResult *matrix_results = malloc(1000 * sizeof(MatrixPerformanceResult)); // Buffer iniziale
     int matrix_result_count = 0;
-    int nz = 0;
 
     cJSON *item;
     cJSON_ArrayForEach(item, json_array) {
         const char *nameMatrix = cJSON_GetObjectItem(item, "nameMatrix")->valuestring;
         double seconds = cJSON_GetObjectItem(item, "seconds")->valuedouble;
-        nz = cJSON_GetObjectItem(item, "nonzeros")->valueint;  // Debug: verifica i valori letti
+        int nz = cJSON_GetObjectItem(item, "nonzeros")->valueint;  // Debug: verifica i valori letti
+        int row = cJSON_GetObjectItem(item, "righe")->valueint;
+        int col = cJSON_GetObjectItem(item, "colonne")->valueint;
 
         // Cerca se il nameMatrix esiste già
         int found = 0;
@@ -245,6 +250,9 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
             if (strcmp(matrix_results[i].nameMatrix, nameMatrix) == 0) {
                 matrix_results[i].total_seconds += seconds;
                 matrix_results[i].count++;
+                matrix_results[i].nz = nz;
+                matrix_results[i].row = row;
+                matrix_results[i].col = col;
                 found = 1;
                 break;
             }
@@ -255,6 +263,9 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
             strncpy(matrix_results[matrix_result_count].nameMatrix, nameMatrix, sizeof(matrix_results[matrix_result_count].nameMatrix) - 1);
             matrix_results[matrix_result_count].nameMatrix[sizeof(matrix_results[matrix_result_count].nameMatrix) - 1] = '\0';
             matrix_results[matrix_result_count].total_seconds = seconds;
+            matrix_results[matrix_result_count].nz = nz;
+            matrix_results[matrix_result_count].row = row;
+            matrix_results[matrix_result_count].col = col;
             matrix_results[matrix_result_count].count = 1;
             matrix_result_count++;
         }
@@ -270,15 +281,18 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
         double average_seconds = matrix_results[i].total_seconds / ITERATION_PER_MATRIX;
 
         // Calcola FLOPS e gigaFLOPS
-        double flops = 2.0 * nz / average_seconds;
-        double gigaFlops = flops / 1e9;
+        double flops = 2.0 * matrix_results[i].nz / average_seconds;
+        double megaFlops = flops / 1e6;
 
         // Creazione dell'oggetto JSON
         cJSON *output_data = cJSON_CreateObject();
         cJSON_AddStringToObject(output_data, "nameMatrix", matrix_results[i].nameMatrix);
         cJSON_AddNumberToObject(output_data, "seconds", average_seconds);
         cJSON_AddNumberToObject(output_data, "flops", flops);
-        cJSON_AddNumberToObject(output_data, "gigaFlops", gigaFlops);
+        cJSON_AddNumberToObject(output_data, "megaFlops", megaFlops);
+        cJSON_AddNumberToObject(output_data, "righe", matrix_results[i].row);
+        cJSON_AddNumberToObject(output_data, "colonne", matrix_results[i].col);
+        cJSON_AddNumberToObject(output_data, "nonzeri", matrix_results[i].nz);
 
         // Aggiungi l'oggetto all'array JSON
         cJSON_AddItemToArray(output_array, output_data);
@@ -308,12 +322,13 @@ int main() {
     ensure_directory_exists("../result/final");
 
     int numMax = omp_get_max_threads();
-    int numThread[] = {2, 4, 8, 16, 32, numMax, numMax+1};
+    int numThread[] = {2, 4, 8, 16, 32, numMax};
 
 
     const int num_matrices = sizeof(matrix_names) / sizeof(matrix_names[0]);
 
-    for (int Thread = 1; Thread < 7+1; Thread++) {
+    for (int Thread = 0; Thread < 6; Thread++) {
+        printf("Run con %d threads\n", numThread[Thread]);
             // Creazione degli array JSON per questa matrice
         cJSON *serial_array_csr = cJSON_CreateArray();
         cJSON *parallel_array_csr_openMP = cJSON_CreateArray();
@@ -344,10 +359,10 @@ int main() {
                 add_performance_to_array(matrix_names[i], matrix_data, x, serial_array_csr, serial_csr, 1);
 
                 /*parallelo OPENMP && CSR*/
-                add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array_csr_openMP, parallel_csr, numThread[j] );
+                add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array_csr_openMP, parallel_csr, numThread[Thread]);
 
                 /*parallelo OPENMP && HLL*/
-                add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array_hll_openMP, parallel_hll,  numThread[j]);
+                add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array_hll_openMP, parallel_hll,  numThread[Thread]);
             }
 
             free(x);

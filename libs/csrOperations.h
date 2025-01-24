@@ -3,7 +3,7 @@
 #include "../libs/data_structure.h"
 
 /* Calcolo serializzato */
-struct matrixPerformance serial_csr(struct matrixData *matrix_data, double *x);
+struct matrixPerformance serial_csr(struct matrixData *matrix_data, double *x, int num_threads);
 
 /* Calcolo parallelo con OpenMP */
 struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x, int num_threads);

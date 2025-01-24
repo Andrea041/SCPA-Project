@@ -11,12 +11,6 @@
 void distribute_blocks_to_threads(struct matrixData *matrix_data, HLL_Matrix *hll_matrix, int num_threads, int **start_block, int **end_block, int *valid_threads) {
     *start_block = (int *)malloc((size_t)num_threads * sizeof(int));
     *end_block = (int *)malloc((size_t)num_threads * sizeof(int));
-    bool ottimizzato = false;
-    if (num_threads == omp_get_max_threads()+1){
-        num_threads=omp_get_max_threads();
-        ottimizzato=true;
-
-    }
     if (!*start_block || !*end_block) {
         fprintf(stderr, "Errore: Allocazione fallita per start_block o end_block.\n");
         exit(EXIT_FAILURE);
@@ -67,7 +61,6 @@ void distribute_blocks_to_threads(struct matrixData *matrix_data, HLL_Matrix *hl
     }
 
     if (hll_matrix->num_blocks > 1) {
-
         (*end_block)[thread_id] = hll_matrix->num_blocks - 1;
 
         // Verifica che il thread abbia un sottoinsieme non nullo
@@ -75,17 +68,12 @@ void distribute_blocks_to_threads(struct matrixData *matrix_data, HLL_Matrix *hl
             //printf("HLL Thread %d: blocchi da %d a %d, non-zero = %d\n", thread_id, (*start_block)[thread_id], (*end_block)[thread_id], current_non_zero);
             *valid_threads = thread_id + 1;
         } else {
-            if (ottimizzato) {  // Se il sottoinsieme di blocchi è nullo, riassigna al thread precedente
-                (*end_block)[thread_id - 1] = (*end_block)[thread_id];
-                *valid_threads = thread_id;
-            }
-
+            (*end_block)[thread_id - 1] = (*end_block)[thread_id];
+            *valid_threads = thread_id;
         }
     } else {
         *valid_threads = thread_id;
     }
-
-
 
     // Verifica che tutti i blocchi siano stati assegnati una sola volta e che il numero totale corrisponda
     int assigned_blocks = 0;

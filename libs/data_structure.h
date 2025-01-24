@@ -52,6 +52,9 @@ typedef struct {
     char nameMatrix[50];
     double total_seconds;
     int count;
+    int nz;
+    int row;
+    int col;
 } MatrixPerformanceResult;
 
 #endif // DATA_STRUCTURE_H

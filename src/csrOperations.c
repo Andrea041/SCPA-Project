@@ -11,7 +11,7 @@
 #include "../libs/data_structure.h"
 
 /* Funzione per svolgere il prodotto matrice-vettore, con memorizzazione CSR della matrice, in modo serializzato */
-struct matrixPerformance serial_csr(struct matrixData *matrix_data, double *x) {
+struct matrixPerformance serial_csr(struct matrixData *matrix_data, double *x, int num_threads) {
     int *IRP, *JA;
     double *AS;
 
@@ -43,12 +43,6 @@ struct matrixPerformance serial_csr(struct matrixData *matrix_data, double *x) {
 }
 
 void compute_thread_row_partition(int M, int nz, int *num_threads, int *IRP, int **start_row, int **end_row) {
-    bool ottimizzato = false;
-    if (*num_threads== omp_get_max_threads()+1){
-        *num_threads=omp_get_max_threads();
-        ottimizzato=true;
-
-    }
     *start_row = malloc((size_t)(*num_threads) * sizeof(int));
     *end_row = malloc((size_t)(*num_threads) * sizeof(int));
     int *nnz_per_thread_count = malloc((size_t)(*num_threads) * sizeof(int)); // Array per conteggio dei non zeri
@@ -93,24 +87,19 @@ void compute_thread_row_partition(int M, int nz, int *num_threads, int *IRP, int
         (*end_row)[current_thread] = M;
     }
 
-    if (ottimizzato) {
-        int valid_threads = 0;
-        // Rimuovi i thread non validi (ad esempio, se ci sono più thread rispetto alle righe o i non zeri)
-        for (int t = 0; t < *num_threads; t++) {
-            if ((*start_row)[t] != -1 && (*end_row)[t] != -1 && nnz_per_thread_count[t] > 0) {
-                // Mantieni il thread valido
-                (*start_row)[valid_threads] = (*start_row)[t];
-                (*end_row)[valid_threads] = (*end_row)[t];
-                nnz_per_thread_count[valid_threads] = nnz_per_thread_count[t];
-                valid_threads++;
-            }
+    int valid_threads = 0;
+    // Rimuovi i thread non validi (ad esempio, se ci sono più thread rispetto alle righe o i non zeri)
+    for (int t = 0; t < *num_threads; t++) {
+        if ((*start_row)[t] != -1 && (*end_row)[t] != -1 && nnz_per_thread_count[t] > 0) {
+            // Mantieni il thread valido
+            (*start_row)[valid_threads] = (*start_row)[t];
+            (*end_row)[valid_threads] = (*end_row)[t];
+            nnz_per_thread_count[valid_threads] = nnz_per_thread_count[t];
+            valid_threads++;
         }
-
-        // Aggiorna il numero finale di thread
-        *num_threads = valid_threads;
     }
-
-
+    // Aggiorna il numero finale di thread
+    *num_threads = valid_threads;
 
     free(nnz_per_thread_count);
 }
