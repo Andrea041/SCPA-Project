@@ -7,6 +7,7 @@
 #include "../libs/hll_ellpack_Tool.h"
 #include "../libs/data_structure.h"
 #include "../libs/costants.h"
+#include "../libs/csrOperations.h"
 
 void distribute_blocks_to_threads(struct matrixData *matrix_data, HLL_Matrix *hll_matrix, int num_threads, int **start_block, int **end_block, int *valid_threads) {
     *start_block = (int *)malloc((size_t)num_threads * sizeof(int));
@@ -156,6 +157,7 @@ struct matrixPerformance parallel_hll(struct matrixData *matrix_data, double *x_
     performance.seconds = time_spent;
     performance.flops = 0;
     performance.gigaFlops = 0;
+    performance.gigaFlops= checkDifferencesOpenMP(y, matrix_data->M);
 
     // Libera memoria
     free(y);

@@ -6,9 +6,60 @@
 #include "../libs/csrOperations.h"
 
 #include <stdbool.h>
+#include <string.h>
 
 #include "../libs/csrTool.h"
 #include "../libs/data_structure.h"
+#include <math.h>
+
+double *y_SerialResult = NULL;
+
+
+double checkDifferencesOpenMP(double *y_h, int matrix_row) {
+    double totalRelativeDiff = 0.0f;  // Somma delle differenze relative
+    double relativeDiff = 0.0f;
+    double maxAbs;
+    double toleranceRel = 1e-6;  // Tolleranza relativa
+    double absTolerance = 1e-7;  // Tolleranza per differenze assolute
+    int count = 0;  // Contatore per gli errori relativi significativi
+
+    for (int i = 0; i < matrix_row; i++) {
+        // Calcoliamo il massimo valore assoluto tra y_CPU e y_h per ciascun elemento
+        maxAbs = fmax(fabs(y_SerialResult[i]), fabs(y_h[i]));  // fmax e fabs sono funzioni standard di C
+
+        // Se entrambi i valori sono molto piccoli, usiamo una tolleranza relativa
+        if (maxAbs < toleranceRel) {
+            maxAbs = toleranceRel;  // Imposta un valore minimo per maxAbs
+        }
+
+        // Calcolo della differenza assoluta
+        double currentDiff = fabs(y_SerialResult[i] - y_h[i]);  // fabs è l'equivalente di std::abs in C
+
+        // Se la differenza assoluta è sufficientemente piccola, consideriamo i numeri uguali
+        if (currentDiff <= absTolerance) {
+            relativeDiff = 0.0;
+        } else {
+            // Calcoliamo la differenza relativa
+            relativeDiff = currentDiff / maxAbs;
+
+            // Accumula la differenza relativa
+            totalRelativeDiff += relativeDiff;
+            count++;
+        }
+
+        // Si garantisce un errore massimo di precisione nell'ordine di e-7
+        if (relativeDiff > toleranceRel)
+            printf("Errore: Il valore di y[%d] calcolato (%.10f) non corrisponde al valore calcolato con CPU (%.10f).\n", i, y_h[i], y_SerialResult[i]);
+    }
+
+    // Se sono stati trovati errori significativi, ritorna la media dell'errore relativo
+    if (count > 0) {
+        return totalRelativeDiff / count;
+    } else {
+        // Se non sono stati trovati errori significativi, ritorna 0
+        return 0.0;
+    }
+}
 
 /* Funzione per svolgere il prodotto matrice-vettore, con memorizzazione CSR della matrice, in modo serializzato */
 struct matrixPerformance serial_csr(struct matrixData *matrix_data, double *x, int num_threads) {
@@ -28,6 +79,9 @@ struct matrixPerformance serial_csr(struct matrixData *matrix_data, double *x, i
     double start = omp_get_wtime();
     matvec_csr(matrix_data->M, IRP, JA, AS, x, y);
     double end = omp_get_wtime();
+
+    y_SerialResult = malloc(matrix_data->M * sizeof(double));
+    memcpy(y_SerialResult, y, matrix_data->M * sizeof(double));
 
     struct matrixPerformance node;
     node.seconds = end - start;
@@ -132,6 +186,7 @@ struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x,
     double end = omp_get_wtime();
 
     node.seconds = end - start;
+    node.gigaFlops= checkDifferencesOpenMP(y ,matrix_data->M);
 
     free(start_row);
     free(end_row);

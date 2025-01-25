@@ -12,7 +12,7 @@
 #include "../libs/costants.h"
 #include "../libs/csrOperations.h"
 #include "../libs/hll_Operations.h"
-
+#include "../../cJSON/cJSON.h"
 const char *base_path = "../../matrix/";
 #ifdef USER_PIERFRANCESCO
 #include "../cJSON/cJSON.h"
@@ -176,6 +176,7 @@ void add_performance_to_array(const char *nameMatrix,
     cJSON_AddNumberToObject(performance_obj, "megaFlops", 0);
     cJSON_AddNumberToObject(performance_obj, "colonne", matrix_data->N);
     cJSON_AddNumberToObject(performance_obj, "righe", matrix_data->M);
+    cJSON_AddNumberToObject(performance_obj, "errore Relativo", matrixPerformance.relativeError);
 
 
     // Aggiungi l'oggetto all'array JSON
@@ -242,6 +243,7 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
         int nz = cJSON_GetObjectItem(item, "nonzeros")->valueint;  // Debug: verifica i valori letti
         int row = cJSON_GetObjectItem(item, "righe")->valueint;
         int col = cJSON_GetObjectItem(item, "colonne")->valueint;
+        double relativeError = cJSON_GetObjectItem(item, "errore Relativo")->valuedouble;
 
         // Cerca se il nameMatrix esiste già
         int found = 0;
@@ -252,6 +254,7 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
                 matrix_results[i].nz = nz;
                 matrix_results[i].row = row;
                 matrix_results[i].col = col;
+                matrix_results[i].relativeError = relativeError;
                 found = 1;
                 break;
             }
@@ -265,7 +268,7 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
             matrix_results[matrix_result_count].nz = nz;
             matrix_results[matrix_result_count].row = row;
             matrix_results[matrix_result_count].col = col;
-            matrix_results[matrix_result_count].count = 1;
+            matrix_results[matrix_result_count].relativeError = relativeError;
             matrix_result_count++;
         }
     }
@@ -282,6 +285,7 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
         // Calcola FLOPS e gigaFLOPS
         double flops = 2.0 * matrix_results[i].nz / average_seconds;
         double megaFlops = flops / 1e6;
+       // double speedup
 
         // Creazione dell'oggetto JSON
         cJSON *output_data = cJSON_CreateObject();
@@ -292,6 +296,7 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
         cJSON_AddNumberToObject(output_data, "righe", matrix_results[i].row);
         cJSON_AddNumberToObject(output_data, "colonne", matrix_results[i].col);
         cJSON_AddNumberToObject(output_data, "nonzeri", matrix_results[i].nz);
+        cJSON_AddNumberToObject(output_data, "errore Relativo", matrix_results[i].relativeError);
 
         // Aggiungi l'oggetto all'array JSON
         cJSON_AddItemToArray(output_array, output_data);
@@ -354,6 +359,7 @@ int main() {
             }
 
             for (int j = 0; j < ITERATION_PER_MATRIX; j++) {
+
                 /*seriale con CSR*/
                 add_performance_to_array(matrix_names[i], matrix_data, x, serial_array_csr, serial_csr, 1);
 
