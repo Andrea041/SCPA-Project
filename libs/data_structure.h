@@ -39,6 +39,7 @@ struct matrixPerformance {
     double seconds;
     double flops;
     double gigaFlops;
+    double relativeError;
 };
 
 struct matrixPerformanceAverage {
@@ -55,6 +56,7 @@ typedef struct {
     int nz;
     int row;
     int col;
+    double relativeError;
 } MatrixPerformanceResult;
 
 #endif // DATA_STRUCTURE_H

@@ -133,34 +133,21 @@ matrixPerformance parallel_hll_cuda_v1(matrixData *matrix_data_host, double *x_h
 
     checkCudaErrors(cudaMalloc((void **) &d_x, matrix_data_host->M * sizeof(double)));
     checkCudaErrors(cudaMemcpy(d_x, x_h, matrix_data_host->M * sizeof(double), cudaMemcpyHostToDevice));
-    //printf("Copiato x in GPU\n");
+
 
     checkCudaErrors(cudaMalloc((void **) &d_y, matrix_data_host->M * sizeof(double)));
     checkCudaErrors(cudaMemcpy(d_y, y_h, matrix_data_host->M * sizeof(double), cudaMemcpyHostToDevice));
-    //printf("Copiato y iniziale in GPU\n");
+
 
     // Ottieni il numero di Streaming Multiprocessors
     int sm_count;
     cudaDeviceGetAttribute(&sm_count, cudaDevAttrMultiProcessorCount, 0);
-   // printf(" sm_count: %d\n", sm_count);
 
-
-    //debug usando una versione seriale del calcolo in hll, la memorizzazione funzina correttamente.
-
-
-    /*int threads_per_block = 256; // Numero standard di thread per blocco
-    int blocks_per_grid = (M + threads_per_block - 1) / threads_per_block;
-
-    printf("Configurazione automatica: blocks_per_grid = %d, threads_per_block = %d\n", blocks_per_grid, threads_per_block);
-
-    const dim3 GRID_DIM(blocks_per_grid);*/
-    // Configura la griglia automaticamente
     int blocks_per_grid, threads_per_block;
     int num_rows = matrix_data_host->M; // Numero di righe della matrice
 
     configure_grid_warp(num_rows, sm_count, &blocks_per_grid, &threads_per_block);
 
-    //const dim3 GRID_DIM(blocks_per_grid);
 
     // Avvia il timer
     timer->start();
@@ -172,13 +159,7 @@ matrixPerformance parallel_hll_cuda_v1(matrixData *matrix_data_host, double *x_h
 
     // Ferma il timer
     timer->stop();
-/*
-    checkCudaErrors(cudaMemcpy(y_h, d_y,  matrix_data_host->M * sizeof(double), cudaMemcpyDeviceToHost));
-    printf("Risultato copiato da GPU a CPU:\n");
-    for (int i = 0; i < matrix_data_host->M; i++) {
-        printf("y[%d] = %lf\n", i, y_h[i]);
-    }
-*/
+
     matrixPerformance node{};
     node.seconds = timer->getTime()/1000.0f;
     node.flops = 0;
@@ -353,12 +334,13 @@ matrixPerformance parallel_hll_cuda_v2(matrixData *matrix_data_host, double *x_h
     timer->stop();
 
     checkCudaErrors(cudaMemcpy(y_h, d_y,  M* sizeof(double), cudaMemcpyDeviceToHost));
-    //checkDifferences(y_h, matrix_data_host->M);
+
 
     matrixPerformance node{};
     node.seconds = timer->getTime()/1000.0f;
     node.flops = 0;
     node.gigaFlops = 0;
+    node.relativeError= checkDifferencesCUDA(y_h , matrix_data_host->M);
 
     printf("HLLv2 time -> %lf\n", timer->getTime()/1000.0f);
 
