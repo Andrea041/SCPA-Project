@@ -66,35 +66,35 @@ void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, double *
 __global__ void gpuMatVec_csr(const int *d_IRP, const int *d_JA, const double *d_AS, const double *d_x, double *d_y, int M) {
     const int row = blockIdx.x * blockDim.x + threadIdx.x;
 
-    /* Controlla che la riga non ecceda il numero totale di righe */
+    /* Controllo che la riga non ecceda il numero totale di righe */
     if (row >= M) return;
 
-    d_y[row] = 0.0;
+    double sum = 0.0;
     /* Ciascun thread si fa carico di una riga */
-    for (int index = d_IRP[row]; index < d_IRP[row + 1]; index++) {
-        d_y[row] += d_AS[index] * d_x[d_JA[index]];
-    }
+    for (int index = d_IRP[row]; index < d_IRP[row + 1]; index++)
+        sum += d_AS[index] * d_x[d_JA[index]];
+    d_y[row] = sum;
 }
 
 /* Prodotto matrice-vettore parallelo su GPU - shared memory e riduzione sequenziale */
 __global__ void gpuMatVec_csr_sm_seq(const int *d_IRP, const int *d_JA, const double *d_AS, const double *d_x, double *d_y, int M) {
-    const int bidx = blockIdx.x;  // Indice del blocco (riga della matrice)
+    const int bidx = blockIdx.x;  // Indice del blocco
     const int tid = threadIdx.x + threadIdx.y * blockDim.x;
 
-    /* Inizializzazione shared memory */
+    // Inizializzazione shared memory
     extern __shared__ double sharedMem[];
     sharedMem[tid] = 0.0;
 
-    /* Controllo per vedere se l'indice di blocco supera la dimensione del vettore IRP */
+    // Controllo per vedere se l'indice di blocco supera la dimensione del vettore IRP
     if (bidx >= M) return;
 
     const int start = d_IRP[bidx];
     const int end = d_IRP[bidx + 1];
 
-    /* Evitiamo che i thread vadano a scrivere in zone di memoria condivise "non concesse" */
+    // Evitiamo che i thread vadano a scrivere in zone di memoria condivise "non concesse"
     if (tid >= end - start) return;
 
-    /* Prodotto parallelo */
+    // Prodotto parallelo
     double sum = 0.0;
     for (int i = tid; i < end - start; i += blockDim.x) {
         sum += d_AS[start + i] * d_x[d_JA[start + i]];
@@ -108,7 +108,7 @@ __global__ void gpuMatVec_csr_sm_seq(const int *d_IRP, const int *d_JA, const do
         __syncthreads();
     }
 
-    /* Scrittura (da parte del tid 0) del risultato dato dalla riduzione che si troverà nella entry 0-esima su memoria globale */
+    // Scrittura (da parte del tid 0) del risultato dato dalla riduzione che si troverà nella entry 0-esima su memoria globale
     if (tid == 0)
         d_y[bidx] += sharedMem[0];
 }

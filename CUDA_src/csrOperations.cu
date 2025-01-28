@@ -83,10 +83,16 @@ matrixPerformance serial_csr_cuda(matrixData *matrix_data_host, double *x_h) {
 
     //printf("Time taken by CPU: %f\n", timer->getTime() / 1000.0f);
 
-    free(y_h);
+    /*free(y_h);
     free(IRP);
     free(JA);
-    free(AS);
+    free(AS);*/
+
+    delete timer;
+    delete[] y_h;
+    delete[] IRP;
+    delete[] JA;
+    delete[] AS;
 
     return node;
 }
@@ -129,9 +135,10 @@ matrixPerformance parallel_csr_cuda_v1(matrixData *matrix_data_host, double *x_h
     sdkCreateTimer(&timer);
     /* In questo modo ciascun blocco potrà processare una riga in parallelo */
     const dim3 GRID_DIM(matrix_data_host->M);
+    constexpr dim3 BLOCK_DIM_1D(BD);
 
     timer->start();
-    gpuMatVec_csr<<<GRID_DIM, BLOCK_DIM>>>(d_IRP, d_JA, d_AS, d_x, d_y, matrix_data_host->M);
+    gpuMatVec_csr<<<GRID_DIM, BLOCK_DIM_1D>>>(d_IRP, d_JA, d_AS, d_x, d_y, matrix_data_host->M);
     checkCudaErrors(cudaDeviceSynchronize());   //GPU kernel calls are asynchronous: cudaDeviceSynchronize() is useful to take the actual execution time on the GPU before timer->stop().
     timer->stop();
 
@@ -152,10 +159,16 @@ matrixPerformance parallel_csr_cuda_v1(matrixData *matrix_data_host, double *x_h
     printf("Time taken by GPU: %f\n", timer->getTime() / 1000.0f);
 
 
-    free(y_h);
+    /*free(y_h);
     free(h_IRP);
     free(h_JA);
-    free(h_AS);
+    free(h_AS);*/
+
+    delete timer;
+    delete[] y_h;
+    delete[] h_IRP;
+    delete[] h_JA;
+    delete[] h_AS;
 
     checkCudaErrors(cudaFree(d_IRP));
     checkCudaErrors(cudaFree(d_JA));
@@ -223,10 +236,16 @@ matrixPerformance parallel_csr_cuda_v2(matrixData *matrix_data_host, double *x_h
 
     //printf("Time taken by GPU: %f\n", timer->getTime() / 1000.0f);
 
-    free(y_h);
+    /*free(y_h);
     free(h_IRP);
     free(h_JA);
-    free(h_AS);
+    free(h_AS);*/
+
+    delete timer;
+    delete[] y_h;
+    delete[] h_IRP;
+    delete[] h_JA;
+    delete[] h_AS;
 
     checkCudaErrors(cudaFree(d_IRP));
     checkCudaErrors(cudaFree(d_JA));
@@ -296,10 +315,16 @@ matrixPerformance parallel_csr_cuda_v3(matrixData *matrix_data_host, double *x_h
     //printf("Time taken by GPU: %f\n", timer->getTime() / 1000.0f);
 
 
-    free(y_h);
+    /*free(y_h);
     free(h_IRP);
     free(h_JA);
-    free(h_AS);
+    free(h_AS);*/
+
+    delete timer;
+    delete[] y_h;
+    delete[] h_IRP;
+    delete[] h_JA;
+    delete[] h_AS;
 
     checkCudaErrors(cudaFree(d_IRP));
     checkCudaErrors(cudaFree(d_JA));
