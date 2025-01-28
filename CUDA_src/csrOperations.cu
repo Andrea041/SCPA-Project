@@ -144,7 +144,7 @@ matrixPerformance parallel_csr_cuda_v1(matrixData *matrix_data_host, double *x_h
     StopWatchInterface* timer = nullptr;
     sdkCreateTimer(&timer);
     /* In questo modo ciascun blocco potrà processare una riga in parallelo */
-    const dim3 GRID_DIM(matrix_data_host->M);
+    const dim3 GRID_DIM((matrix_data_host->M - 1 + BD) / BD);
     constexpr dim3 BLOCK_DIM_1D(BD);
 
     timer->start();
