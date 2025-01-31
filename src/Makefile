@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -fopenmp -I../libs -I../../cJSON/include
-LDFLAGS = -L../../cJSON/build -lcjson -Wl,-rpath,../../cJSON/build
+LDFLAGS = -L../../cJSON/build -lcjson -Wl,-rpath,../../cJSON/build -lm
 LD_LIBRARY_PATH = ../../cJSON/build
 
 SRCS = main_app.c hll_ellpack_Tool.c hll_Operations.c functionsIO.c csrTool.c csrOperations.c
@@ -21,3 +21,4 @@ clean:
 
 run: $(TARGET)
 	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH) ./$(TARGET)
+
