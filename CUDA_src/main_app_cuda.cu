@@ -167,9 +167,9 @@ void add_performance_to_array(const char *nameMatrix,
     cJSON_AddNumberToObject(performance_obj, "nonzeros", matrix_data->nz);
     cJSON_AddNumberToObject(performance_obj, "flops", 0);
     cJSON_AddNumberToObject(performance_obj, "megaFlops", 0);
-
-    cJSON_AddNumberToObject(performance_obj, "righe",0);
-    cJSON_AddNumberToObject(performance_obj, "colonne", 0);
+    cJSON_AddNumberToObject(performance_obj, "colonne", matrix_data->N);
+    cJSON_AddNumberToObject(performance_obj, "righe", matrix_data->M);
+    cJSON_AddNumberToObject(performance_obj, "errore Relativo", matrixPerformance.relativeError);
 
     // Aggiungi l'oggetto all'array JSON
     cJSON_AddItemToArray(matrix_array, performance_obj);
@@ -326,8 +326,6 @@ int main() {
     cJSON *cuda_array_csr_parallel_v3 = cJSON_CreateArray();
     cJSON *cuda_array_hll_parallel_v1= cJSON_CreateArray();
     cJSON *cuda_array_hll_parallel_v2 = cJSON_CreateArray();
-   // cJSON *cuda_array_hll_parallel_v3 = cJSON_CreateArray();
-
 
     for (int i = 0; i < num_matrices; i++) {
         /* Inizializzazione della struct contente le informazioni della matrice su host (CPU) */
@@ -352,13 +350,12 @@ int main() {
         }
 
         for (int j = 0; j < ITERATION_PER_MATRIX; j++) {
-            printf("Iterazione %d\n", j + 1);
             /* Esecuzione seriale su CPU */
             add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_serial, serial_csr_cuda);
             // Calcolo parallelo su GPU formato CSR
-            //add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel_v1, parallel_csr_cuda_v1);
-            //add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel_v2, parallel_csr_cuda_v2);
-            //add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel_v3, parallel_csr_cuda_v3);
+            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel_v1, parallel_csr_cuda_v1);
+            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel_v2, parallel_csr_cuda_v2);
+            add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_csr_parallel_v3, parallel_csr_cuda_v3);
             // Calcolo parallelo su GPU formato HLL
             add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_hll_parallel_v1, parallel_hll_cuda_v1);
             add_performance_to_array(matrix_names[i], matrix_data_host, x_h, cuda_array_hll_parallel_v2, parallel_hll_cuda_v2);
@@ -367,7 +364,6 @@ int main() {
         free(x_h);
         free(matrix_data_host);
     }
-
     write_json_to_file("../result/iteration/CUDA_serial_CSR.json", cuda_array_csr_serial);
 
     write_json_to_file("../result/iteration/CUDA_CSR_v1.json", cuda_array_csr_parallel_v1);

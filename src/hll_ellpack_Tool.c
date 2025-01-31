@@ -5,6 +5,9 @@
 
 #include "../libs/data_structure.h"
 #include "../libs/hll_ellpack_Tool.h"
+
+#include <tgmath.h>
+
 #include "../libs/costants.h"
 
 /* Funzione per calcolare il massimo numero di nonzeri per ciascuna riga */
@@ -145,28 +148,22 @@ void convert_to_hll(struct matrixData *matrix_data, HLL_Matrix *hll_matrix) {
     free(nz_per_row);
 }
 
-void matvec_Hll(const HLL_Matrix *hll_matrix, const double *x, double *y, int num_threads, const int *start_block, const int *end_block, int max_row_in_matrix) {
-    #pragma omp parallel num_threads(num_threads)
-    {
-        int tid = omp_get_thread_num();
-        /* Scorrimento dei blocchi assegnati al thread tid */
-        for (int block_id = start_block[tid]; block_id <= end_block[tid]; block_id++) {
-            /* Calcolo delle righe di inizio e fine del blocco */
-            int start_row = block_id * HackSize;
-            int end_row = (block_id + 1) * HackSize;
-            if (end_row > max_row_in_matrix) end_row = max_row_in_matrix;
-
-            int row_offset = 0;
-            /* Scorrimento delle righe di un unico blocco */
-            for (int i = start_row; i < end_row; i++) {
-                y[i] = 0.0;
-                /* Scorrimento della riga selezionata (sarà lunga maxnz) */
-                for (int j = 0; j < hll_matrix->blocks[block_id].max_nz_per_row; j++) {
-                    y[i] += hll_matrix->blocks[block_id].AS[j + row_offset] * x[hll_matrix->blocks[block_id].JA[j + row_offset]];
-                }
-                /* Incremento dell'offset per passare alla riga successiva */
-                row_offset += hll_matrix->blocks[block_id].max_nz_per_row;
+void matvec_Hll_serial(const HLL_Matrix *hll_matrix, const double *x, double *y, int max_row_in_matrix) {
+    for (int blockID = 0; blockID < hll_matrix->num_blocks; blockID++) {
+        /* Calcolo delle righe di inizio e fine del blocco */
+        int start_row = blockID * HackSize;
+        int end_row = (blockID + 1) * HackSize;
+        if (end_row > max_row_in_matrix) end_row = max_row_in_matrix;
+        int row_offset = 0;
+        /* Scorrimento delle righe di un unico blocco */
+        for (int i = start_row; i < end_row; i++) {
+            y[i] = 0.0;
+            /* Scorrimento della riga selezionata (sarà lunga maxnz) */
+            for (int j = 0; j < hll_matrix->blocks[blockID].max_nz_per_row; j++) {
+                y[i] += hll_matrix->blocks[blockID].AS[j + row_offset] * x[hll_matrix->blocks[blockID].JA[j + row_offset]];
             }
+            /* Incremento dell'offset per passare alla riga successiva */
+            row_offset += hll_matrix->blocks[blockID].max_nz_per_row;
         }
     }
 
@@ -193,4 +190,30 @@ void matvec_Hll(const HLL_Matrix *hll_matrix, const double *x, double *y, int nu
 
     fclose(file); // Chiude il file
     printf("Controllo completato, tutti i valori di y sono corretti.\n");*/
+}
+
+void matvec_Hll(const HLL_Matrix *hll_matrix, const double *x, double *y, int num_threads, const int *start_block, const int *end_block, int max_row_in_matrix) {
+    #pragma omp parallel num_threads(num_threads)
+    {
+        int tid = omp_get_thread_num();
+        /* Scorrimento dei blocchi assegnati al thread tid */
+        for (int block_id = start_block[tid]; block_id <= end_block[tid]; block_id++) {
+            /* Calcolo delle righe di inizio e fine del blocco */
+            int start_row = block_id * HackSize;
+            int end_row = (block_id + 1) * HackSize;
+            if (end_row > max_row_in_matrix) end_row = max_row_in_matrix;
+
+            int row_offset = 0;
+            /* Scorrimento delle righe di un unico blocco */
+            for (int i = start_row; i < end_row; i++) {
+                y[i] = 0.0;
+                /* Scorrimento della riga selezionata (sarà lunga maxnz) */
+                for (int j = 0; j < hll_matrix->blocks[block_id].max_nz_per_row; j++) {
+                    y[i] += hll_matrix->blocks[block_id].AS[j + row_offset] * x[hll_matrix->blocks[block_id].JA[j + row_offset]];
+                }
+                /* Incremento dell'offset per passare alla riga successiva */
+                row_offset += hll_matrix->blocks[block_id].max_nz_per_row;
+            }
+        }
+    }
 }

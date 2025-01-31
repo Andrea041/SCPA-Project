@@ -7,35 +7,6 @@
 #include <helper_cuda.h>
 #include <helper_timer.h>
 
-/*void configure_grid_warp(int num_rows, int sm_count, int *blocks, int *threads) {
-
-    // Numero massimo di thread per blocco dalla GPU
-    int max_threads_per_block;
-    cudaDeviceGetAttribute(&max_threads_per_block, cudaDevAttrMaxThreadsPerBlock, 0);
-
-    // Numero massimo di thread per SM
-    int max_threads_per_sm;
-    cudaDeviceGetAttribute(&max_threads_per_sm, cudaDevAttrMaxThreadsPerMultiProcessor, 0);
-
-    // Configurazione dinamica dei thread per blocco
-    int threads_per_block = (num_rows < max_threads_per_block) ? num_rows : max_threads_per_block;
-    threads_per_block = (threads_per_block / WARP_SIZE) * WARP_SIZE; // Arrotonda al multiplo di warp_size
-
-    if (threads_per_block == 0) {
-        threads_per_block = WARP_SIZE; // Almeno un warp
-    }
-
-    // Numero di blocchi necessario
-    int blocks_per_grid = (num_rows + threads_per_block - 1) / threads_per_block;
-
-    // Configura i valori di output
-    *blocks = blocks_per_grid;
-    *threads = threads_per_block;
-
-    printf("Configurazione griglia warp-aware: blocks_per_grid = %d, threads_per_block = %d\n", blocks_per_grid, threads_per_block);
-}*/
-
-
 // Configura la griglia dei blocchi e dei thread
 void configure_grid_warp(int M, int sm_count, int *blocks, int *threads) {
   //  printf("Configurazione griglia: M=%d, sm_count=%d\n", M, sm_count);
@@ -46,7 +17,7 @@ void configure_grid_warp(int M, int sm_count, int *blocks, int *threads) {
 
     // Assicura che il numero di warp sia multiplo di SM count
     if (*blocks % sm_count != 0) {
-        *blocks = ((*blocks / sm_count) + 1) * sm_count;
+        *blocks = (*blocks / sm_count + 1) * sm_count;
     }
 }
 
@@ -86,7 +57,7 @@ matrixPerformance parallel_hll_cuda_v1(matrixData *matrix_data_host, double *x_h
     }
 
     // Conversione in formato HLL
-    convert_to_hll_cuda(matrix_data_host, hllMatrixHost, hllMatrixHost);
+    convert_to_hll_cuda(matrix_data_host, hllMatrixHost);
 
 
         // Copia della struttura HLL_Matrix in memoria GPU
@@ -165,7 +136,7 @@ matrixPerformance parallel_hll_cuda_v1(matrixData *matrix_data_host, double *x_h
     node.flops = 0;
     node.gigaFlops = 0;
 
-    printf("HLLv1 time -> %lf\n", timer->getTime()/1000.0f);
+    //printf("HLLv1 time -> %lf\n", timer->getTime()/1000.0f);
 
 
     // Free delle risorse allocate
@@ -221,7 +192,7 @@ matrixPerformance parallel_hll_cuda_v2(matrixData *matrix_data_host, double *x_h
     }
 
     // Conversione in formato HLL
-    convert_to_hll_cuda(matrix_data_host, hllMatrixHost, hllMatrixHost);
+    convert_to_hll_cuda(matrix_data_host, hllMatrixHost);
 
 
         // Copia della struttura HLL_Matrix in memoria GPU
@@ -340,9 +311,9 @@ matrixPerformance parallel_hll_cuda_v2(matrixData *matrix_data_host, double *x_h
     node.seconds = timer->getTime()/1000.0f;
     node.flops = 0;
     node.gigaFlops = 0;
-    node.relativeError= checkDifferencesCUDA(y_h , matrix_data_host->M);
+    node.relativeError = checkDifferencesCUDA(y_h , matrix_data_host->M);
 
-    printf("HLLv2 time -> %lf\n", timer->getTime()/1000.0f);
+    //printf("HLLv2 time -> %lf\n", timer->getTime()/1000.0f);
 
     // Free delle risorse allocate
     for (int i = 0; i < hllMatrixHost->num_blocks; i++) {

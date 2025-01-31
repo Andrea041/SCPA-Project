@@ -2,20 +2,17 @@
 #include <cstdlib>
 #include <helper_timer.h>
 #include <cmath>
-#include <algorithm>
+#include <helper_cuda.h>
 
 #include "../CUDA_libs/csrTool.h"
 #include "../libs/data_structure.h"
 #include "../CUDA_libs/csrOperations.h"
 #include "../CUDA_libs/cudaCostants.h"
 
-#include <helper_cuda.h>
-#include <stdio.h>
-
 double *y_CPU = nullptr;
 
 /* Funzione per verificare la differenza relativa tra il vettore calcola con GPU e quello con CPU */
-double checkDifferencesCUDA(double *y_h, double *y_CPU, int matrix_row) {
+double checkDifferencesCUDA(double *y_h, int matrix_row) {
     double totalRelativeDiff = 0.0f;  // Somma delle differenze relative
     double relativeDiff = 0.0f;
     double maxAbs;
@@ -48,17 +45,16 @@ double checkDifferencesCUDA(double *y_h, double *y_CPU, int matrix_row) {
         }
 
         // Si garantisce un errore massimo di precisione nell'ordine di e-7
-        if (relativeDiff > toleranceRel)
-            printf("Errore: Il valore di y[%d] calcolato (%.10f) non corrisponde al valore calcolato con CPU (%.10f).\n", i, y_h[i], y_CPU[i]);
+        //if (relativeDiff > toleranceRel)
+            //printf("Errore: Il valore di y[%d] calcolato (%.10f) non corrisponde al valore calcolato con CPU (%.10f).\n", i, y_h[i], y_CPU[i]);
     }
 
     // Se sono stati trovati errori significativi, ritorna la media dell'errore relativo
     if (count > 0) {
         return totalRelativeDiff / count;
-    } else {
-        // Se non sono stati trovati errori significativi, ritorna 0
-        return 0.0;
     }
+    // Se non sono stati trovati errori significativi, ritorna 0
+    return 0.0;
 }
 
 /* Implementazione del prodotto matrice-vettore seriale su CPU */
@@ -158,9 +154,9 @@ matrixPerformance parallel_csr_cuda_v1(matrixData *matrix_data_host, double *x_h
     node.seconds = timer->getTime() / 1000.0f;
     node.flops = 0;
     node.gigaFlops = 0;
-    node.relativeError= checkDifferencesCUDA(y_h , matrix_data_host->M);
+    node.relativeError = checkDifferencesCUDA(y_h , matrix_data_host->M);
 
-    printf("Time taken by GPU: %f\n", timer->getTime() / 1000.0f);
+    //printf("Time taken by GPU: %f\n", timer->getTime() / 1000.0f);
 
 
     /*free(y_h);
@@ -309,7 +305,7 @@ matrixPerformance parallel_csr_cuda_v3(matrixData *matrix_data_host, double *x_h
     node.seconds = timer->getTime() / 1000.0f;
     node.flops = 0;
     node.gigaFlops = 0;
-    node.relativeError= checkDifferencesCUDA(y_h , matrix_data_host->M);
+    node.relativeError = checkDifferencesCUDA(y_h , matrix_data_host->M);
 
     //printf("Time taken by GPU: %f\n", timer->getTime() / 1000.0f);
 

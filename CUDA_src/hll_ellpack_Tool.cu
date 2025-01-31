@@ -4,13 +4,11 @@
 
 #include "../libs/data_structure.h"
 #include "../libs/hll_ellpack_Tool.h"
-
-#include "../CUDA_libs/cudaCostants.h"
 #include "../libs/costants.h"
 #include "../CUDA_libs/hllTool.h"
 
 /* Funzione per calcolare il massimo numero di nonzeri per ciascuna riga */
-void calculate_max_nz_in_row_in_block(const struct matrixData *matrix_data, int *nz_per_row) {
+void calculate_max_nz_in_row_in_block(const matrixData *matrix_data, int *nz_per_row) {
     for (int i = 0; i < matrix_data->nz; i++) {
         int row_idx = matrix_data->row_indices[i];
         nz_per_row[row_idx]++;
@@ -37,7 +35,7 @@ int find_max_nz_per_block(const int *nz_per_row, int start_row, int end_row) {
 
 
 /* Funzione per convertire una matrice in formato HLL su CPU */
-void convert_to_hll_cuda( matrixData *matrix_data, HLL_Matrix *hll_matrix, HLL_Matrix *d_hll_matrix) {
+void convert_to_hll_cuda(matrixData *matrix_data, HLL_Matrix *hll_matrix) {
     int *row_start = (int *)calloc(matrix_data->M + 1, sizeof(int));
     if (!row_start) {
         fprintf(stderr, "Errore: allocazione memoria fallita per row_start.\n");
@@ -180,61 +178,6 @@ __global__ void matvec_Hll_cuda(const HLL_Matrix *d_hll_matrix, const double *d_
 
     d_y[global_row] = sum;
 }
-/*
-__global__ void matvec_Hll_cuda_SH(const HLL_Matrix *d_hll_matrix, const double *d_x, double *d_y, int M, int N) {
-    int global_row = blockIdx.x * blockDim.x + threadIdx.x;
-    int global_col = blockIdx.y * blockDim.y + threadIdx.y;
-
-    if (global_row >= M || global_col >= N) return;
-
-    // Stampa di debug iniziale
-    if (global_row < 5 && global_col < 5) {
-        printf("Thread (%d, %d) avviato in block (%d, %d)\n", global_row, global_col, blockIdx.x, blockIdx.y);
-    }
-
-    int block_id = global_row / HackSize;
-    if (block_id >= d_hll_matrix->num_blocks) return;
-
-    int local_row = global_row % HackSize;
-    const ELLPACK_Block *block = &d_hll_matrix->blocks[block_id];
-
-    int row_offset = local_row * block->max_nz_per_row;
-
-    __shared__ double shared_sum[HackSize];
-
-    // Inizializzazione sicura della memoria condivisa per tutti i thread
-    for (int i = threadIdx.x; i < HackSize; i += blockDim.x) {
-        shared_sum[i] = 0.0;
-    }
-    __syncthreads();
-
-    double sum = 0.0;
-    if (local_row < HackSize && threadIdx.y < block->max_nz_per_row) {
-        sum = block->AS[row_offset + threadIdx.y] * d_x[block->JA[row_offset + threadIdx.y]];
-
-        if (global_row < 5 && global_col < 5) {
-            printf("Thread (%d, %d): sum = %lf\n", global_row, global_col, sum);
-        }
-    }
-
-    // Riduzione parallela della somma usando la memoria condivisa
-    atomicAdd(&shared_sum[local_row], sum);
-    __syncthreads();
-
-    if (threadIdx.y == 0 && local_row < HackSize) {
-        d_y[global_row] = shared_sum[local_row];
-        if (global_row < 5) {
-            printf("Risultato scritto su d_y[%d] = %lf\n", global_row, shared_sum[local_row]);
-        }
-    }
-}
-
-*/
-
-
-
-
-
 
 /*
  * La funzione `matvec_Hll_cuda_SH` esegue il prodotto matrice-vettore in parallelo utilizzando i blocchi di righe della matrice

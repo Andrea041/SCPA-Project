@@ -335,6 +335,7 @@ int main() {
         printf("Run con %d threads\n", numThread[thread]);
             // Creazione degli array JSON per questa matrice
         cJSON *serial_array_csr = cJSON_CreateArray();
+        cJSON *serial_array_hll = cJSON_CreateArray();
         cJSON *parallel_array_csr_openMP = cJSON_CreateArray();
         cJSON *parallel_array_hll_openMP = cJSON_CreateArray();
 
@@ -368,6 +369,8 @@ int main() {
 
                 /*parallelo OPENMP && HLL*/
                 add_performance_to_array(matrix_names[i], matrix_data, x, parallel_array_hll_openMP, parallel_hll,  numThread[thread]);
+
+                add_performance_to_array(matrix_names[i], matrix_data, x, serial_array_hll, serial_hll, 1);
             }
 
             free(x);
@@ -376,8 +379,12 @@ int main() {
 
         // Scrittura dei file includendo il numero di thread
         char serial_filename[256];
-        snprintf(serial_filename, sizeof(serial_filename), "../result/iteration/serial_CSR_NumThread_%d.json", numThread[thread]);
+        snprintf(serial_filename, sizeof(serial_filename), "../result/iteration/serial_CSR.json");
         write_json_to_file(serial_filename, serial_array_csr);
+
+        char serial_hll_filename[256];
+        snprintf(serial_hll_filename, sizeof(serial_hll_filename), "../result/iteration/serial_HLL.json");
+        write_json_to_file(serial_hll_filename, serial_array_hll);
 
         char parallel_csr_filename[256];
         snprintf(parallel_csr_filename, sizeof(parallel_csr_filename), "../result/iteration/par_OpenMP_CSR_NumThread_%d.json", numThread[thread]);
@@ -388,13 +395,18 @@ int main() {
         write_json_to_file(parallel_hll_filename, parallel_array_hll_openMP);
 
         cJSON_Delete(serial_array_csr);
+        cJSON_Delete(serial_array_hll);
         cJSON_Delete(parallel_array_csr_openMP);
         cJSON_Delete(parallel_array_hll_openMP);
 
         // Calcolo delle performance
         char final_serial_filename[256];
-        snprintf(final_serial_filename, sizeof(final_serial_filename), "../result/final/serial_CSR_NumThread_%d.json", numThread[thread]);
+        snprintf(final_serial_filename, sizeof(final_serial_filename), "../result/final/serial_CSR.json");
         calculatePerformance(serial_filename, final_serial_filename);
+
+        char final_serial_hll_filename[256];
+        snprintf(final_serial_hll_filename, sizeof(final_serial_hll_filename), "../result/final/serial_HLL.json");
+        calculatePerformance(serial_hll_filename, final_serial_hll_filename);
 
         char final_parallel_csr_filename[256];
         snprintf(final_parallel_csr_filename, sizeof(final_parallel_csr_filename), "../result/final/par_OpenMP_CSR_NumThread_%d.json", numThread[thread]);

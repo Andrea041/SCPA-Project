@@ -9,4 +9,6 @@ void matvec_Hll(const HLL_Matrix *hll_matrix, const double *x, double *y, int nu
 
 void calculate_max_nz_in_row_in_block(const struct matrixData *matrix_data, int *nz_per_row);
 
+void matvec_Hll_serial(const HLL_Matrix *hll_matrix, const double *x, double *y, int max_row_in_matrix);
+
 #endif // HLL_ELLPACK_TOOL_H

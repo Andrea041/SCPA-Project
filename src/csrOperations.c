@@ -55,10 +55,9 @@ double checkDifferencesOpenMP(double *y_h, int matrix_row) {
     // Se sono stati trovati errori significativi, ritorna la media dell'errore relativo
     if (count > 0) {
         return totalRelativeDiff / count;
-    } else {
-        // Se non sono stati trovati errori significativi, ritorna 0
-        return 0.0;
     }
+    // Se non sono stati trovati errori significativi, ritorna 0
+    return 0.0;
 }
 
 /* Funzione per svolgere il prodotto matrice-vettore, con memorizzazione CSR della matrice, in modo serializzato */
@@ -186,7 +185,7 @@ struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x,
     double end = omp_get_wtime();
 
     node.seconds = end - start;
-    node.relativeError= checkDifferencesOpenMP(y ,matrix_data->M);
+    node.relativeError = checkDifferencesOpenMP(y ,matrix_data->M);
 
     free(start_row);
     free(end_row);
