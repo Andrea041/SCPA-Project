@@ -286,6 +286,7 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
         double flops = 2.0 * matrix_results[i].nz / average_seconds;
         double megaFlops = flops / 1e6;
        // double speedup
+        
 
         // Creazione dell'oggetto JSON
         cJSON *output_data = cJSON_CreateObject();

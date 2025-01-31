@@ -186,7 +186,7 @@ struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x,
     double end = omp_get_wtime();
 
     node.seconds = end - start;
-    node.gigaFlops= checkDifferencesOpenMP(y ,matrix_data->M);
+    node.relativeError= checkDifferencesOpenMP(y ,matrix_data->M);
 
     free(start_row);
     free(end_row);
