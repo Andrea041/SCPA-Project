@@ -4,6 +4,8 @@
 /* Dimensione del blocco su ciascuna coordinata -> blocchi 2D di dimensione (BDX x BDY) -> Si possono avere massimo 1024 */
 #define BDX 512
 #define BDY 2
+#define BD 1024
+
 #define WARP_SIZE 32
 
 constexpr dim3 BLOCK_DIM(BDX, BDY);
