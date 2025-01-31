@@ -12,7 +12,7 @@
 #include "../libs/costants.h"
 #include "../libs/csrOperations.h"
 #include "../libs/hll_Operations.h"
-#include "../../cJSON/cJSON.h"
+#include "../../cJSON/include/cjson/cJSON.h"
 const char *base_path = "../../matrix/";
 #ifdef USER_PIERFRANCESCO
 #include "../cJSON/cJSON.h"
@@ -269,6 +269,7 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
             matrix_results[matrix_result_count].row = row;
             matrix_results[matrix_result_count].col = col;
             matrix_results[matrix_result_count].relativeError = relativeError;
+            matrix_results[matrix_result_count].count = 1;
             matrix_result_count++;
         }
     }
@@ -282,11 +283,9 @@ void calculatePerformance(const char *input_file_path, const char *output_file_p
         // Calcola la media dei seconds
         double average_seconds = matrix_results[i].total_seconds / ITERATION_PER_MATRIX;
 
-        // Calcola FLOPS e gigaFLOPS
+        // Calcola FLOPS e megaFLOPS
         double flops = 2.0 * matrix_results[i].nz / average_seconds;
         double megaFlops = flops / 1e6;
-       // double speedup
-        
 
         // Creazione dell'oggetto JSON
         cJSON *output_data = cJSON_CreateObject();
