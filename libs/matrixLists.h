@@ -12,7 +12,7 @@ static const char *matrix_names[] = {
     "rdist2.mtx",
     "cant.mtx",
     "olafu.mtx",
-    "Cube_Coup_dt0.mtx", //code=2(cudaErrorMemoryAllocation) "cudaMalloc(&d_AS, block->max_nz_per_row * matrix_data_host->M * sizeof(double))" -> commentare per run su CUDA
+    //"Cube_Coup_dt0.mtx", //code=2(cudaErrorMemoryAllocation) "cudaMalloc(&d_AS, block->max_nz_per_row * matrix_data_host->M * sizeof(double))" -> commentare per run su CUDA
     "ML_Laplace.mtx",
     "bcsstk17.mtx",
     "mac_econ_fwd500.mtx",

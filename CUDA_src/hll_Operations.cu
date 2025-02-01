@@ -159,7 +159,6 @@ matrixPerformance parallel_hll_cuda_v2(matrixData *matrix_data_host, double *x_h
     double *d_y;
     double *d_x;
     int M = matrix_data_host->M;
-    int N = matrix_data_host->N;
     int maxThreadsPerBlock,maxGridDimX,grid_x, grid_y,numBlock;
     int max_nz_per_row_global = 0;
     // Pulizia della memoria GPU prima delle allocazioni
