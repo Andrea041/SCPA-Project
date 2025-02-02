@@ -237,3 +237,25 @@ __global__ void matvec_Hll_cuda_SH(const HLL_Matrix *d_hll_matrix, const double 
         d_y[global_row] = shared_sum[threadIdx.x][0];
     }
 }
+
+
+void matvec_Hll_serial_CUDA(const HLL_Matrix *hll_matrix, const double *x, double *y, int max_row_in_matrix) {
+    for (int blockID = 0; blockID < hll_matrix->num_blocks; blockID++) {
+        /* Calcolo delle righe di inizio e fine del blocco */
+        int start_row = blockID * HackSize;
+        int end_row = (blockID + 1) * HackSize;
+        if (end_row > max_row_in_matrix) end_row = max_row_in_matrix;
+        int row_offset = 0;
+        /* Scorrimento delle righe di un unico blocco */
+        for (int i = start_row; i < end_row; i++) {
+            y[i] = 0.0;
+            /* Scorrimento della riga selezionata (sarà lunga maxnz) */
+            for (int j = 0; j < hll_matrix->blocks[blockID].max_nz_per_row; j++) {
+                y[i] += hll_matrix->blocks[blockID].AS[j + row_offset] * x[hll_matrix->blocks[blockID].JA[j + row_offset]];
+            }
+            /* Incremento dell'offset per passare alla riga successiva */
+            row_offset += hll_matrix->blocks[blockID].max_nz_per_row;
+        }
+    }
+
+}

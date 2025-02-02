@@ -11,4 +11,6 @@ matrixPerformance parallel_csr_cuda_v3(matrixData *matrix_data_host, double *x_h
 
 double checkDifferencesCUDA(double *y_h, int matrix_row);
 
+void set_serial_cuda_hll( double *y_h, matrixData *matrix_data_host) ;
+
 #endif //CSROPERATIONS_H

@@ -13,4 +13,6 @@ void calculate_max_nz_in_row_in_block(const matrixData *matrix_data, int *nz_per
 __global__ void matvec_Hll_cuda( const HLL_Matrix *hll_matrix,  const double *x,  double *y,  int max_row_in_matrix);
 __global__ void matvec_Hll_cuda_SH(const HLL_Matrix *d_hll_matrix, const double *d_x, double *d_y, int M);
 
+void matvec_Hll_serial_CUDA(const HLL_Matrix *hll_matrix, const double *x, double *y, int max_row_in_matrix) ;
+
 #endif //HLLTOOL_H

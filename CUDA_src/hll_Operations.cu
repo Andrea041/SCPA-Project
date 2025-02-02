@@ -21,6 +21,86 @@ void configure_grid_warp(int M, int sm_count, int *blocks, int *threads) {
     }
 }
 
+matrixPerformance serial_hll_cuda(matrixData *matrix_data_host, double *x_h) {
+    double *d_y;
+    double *d_x;
+    int M = matrix_data_host->M;
+
+    // Pulizia della memoria GPU prima delle allocazioni
+    cudaDeviceReset();
+    // Controllo memoria iniziale
+    size_t free_mem, total_mem;
+    cudaMemGetInfo(&free_mem, &total_mem);
+
+    HLL_Matrix *hllMatrixHost = static_cast<HLL_Matrix *> (malloc(sizeof(HLL_Matrix)));
+    if (hllMatrixHost == nullptr) {
+        printf("Errore nell'allocazione della memoria per il vettore di output y\n");
+        exit(EXIT_FAILURE);
+    }
+
+    // Calcolo del numero di blocchi
+    hllMatrixHost->num_blocks = (M + HackSize - 1) / HackSize;
+
+    // Allocazione dei blocchi
+    hllMatrixHost->blocks = (ELLPACK_Block *)malloc((size_t)hllMatrixHost->num_blocks * sizeof(ELLPACK_Block));
+    if (!hllMatrixHost->blocks) {
+        fprintf(stderr, "Errore: Allocazione fallita per i blocchi ELLPACK.\n");
+        free(hllMatrixHost);
+        exit(EXIT_FAILURE);
+    }
+
+    auto *y_h = static_cast<double *>(malloc(matrix_data_host->M * sizeof(double)));
+    if (y_h == nullptr) {
+        printf("Errore nell'allocazione della memoria per il vettore di output y\n");
+        exit(EXIT_FAILURE);
+    }
+
+    // Conversione in formato HLL
+    convert_to_hll_cuda(matrix_data_host, hllMatrixHost);
+
+
+    StopWatchInterface* timer = nullptr;
+    sdkCreateTimer(&timer);
+
+
+    // Avvia il timer
+    timer->start();
+
+    // Invoca il kernel CUDA
+    matvec_Hll_serial_CUDA(hllMatrixHost, x_h, y_h, M);
+    // Dopo il kernel CUDA, verifica errori
+    checkCudaErrors(cudaDeviceSynchronize());
+
+    // Ferma il timer
+    timer->stop();
+
+    matrixPerformance node{};
+    node.seconds = timer->getTime()/1000.0f;
+    node.flops = 0;
+    node.gigaFlops = 0;
+
+    set_serial_cuda_hll(y_h, matrix_data_host); //setto il risultato seriale in checkDifferencesCUDA
+
+    node.relativeError = checkDifferencesCUDA(y_h ,M);
+
+    //printf("HLLv1 time -> %lf\n", timer->getTime()/1000.0f);
+
+
+    // Free delle risorse allocate
+    for (int i = 0; i < hllMatrixHost->num_blocks; i++) {
+        ELLPACK_Block *block = &hllMatrixHost->blocks[i];
+        cudaFree(block->JA);
+        cudaFree(block->AS);
+    }
+
+    cudaFree(d_x);
+    cudaFree(d_y);
+    free(y_h);
+    free(hllMatrixHost->blocks);
+    free(hllMatrixHost);
+    return node;
+}
+
 // Funzione principale per calcolare il prodotto parallelo
 matrixPerformance parallel_hll_cuda_v1(matrixData *matrix_data_host, double *x_h) {
     double *d_y;
@@ -135,6 +215,7 @@ matrixPerformance parallel_hll_cuda_v1(matrixData *matrix_data_host, double *x_h
     node.seconds = timer->getTime()/1000.0f;
     node.flops = 0;
     node.gigaFlops = 0;
+    node.relativeError = checkDifferencesCUDA(y_h , matrix_data_host->M);
 
     //printf("HLLv1 time -> %lf\n", timer->getTime()/1000.0f);
 

@@ -57,6 +57,14 @@ double checkDifferencesCUDA(double *y_h, int matrix_row) {
     return 0.0;
 }
 
+
+
+void set_serial_cuda_hll(double *y_h, matrixData *matrix_data_host) {
+    y_CPU = nullptr;
+    y_CPU = static_cast<double *>(malloc(matrix_data_host->M * sizeof(double)));
+    memcpy(y_CPU, y_h, matrix_data_host->M * sizeof(double));
+}
+
 /* Implementazione del prodotto matrice-vettore seriale su CPU */
 matrixPerformance serial_csr_cuda(matrixData *matrix_data_host, double *x_h) {
     int *IRP, *JA;
@@ -86,6 +94,7 @@ matrixPerformance serial_csr_cuda(matrixData *matrix_data_host, double *x_h) {
     node.seconds = timer->getTime()/1000.0f;
     node.flops = 0;
     node.gigaFlops = 0;
+    node.relativeError = checkDifferencesCUDA(y_h , matrix_data_host->M);
 
     //printf("Time taken by CPU: %f\n", timer->getTime() / 1000.0f);
 
