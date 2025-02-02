@@ -166,30 +166,6 @@ void matvec_Hll_serial(const HLL_Matrix *hll_matrix, const double *x, double *y,
             row_offset += hll_matrix->blocks[blockID].max_nz_per_row;
         }
     }
-
-    /*FILE *file = fopen("../result/risultati.txt", "r");
-    if (file == NULL) {
-        perror("Errore nell'aprire il file");
-        exit(EXIT_FAILURE);
-    }
-
-    for (int t = 0; t < max_row_in_matrix; t++) {
-        double file_value;
-        if (fscanf(file, "%lf", &file_value) != 1) {
-            fprintf(stderr, "Errore nella lettura del file. Non sono stati letti abbastanza valori.\n");
-            exit(EXIT_FAILURE);
-        }
-
-        // Confronta il valore letto dal file con il valore calcolato
-        if (fabs(file_value - y[t]) > 1e-10) { // Usa una tolleranza per confrontare i valori a causa di errori di precisione
-            fprintf(stderr, "Errore: Il valore di y[%d] calcolato (%.10f) non corrisponde al valore nel file (%.10f).\n", t, y[t], file_value);
-            exit(EXIT_FAILURE);
-        }
-
-    }
-
-    fclose(file); // Chiude il file
-    printf("Controllo completato, tutti i valori di y sono corretti.\n");*/
 }
 
 void matvec_Hll(const HLL_Matrix *hll_matrix, const double *x, double *y, int num_threads, const int *start_block, const int *end_block, int max_row_in_matrix) {

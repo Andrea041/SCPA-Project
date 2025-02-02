@@ -12,7 +12,7 @@
 #include "../libs/costants.h"
 #include "../libs/csrOperations.h"
 #include "../libs/hll_Operations.h"
-#include "../../cJSON/cJSON.h"
+
 const char *base_path = "../../matrix/";
 #ifdef USER_PIERFRANCESCO
 #include "../cJSON/cJSON.h"

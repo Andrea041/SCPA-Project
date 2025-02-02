@@ -10,10 +10,9 @@
 // Configura la griglia dei blocchi e dei thread
 void configure_grid_warp(int M, int sm_count, int *blocks, int *threads) {
   //  printf("Configurazione griglia: M=%d, sm_count=%d\n", M, sm_count);
-    int total_threads = ((M + WARP_SIZE - 1) / WARP_SIZE) * WARP_SIZE; // Allinea a warp
+    int total_threads = (M + WARP_SIZE - 1) / WARP_SIZE * WARP_SIZE; // Allinea a warp
     *threads = WARP_SIZE;  // Ogni blocco ha un warp
     *blocks = (total_threads + *threads - 1) / *threads;
-  //  printf("Threads per blocco: %d, Numero di blocchi: %d\n", *threads, *blocks);
 
     // Assicura che il numero di warp sia multiplo di SM count
     if (*blocks % sm_count != 0) {
@@ -62,16 +61,9 @@ matrixPerformance serial_hll_cuda(matrixData *matrix_data_host, double *x_h) {
     StopWatchInterface* timer = nullptr;
     sdkCreateTimer(&timer);
 
-
-    // Avvia il timer
     timer->start();
-
-    // Invoca il kernel CUDA
     matvec_Hll_serial_CUDA(hllMatrixHost, x_h, y_h, M);
-    // Dopo il kernel CUDA, verifica errori
     checkCudaErrors(cudaDeviceSynchronize());
-
-    // Ferma il timer
     timer->stop();
 
     matrixPerformance node{};
@@ -89,15 +81,19 @@ matrixPerformance serial_hll_cuda(matrixData *matrix_data_host, double *x_h) {
     // Free delle risorse allocate
     for (int i = 0; i < hllMatrixHost->num_blocks; i++) {
         ELLPACK_Block *block = &hllMatrixHost->blocks[i];
-        cudaFree(block->JA);
-        cudaFree(block->AS);
+        checkCudaErrors(cudaFree(block->JA));
+        checkCudaErrors(cudaFree(block->AS));
     }
 
-    cudaFree(d_x);
-    cudaFree(d_y);
-    free(y_h);
-    free(hllMatrixHost->blocks);
+    checkCudaErrors(cudaFree(d_x));
+    checkCudaErrors(cudaFree(d_y));
+
+    delete timer;
+    delete[] y_h;
+
     free(hllMatrixHost);
+    free(hllMatrixHost->blocks);
+
     return node;
 }
 
@@ -185,10 +181,8 @@ matrixPerformance parallel_hll_cuda_v1(matrixData *matrix_data_host, double *x_h
     checkCudaErrors(cudaMalloc((void **) &d_x, matrix_data_host->M * sizeof(double)));
     checkCudaErrors(cudaMemcpy(d_x, x_h, matrix_data_host->M * sizeof(double), cudaMemcpyHostToDevice));
 
-
     checkCudaErrors(cudaMalloc((void **) &d_y, matrix_data_host->M * sizeof(double)));
     checkCudaErrors(cudaMemcpy(d_y, y_h, matrix_data_host->M * sizeof(double), cudaMemcpyHostToDevice));
-
 
     // Ottieni il numero di Streaming Multiprocessors
     int sm_count;
@@ -199,16 +193,9 @@ matrixPerformance parallel_hll_cuda_v1(matrixData *matrix_data_host, double *x_h
 
     configure_grid_warp(num_rows, sm_count, &blocks_per_grid, &threads_per_block);
 
-
-    // Avvia il timer
     timer->start();
-
-    // Invoca il kernel CUDA
     matvec_Hll_cuda<<<blocks_per_grid, threads_per_block>>>(d_hll_matrix, d_x, d_y, matrix_data_host->M);
-    // Dopo il kernel CUDA, verifica errori
     checkCudaErrors(cudaDeviceSynchronize());
-
-    // Ferma il timer
     timer->stop();
 
     matrixPerformance node{};
@@ -226,13 +213,18 @@ matrixPerformance parallel_hll_cuda_v1(matrixData *matrix_data_host, double *x_h
         cudaFree(block->JA);
         cudaFree(block->AS);
     }
-    cudaFree(d_blocks);
-    cudaFree(d_hll_matrix);
-    cudaFree(d_x);
-    cudaFree(d_y);
-    free(y_h);
-    free(hllMatrixHost->blocks);
+
+    checkCudaErrors(cudaFree(d_blocks));
+    checkCudaErrors(cudaFree(d_hll_matrix));
+    checkCudaErrors(cudaFree(d_x));
+    checkCudaErrors(cudaFree(d_y));
+
+    delete timer;
+    delete[] y_h;
+
     free(hllMatrixHost);
+    free(hllMatrixHost->blocks);
+
     return node;
 }
 
@@ -369,19 +361,12 @@ matrixPerformance parallel_hll_cuda_v2(matrixData *matrix_data_host, double *x_h
     grid_x = (int)sqrt((float)numBlock);
     grid_y = (numBlock + grid_x - 1) / grid_x; // Arrotonda all'intero superiore
 
-
     dim3 BLOCK_DIM1(HackSize, HackSize);
     dim3 GRID_DIM1(grid_x, grid_y);
 
-
-    // Avvia il timer
     timer->start();
-    // Invoca il kernel CUDA
     matvec_Hll_cuda_SH<<<GRID_DIM1, BLOCK_DIM1>>>(d_hll_matrix, d_x, d_y, M);
-    // Dopo il kernel CUDA, verifica errori
     checkCudaErrors(cudaDeviceSynchronize());
-
-    // Ferma il timer
     timer->stop();
 
     checkCudaErrors(cudaMemcpy(y_h, d_y,  M* sizeof(double), cudaMemcpyDeviceToHost));
@@ -398,15 +383,20 @@ matrixPerformance parallel_hll_cuda_v2(matrixData *matrix_data_host, double *x_h
     // Free delle risorse allocate
     for (int i = 0; i < hllMatrixHost->num_blocks; i++) {
         ELLPACK_Block *block = &hllMatrixHost->blocks[i];
-        cudaFree(block->JA);
-        cudaFree(block->AS);
+        checkCudaErrors(cudaFree(block->JA));
+        checkCudaErrors(cudaFree(block->AS));
     }
-    cudaFree(d_blocks);
-    cudaFree(d_hll_matrix);
-    cudaFree(d_x);
-    cudaFree(d_y);
-    free(y_h);
-    free(hllMatrixHost->blocks);
+
+    checkCudaErrors(cudaFree(d_blocks));
+    checkCudaErrors(cudaFree(d_hll_matrix));
+    checkCudaErrors(cudaFree(d_x));
+    checkCudaErrors(cudaFree(d_y));
+
+    delete timer;
+    delete[] y_h;
+
     free(hllMatrixHost);
+    free(hllMatrixHost->blocks);
+
     return node;
 }

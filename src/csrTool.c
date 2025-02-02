@@ -60,21 +60,6 @@ void matvec_csr(int M, const int *IRP, const int *JA, const double *AS, double *
             y[i] += AS[j] * x[JA[j]];
         }
     }
-
-    // Scrittura dei risultati su file
-    /*FILE *file = fopen("../result/risultati.txt", "w");
-    if (file == NULL) {
-        fprintf(stderr, "Errore nell'aprire il file.\n");
-        exit(EXIT_FAILURE);
-    }
-
-    for (int i = 0; i < M; i++) {
-        if (fprintf(file, "%.10f\n", y[i]) < 0) {
-            fprintf(stderr, "Errore durante la scrittura nel file alla riga %d\n", i);
-            exit(EXIT_FAILURE);
-        }
-    }
-    fclose(file);*/
 }
 
 /* Prodotto matrice-vettore parallelo */

@@ -57,8 +57,6 @@ double checkDifferencesCUDA(double *y_h, int matrix_row) {
     return 0.0;
 }
 
-
-
 void set_serial_cuda_hll(double *y_h, matrixData *matrix_data_host) {
     y_CPU = nullptr;
     y_CPU = static_cast<double *>(malloc(matrix_data_host->M * sizeof(double)));
@@ -97,11 +95,6 @@ matrixPerformance serial_csr_cuda(matrixData *matrix_data_host, double *x_h) {
     node.relativeError = checkDifferencesCUDA(y_h , matrix_data_host->M);
 
     //printf("Time taken by CPU: %f\n", timer->getTime() / 1000.0f);
-
-    /*free(y_h);
-    free(IRP);
-    free(JA);
-    free(AS);*/
 
     delete timer;
     delete[] y_h;
@@ -166,12 +159,6 @@ matrixPerformance parallel_csr_cuda_v1(matrixData *matrix_data_host, double *x_h
     node.relativeError = checkDifferencesCUDA(y_h , matrix_data_host->M);
 
     //printf("Time taken by GPU: %f\n", timer->getTime() / 1000.0f);
-
-
-    /*free(y_h);
-    free(h_IRP);
-    free(h_JA);
-    free(h_AS);*/
 
     delete timer;
     delete[] y_h;
@@ -317,12 +304,6 @@ matrixPerformance parallel_csr_cuda_v3(matrixData *matrix_data_host, double *x_h
     node.relativeError = checkDifferencesCUDA(y_h , matrix_data_host->M);
 
     //printf("Time taken by GPU: %f\n", timer->getTime() / 1000.0f);
-
-
-    /*free(y_h);
-    free(h_IRP);
-    free(h_JA);
-    free(h_AS);*/
 
     delete timer;
     delete[] y_h;

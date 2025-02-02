@@ -96,8 +96,8 @@ struct matrixPerformance serial_csr(struct matrixData *matrix_data, double *x, i
 }
 
 void compute_thread_row_partition(int M, int nz, int *num_threads, int *IRP, int **start_row, int **end_row) {
-    *start_row = malloc((size_t)(*num_threads) * sizeof(int));
-    *end_row = malloc((size_t)(*num_threads) * sizeof(int));
+    *start_row = malloc((size_t)*num_threads * sizeof(int));
+    *end_row = malloc((size_t)*num_threads * sizeof(int));
     int *nnz_per_thread_count = malloc((size_t)(*num_threads) * sizeof(int)); // Array per conteggio dei non zeri
 
     if (*start_row == NULL || *end_row == NULL || nnz_per_thread_count == NULL) {
@@ -175,7 +175,6 @@ struct matrixPerformance parallel_csr(struct matrixData *matrix_data, double *x,
 
     convert_to_csr(matrix_data->M, matrix_data->nz, matrix_data->row_indices, matrix_data->col_indices, matrix_data->values, &IRP, &JA, &AS);
 
-    //int num_threads = omp_get_max_threads();
     int *start_row, *end_row;
 
     compute_thread_row_partition(matrix_data->M, matrix_data->nz, &num_threads, IRP, &start_row, &end_row);

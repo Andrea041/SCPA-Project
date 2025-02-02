@@ -1,10 +1,7 @@
 #ifndef HLLTOOL_H
 #define HLLTOOL_H
 
-#include "data_structure.h" // Include la definizione di HLL_Matrix
-
 void convert_to_hll_cuda(matrixData *matrix_data, HLL_Matrix *hll_matrix);
-
 
 int find_max_nz_per_block(const int *nz_per_row, int start_row, int end_row) ;
 int find_max_nz(const int *nz_per_row, int start_row, int end_row);
