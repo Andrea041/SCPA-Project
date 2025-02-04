@@ -15,7 +15,7 @@ The implementation leverages **OpenMP** and **CUDA** parallelization techniques 
 - **Language**: C
 - **Parallelization**: OpenMP, CUDA
 - **Testing and Validation**: Comparison with a minimal serial implementation in CSR
-- **Test Dataset**: Matrices from the [Suite Sparse Matrix Collection]((https://math.nist.gov/MatrixMarket/))
+- **Test Dataset**: Matrices from the [Suite Sparse Matrix Collection](https://math.nist.gov/MatrixMarket/)
 
 ## Storage Formats
 ### CSR (Compressed Sparse Row)
