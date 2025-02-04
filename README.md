@@ -1,6 +1,4 @@
-# SCPA-Project
-
-# Project: Parallel Computing Systems and Applications
+# Parallel sparse matrix-vector product
 
 ## Description
 This project implements a computation kernel for the multiplication of a sparse matrix and a vector:
