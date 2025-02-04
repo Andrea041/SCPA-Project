@@ -28,6 +28,13 @@ Each M × N matrix with NZ non-zero elements is stored with:
 - The matrix is divided into blocks of `HackSize` rows
 - Each block is stored in **ELLPACK** format
 
-### ELLPACK
+#### ELLPACK
 - `JA(1:M,1:MAXNZ)`: Column indices
 - `AS(1:M,1:MAXNZ)`: Coefficient value
+
+## Performance Measurement
+Performance is evaluated in **MFLOPS** using the formula:
+```
+FLOPS = 2 * NZ / T
+```
+where `NZ` is the number of non-zero elements, and `T` is the average execution time.
