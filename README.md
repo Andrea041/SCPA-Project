@@ -9,7 +9,7 @@ y ← Ax
 
 with the matrix A stored in the following formats:
 - **CSR (Compressed Sparse Row)**
-- **HLL (Hybrid of ELLPACK and List)**
+- **HLL (Hacked ELLPACK)**
 
 The implementation leverages **OpenMP** and **CUDA** parallelization techniques to enhance computation performance.
 
@@ -17,7 +17,7 @@ The implementation leverages **OpenMP** and **CUDA** parallelization techniques 
 - **Language**: C
 - **Parallelization**: OpenMP, CUDA
 - **Testing and Validation**: Comparison with a minimal serial implementation in CSR
-- **Test Dataset**: Matrices from the [Suite Sparse Matrix Collection](https://sparse.tamu.edu/)
+- **Test Dataset**: Matrices from the [Suite Sparse Matrix Collection]((https://math.nist.gov/MatrixMarket/))
 
 ## Storage Formats
 ### CSR (Compressed Sparse Row)
