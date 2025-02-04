@@ -26,7 +26,7 @@ Each M × N matrix with NZ non-zero elements is stored with:
 - `JA(1:NZ)`: Column indices
 - `AS(1:NZ)`: Coefficient values
 
-### HLL (Hybrid of ELLPACK and List)
+### HLL (Hacked ELLPACK)
 - The matrix is divided into blocks of `HackSize` rows
 - Each block is stored in **ELLPACK** format
 
